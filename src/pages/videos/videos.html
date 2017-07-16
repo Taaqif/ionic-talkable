@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button=""
+            menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Week {{ week.number }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content id="videoPage"
+             padding="">
+  <ion-list id="videos-list">
+    <!-- <div class = "CirclePoint" *ngFor="let c of circles" 
+        attr.id="Location{{c.id}}">
+    </div> -->
+    <ion-item color="none"
+              *ngFor="let v of week.videos"
+              attr.id="videos-list-{{v.title}}">
+      <ion-thumbnail item-left="">
+        <img />
+      </ion-thumbnail>
+      <h2>{{ v.title }}</h2>
+      <p>{{ v.description }}</p>
+    </ion-item>
+    <!-- <ion-item color="none"
+              id="videos-list-item32">
+      <ion-thumbnail item-left="">
+        <img />
+      </ion-thumbnail>
+      <h2>Part 2</h2>
+    </ion-item>
+    <ion-item color="none"
+              id="videos-list-item33">
+      <ion-thumbnail item-left="">
+        <img />
+      </ion-thumbnail>
+      <h2>Part 3</h2>
+    </ion-item> -->
+  </ion-list>
+</ion-content>

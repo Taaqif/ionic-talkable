@@ -1,0 +1,19 @@
+{
+  "number": 1,
+  "description": "",
+  "videos": [
+    {
+      "title": "Part 1",
+      "description": "Part 1 description",
+      "URL": {}
+    },
+    {
+      "title": "Part 3",
+      "description": "",
+      "URL": {}
+    }
+  ],
+  "story": {},
+  "keyWordSigns": {},
+  "HintsTips": {}
+}

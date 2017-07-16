@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -18,6 +20,11 @@ import { Week10Page } from '../pages/week10/week10';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program';
+import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
+import { VideosPage } from '../pages/videos/videos'
+import { FileServiceProvider } from '../providers/file-service/file-service';
+
 @NgModule({
   declarations: [
     Talkable,
@@ -32,9 +39,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Week7Page,
     Week8Page,
     Week9Page,
-    Week10Page
+    Week10Page,
+    TenWeekProgramPage,
+    TabsControllerPage,
+    VideosPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(Talkable),
     IonicStorageModule.forRoot()
@@ -54,12 +65,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Week7Page,
     Week8Page,
     Week9Page,
-    Week10Page
+    Week10Page,
+    TenWeekProgramPage,
+    TabsControllerPage,
+    VideosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FileServiceProvider
   ]
 })
 export class AppModule {}

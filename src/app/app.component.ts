@@ -15,6 +15,7 @@ import { Week7Page } from '../pages/week7/week7';
 import { Week8Page } from '../pages/week8/week8';
 import { Week9Page } from '../pages/week9/week9';
 import { Week10Page } from '../pages/week10/week10';
+import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
 
 
 @Component({
@@ -35,6 +36,7 @@ export class Talkable {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
+      { title: 'TyeExperimentalWeeklyContent', component: TenWeekProgramPage },
       { title: 'Week 1', component: Week1Page },
       { title: 'Week 2', component: Week2Page },
       { title: 'Week 3', component: Week3Page },
