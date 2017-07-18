@@ -4,20 +4,30 @@
             menuToggle="">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Week {{ week.number }}</ion-title>
+    <ion-title>
+      {{ week.title }} 
+      <p class='subtitle'> Week {{ week.number }}</p>
+    </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content id="videoPage"
-             padding="">
-  <ion-list id="videos-list">
-    <ion-item color="none"
-              *ngFor="let v of week.videos"
+<ion-content id="videoPage">
+  <ion-card *ngFor="let v of week.videos">
+    <img src="assets/img/vidthumb.jpg" alt="">
+    <ion-card-content>
+      <ion-card-title>
+        {{ v.title }}
+      </ion-card-title>
+      <p>
+        {{ v.description }}
+      </p>
+    </ion-card-content>
+    <!-- <ion-item *ngFor="let v of week.videos"
               attr.id="videos-list-{{v.title}}">
       <ion-thumbnail item-left="">
         <img />
       </ion-thumbnail>
       <h2>{{ v.title }}</h2>
       <p>{{ v.description }}</p>
-    </ion-item>
-  </ion-list>
+    </ion-item> -->
+  </ion-card>
 </ion-content>

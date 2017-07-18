@@ -15,39 +15,56 @@ import { Week7Page } from '../pages/week7/week7';
 import { Week8Page } from '../pages/week8/week8';
 import { Week9Page } from '../pages/week9/week9';
 import { Week10Page } from '../pages/week10/week10';
+import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
 import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
-
+export interface PageInterface {
+  title: string;
+  component: any;
+  weekPage?: any
+}
 @Component({
   templateUrl: 'app.html'
 })
+
+
 export class Talkable {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
   activePage: any;
 
-  pages: Array<{title: string, component: any}>;
-
+  // weeklyPages: PageInterface[] = [
+  //   { title: 'Week 1', component: TabsControllerPage, weekPage: 1 }
+  // ];
+  
+  pages: Array<{title: string, 
+                component: any
+                icon?: String}>;
+  weeklyPages: Array<{title: string, 
+                component: any,
+                param?: any}>;
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'TyeExperimentalWeeklyContent', component: TenWeekProgramPage },
-      { title: 'Week 1', component: Week1Page },
-      { title: 'Week 2', component: Week2Page },
-      { title: 'Week 3', component: Week3Page },
-      { title: 'Week 4', component: Week4Page },
-      { title: 'Week 5', component: Week5Page },
-      { title: 'Week 6', component: Week6Page },
-      { title: 'Week 7', component: Week7Page },
-      { title: 'Week 8', component: Week8Page },
-      { title: 'Week 9', component: Week9Page },
-      { title: 'Week 10', component: Week10Page },
-      { title: 'Key Word Signs', component: KeyWordSignsPage }
+      { title: 'Key Word Signs', component: KeyWordSignsPage },
+      { title: 'Word Tracker', component: KeyWordSignsPage },
+      { title: 'Settings', component: KeyWordSignsPage, icon: "settings" }
+    ];
+
+    this.weeklyPages = [
+      { title: 'Week 1', component: TabsControllerPage, param: 1 },
+      { title: 'Week 2', component: TabsControllerPage, param: 2 },
+      { title: 'Week 3', component: TabsControllerPage, param: 3 },
+      { title: 'Week 4', component: TabsControllerPage, param: 4 },
+      { title: 'Week 5', component: TabsControllerPage, param: 5 },
+      { title: 'Week 6', component: TabsControllerPage, param: 6 },
+      { title: 'Week 7', component: TabsControllerPage, param: 7 },
+      { title: 'Week 8', component: TabsControllerPage, param: 8 },
+      { title: 'Week 9', component: TabsControllerPage, param: 9 },
+      { title: 'Week 10', component: TabsControllerPage, param: 10 },
     ];
 
     this.activePage = this.pages[0];
@@ -65,9 +82,17 @@ export class Talkable {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
-    this.activePage = page;
+    
+
+    if(page.param){
+      this.nav.setRoot(page.component, page.param);
+      this.activePage = page
+    }else{
+      this.nav.setRoot(page.component);
+      this.activePage = page
+    }
   }
+  
   
 checkActive(page){
   return page == this.activePage;

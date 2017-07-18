@@ -15,3 +15,9 @@
 .activeHighlight {
     background-color: map-get($colors, light)
 }
+.toolbar-title { 
+  .subtitle {
+    margin: 0;
+    font-size: 66%;
+  }
+}

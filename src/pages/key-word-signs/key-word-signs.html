@@ -15,8 +15,8 @@
 <ion-content id="keyWordSignsPage">
   <!-- <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar> -->
   <ion-list *ngIf='filteredSigns;else loading' id="keyWordSigns-list">
-    <ion-item *ngFor='let signs of filteredSigns' id="keyWordSigns-list-{{key}}">
+    <button ion-item *ngFor='let signs of filteredSigns' id="keyWordSigns-list-{{signs.word}}">
       {{ signs.word }}
-    </ion-item>
+    </button>
   </ion-list>
 </ion-content>

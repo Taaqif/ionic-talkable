@@ -5,13 +5,30 @@
     </button>
     <ion-title>
       Week {{ week.number }}
+      <p class='subtitle'>{{ week.title }}</p>
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="weeklySignsPage">
-  <ul>
-    <li *ngFor='let signs of week.weeklyKeyWordSigns'>
-      {{ signs }}
-    </li>
-  </ul>
+<ion-content id="weeklySignsPage">
+  <ion-grid>
+    <ion-row *ngFor='let chunk of keyWordSignsChunks'>
+      <ion-col *ngFor='let keyWord of chunk'>
+        <ion-card>
+          <!-- <img src="assets/img/vidthumb.jpg" alt=""> -->
+          <ion-card-content>
+            <ion-card-title>
+              {{ keyWord }}
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col *ngIf="chunk.length != 2">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list id='weeklySigns-list'>
+    <button ion-item *ngFor='let signs of week.weeklyKeyWordSigns'> 
+      {{ signs }} 
+    </button>
+  </ion-list>
 </ion-content>

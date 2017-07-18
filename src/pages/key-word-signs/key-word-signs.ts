@@ -9,7 +9,7 @@ import { FileServiceProvider } from "../../providers/file-service/file-service";
 export class KeyWordSignsPage {
   signs: any;
   filteredSigns: any;
-  constructor(public navCtrl: NavController, public fs: FileServiceProvider, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public fs: FileServiceProvider) {
      // Show the loading message
     // let loadingPopup = this.loadingCtrl.create({
     //   content: 'Loading posts...'

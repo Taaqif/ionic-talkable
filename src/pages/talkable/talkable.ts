@@ -14,7 +14,8 @@ export class TalkablePage {
   goToTenWeekProgram(params){
     if (!params) params = {};
     this.navCtrl.push(TenWeekProgramPage);
-  }goToVideos(params){
+  }
+  goToVideos(params){
     if (!params) params = {};
     this.navCtrl.push(VideosPage);
   }
