@@ -1,0 +1,25 @@
+[
+    {
+        "word": "Apple",
+        "category": [
+            "Food"
+        ],
+        "image": "",
+        "video": ""
+    },{
+        "word": "Bannana",
+        "category": [
+            "Food"
+        ],
+        "image": "",
+        "video": ""
+    },{
+        "word": "Car",
+        "category": [
+            "Food"
+        ],
+        "image": "",
+        "video": ""
+    }
+
+]

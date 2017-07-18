@@ -1,7 +1,7 @@
 <ng-template #loading>Loading//FIX...</ng-template>
 <ion-tabs *ngIf="week;else loading" id="tabsController-tabs1">
-  <ion-tab [root]="tab1Root" tabTitle="Videos" tabIcon="videocam" id="tabsController-tab1" [rootParams]="{ w: week}"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Story Time" tabIcon="book" id="tabsController-tab2"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Key Word Signs" tabIcon="key" id="tabsController-tab3"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="Hints & Tips" tabIcon="bulb" id="tabsController-tab4"></ion-tab>
+  <ion-tab [root]="videoTabRoot" tabTitle="Videos" tabIcon="videocam" id="tabsController-videoTab" [rootParams]="{ w: week }"></ion-tab>
+  <ion-tab [root]="storyTabRoot" tabTitle="Story Time" tabIcon="book" id="tabsController-storyTab" [rootParams]="{ w: week }"></ion-tab>
+  <ion-tab [root]="weeklySignsTabRoot" tabTitle="Weekly Key Word Signs" tabIcon="key" id="tabsController-weeklySignsTab" [rootParams]="{ w: week }"></ion-tab>
+  <ion-tab [root]="hintsTipsTabRoot" tabTitle="Hints & Tips" tabIcon="bulb" id="tabsController-hintsTipsTab" [rootParams]="{ w: week }"></ion-tab>
 </ion-tabs>

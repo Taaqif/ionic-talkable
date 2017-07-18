@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams  } from 'ionic-angular';
-import { FileServiceProvider } from '../../providers/file-service/file-service';
 
 @Component({
   selector: 'page-videos',
@@ -8,7 +7,7 @@ import { FileServiceProvider } from '../../providers/file-service/file-service';
 })
 export class VideosPage {
   week: any = '';
-  constructor(public navCtrl: NavController,  public navParams: NavParams, public fs: FileServiceProvider) {
+  constructor(public navCtrl: NavController,  public navParams: NavParams) {
     // console.log(JSON.stringify(this.navParams.data));
     console.log(this.navParams.data);
     this.week = this.navParams.get('w');

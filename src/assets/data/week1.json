@@ -1,19 +1,40 @@
 {
-  "number": 1,
-  "description": "",
-  "videos": [
-    {
-      "title": "Part 1",
-      "description": "Part 1 description",
-      "URL": {}
+    "number": 1,
+    "description": "",
+    "videos": [{
+        "title": "Part 1",
+        "description": "Part 1 description",
+        "URL": {}
+    },{
+        "title": "Part 3",
+        "description": "",
+        "URL": {}
+    }],
+    "book" : {
+        "title" : "10 little feet",
+        "author": "by line",
+        "cover": "",
+        "tips": [
+            "Tip 1",
+            "Tip 2",
+            "Tip 3"
+        ],
+        "alternateBooks": [{
+            "title": "Alt Book 1",
+            "author": "Au 1"
+        },{
+            "title": "Alt Book 2",
+            "author": "Au 2"
+        }]
     },
-    {
-      "title": "Part 3",
-      "description": "",
-      "URL": {}
-    }
-  ],
-  "story": {},
-  "keyWordSigns": {},
-  "HintsTips": {}
+    "weeklyKeyWordSigns": [
+        "Sign 1",
+        "Sign 2",
+        "Sign 3"
+    ],
+    "hintsTips": [
+        "Tip 1",
+        "Tip 2",
+        "Tip 3"
+    ]
 }

@@ -16,7 +16,7 @@ import { Week8Page } from '../pages/week8/week8';
 import { Week9Page } from '../pages/week9/week9';
 import { Week10Page } from '../pages/week10/week10';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
-
+import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
 
 @Component({
   templateUrl: 'app.html'
@@ -46,7 +46,8 @@ export class Talkable {
       { title: 'Week 7', component: Week7Page },
       { title: 'Week 8', component: Week8Page },
       { title: 'Week 9', component: Week9Page },
-      { title: 'Week 10', component: Week10Page }
+      { title: 'Week 10', component: Week10Page },
+      { title: 'Key Word Signs', component: KeyWordSignsPage }
     ];
 
     this.activePage = this.pages[0];

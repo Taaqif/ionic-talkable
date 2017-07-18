@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-story-time',
   templateUrl: 'story-time.html'
 })
 export class StoryTimePage {
-
-  constructor(public navCtrl: NavController) {
+  week: any = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.week = this.navParams.get('w');
   }
   
 }

@@ -23,6 +23,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { VideosPage } from '../pages/videos/videos'
+import { StoryTimePage } from '../pages/story-time/story-time'
+import { HintsTipsPage } from '../pages/hints-tips/hints-tips'
+import { WeeklySignsPage } from '../pages/weekly-signs/weekly-signs'
+import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
 import { FileServiceProvider } from '../providers/file-service/file-service';
 
 @NgModule({
@@ -42,7 +46,11 @@ import { FileServiceProvider } from '../providers/file-service/file-service';
     Week10Page,
     TenWeekProgramPage,
     TabsControllerPage,
-    VideosPage
+    VideosPage,
+    StoryTimePage,
+    HintsTipsPage,
+    KeyWordSignsPage,
+    WeeklySignsPage
   ],
   imports: [
     HttpModule,
@@ -68,7 +76,11 @@ import { FileServiceProvider } from '../providers/file-service/file-service';
     Week10Page,
     TenWeekProgramPage,
     TabsControllerPage,
-    VideosPage
+    VideosPage,
+    StoryTimePage,
+    HintsTipsPage,
+    KeyWordSignsPage,
+    WeeklySignsPage
   ],
   providers: [
     StatusBar,

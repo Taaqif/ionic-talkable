@@ -7,5 +7,16 @@
       Key Word Signs
     </ion-title>
   </ion-navbar>
+   <ion-toolbar no-border-top>
+    <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
+  </ion-toolbar> 
 </ion-header>
-<ion-content padding id="page4"></ion-content>
+<ng-template #loading><ion-spinner></ion-spinner></ng-template>
+<ion-content id="keyWordSignsPage">
+  <!-- <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar> -->
+  <ion-list *ngIf='filteredSigns;else loading' id="keyWordSigns-list">
+    <ion-item *ngFor='let signs of filteredSigns' id="keyWordSigns-list-{{key}}">
+      {{ signs.word }}
+    </ion-item>
+  </ion-list>
+</ion-content>
