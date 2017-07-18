@@ -3,18 +3,8 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { WelcomePage } from '../pages/welcome/welcome';
-import { ListPage } from '../pages/list/list';
+
 import { HomePage } from '../pages/home/home';
-import { Week1Page } from '../pages/week1/week1';
-import { Week2Page } from '../pages/week2/week2';
-import { Week3Page } from '../pages/week3/week3';
-import { Week4Page } from '../pages/week4/week4';
-import { Week5Page } from '../pages/week5/week5';
-import { Week6Page } from '../pages/week6/week6';
-import { Week7Page } from '../pages/week7/week7';
-import { Week8Page } from '../pages/week8/week8';
-import { Week9Page } from '../pages/week9/week9';
-import { Week10Page } from '../pages/week10/week10';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
 import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
