@@ -1,0 +1,44 @@
+// [
+//     {
+//         "word": "Ball",
+//         "category": [
+//             "Food"
+//         ],
+//         "image": "assets/img/key-word-icons/Ball.png",
+//         "video": ""
+//     },{
+//         "word": "Bannana",
+//         "image": "assets/img/key-word-icons/Banana.png",
+//         "category": [
+//             "Food"
+//         ],
+//         "video": ""
+//     },{
+//         "word": "Car",
+//         "category": [
+//             "Food"
+//         ],
+//         "image": "assets/img/key-word-icons/Cat.png",
+//         "video": ""
+//     }
+
+// ]
+{
+    "wordList": {
+        "Ball" : {
+            "category": [
+                "Food"
+            ],
+            "image": "assets/img/key-word-icons/Ball.png",
+            "video": ""
+        },
+        "Banana": {
+            "category": [
+                "Food"
+            ],
+            "image": "assets/img/key-word-icons/Ball.png",
+            "video": ""
+        }
+    }
+    
+}

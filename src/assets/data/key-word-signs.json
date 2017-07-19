@@ -1,24 +1,24 @@
 [
     {
-        "word": "Apple",
+        "word": "Ball",
         "category": [
             "Food"
         ],
-        "image": "",
+        "image": "assets/img/key-word-icons/Ball.png",
         "video": ""
     },{
-        "word": "Bannana",
+        "word": "Banana",
+        "image": "assets/img/key-word-icons/Banana.png",
         "category": [
             "Food"
         ],
-        "image": "",
         "video": ""
     },{
         "word": "Car",
         "category": [
             "Food"
         ],
-        "image": "",
+        "image": "assets/img/key-word-icons/Cat.png",
         "video": ""
     }
 

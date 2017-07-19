@@ -14,10 +14,10 @@
     <ion-row *ngFor='let chunk of keyWordSignsChunks'>
       <ion-col *ngFor='let keyWord of chunk'>
         <ion-card>
-          <!-- <img src="assets/img/vidthumb.jpg" alt=""> -->
+           <img [src]="keyWord.image" alt=""> 
           <ion-card-content>
             <ion-card-title>
-              {{ keyWord }}
+              {{ keyWord.word }}
             </ion-card-title>
           </ion-card-content>
         </ion-card>
@@ -26,9 +26,9 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-list id='weeklySigns-list'>
+  <!-- <ion-list id='weeklySigns-list'>
     <button ion-item *ngFor='let signs of week.weeklyKeyWordSigns'> 
       {{ signs }} 
     </button>
-  </ion-list>
+  </ion-list> -->
 </ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content id="settingsPage">
+  <ion-list>
+    <ion-list-header>
+      General Settings
+    </ion-list-header>
+    <ion-item>
+      <ion-toggle checked='false'></ion-toggle>
+      <ion-label>Unlock all tutorials</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle checked='true'></ion-toggle>
+      <ion-label>Turn off notifications</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <button ion-item (click)="doAlert()">
+      Rate this app
+    </button>
+    <button ion-item (click)="doAlert()">
+      Send Feedback
+    </button>
+  </ion-list>
+</ion-content>

@@ -27,5 +27,23 @@ export class FileServiceProvider {
     return this.http.get('assets/data/key-word-signs.json')
       .map(res => res.json());
   }
+  getKeyWordSignObject(keyWordArray){
+    return this.http.get('assets/data/key-word-signs.json')
+      .map(res => {
+        let data = res.json();
+        let listWords = [];
+        for (var index = 0; index < data.length; index++) {
+          if(keyWordArray.includes(data[index].word)){
+            listWords.push(data[index]);
+          }
+          //handle keywords not found in keyword list here
+        }
+      return listWords;
+        // return res.json()
+      });
+  }
+  findKeyWordSign(keyWord){
+    
+  }
 
 }

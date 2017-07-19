@@ -15,8 +15,24 @@
 <ion-content id="keyWordSignsPage">
   <!-- <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar> -->
   <ion-list *ngIf='filteredSigns;else loading' id="keyWordSigns-list">
-    <button ion-item *ngFor='let signs of filteredSigns' id="keyWordSigns-list-{{signs.word}}">
+    <ion-item *ngIf='filteredSigns?.length == 0'>No Results Found</ion-item>
+    <ion-grid>
+    <ion-row *ngFor='let chunk of filteredSigns | chunks: 2'>
+      <ion-col *ngFor='let signs of chunk'>
+        <ion-card>
+           <img [src]="signs.image" alt=""> 
+          <ion-card-content>
+            <ion-card-title>
+              {{ signs.word }}
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col *ngIf="chunk.length != 2"></ion-col>
+    </ion-row>
+  </ion-grid>
+    <!-- <button ion-item *ngFor='let signs of filteredSigns' id="keyWordSigns-list-{{signs.word}}">
       {{ signs.word }}
-    </button>
+    </button> -->
   </ion-list>
 </ion-content>

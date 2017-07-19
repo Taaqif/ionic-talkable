@@ -1,6 +1,5 @@
 import { NavController } from 'ionic-angular';
 import { Component, ViewChild } from '@angular/core';
-import { Week1Page } from '../week1/week1';
 import { Storage } from '@ionic/storage';
 
 @Component({

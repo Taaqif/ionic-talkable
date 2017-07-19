@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Pipe, PipeTransform } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -8,11 +8,21 @@ import { HomePage } from '../pages/home/home';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
 import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
+import { SettingsPage } from "../pages/settings/settings";
 export interface PageInterface {
   title: string;
   component: any;
   weekPage?: any
 }
+@Pipe({
+  name: 'chunks'
+})
+export class ChunksPipe implements PipeTransform {
+  transform(arr: any, chunkSize: number) {
+    return arr.reduce((prev, cur, index) => (index % chunkSize) ? prev : prev.concat([arr.slice(index, index + chunkSize)]), []);
+  }
+}
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -41,7 +51,7 @@ export class Talkable {
     this.pages = [
       { title: 'Key Word Signs', component: KeyWordSignsPage },
       { title: 'Word Tracker', component: KeyWordSignsPage },
-      { title: 'Settings', component: KeyWordSignsPage, icon: "settings" }
+      { title: 'Settings', component: SettingsPage, icon: "settings" }
     ];
 
     this.weeklyPages = [
