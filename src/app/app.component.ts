@@ -1,5 +1,5 @@
 import { Component, ViewChild, Pipe, PipeTransform } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -9,6 +9,8 @@ import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
 import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
 import { SettingsPage } from "../pages/settings/settings";
+import { Storage } from '@ionic/storage';
+
 export interface PageInterface {
   title: string;
   component: any;
@@ -33,7 +35,6 @@ export class Talkable {
 
   rootPage: any = HomePage;
   activePage: any;
-
   // weeklyPages: PageInterface[] = [
   //   { title: 'Week 1', component: TabsControllerPage, weekPage: 1 }
   // ];
@@ -44,9 +45,9 @@ export class Talkable {
   weeklyPages: Array<{title: string, 
                 component: any,
                 param?: any}>;
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage, private alertCtrl: AlertController) {
     this.initializeApp();
-
+    storage.set('currentWeek', 1);
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Key Word Signs', component: KeyWordSignsPage },
@@ -78,15 +79,35 @@ export class Talkable {
       this.splashScreen.hide();
     });
   }
-
+  initializeStorage(){
+    
+  }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    
+    let alert = this.alertCtrl.create({
+      title: 'You have not unlocked this content yet!',
+      subTitle: 'Focus on the current week :)',
+      buttons: ['Ok']
+    });
 
     if(page.param){
-      this.nav.setRoot(page.component, page.param);
-      this.activePage = page
+      this.storage.get('unlockAll').then((data) => {
+        if(data == true){
+          this.nav.setRoot(page.component, page.param);
+          this.activePage = page
+        }else{
+          this.storage.get('currentWeek').then((data) => {
+            if(page.param > data){
+              alert.present();
+            }else{
+              this.nav.setRoot(page.component, page.param);
+              this.activePage = page
+            }
+          }) 
+        }     
+    })
+      
     }else{
       this.nav.setRoot(page.component);
       this.activePage = page
