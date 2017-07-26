@@ -14,8 +14,8 @@
       General Settings
     </ion-list-header>
     <ion-item>
-      <ion-toggle color="primary" [(ngModel)]="unlockAllToggle" (ionChange)="toggleUnlockAll()"></ion-toggle>
-      <!-- <ion-toggle [checked]='unlockAllToggle' (ionChange)='toggleUnlockAll();'></ion-toggle> -->
+      <ion-toggle color="primary" *ngIf='settings' [(ngModel)]="settings.unlockAll" (ionChange)="updateSettings()"></ion-toggle>
+      <!-- <ion-toggle [checked]='settings.unlockAllToggle' (ionChange)='toggleUnlockAll();'></ion-toggle> -->
       <ion-label>Unlock all tutorials</ion-label>
     </ion-item>
     <ion-item>
@@ -29,6 +29,14 @@
     </button>
     <button ion-item (click)="doAlert()">
       Send Feedback
+    </button>
+  </ion-list>
+  <ion-list>
+    <button ion-item (click)="resetSettings()">
+      Reset Settings
+    </button>
+    <button ion-item (click)="doAlert()">
+      Reset Progress
     </button>
   </ion-list>
 </ion-content>

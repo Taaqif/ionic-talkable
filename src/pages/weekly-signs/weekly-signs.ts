@@ -14,14 +14,14 @@ export class WeeklySignsPage {
     // this.keyWordSigns = this.week.weeklyKeyWordSigns;
     //split array into chunks of 2 
     
-    // while (this.week.weeklyKeyWordSigns.length > 0){
-    //   this.keyWordSignsChunks.push(this.week.weeklyKeyWordSigns.splice(0, 2));
-    // }
-    fs.getKeyWordSignObject(this.week.weeklyKeyWordSigns).subscribe(data => {
-      while (data.length > 0){
-        this.keyWordSignsChunks.push(data.splice(0, 2));
-      }
-    })
+    while (this.week.weeklyKeyWordSigns.length > 0){
+      this.keyWordSignsChunks.push(this.week.weeklyKeyWordSigns.splice(0, 2));
+    }
+    // fs.getKeyWordSignObject(this.week.weeklyKeyWordSigns).subscribe(data => {
+    //   while (data.length > 0){
+    //     this.keyWordSignsChunks.push(data.splice(0, 2));
+    //   }
+    // })
 
     // fs.getKeyWordSigns().subscribe((data) => {
     //   for (var index = 0; index < data.length; index++) {

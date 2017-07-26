@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Word List</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-searchbar animated='true' placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItems($event)"></ion-searchbar>
+  </ion-toolbar> 
+</ion-header>
+
+
+<ion-content >
+  <!-- <div *ngIf='wordList'>
+    <ion-item-group *ngFor='let category of wordList | object'>
+    <ion-item-divider color="light">{{ category.key }}</ion-item-divider>
+    <ion-item *ngFor='let words of wordList[category.key]'>
+      {{ words }}
+    </ion-item>
+  </ion-item-group> 
+  </div> -->
+  <ng-template #loading>Loading</ng-template>
+   <div *ngIf='wordList;else loading'>
+   <ion-item-group *ngFor='let category of wordList | object' class="card-center-text">
+    <ion-item-divider sticky>{{ category.key }}</ion-item-divider>
+    <ion-grid text-center>
+      <ion-row *ngFor='let chunk of wordList[category.key] | chunks: 2'>
+        <ion-col *ngFor='let signs of chunk'>
+          <ion-card>
+            <button ion-item clear full (click)="showWordPopup(signs)">
+              <h1>{{ signs }} </h1>
+              <ion-icon name="eye"></ion-icon>
+              <ion-icon name="checkmark"></ion-icon>
+            </button>
+             <!-- <ion-card-content>
+              <ion-card-title>
+                {{ signs }}
+              </ion-card-title>
+            </ion-card-content>  -->
+          </ion-card>
+        </ion-col>
+
+        <ion-col *ngIf="chunk.length != 2"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item-group> 
+  </div>
+  <!-- <ion-list *ngFor='let category of wordList | object'>
+    {{ category.key }}
+    <ion-item *ngFor='let words of wordList[category.key]'>
+      {{ words }}
+    </ion-item>
+  </ion-list> -->
+</ion-content>

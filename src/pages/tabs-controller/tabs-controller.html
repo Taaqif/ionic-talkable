@@ -1,8 +1,18 @@
-<ng-template #loading>Loading//FIX...</ng-template>
+<ng-template #loading>
+  <ion-header>
+    <ion-navbar>
+        <ion-title></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    
+</ion-content>
+</ng-template> 
 
 <ion-tabs *ngIf="week;else loading" id="tabsController-tabs1">
   <ion-tab [root]="videoTabRoot" tabTitle="Videos" tabIcon="videocam" id="tabsController-videoTab" [rootParams]="{ w: week }"></ion-tab>
   <ion-tab [root]="storyTabRoot" tabTitle="Story Time" tabIcon="book" id="tabsController-storyTab" [rootParams]="{ w: week }"></ion-tab>
-  <ion-tab [root]="weeklySignsTabRoot" tabTitle="Weekly Key Words" tabIcon="key" id="tabsController-weeklySignsTab" [rootParams]="{ w: week }"></ion-tab>
+  <ion-tab [root]="weeklySignsTabRoot" tabTitle="Key Word Signs" tabIcon="key" id="tabsController-weeklySignsTab" [rootParams]="{ w: week }"></ion-tab>
   <ion-tab [root]="hintsTipsTabRoot" tabTitle="Hints & Tips" tabIcon="bulb" id="tabsController-hintsTipsTab" [rootParams]="{ w: week }"></ion-tab>
 </ion-tabs>

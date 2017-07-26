@@ -21,3 +21,21 @@
     font-size: 66%;
   }
 }
+.isCurrentWeek {
+    font-size: 2.3rem;
+}
+.card-center-text {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .card-title {
+    font-size: 1.5em;
+    width: 100%;
+    // font-weight: bold;
+  }
+
+}

@@ -8,11 +8,19 @@ import { Storage } from '@ionic/storage';
 })
 export class SettingsPage {
   unlockAllToggle: boolean;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private storage: Storage) {
-    //
-    this.storage.get('unlockAll').then((data) => {
-      this.unlockAllToggle = data;
-      console.log(data)
+  settings: any;
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private alertCtrl: AlertController, 
+              private storage: Storage) {
+    this.storage.get('settings').then((data) => {
+      if(data == null){
+        this.initializeSettings();
+      }else{
+        this.settings = data;
+        // this.unlockAllToggle = this.settings.unlockAll;
+      }
+     
     })
   }
   doAlert() {
@@ -28,10 +36,46 @@ export class SettingsPage {
     // this.alertEvent = this.alertEvent ? false : true;
     console.log(this.unlockAllToggle);
   }
+  initializeSettings(){
+    let init = {
+      'unlockAll': false
+    }
+    this.settings = init;
+    this.storage.set('settings', this.settings);
+  }
+  populateSettings(data){
+    this.settings = data ;
+    // .unlockAll = data.unlockAll;
+    // this.storage.set('settings', )
+  }
+  updateSettings(){
+    this.storage.set('settings', this.settings);
+  }
   toggleUnlockAll() {
-    this.storage.set('unlockAll', this.unlockAllToggle);
+    // this.settings.unlockAll = this.;
+    this.storage.set('settings', this.settings);
     // this.storage.get('unlockAll').then((data) => {
     //   console.log(data)
     // })
+  }
+  resetSettings(){
+    let alert = this.alertCtrl.create({
+      title: 'Reset Settings',
+      subTitle: 'Do you wish to reset settings to default?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+        {
+          text: 'Reset',
+          handler: () => {
+            this.initializeSettings();
+            //console.log('Buy clicked');
+          }
+        }
+      ]
+    });
+  alert.present();
   }
 }

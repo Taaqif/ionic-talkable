@@ -10,15 +10,15 @@
              <ion-list-header>
                 10 Week Program
             </ion-list-header>
-            <button menuClose ion-item *ngFor="let wp of weeklyPages" [class.activeHighlight]="checkActive(wp)" (click)="openPage(wp)">
+            <button ion-item *ngFor="let wp of weeklyPages" [class.activeHighlight]="checkActive(wp)" [class.isCurrentWeek]="checkCurrentWeek(wp)" (click)="openPage(wp)">
                 {{wp.title}}
             </button>
-             <ion-footer>
-                 <button menuClose ion-item *ngFor="let p of pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+             <!-- <ion-footer> -->
+                 <button ion-item *ngFor="let p of pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
                     <ion-icon *ngIf='p.icon' item-start [name]="p.icon"></ion-icon>
                     {{p.title}}
                 </button>
-             </ion-footer>
+             <!-- </ion-footer> -->
             
         </ion-list>
     </ion-content>

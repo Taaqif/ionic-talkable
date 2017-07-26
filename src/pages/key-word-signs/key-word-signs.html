@@ -8,7 +8,7 @@
     </ion-title>
   </ion-navbar>
    <ion-toolbar no-border-top>
-    <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
+    <ion-searchbar animated='true' placeholder="Filter Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItems($event)"></ion-searchbar>
   </ion-toolbar> 
 </ion-header>
 <ng-template #loading><ion-spinner></ion-spinner></ng-template>
@@ -16,15 +16,17 @@
   <!-- <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar> -->
   <ion-list *ngIf='filteredSigns;else loading' id="keyWordSigns-list">
     <ion-item *ngIf='filteredSigns?.length == 0'>No Results Found</ion-item>
-    <ion-grid>
+  <ion-grid>
     <ion-row *ngFor='let chunk of filteredSigns | chunks: 2'>
       <ion-col *ngFor='let signs of chunk'>
         <ion-card>
-           <img [src]="signs.image" alt=""> 
+           <img [src]="signs.image" [alt]="signs.word"> 
           <ion-card-content>
             <ion-card-title>
               {{ signs.word }}
             </ion-card-title>
+            <ion-icon name="eye"></ion-icon>
+            <ion-icon name="checkmark"></ion-icon>
           </ion-card-content>
         </ion-card>
       </ion-col>

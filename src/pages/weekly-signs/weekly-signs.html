@@ -4,20 +4,21 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Week {{ week.number }}
-      <p class='subtitle'>{{ week.title }}</p>
+      {{ week.title }}
+      <p class='subtitle'>Week {{ week.number }}</p>
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content id="weeklySignsPage">
+<ion-content id="weeklySignsPage" class='card-center-text'>
+  <p>Teach your child these words by using these actions</p>
   <ion-grid>
     <ion-row *ngFor='let chunk of keyWordSignsChunks'>
       <ion-col *ngFor='let keyWord of chunk'>
-        <ion-card>
-           <img [src]="keyWord.image" alt=""> 
+        <ion-card >
+           <!-- <img [src]="keyWord.image" alt="">  -->
           <ion-card-content>
             <ion-card-title>
-              {{ keyWord.word }}
+              {{ keyWord }}
             </ion-card-title>
           </ion-card-content>
         </ion-card>

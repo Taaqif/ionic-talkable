@@ -1,5 +1,5 @@
 import { Component, ViewChild, Pipe, PipeTransform } from '@angular/core';
-import { Nav, Platform, AlertController } from 'ionic-angular';
+import { Nav, Platform, AlertController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -8,9 +8,10 @@ import { HomePage } from '../pages/home/home';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
 import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
+import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
 import { Storage } from '@ionic/storage';
-
+import { FileServiceProvider } from "../providers/file-service/file-service";
 export interface PageInterface {
   title: string;
   component: any;
@@ -24,7 +25,14 @@ export class ChunksPipe implements PipeTransform {
     return arr.reduce((prev, cur, index) => (index % chunkSize) ? prev : prev.concat([arr.slice(index, index + chunkSize)]), []);
   }
 }
-
+@Pipe({
+  name: 'object'
+})
+export class ObjectPipe implements PipeTransform {
+    transform(value: any, args: any[] = null): any {
+        return Object.keys(value).map(key => Object.assign({ key }, value[key]));
+    }
+}
 @Component({
   templateUrl: 'app.html'
 })
@@ -39,35 +47,45 @@ export class Talkable {
   //   { title: 'Week 1', component: TabsControllerPage, weekPage: 1 }
   // ];
   
-  pages: Array<{title: string, 
+  pages: Array<{id: string,
+                title: string, 
                 component: any
                 icon?: String}>;
-  weeklyPages: Array<{title: string, 
+  weeklyPages: Array<{id: string,
+                title: string, 
                 component: any,
                 param?: any}>;
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage, private alertCtrl: AlertController) {
+  constructor(public platform: Platform, 
+              public statusBar: StatusBar, 
+              public splashScreen: SplashScreen, 
+              private storage: Storage, 
+              public fs: FileServiceProvider,
+              private alertCtrl: AlertController,
+              public menuCtrl: MenuController) {
     this.initializeApp();
-    storage.set('currentWeek', 1);
+    storage.set('currentWeek', 1).then(success => {
+      this.fs.setCurrentWeek(success);
+    });
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Key Word Signs', component: KeyWordSignsPage },
-      { title: 'Word Tracker', component: KeyWordSignsPage },
-      { title: 'Settings', component: SettingsPage, icon: "settings" }
+      { id: 'KeyWordSignsPage', title: 'Key Word Signs', component: KeyWordSignsPage, icon: "key" },
+      { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "clipboard" },
+      { id: "SettingsPage", title: 'Settings', component: SettingsPage, icon: "settings" }
     ];
 
     this.weeklyPages = [
-      { title: 'Week 1', component: TabsControllerPage, param: 1 },
-      { title: 'Week 2', component: TabsControllerPage, param: 2 },
-      { title: 'Week 3', component: TabsControllerPage, param: 3 },
-      { title: 'Week 4', component: TabsControllerPage, param: 4 },
-      { title: 'Week 5', component: TabsControllerPage, param: 5 },
-      { title: 'Week 6', component: TabsControllerPage, param: 6 },
-      { title: 'Week 7', component: TabsControllerPage, param: 7 },
-      { title: 'Week 8', component: TabsControllerPage, param: 8 },
-      { title: 'Week 9', component: TabsControllerPage, param: 9 },
-      { title: 'Week 10', component: TabsControllerPage, param: 10 },
+      { id: 'weeklyPage1', title: 'Week 1', component: TabsControllerPage, param: 1 },
+      { id: 'weeklyPage2', title: 'Week 2', component: TabsControllerPage, param: 2 },
+      { id: 'weeklyPage3', title: 'Week 3', component: TabsControllerPage, param: 3 },
+      { id: 'weeklyPage4', title: 'Week 4', component: TabsControllerPage, param: 4 },
+      { id: 'weeklyPage5', title: 'Week 5', component: TabsControllerPage, param: 5 },
+      { id: 'weeklyPage6', title: 'Week 6', component: TabsControllerPage, param: 6 },
+      { id: 'weeklyPage7', title: 'Week 7', component: TabsControllerPage, param: 7 },
+      { id: 'weeklyPage8', title: 'Week 8', component: TabsControllerPage, param: 8 },
+      { id: 'weeklyPage9', title: 'Week 9', component: TabsControllerPage, param: 9 },
+      { id: 'weeklyPage10', title: 'Week 10', component: TabsControllerPage, param: 10 },
     ];
-
+    // this.fs.setActivePage(this.pages[0].id);
     this.activePage = this.pages[0];
   }
 
@@ -85,38 +103,48 @@ export class Talkable {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    let alert = this.alertCtrl.create({
-      title: 'You have not unlocked this content yet!',
-      subTitle: 'Focus on the current week :)',
-      buttons: ['Ok']
-    });
-
-    if(page.param){
-      this.storage.get('unlockAll').then((data) => {
-        if(data == true){
-          this.nav.setRoot(page.component, page.param);
-          this.activePage = page
-        }else{
-          this.storage.get('currentWeek').then((data) => {
-            if(page.param > data){
-              alert.present();
-            }else{
-              this.nav.setRoot(page.component, page.param);
+    if(page.id != this.fs.getActivePage()){
+      if(page.param){
+        
+        this.nav.setRoot(page.component, page.param).then(success => {
+            if(success){
+              
+              this.fs.setActivePage(page.id);
+              this.menuCtrl.close();
               this.activePage = page
-            }
-          }) 
-        }     
-    })
-      
+            }       
+        });
+        
+      }else{
+        this.nav.setRoot(page.component).then(success => {
+          // if(success){
+            this.fs.setActivePage(page.id);
+            this.menuCtrl.close();
+            this.activePage = page
+          // }   
+          // this.fs.setActivePage(page.id);
+          // this.menuCtrl.close();
+          // this.activePage = page     
+        });
+        // this.fs.setActivePage(page.id);
+        // this.activePage = page
+      }
     }else{
-      this.nav.setRoot(page.component);
-      this.activePage = page
+      this.menuCtrl.close();
     }
+
+    
   }
   
   
 checkActive(page){
-  return page == this.activePage;
+  return page.id == this.fs.getActivePage();
+  // return page == this.activePage;
+}
+
+checkCurrentWeek(page){
+  return page.param == this.fs.getCurrentWeek();
+  // return page == this.activePage;
 }
 
 }

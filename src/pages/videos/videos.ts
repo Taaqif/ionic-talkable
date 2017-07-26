@@ -1,23 +1,26 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams  } from 'ionic-angular';
-import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
+import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'page-videos',
   templateUrl: 'videos.html'
 })
 export class VideosPage {
   week: any = '';
-  constructor(public navCtrl: NavController,  public navParams: NavParams, private streamingMedia: StreamingMedia) {
+  watchedVideos: any[] = [];
+  constructor(public navCtrl: NavController,  
+              public navParams: NavParams,
+              public storage: Storage) {
     // console.log(JSON.stringify(this.navParams.data));
-    console.log(this.navParams.data);
     this.week = this.navParams.get('w');
-    let options: StreamingVideoOptions = {
-      successCallback: () => { console.log('Video played') },
-      errorCallback: (e) => { console.log('Error streaming') },
-      orientation: 'landscape'
-    };
+    // this.storage.set('watchedVideos', '');
+    this.storage.get('watchedVideos').then(data => {
+      console.log(this.watchedVideos)
+        this.watchedVideos = data;
+      });
 
-    this.streamingMedia.playVideo('assets/vid/sample.mp4', options);
+    // this.streamingMedia.playVideo('assets/vid/sample.mp4', options);
     // fs.getData('../../assets/data/week'+this.navParams.data+'.json').subscribe((data) => {
     //   this.week = data;
     //   // this.navCtrl.setRoot(this.navCtrl.getActive().component);
@@ -31,5 +34,40 @@ export class VideosPage {
     // this.week = this.navParams.data;
     // console.log(this.week);
   }
+  watched(video, event){
+    let watchedVideos;
+    event.target.webkitExitFullScreen();
+    this.storage.get('watchedVideos').then(data => {
+      if(data){
+        watchedVideos = data;
+        if(!watchedVideos.includes(video.id)){
+          watchedVideos.push(video.id);
+          this.setWatchedVideos(watchedVideos);
+          // this.storage.set('watchedVideos', watchedVideos)
+        }  
+      }else{
+        watchedVideos = [video.id];
+        this.setWatchedVideos(watchedVideos);
+        // this.storage.set('watchedVideos', watchedVideos)
+      }
+    })
+  }
+  setWatchedVideos(videos){
+    this.storage.set('watchedVideos', videos).then(data => {
+      this.watchedVideos = data;
+    })
+  }
+  // checkWatchedVideo(video){
+  //   return new Promise(resolve => {
+  //     this.storage.get('watchedVideos').then(data => {
+  //       if(data.includes(video.id)){
+  //         console.log(data)
+  //         resolve(true);
+  //       }else{
+  //         resolve(false);
+  //       }
+  //     });
+  //   })
+  // }
   
 }

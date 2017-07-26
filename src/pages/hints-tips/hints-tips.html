@@ -4,15 +4,15 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Week {{ week.number }}
-      <p class='subtitle'>{{ week.title }}</p>
+      {{ week.title }}
+      <p class='subtitle'>Week {{ week.number }}</p>
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content id="hintsTipsPage">
-  <ion-card>
+  <ion-card text-wrap>
     <ion-card-header>
-      <ion-icon name='bulb'></ion-icon> Tips for this week
+      <h1><ion-icon name='md-bulb'></ion-icon> Tips for this week</h1>
     </ion-card-header>
     <ion-list>
       <ion-item *ngFor='let hintsTips of week.hintsTips'>

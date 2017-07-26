@@ -10,7 +10,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content id="storyTimePage">
-  <ion-card id="storyTime-card">
+  <ion-card text-wrap id="storyTime-card">
       <ion-item>
         <ion-thumbnail item-right>
           <img src="assets/img/51iOVw9WUGL._SX258_BO1204203200_.jpg">
@@ -23,7 +23,7 @@
       <!-- <ion-item> -->
         <!-- <ion-list> -->
           <ion-list-header>
-            <ion-icon name="checkmark"></ion-icon> Tips for this week
+            <ion-icon name="md-bulb"></ion-icon> Reading Tips
           </ion-list-header>
           <ion-item *ngFor='let tips of week.book.tips'>
             {{ tips }}
