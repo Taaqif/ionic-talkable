@@ -20,14 +20,20 @@
     <ion-row *ngFor='let chunk of filteredSigns | chunks: 2'>
       <ion-col *ngFor='let signs of chunk'>
         <ion-card>
-           <img [src]="signs.image" [alt]="signs.word"> 
-          <ion-card-content>
-            <ion-card-title>
-              {{ signs.word }}
-            </ion-card-title>
-            <ion-icon name="eye"></ion-icon>
-            <ion-icon name="checkmark"></ion-icon>
-          </ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-thumbnail item-right>
+                <!-- <video controls poster='assets/img/vidthumb.jpg'>
+                  <source src="assets/vid/tickle.mp4" type="video/mp4">
+                </video> -->
+                <img [src]="signs.image" [alt]="signs.word"> 
+              </ion-thumbnail>
+              <h1>{{ signs.word }}</h1>
+              <ion-icon name="eye"></ion-icon>
+              <ion-icon name="checkmark"></ion-icon>
+            </ion-item>
+          </ion-list>
+           <!-- <img [src]="signs.image" [alt]="signs.word">  -->
         </ion-card>
       </ion-col>
       <ion-col *ngIf="chunk.length != 2"></ion-col>

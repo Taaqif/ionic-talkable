@@ -10,9 +10,11 @@
              <ion-list-header>
                 10 Week Program
             </ion-list-header>
-            <button ion-item *ngFor="let wp of weeklyPages" [class.activeHighlight]="checkActive(wp)" [class.isCurrentWeek]="checkCurrentWeek(wp)" (click)="openPage(wp)">
+            <div *ngIf='pageReady'>
+                <button ion-item *ngFor="let wp of weeklyPages" [class.activeHighlight]="checkActive(wp)" [class.isCurrentWeek]="checkCurrentWeek(wp)" [attr.disabled]="checkAvailable(wp) ? null : ''" (click)="openPage(wp)">
                 {{wp.title}}
             </button>
+            </div>
              <!-- <ion-footer> -->
                  <button ion-item *ngFor="let p of pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
                     <ion-icon *ngIf='p.icon' item-start [name]="p.icon"></ion-icon>

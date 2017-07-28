@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { IonicStorageModule } from '@ionic/storage';
+import { Storage, IonicStorageModule } from '@ionic/storage';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { SuperTabsModule } from 'ionic2-super-tabs';
@@ -23,6 +23,19 @@ import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
 import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
 import { FileServiceProvider } from '../providers/file-service/file-service';
+import { Settings } from "../providers/settings";
+
+export function provideSettings(storage: Storage) {
+  /**
+   * The Settings provider takes a set of default settings for your app.
+   *
+   * You can add new settings options at any time. Once the settings are saved,
+   * these values will not overwrite the saved values (this can be done manually if desired).
+   */
+  return new Settings(storage, {
+    unlockAll: false
+  });
+}
 
 @NgModule({
   declarations: [
@@ -66,7 +79,8 @@ import { FileServiceProvider } from '../providers/file-service/file-service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FileServiceProvider
+    FileServiceProvider,
+    { provide: Settings, useFactory: provideSettings, deps: [Storage] },
   ]
 })
 export class AppModule {}

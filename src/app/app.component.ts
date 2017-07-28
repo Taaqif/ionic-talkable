@@ -12,6 +12,7 @@ import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
 import { Storage } from '@ionic/storage';
 import { FileServiceProvider } from "../providers/file-service/file-service";
+import { Settings } from "../providers/settings";
 export interface PageInterface {
   title: string;
   component: any;
@@ -43,6 +44,7 @@ export class Talkable {
 
   rootPage: any = HomePage;
   activePage: any;
+  pageReady: boolean = false;
   // weeklyPages: PageInterface[] = [
   //   { title: 'Week 1', component: TabsControllerPage, weekPage: 1 }
   // ];
@@ -61,7 +63,8 @@ export class Talkable {
               private storage: Storage, 
               public fs: FileServiceProvider,
               private alertCtrl: AlertController,
-              public menuCtrl: MenuController) {
+              public menuCtrl: MenuController,
+              public settings: Settings) {
     this.initializeApp();
     storage.set('currentWeek', 1).then(success => {
       this.fs.setCurrentWeek(success);
@@ -90,47 +93,47 @@ export class Talkable {
   }
 
   initializeApp() {
+    this.settings.load().then(() => {
+      this.pageReady = true;
+    });
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      
     });
   }
-  initializeStorage(){
-    
-  }
   openPage(page) {
+    this.menuCtrl.close();
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     if(page.id != this.fs.getActivePage()){
-      if(page.param){
+      
+      this.nav.setRoot(page.component, page.param);
+      this.fs.setActivePage(page.id);
+      
+      // if(page.param){
         
-        this.nav.setRoot(page.component, page.param).then(success => {
-            if(success){
+      //   this.nav.setRoot(page.component, page.param).then(success => {
+      //       if(success){
               
-              this.fs.setActivePage(page.id);
-              this.menuCtrl.close();
-              this.activePage = page
-            }       
-        });
+      //         this.fs.setActivePage(page.id);
+      //         this.menuCtrl.close();
+      //         this.activePage = page
+      //       }       
+      //   });
         
-      }else{
-        this.nav.setRoot(page.component).then(success => {
-          // if(success){
-            this.fs.setActivePage(page.id);
-            this.menuCtrl.close();
-            this.activePage = page
-          // }   
-          // this.fs.setActivePage(page.id);
-          // this.menuCtrl.close();
-          // this.activePage = page     
-        });
-        // this.fs.setActivePage(page.id);
-        // this.activePage = page
-      }
+      // }else{
+      //   this.menuCtrl.close();
+      //   this.nav.setRoot(page.component);
+      //   this.fs.setActivePage(page.id);
+        
+      //   // this.fs.setActivePage(page.id);
+      //   // this.activePage = page
+      // }
     }else{
-      this.menuCtrl.close();
+      // this.menuCtrl.close();
     }
 
     
@@ -145,6 +148,31 @@ checkActive(page){
 checkCurrentWeek(page){
   return page.param == this.fs.getCurrentWeek();
   // return page == this.activePage;
+}
+
+checkAvailable(page){
+  // return true;
+  if(this.settings.getValue('unlockAll')){
+    return true;
+  }else{
+    if(page.param > this.fs.getCurrentWeek()){
+      return false;
+    }else{
+      return true;
+    }
+    
+  }
+  // return new Promise(resolve => {
+  //   if(this.fs.settings['unlockAll']){
+  //     resolve(true);
+  //   }else{
+  //     if(page > this.fs.currentWeek){
+  //       resolve(false);
+  //     }else{
+  //       resolve(true);
+  //     }
+  //   }
+  // })
 }
 
 }

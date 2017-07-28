@@ -1,26 +1,21 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
+import { Settings } from "../../providers/settings";
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
   unlockAllToggle: boolean;
-  settings: any;
+  options: any;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               private alertCtrl: AlertController, 
-              private storage: Storage) {
-    this.storage.get('settings').then((data) => {
-      if(data == null){
-        this.initializeSettings();
-      }else{
-        this.settings = data;
-        // this.unlockAllToggle = this.settings.unlockAll;
-      }
-     
+              private storage: Storage,
+              private settings: Settings) {
+    this.settings.load().then(() => {
+      this.options = this.settings.allSettings;
     })
   }
   doAlert() {
@@ -36,27 +31,9 @@ export class SettingsPage {
     // this.alertEvent = this.alertEvent ? false : true;
     console.log(this.unlockAllToggle);
   }
-  initializeSettings(){
-    let init = {
-      'unlockAll': false
-    }
-    this.settings = init;
-    this.storage.set('settings', this.settings);
-  }
-  populateSettings(data){
-    this.settings = data ;
-    // .unlockAll = data.unlockAll;
-    // this.storage.set('settings', )
-  }
   updateSettings(){
-    this.storage.set('settings', this.settings);
-  }
-  toggleUnlockAll() {
-    // this.settings.unlockAll = this.;
-    this.storage.set('settings', this.settings);
-    // this.storage.get('unlockAll').then((data) => {
-    //   console.log(data)
-    // })
+    this.settings.setAll(this.options)
+    // this.storage.set('settings', this.options);
   }
   resetSettings(){
     let alert = this.alertCtrl.create({
@@ -70,7 +47,10 @@ export class SettingsPage {
         {
           text: 'Reset',
           handler: () => {
-            this.initializeSettings();
+            this.settings.reset().then(() => {
+              this.options = this.settings.allSettings
+              // this.options = val;
+            });
             //console.log('Buy clicked');
           }
         }

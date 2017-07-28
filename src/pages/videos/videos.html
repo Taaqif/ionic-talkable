@@ -15,7 +15,7 @@
      <!-- <video fullscreen="fullscreen" controls>
       <source src="https://www.youtube.com/embed/q8f-DoL1dqQ" type="video/mp4">  
     </video> -->
-       <video #vid controls class="video" width="100%" (ended)="watched(v, $event);">
+       <video #vid controls class="video" poster="assets/img/vidthumb.jpg" preload="metadata" width="100%" (ended)="watched(v, $event);">
         <source src="assets/vid/tickle.mp4" type='video/mp4' >
     </video>  
         <!-- <iframe src="assets/vid/sample.mp4"></iframe> -->

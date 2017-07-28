@@ -8,6 +8,8 @@ export class FileServiceProvider {
   data: any;
   activePage: any;
   currentWeek: number;
+  settings: any;
+  savedWordList: any;
   constructor(public http: Http,public storage: Storage) {
     this.data = null;
     // console.log('Hello FileServiceProvider Provider');
@@ -46,6 +48,24 @@ export class FileServiceProvider {
     return this.http.get('assets/data/word-list.json')
       .map(res => res.json());
   }
+    //word list service
+  getSavedWordList(){
+    return this.savedWordList;
+  }
+  loadSavedWordList(){
+    return this.storage.get('savedWordList').then(data => {
+      if(data){
+        this.savedWordList = data;
+      }else{
+        this.savedWordList = {};
+        this.storage.set('savedWordList', this.savedWordList);
+      }
+    });
+  }
+  setSavedWordList(wordList){
+    this.savedWordList = wordList;
+    this.storage.set('savedWordList', this.savedWordList);
+  }
   unlockAllContent(){}
   getActivePage(){
     return this.activePage;
@@ -59,6 +79,17 @@ export class FileServiceProvider {
   setCurrentWeek(week){
     this.currentWeek = week;
   }
+  // updateSettingsStorage(){
+  //   return new Promise(resolve => {
+  //     if(setting){
+  //       this.storage.get('settings').then(data => {
+  //         resolve(data[setting]);
+  //       })
+  //     }else{
+  //       resolve(this.storage.get('settings'));
+  //     }
+  //   })
+  // }
   getSettings(setting?){
     
     return new Promise(resolve => {
