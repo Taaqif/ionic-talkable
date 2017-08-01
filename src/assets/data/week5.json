@@ -1,0 +1,47 @@
+{
+    "number": 5,
+    "title": " ",
+    "videos": [{
+        "id": "w5_1",
+        "title": "Part 1",
+        "description": "",
+        "path": "assets/vid/week1/w1_1.mp4",
+        "cover": ""
+    },{
+        "id": "w5_2",
+        "title": "Part 2",
+        "description": "",
+        "path": "assets/vid/week1/w1_2.mp4",
+        "cover": ""
+    }],
+    "book" : {
+        "title" : "Old Macdonald had a farm",
+        "author": "Pam Adams",
+        "cover": "",
+        "tips": [
+            "Talk about the different animals. Make the corresponding animal noises.",
+	        "Pause before you say the animal name. Wait and see if your child attempts to say the animal or make an animal sound.",
+	        "Use toy animals during play time and sing Old MacDonald. Let your child choose which animal comes next.",
+	        "Put animals into a bag or pillow slip. Let your child pull them out one by one as you sing the song."
+
+        ],
+        "alternateBooks": [{
+            "title": "Heads, Shoulders, Knees and Toes",
+            "author": "Annie Kubler"
+        },{
+            "title": "If You’re Happy and You Know It",
+            "author": "Annie Kubler"
+        }]
+    },
+    "weeklyKeyWordSigns": [
+        "Book",
+        "Sing",
+        "Banana",
+        "Teddy"
+
+    ],
+    "hintsTips": [
+        "Focus on one routine that you do every day and plan a new word and sign to use over and over in this situation.",
+        "Always have books out with your child’s other toys."
+    ]
+}

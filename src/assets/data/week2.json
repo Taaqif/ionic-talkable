@@ -1,19 +1,49 @@
 {
-  "number": 2,
-  "description": "",
-  "videos": [
-    {
-      "title": "Part 1",
-      "description": "",
-      "URL": {}
+    "number": 2,
+    "title": " ",
+    "videos": [{
+        "id": "w2_1",
+        "title": "Part 1",
+        "description": "",
+        "path": "assets/vid/week1/w1_1.mp4",
+        "cover": ""
+    },{
+        "id": "w2_2",
+        "title": "Part 2",
+        "description": "",
+        "path": "assets/vid/week1/w1_2.mp4",
+        "cover": ""
+    }],
+    "book" : {
+        "title" : "The Very Hungry Caterpillar",
+        "author": "Eric Carle",
+        "cover": "",
+        "tips": [
+            "Let your child turn the pages.",
+	          "Use an animated voice - for example when the caterpillar has a stomach ache, use a slow woeful tone.", 
+          	"Stop, wait and watch what your child is interested in. Use words to express what they can see.",
+	          "Point to the fruit and other food in the book. As you point, name what you see."
+        ],
+        "alternateBooks": [{
+            "title": "The Very Busy Spider",
+            "author": "Eric Carle"
+        },{
+            "title": "Sometimes I Like to Curl up in a Ball",
+            "author": "Vicki Churchill & Charles Fuge"
+        },{
+            "title": "Rosie’s Walk",
+            "author": "Pat Hutchins"
+        }]
     },
-    {
-      "title": "Part 2",
-      "description": "",
-      "URL": {}
-    }
-  ],
-  "story": {},
-  "keyWordSigns": {},
-  "HintsTips": {}
+    "weeklyKeyWordSigns": [
+        ""
+    ],
+    "hintsTips": [
+        "Be a ‘teacher’ not a ‘tester’.",
+        "Ask less questions.",
+        "Avoid using the phrases  “what’s this?” and “say________”.",
+        "As well as naming objects, use action, location and describing words and words for people too."
+
+
+    ]
 }

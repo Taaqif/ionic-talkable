@@ -7,7 +7,7 @@ import { HintsTipsPage } from '../hints-tips/hints-tips';
 import { FileServiceProvider } from '../../providers/file-service/file-service';
 import { Storage } from '@ionic/storage';
 import { SuperTabsController } from 'ionic2-super-tabs';
-
+import { Settings } from "../../providers/settings";
 @Component({
   selector: 'page-tabs-controller',
   templateUrl: 'tabs-controller.html'
@@ -25,7 +25,8 @@ export class TabsControllerPage {
               private loadingCtrl: LoadingController,
               private superTabsCtrl: SuperTabsController,
               private storage: Storage,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              private settings: Settings) {
                 this.fs.getWeekContent(this.navParams.data).subscribe((data) => {
         this.week = data;
         // loadingPopup.dismiss();
@@ -42,26 +43,24 @@ export class TabsControllerPage {
     });
     return new Promise(resolve => {
       
-      this.fs.getSettings('unlockAll').then((data) => {
-        if(data){
-          resolve(true);
-          // return true;
-        }else{
-          this.storage.get('currentWeek').then((data) => {
-            if(this.navParams.data > data){
-              alert.present();
-              resolve(false);
-              // return false;
-            }else{
-              resolve(true);
-              // return true;
-              
-              // this.navCtrl.setRoot(page.component, page.param);
-              // this.activePage = page
-            }
-          }) 
-        }     
-      })
+      if(this.settings.getValue('unlockAll')){
+        resolve(true);
+        // return true;
+      }else{
+        this.storage.get('currentWeek').then((data) => {
+          if(this.navParams.data > data){
+            alert.present();
+            resolve(false);
+            // return false;
+          }else{
+            resolve(true);
+            // return true;
+            
+            // this.navCtrl.setRoot(page.component, page.param);
+            // this.activePage = page
+          }
+        }) 
+      }     
       //let i = new Promise();
       //return Promise()
   })

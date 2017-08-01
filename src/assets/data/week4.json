@@ -1,0 +1,52 @@
+{
+    "number": 4,
+    "title": " ",
+    "videos": [{
+        "id": "w4_1",
+        "title": "Part 1",
+        "description": "",
+        "path": "assets/vid/week1/w1_1.mp4",
+        "cover": ""
+    },{
+        "id": "w4_2",
+        "title": "Part 2",
+        "description": "",
+        "path": "assets/vid/week1/w1_2.mp4",
+        "cover": ""
+    }],
+    "book" : {
+        "title" : "Perfect",
+        "author": "Danny Parker & Freya Blackwood",
+        "cover": "",
+        "tips": [
+            "Talk about what you can see in the pictures (the broken egg on the floor, the cat in the tree).",
+	        "Use noises to accompany your story telling – cows “mooing”, “pitter patter” of rain on the window”, “splish splash splosh” in the water.",
+	        "Talk about the routines that are familiar to your child. Eating breakfast, drawing, checking the letter box, going to bed.",
+	        "Focus on the same words/phrases that you are using in everyday activities (e.g. “Here’s a spoon”, “stir, stir, stir”, “wipe the table”, “eat your toast”).If they point, you point too and say what you see. "
+        ],
+        "alternateBooks": [{
+            "title": "Peepo",
+            "author": "Janet and Allan Ahlberg"
+        },{
+            "title": "Grandpa and Thomas",
+            "author": "Pamela Allen"
+        },{
+            "title": "Imagine",
+            "author": "Alison Lester"
+        }]
+    },
+    "weeklyKeyWordSigns": [
+        "Bath",
+        "Wash",
+        "Sleep",
+        "Where"
+    ],
+    "hintsTips": [
+        "Every interaction with your child is a language learning opportunity.",
+        "Help your child “map” words onto their experiences by talking about what they are seeing, hearing, touching, tasting and smelling.",
+        "Use single words and short simple phrases.",
+        "Focus on one routine that you do every day and plan a new word and sign to use over and over in this situation."
+
+
+    ]
+}

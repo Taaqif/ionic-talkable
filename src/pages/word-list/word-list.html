@@ -72,14 +72,14 @@
   </div> 
     <ion-list *ngIf='sortedWordList?.length > 0' [virtualScroll]="sortedWordList" approxItemHeight="50px" >
 
-  <ion-item *virtualItem="let item" [style.width.%]="100">
+  <button ion-item *virtualItem="let item" [style.width.%]="100">
    <ion-label>{{ item }}</ion-label>
    <ion-checkbox 
     [ngModel]="savedWordList[item]?.checked" 
     (ngModelChange)="(savedWordList[item]) ? savedWordList[item].checked=$event : null"
     (click)="updateSavedWordList(item)">
   </ion-checkbox>
-  </ion-item> 
+  </button> 
 
 </ion-list>
    <!-- <div *ngIf='wordList;else loading'>

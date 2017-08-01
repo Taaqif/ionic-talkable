@@ -23,7 +23,7 @@ export class FileServiceProvider {
       .map(res => res.json());
   }
   getKeyWordSigns(){
-    return this.http.get('assets/data/key-word-signs.json')
+    return this.http.get('assets/data/key-word-signs1.json')
       .map(res => res.json());
   }
   getKeyWordSignObject(keyWordArray){

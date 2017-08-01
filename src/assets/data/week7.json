@@ -1,0 +1,55 @@
+{
+    "number": 7,
+    "title": " ",
+    "videos": [{
+        "id": "w7_1",
+        "title": "Part 1",
+        "description": "",
+        "path": "assets/vid/week1/w1_1.mp4",
+        "cover": ""
+    },{
+        "id": "w7_2",
+        "title": "Part 2",
+        "description": "",
+        "path": "assets/vid/week1/w1_2.mp4",
+        "cover": ""
+    }],
+    "book" : {
+        "title" : "Beep, Beep",
+        "author": "Peter Horacek",
+        "cover": "",
+        "tips": [
+            "As you read the story make sounds in an animated way.",
+	        "Pause after you make a sound to see if your child copies you.",
+	        "Make the same sounds when you play with toy cars together.",
+	        "Read the same book over and over. Repeat the sounds for your child.",
+	        "Make sounds when you share other books too."
+        ],
+        "alternateBooks": [{
+
+            "title": "Dig Dig Digging",
+            "author": "Margaret Mayo & Alex Ayliffe"
+        },{
+            "title": "Growl Like a Tiger",
+            "author": "Alison Lester"
+        },{
+            "title": "Baby Beats",
+            "author": "Karen Blair"
+        }]
+    },
+    "weeklyKeyWordSigns": [
+        "Dirty",
+        "Home",
+        "Broken",
+        "Flower"
+    ],
+    "hintsTips": [
+        "Follow your child’s lead. Make sounds that match what they’re doing.",
+        "Be exciting with the sounds that you make.",
+        "Don’t ask your child to repeat you. Simply model sounds and wait to see what your child does.",
+        "When your child makes a sound. Repeat it back with enthusiasm."
+
+
+
+    ]
+}
