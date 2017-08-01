@@ -17,7 +17,7 @@
     "book" : {
         "title" : "Beep, Beep",
         "author": "Peter Horacek",
-        "cover": "",
+        "cover": "assets/img/book-cover/Week7.png",
         "tips": [
             "As you read the story make sounds in an animated way.",
 	        "Pause after you make a sound to see if your child copies you.",

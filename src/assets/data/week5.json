@@ -17,7 +17,7 @@
     "book" : {
         "title" : "Old Macdonald had a farm",
         "author": "Pam Adams",
-        "cover": "",
+        "cover": "assets/img/book-cover/Week5.png",
         "tips": [
             "Talk about the different animals. Make the corresponding animal noises.",
 	        "Pause before you say the animal name. Wait and see if your child attempts to say the animal or make an animal sound.",

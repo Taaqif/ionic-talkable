@@ -17,7 +17,7 @@
     "book" : {
         "title" : "The Very Hungry Caterpillar",
         "author": "Eric Carle",
-        "cover": "",
+        "cover": "assets/img/book-cover/Week2.png",
         "tips": [
             "Let your child turn the pages.",
 	          "Use an animated voice - for example when the caterpillar has a stomach ache, use a slow woeful tone.", 
@@ -36,7 +36,10 @@
         }]
     },
     "weeklyKeyWordSigns": [
-        ""
+        "Ball",
+        "Eat",
+        "Big",
+        "Love"
     ],
     "hintsTips": [
         "Be a ‘teacher’ not a ‘tester’.",

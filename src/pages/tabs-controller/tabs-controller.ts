@@ -42,7 +42,7 @@ export class TabsControllerPage {
       buttons: ['Ok']
     });
     return new Promise(resolve => {
-      
+      console.log(this.week)
       if(this.settings.getValue('unlockAll')){
         resolve(true);
         // return true;

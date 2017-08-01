@@ -5,6 +5,7 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { SuperTabsModule } from 'ionic2-super-tabs';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -58,7 +59,8 @@ export function provideSettings(storage: Storage) {
     BrowserModule,
     IonicModule.forRoot(Talkable),
     IonicStorageModule.forRoot(),
-    SuperTabsModule.forRoot()
+    SuperTabsModule.forRoot(),
+    IonicImageViewerModule
 
   ],
   bootstrap: [IonicApp],

@@ -17,7 +17,7 @@
     "book" : {
         "title" : "Brown Bear, Brown Bear, What Do You See?",
         "author": "Bill Martic Jr & Eric Carle",
-        "cover": "",
+        "cover": "assets/img/book-cover/Week8.png",
         "tips": [
             "Vary the volume of your voice to engage your child.",
 	        "Pause after the line “What do you see?”.  Make the next animal sound before you turn the page.",

@@ -17,7 +17,7 @@
     "book" : {
         "title" : "I Went Walking",
         "author": "Sue Williams & Julie Vivas",
-        "cover": "",
+        "cover": "assets/img/book-cover/Week3.png",
         "tips": [
             "Let your child turn the pages.",
             "Each time you turn to an animal page, wait to see what you child does",
