@@ -8,7 +8,6 @@ export class FileServiceProvider {
   data: any;
   activePage: any;
   currentWeek: number;
-  settings: any;
   savedWordList: any;
   constructor(public http: Http,public storage: Storage) {
     this.data = null;
@@ -66,7 +65,6 @@ export class FileServiceProvider {
     this.savedWordList = wordList;
     this.storage.set('savedWordList', this.savedWordList);
   }
-  unlockAllContent(){}
   getActivePage(){
     return this.activePage;
   }
@@ -78,30 +76,6 @@ export class FileServiceProvider {
   }
   setCurrentWeek(week){
     this.currentWeek = week;
-  }
-  // updateSettingsStorage(){
-  //   return new Promise(resolve => {
-  //     if(setting){
-  //       this.storage.get('settings').then(data => {
-  //         resolve(data[setting]);
-  //       })
-  //     }else{
-  //       resolve(this.storage.get('settings'));
-  //     }
-  //   })
-  // }
-  getSettings(setting?){
-    
-    return new Promise(resolve => {
-      if(setting){
-        this.storage.get('settings').then(data => {
-          resolve(data[setting]);
-        })
-      }else{
-        resolve(this.storage.get('settings'));
-      }
-    })
-    
   }
   getProgress(progress?){
     return new Promise(resolve => {
