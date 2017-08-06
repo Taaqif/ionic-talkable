@@ -12,15 +12,17 @@ export class WordListPage {
   category: any = null;
   sortedWordList: any;
   savedWordList: any;
+  ready: boolean = false;
+  searching: boolean = false;
   constructor(public navCtrl: NavController,  
               public navParams: NavParams, 
               public fs: FileServiceProvider,
               public alertCtrl: AlertController) {
                 // this.fs.loadWordList();
         this.fs.getWordList().subscribe(data => {
-        this.wordList = data;
-        this.WordListO = data;
-        this.generateSortedWordList();
+          this.wordList = data;
+          this.WordListO = data;
+          this.generateSortedWordList();
         // array.forEach(element => {
           // this.resetFilteredWordList();
         // });
@@ -51,11 +53,13 @@ export class WordListPage {
       });  
     })
     this.sortedWordList.sort(function(a,b) {
-    a = a.toLowerCase();
-    b = b.toLowerCase();
-    if( a == b) return 0;
-    return a < b ? -1 : 1;
-});
+      a = a.toLowerCase();
+      b = b.toLowerCase();
+      if( a == b) return 0;
+      return a < b ? -1 : 1;
+    });
+    console.log(this.sortedWordList)
+    this.ready = true;
   }
 updateSavedWordList(word){
   if(!this.savedWordList[word]){
@@ -99,6 +103,7 @@ updateSavedWordList(word){
     this.generateSortedWordList();
     let val = ev.target.value;
     if (val && val.trim() !== '') {
+      this.searching = true;
         this.sortedWordList = this.sortedWordList.filter((item) => {
           return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
         });
@@ -107,6 +112,8 @@ updateSavedWordList(word){
       // this.filteredWordList = this.filteredWordList.filter((item) => {
       //   return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
       // });
+    }else{
+      this.searching = false;
     }
     // if(!this.filteredSigns){
     //   return filte
@@ -145,6 +152,9 @@ updateSavedWordList(word){
   //   this.savedWords = init;
   //   this.storage.set('settings', this.settings);
   // }
+  ionViewWillEnter(){
+    
+  }
   ionViewWillLeave(){
     if(this.category){
       this.category = null;
