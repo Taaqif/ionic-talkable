@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ImageViewerController } from "ionic-img-viewer";
 
 @Component({
   selector: 'page-story-time',

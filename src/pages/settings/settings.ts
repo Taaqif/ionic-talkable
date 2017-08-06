@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 import { Settings } from "../../providers/settings";
 @Component({
   selector: 'page-settings',
@@ -12,7 +11,6 @@ export class SettingsPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               private alertCtrl: AlertController, 
-              private storage: Storage,
               private settings: Settings) {
     this.settings.load().then(() => {
       this.options = this.settings.allSettings;

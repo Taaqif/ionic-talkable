@@ -1,12 +1,11 @@
 import { Component, ViewChild, Pipe, PipeTransform } from '@angular/core';
-import { Nav, Platform, AlertController, MenuController } from 'ionic-angular';
+import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { WelcomePage } from '../pages/welcome/welcome';
 
 import { HomePage } from '../pages/home/home';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
-import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
+// import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
 import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
 import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
@@ -62,7 +61,6 @@ export class Talkable {
               public splashScreen: SplashScreen, 
               private storage: Storage, 
               public fs: FileServiceProvider,
-              private alertCtrl: AlertController,
               public menuCtrl: MenuController,
               public settings: Settings) {
     this.initializeApp();

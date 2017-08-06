@@ -1,12 +1,11 @@
-import { Component, Injectable } from '@angular/core';
-import { NavController, NavParams, LoadingController, AlertController  } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, NavParams, AlertController  } from 'ionic-angular';
 import { VideosPage } from '../videos/videos';
 import { StoryTimePage } from '../story-time/story-time';
 import { WeeklySignsPage } from '../weekly-signs/weekly-signs';
 import { HintsTipsPage } from '../hints-tips/hints-tips';
 import { FileServiceProvider } from '../../providers/file-service/file-service';
 import { Storage } from '@ionic/storage';
-import { SuperTabsController } from 'ionic2-super-tabs';
 import { Settings } from "../../providers/settings";
 @Component({
   selector: 'page-tabs-controller',
@@ -22,8 +21,6 @@ export class TabsControllerPage {
   constructor(public navCtrl: NavController,  
               public navParams: NavParams, 
               public fs: FileServiceProvider, 
-              private loadingCtrl: LoadingController,
-              private superTabsCtrl: SuperTabsController,
               private storage: Storage,
               private alertCtrl: AlertController,
               private settings: Settings) {

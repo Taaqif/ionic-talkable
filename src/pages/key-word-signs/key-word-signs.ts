@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,LoadingController  } from 'ionic-angular';
+import { NavController  } from 'ionic-angular';
 import { FileServiceProvider } from "../../providers/file-service/file-service";
 
 

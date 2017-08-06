@@ -1,5 +1,5 @@
 import { NavController } from 'ionic-angular';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { TabsControllerPage } from "../tabs-controller/tabs-controller";
 import { FileServiceProvider } from "../../providers/file-service/file-service";
