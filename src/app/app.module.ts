@@ -7,7 +7,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 
-import { StreamingMedia } from "@ionic-native/streaming-media";
+// import { StreamingMedia } from "@ionic-native/streaming-media";
 
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -84,7 +84,6 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileServiceProvider,
-    StreamingMedia,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
   ]
 })
