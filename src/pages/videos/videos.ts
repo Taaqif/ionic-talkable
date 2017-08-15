@@ -4,7 +4,10 @@ import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-videos',
-  templateUrl: 'videos.html'
+  templateUrl: 'videos.html',
+  host: {
+    '(document:webkitfullscreenchange)': 'onFullscreen($event)'
+  }
 })
 export class VideosPage {
   week: any = '';
@@ -33,6 +36,29 @@ export class VideosPage {
     // console.log(fs.data);
     // this.week = this.navParams.data;
     // console.log(this.week);
+  }
+  playVideo(id){
+    let video:any;
+    video = document.getElementById(id);
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) {
+      video.mozRequestFullScreen();
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen();
+    }
+    video.play();
+  }
+  onFullscreen(e) {
+    //TODO: Handle tab bar overlay
+    let tabbar:any;
+    tabbar = document.getElementsByClassName('tabbar')[0];
+    if (tabbar.style.visibility === 'hidden') {
+        tabbar.style.visibility = 'visible';
+    } else {
+        tabbar.style.visibility = 'hidden';
+    }
+    //alert('Fullscreen ')
   }
   watched(video, event){
     let watchedVideos;

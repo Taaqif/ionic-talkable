@@ -13,10 +13,15 @@
 </ion-header>
 <ng-template #loading><ion-spinner></ion-spinner></ng-template>
 <ion-content id="keyWordSignsPage">
+  <video id="vid" controls width="0" hidden>
+     <source src="assets/vid/tickle.mp4" type="video/mp4">
+  </video>
   <ion-list *ngIf="filteredSigns">
     <ion-item *ngIf='filteredSigns?.length == 0'>No Results Found</ion-item>
     <ion-item *ngFor='let word of filteredSigns'>
       {{ word }}
+      <button ion-button clear (click)='playVideo(word)'><ion-icon name="eye" item-end></ion-icon></button>
+      
       <!-- <img [src]="filteredWordList[word.key].image" [alt]="signs.word">  -->
     </ion-item>
   </ion-list>

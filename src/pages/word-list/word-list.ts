@@ -7,6 +7,7 @@ import { FileServiceProvider } from "../../providers/file-service/file-service";
 })
 export class WordListPage {
   wordList: any;
+  WordListSegment: string = 'AllWords';
   savedWords: any;
   WordListO: any;
   category: any = null;

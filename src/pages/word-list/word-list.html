@@ -6,21 +6,69 @@
     </button>
     <ion-title>Word List</ion-title>
   </ion-navbar>
-  <ion-toolbar no-border-top>
+  <!-- <ion-toolbar no-border-top>
     <ion-searchbar animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-header>
 
 <ng-template #loading>
   <ion-spinner></ion-spinner>
 </ng-template>
 <ion-content>
+  <ion-searchbar animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
   <div *ngIf='!searching'>
+    <div padding>
+      <ion-segment [(ngModel)]="WordListSegment">
+        <ion-segment-button value="AllWords">
+          Word List
+        </ion-segment-button>
+        <ion-segment-button value="MyWords">
+          My Words
+        </ion-segment-button>
+        <ion-segment-button value="TEST">
+          TEST
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="WordListSegment">
+      <div *ngSwitchCase="'AllWords'">
+        <div *ngIf='wordList;else loading'>
+          <div *ngIf='category'>
+            <ion-list>
+              <ion-list-header>{{ category }}</ion-list-header>
+              <button *ngFor='let word of wordList[category]' ion-item (click)='showWordPopup(word)'><ion-label>{{ word }}</ion-label></button>
+            </ion-list>
+          </div>
+          <div *ngIf='!category'>
+            <ion-list>
+              <ion-list-header>Select Category</ion-list-header>
+              <button *ngFor='let category of wordList | object' ion-item (click)='viewCategory(category.key)'>
+                <ion-icon name="logo-octocat" item-start></ion-icon>
+              <ion-label>{{ category.key }}</ion-label></button>
+            </ion-list>
+          </div>
+        </div>
+      </div>
 
+      <ion-list *ngSwitchCase="'MyWords'">
+        <ion-item *ngFor='let item of savedWordList | object'>
+          <h2>{{ item.key }}</h2>
+        </ion-item>
+      </ion-list>
 
-    <div *ngIf='wordList;else loading'>
+      <ion-list *ngSwitchCase="'TEST'">  
+        <ion-item *ngFor='let w of sortedWordList'>
+          <ion-label> {{ w }} </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <!-- <div *ngIf='wordList;else loading'>
       <div *ngIf='category'>
-        <ion-grid>
+        <ion-list >
+          <ion-list-header>{{ category }}</ion-list-header>
+            <button *ngFor='let word of wordList[category]' ion-item (click)='showWordPopup(word)'><ion-label>{{ word }}</ion-label></button>
+        </ion-list>
+        <!-- <ion-grid>
           <ion-row>
             <h1>{{ category }}</h1>
             <ion-col *ngFor='let word of wordList[category]' col-6>
@@ -34,10 +82,16 @@
               </ion-card>
             </ion-col>
           </ion-row>
-        </ion-grid>
+        </ion-grid> .........>
       </div>
       <div *ngIf='!category'>
-        <ion-grid>
+        <ion-list >
+          <ion-list-header>Select Category</ion-list-header>
+            <button *ngFor='let category of wordList | object' ion-item (click)='viewCategory(category.key)'>
+                <ion-icon name="logo-octocat" item-start></ion-icon>
+              <ion-label>{{ category.key }}</ion-label></button>
+        </ion-list>
+        <!-- <ion-grid>
           <ion-row>
             <h1>Select a category or look up words</h1>
             <ion-col *ngFor='let category of wordList | object' col-12>
@@ -51,13 +105,16 @@
               </ion-card>
             </ion-col>
           </ion-row>
-        </ion-grid>
+        </ion-grid> ...........>
       </div>
-    </div>
+    </div> -->
   </div>
   <div *ngIf='searching'>
-    
-    <ion-grid>
+    <ion-list>
+      <ion-list-header>Found Items</ion-list-header>
+      <button *ngFor='let word of sortedWordList' ion-item (click)='showWordPopup(word)'><ion-label>{{ word }}</ion-label></button>
+    </ion-list>
+    <!-- <ion-grid>
           <ion-row>
             <ion-col col-12><h1>Found Items</h1></ion-col>
             
@@ -72,7 +129,7 @@
               </ion-card>
             </ion-col>
           </ion-row>
-        </ion-grid>
+        </ion-grid> -->
   </div>
   <!-- <ion-item-group *ngFor='let category of wordList | object'>
     <ion-item-divider sticky color="light">{{ category.key }}</ion-item-divider>

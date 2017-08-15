@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController  } from 'ionic-angular';
 import { FileServiceProvider } from "../../providers/file-service/file-service";
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 
 
 @Component({
@@ -12,7 +13,8 @@ export class KeyWordSignsPage {
   signsChunks: any = [];
   filteredSigns: any = [];
   filteredSignsChunks: any = [];
-  constructor(public navCtrl: NavController, public fs: FileServiceProvider) {
+  video: any;
+  constructor(public navCtrl: NavController, public fs: FileServiceProvider, private streamingMedia: StreamingMedia) {
      // Show the loading message
     // let loadingPopup = this.loadingCtrl.create({
     //   content: 'Loading posts...'
@@ -30,6 +32,29 @@ export class KeyWordSignsPage {
       // loadingPopup.dismiss();
     });
     
+    
+    
+  }
+  playVideo(word){
+    
+    
+
+    if (this.video.requestFullscreen) {
+      this.video.requestFullscreen();
+    } else if (this.video.mozRequestFullScreen) {
+      this.video.mozRequestFullScreen();
+    } else if (this.video.webkitRequestFullscreen) {
+      this.video.webkitRequestFullscreen();
+    }
+    this.video.play();
+    
+    // let options: StreamingVideoOptions = {
+    //   successCallback: () => { console.log('Video played') },
+    //   errorCallback: (e) => { console.log(e + '\nError streaming') },
+    //   orientation: 'landscape'
+    // };
+
+    // this.streamingMedia.playVideo('file:///android_asset/www/assets/b.mp4', options);
   }
   createFilteredKeyWordArray(){
     this.filteredSigns = []; 
@@ -49,6 +74,10 @@ export class KeyWordSignsPage {
     // if(!this.filteredSigns){
     //   return filte
     // }
+  }
+  ionViewDidLoad(){
+    this.video = document.getElementById('vid');
+    console.log(this.video)
   }
   
 }
