@@ -52,6 +52,7 @@ export class FileServiceProvider {
     return this.savedWordList;
   }
   loadSavedWordList(){
+    
     return this.storage.get('savedWordList').then(data => {
       if(data){
         this.savedWordList = data;

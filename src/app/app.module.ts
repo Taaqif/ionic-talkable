@@ -14,7 +14,7 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { ChunksPipe, ObjectPipe } from './app.component'
+import { ChunksPipe, ObjectPipe, KeysPipe } from './app.component'
 
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
@@ -54,7 +54,8 @@ export function provideSettings(storage: Storage) {
     WeeklySignsPage,
     SettingsPage,
     ChunksPipe,
-    ObjectPipe
+    ObjectPipe,
+    KeysPipe
   ],
   imports: [
     HttpModule,

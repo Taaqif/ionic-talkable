@@ -6,61 +6,64 @@
     </button>
     <ion-title>Word List</ion-title>
   </ion-navbar>
-  <!-- <ion-toolbar no-border-top>
+  <ion-toolbar *ngIf="WordListSegment != 'MyWords'" no-border-top>
     <ion-searchbar animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
-  </ion-toolbar> -->
+  </ion-toolbar>
 </ion-header>
 
 <ng-template #loading>
   <ion-spinner></ion-spinner>
 </ng-template>
 <ion-content>
-  <ion-searchbar animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
   <div *ngIf='!searching'>
     <div padding>
-      <ion-segment [(ngModel)]="WordListSegment">
+      <ion-segment [(ngModel)]="WordListSegment" (ionChange)="segmentChanged($event)">
         <ion-segment-button value="AllWords">
           Word List
         </ion-segment-button>
         <ion-segment-button value="MyWords">
           My Words
         </ion-segment-button>
-        <ion-segment-button value="TEST">
-          TEST
-        </ion-segment-button>
       </ion-segment>
     </div>
     <div [ngSwitch]="WordListSegment">
       <div *ngSwitchCase="'AllWords'">
-        <div *ngIf='wordList;else loading'>
+        <div *ngIf='savedWordList && wordList;else loading'>
           <div *ngIf='category'>
             <ion-list>
               <ion-list-header>{{ category }}</ion-list-header>
-              <button *ngFor='let word of wordList[category]' ion-item (click)='showWordPopup(word)'><ion-label>{{ word }}</ion-label></button>
+              <button *ngFor='let word of wordList[category]' [color]="savedWordList[word] ? 'danger' : null" ion-item (click)='addToSavedWordList(word)'  >
+                <ion-label>{{ word }}</ion-label>
+                <ion-icon name="ios-add-outline"  item-end clear></ion-icon>
+              </button>
             </ion-list>
           </div>
           <div *ngIf='!category'>
             <ion-list>
               <ion-list-header>Select Category</ion-list-header>
-              <button *ngFor='let category of wordList | object' ion-item (click)='viewCategory(category.key)'>
-                <ion-icon name="logo-octocat" item-start></ion-icon>
-              <ion-label>{{ category.key }}</ion-label></button>
+              <button *ngFor='let category of wordList | object' ion-item detail-none (click)='viewCategory(category.key)'>
+                <ion-label>{{ category.key }}</ion-label>
+                <ion-icon name="ios-arrow-forward-outline" item-end clear></ion-icon>
+              </button>
             </ion-list>
           </div>
         </div>
       </div>
 
-      <ion-list *ngSwitchCase="'MyWords'">
-        <ion-item *ngFor='let item of savedWordList | object'>
-          <h2>{{ item.key }}</h2>
-        </ion-item>
+      <ion-list *ngSwitchCase="'MyWords'" >
+        <ion-item-sliding *ngFor='let myWord of savedWordList | keys' #item>
+            <ion-item>
+              <ion-label>{{ myWord }}</ion-label>
+            </ion-item>
+            <ion-item-options *ngIf='savedWordList[myWord]'>
+                <button ion-button color="danger" (click)="removeFromSavedWordList(myWord, item)">
+                  <ion-icon name="trash"></ion-icon>
+                    <!-- Remove Word -->
+                </button>
+              </ion-item-options>
+        </ion-item-sliding>
       </ion-list>
 
-      <ion-list *ngSwitchCase="'TEST'">  
-        <ion-item *ngFor='let w of sortedWordList'>
-          <ion-label> {{ w }} </ion-label>
-        </ion-item>
-      </ion-list>
     </div>
     <!-- <div *ngIf='wordList;else loading'>
       <div *ngIf='category'>
@@ -112,7 +115,9 @@
   <div *ngIf='searching'>
     <ion-list>
       <ion-list-header>Found Items</ion-list-header>
-      <button *ngFor='let word of sortedWordList' ion-item (click)='showWordPopup(word)'><ion-label>{{ word }}</ion-label></button>
+      <button *ngFor='let word of sortedWordList' ion-item [color]="savedWordList[word] ? 'danger' : null" (click)='addToSavedWordList(word)'>
+        <ion-label>{{ word }}</ion-label>
+      </button>
     </ion-list>
     <!-- <ion-grid>
           <ion-row>

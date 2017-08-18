@@ -20,7 +20,7 @@
     <ion-item *ngIf='filteredSigns?.length == 0'>No Results Found</ion-item>
     <ion-item *ngFor='let word of filteredSigns'>
       {{ word }}
-      <button ion-button clear (click)='playVideo(word)'><ion-icon name="eye" item-end></ion-icon></button>
+      <button ion-button clear (click)='playVideo(word)'><ion-icon name="play" item-end></ion-icon></button>
       
       <!-- <img [src]="filteredWordList[word.key].image" [alt]="signs.word">  -->
     </ion-item>

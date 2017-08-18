@@ -33,6 +33,12 @@ export class ObjectPipe implements PipeTransform {
         return Object.keys(value).map(key => Object.assign({ key }, value[key]));
     }
 }
+@Pipe({ name: 'keys',  pure: false })
+export class KeysPipe implements PipeTransform {
+    transform(value: any, args: any[] = null): any {
+        return Object.keys(value)//.map(key => value[key]);
+    }
+}
 @Component({
   templateUrl: 'app.html'
 })
