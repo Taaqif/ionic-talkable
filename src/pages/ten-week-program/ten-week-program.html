@@ -4,64 +4,22 @@
             menuToggle="">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>tenWeekProgram</ion-title>
+    <ion-title>10 Week Prgram Overview</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content id="tenWeekProgram">
-  <ion-list id="tenWeekProgram-list">
-    <button ion-item class="week"
-              color="none"
-              id="tenWeekProgram-list-week1"
-              on-click="goToWeeklyTabs(1)">
-      <ion-avatar item-left="">
-        <img />
-      </ion-avatar>
-      <h2>Week 1</h2>
-    </button>
-    <button ion-item class="week"
-              color="none"
-              id="tenWeekProgram-list-week2"
-              on-click="goToWeeklyTabs(2)">
-      <ion-avatar item-left="">
-        <img />
-      </ion-avatar>
-      <h2>Week 2</h2>
-    </button>
-    <button ion-item class="week"
-              color="none"
-              id="tenWeekProgram-list-week3"
-              on-click="goToWeeklyTabs(3)">
-      <ion-avatar item-left="">
-        <img />
-      </ion-avatar>
-      <h2>Week 3</h2>
-    </button>
-    <button ion-item class="week"
-              color="none"
-              id="tenWeekProgram-list-week4"
-              on-click="goToWeeklyTabs(4)">
-      <ion-avatar item-left="">
-        <img />
-      </ion-avatar>
-      <h2>Week 4</h2>
-    </button>
-    <button ion-item class="week"
-              color="none"
-              id="tenWeekProgram-list-week5"
-              on-click="goToWeeklyTabs(5)">
-      <ion-avatar item-left="">
-        <img />
-      </ion-avatar>
-      <h2>Week 5</h2>
-    </button>
-    <button ion-item class="week"
-              color="none"
-              id="tenWeekProgram-list-week6"
-              on-click="goToWeeklyTabs(6)">
-      <ion-avatar item-left="">
-        <img />
-      </ion-avatar>
-      <h2>Week 6</h2>
-    </button>
-  </ion-list>
+  <div *ngIf='loaded'>
+    <ion-card *ngFor='let week of allWeeks'>
+      <ion-card-header>
+        Week {{week.number}}
+      </ion-card-header>
+
+      <ion-card-content>
+        {{week.title}} <br>
+        Description of week can go here <br>
+        <button ion-button (click)='goToWeeklyTabs(week.number)'>View Week {{week.number}}</button>
+      </ion-card-content>
+      
+    </ion-card>
+  </div>
 </ion-content>

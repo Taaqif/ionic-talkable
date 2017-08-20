@@ -1,24 +1,46 @@
 <ion-menu [content]="content">
-    <ion-header>
+    <!-- <ion-header>
         <ion-toolbar>
             <ion-title>Menu</ion-title>
         </ion-toolbar>
-    </ion-header>
-
+    </ion-header> -->
+    <!-- <ion-content class="outer-content"> -->
     <ion-content>
+        <img src="assets/icon/logo_header.jpg" alt="Logo Header">
         <ion-list>
-             <ion-list-header>
+             <!-- <ion-list-header>
                 10 Week Program
             </ion-list-header>
             <div *ngIf='pageReady'>
                 <button ion-item *ngFor="let wp of weeklyPages" [class.activeHighlight]="checkActive(wp)" [class.isCurrentWeek]="checkCurrentWeek(wp)" [attr.disabled]="checkAvailable(wp) ? null : ''" (click)="openPage(wp)">
                 {{wp.title}}
             </button>
-            </div>
+            </div> -->
              <!-- <ion-footer> -->
-                 <button ion-item *ngFor="let p of pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+                <ion-list-header>
+                    10 Week Program
+                </ion-list-header>
+                 <button ion-item *ngFor="let p of programPages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
                     <ion-icon *ngIf='p.icon' item-start [name]="p.icon"></ion-icon>
                     {{p.title}}
+                </button>
+            </ion-list>
+            <ion-list>
+                <ion-list-header>
+                    Manage Words
+                </ion-list-header>
+                 <button ion-item *ngFor="let w of wordPages" [class.activeHighlight]="checkActive(w)" (click)="openPage(w)">
+                    <ion-icon *ngIf='w.icon' item-start [name]="w.icon"></ion-icon>
+                    {{w.title}}
+                </button>
+            </ion-list>
+            <ion-list>
+                <ion-list-header>
+                    Settings
+                </ion-list-header>
+                 <button ion-item *ngFor="let s of settingsPages" [class.activeHighlight]="checkActive(s)" (click)="openPage(s)">
+                    <ion-icon *ngIf='s.icon' item-start [name]="s.icon"></ion-icon>
+                    {{s.title}}
                 </button>
              <!-- </ion-footer> -->
             

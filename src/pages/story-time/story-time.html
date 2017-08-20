@@ -23,9 +23,11 @@
       <!-- <ion-item> -->
         <!-- <ion-list> -->
           <ion-list-header>
-            <ion-icon name="md-bulb"></ion-icon> Reading Tips
+            Reading Tips
+            <ion-icon name="md-bulb" item-end style="float:right;"></ion-icon> 
           </ion-list-header>
           <ion-item *ngFor='let tips of week.book.tips'>
+            <ion-icon name="ios-checkmark" item-start></ion-icon>
             {{ tips }}
           </ion-item>
         <!-- </ion-list> -->
@@ -33,7 +35,8 @@
       <!-- <ion-item> -->
         <!-- <ion-list> -->
           <ion-list-header>
-            <ion-icon name="book"></ion-icon> Alternate Books
+            Alternate Books
+            <ion-icon name="book" style="float:right;"></ion-icon> 
           </ion-list-header>
           <ion-item *ngFor='let altBook of week.book.alternateBooks'>
             {{ altBook.title }} ({{ altBook.author }})

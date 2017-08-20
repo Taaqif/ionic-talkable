@@ -11,25 +11,43 @@
   </ion-navbar>
 </ion-header>
 <ion-content id="videoPage">
-  <ion-card *ngFor="let v of week.videos">
+  <div padding>
+    <h1>{{week.title}}</h1>
+    <p>Week {{week.number}}</p>
+    <p>Description of weekly content can go here</p>
+  </div>
+  <ion-card *ngFor="let v of week.videos" text-wrap>
      <!-- <video fullscreen="fullscreen" controls>
       <source src="https://www.youtube.com/embed/q8f-DoL1dqQ" type="video/mp4">  
     </video> -->
-      <img src="assets/img/vidthumb.jpg" alt="poster" (click)='playVideo(v.id)'>
+      
     <video [attr.id]='v.id' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(v, $event);" hidden>
         <source src="assets/vid/tickle.mp4" type='video/mp4' >
-    </video>    
-    <ion-card-content>
+    </video>   
+    
+    <ion-item>
+        <ion-thumbnail item-end (click)='playVideo(v.id)'>
+          <img src="assets/img/vidthumb.jpg" style="object-fit:cover">
+        </ion-thumbnail>
+        <h1>{{v.title}}</h1>
+        <p>{{v.description}}</p>
+      </ion-item>
+    <!-- <ion-card-content>
       <ion-card-title>
         <ion-icon *ngIf='watchedVideos?.includes(v.id)' name='eye' item-start></ion-icon> 
         {{ v.title }}
         <ion-icon name="play" item-end ></ion-icon>
+        <ion-thumbnail item-end>
+            <img src="assets/img/vidthumb.jpg" alt="poster"  (click)='playVideo(v.id)'>
+        </ion-thumbnail>
+        
       </ion-card-title>
+      
       <p>
         {{ v.description }}
       </p>
       
-    </ion-card-content>
+    </ion-card-content> -->
     <!-- <ion-item *ngFor="let v of week.videos"
               attr.id="videos-list-{{v.title}}">
       <ion-thumbnail item-left="">

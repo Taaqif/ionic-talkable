@@ -10,7 +10,7 @@ import { FileServiceProvider } from "../../providers/file-service/file-service";
 })
 export class KeyWordSignsPage {
   signs: any;
-  signsChunks: any = [];
+  signsO: any = [];
   filteredSigns: any = [];
   filteredSignsChunks: any = [];
   video: any;
@@ -22,7 +22,8 @@ export class KeyWordSignsPage {
     // loadingPopup.present();
     fs.getKeyWordSigns().subscribe((data) => {
       this.signs = data;
-      this.createFilteredKeyWordArray();
+      this.signsO = data;
+      // this.createFilteredKeyWordArray();
       //this.filteredSigns = this.signs;
       
       // while (this.signs.length > 0){
@@ -63,11 +64,11 @@ export class KeyWordSignsPage {
     });
   }
    filterItems(ev: any) {
-    // this.filteredSigns = this.signs;
-    this.createFilteredKeyWordArray();
+    this.signs = this.signsO;
+    // this.createFilteredKeyWordArray();
     let val = ev.target.value;
     if (val && val.trim() !== '') {
-      this.filteredSigns = this.filteredSigns.filter((item) => {
+      this.signs = this.signs.filter((item) => {
           return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
         });
     }

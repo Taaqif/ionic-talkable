@@ -9,13 +9,13 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content id="weeklySignsPage" class='card-center-text'>
-  <p>Teach your child these words by using these actions</p>
-  <ion-grid>
+<ion-content id="weeklySignsPage" >
+  <!-- <p>Teach your child these words by using these actions</p> -->
+  <!-- <ion-grid>
     <ion-row *ngFor='let chunk of keyWordSignsChunks'>
       <ion-col *ngFor='let keyWord of chunk'>
         <ion-card >
-           <!-- <img [src]="keyWord.image" alt="">  -->
+            <img [src]="keyWord.image" alt=""> 
           <ion-card-content>
             <ion-card-title>
               {{ keyWord }}
@@ -24,6 +24,38 @@
         </ion-card>
       </ion-col>
       <ion-col *ngIf="chunk.length != 2">
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor='let word of weeklyKeyWordSigns' col-6 class='card-center-text'>
+        <ion-card >
+            <img src="assets/img/vidthumb.jpg" style="object-fit:cover">
+          <ion-card-content>
+            {{word}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-card>
+          <ion-card-header>
+            Activities
+            <ion-icon name="md-people" item-end style="float:right;"></ion-icon>
+          </ion-card-header>
+            <ion-list>
+              <ion-item>
+                <ion-icon name="ios-checkmark" item-start></ion-icon>
+                Activity
+              </ion-item>
+              <ion-item>
+                  <ion-icon name="ios-checkmark" item-start></ion-icon>
+                  Activity
+                </ion-item>
+            </ion-list>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

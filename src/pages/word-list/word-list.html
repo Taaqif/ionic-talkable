@@ -5,6 +5,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Word List</ion-title>
+    <!-- TODO: Change to category name  -->
   </ion-navbar>
   <ion-toolbar *ngIf="WordListSegment != 'MyWords'" no-border-top>
     <ion-searchbar animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
@@ -12,7 +13,7 @@
 </ion-header>
 
 <ng-template #loading>
-  <ion-spinner></ion-spinner>
+  <div class='loading'><ion-spinner></ion-spinner></div>
 </ng-template>
 <ion-content>
   <div *ngIf='!searching'>
@@ -32,7 +33,7 @@
           <div *ngIf='category'>
             <ion-list>
               <ion-list-header>{{ category }}</ion-list-header>
-              <button *ngFor='let word of wordList[category]' [color]="savedWordList[word] ? 'danger' : null" ion-item (click)='addToSavedWordList(word)'  >
+              <button *ngFor='let word of wordList[category]' [color]="savedWordList[word] ? 'danger' : null" ion-item detail-none (click)='addToSavedWordList(word)'  >
                 <ion-label>{{ word }}</ion-label>
                 <ion-icon name="ios-add-outline"  item-end clear></ion-icon>
               </button>
@@ -54,11 +55,12 @@
         <ion-item-sliding *ngFor='let myWord of savedWordList | keys' #item>
             <ion-item>
               <ion-label>{{ myWord }}</ion-label>
+              <ion-note item-end>Added <br> {{savedWordList[myWord].date}}</ion-note>
             </ion-item>
             <ion-item-options *ngIf='savedWordList[myWord]'>
                 <button ion-button color="danger" (click)="removeFromSavedWordList(myWord, item)">
                   <ion-icon name="trash"></ion-icon>
-                    <!-- Remove Word -->
+                  Remove
                 </button>
               </ion-item-options>
         </ion-item-sliding>

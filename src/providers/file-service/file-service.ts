@@ -18,7 +18,7 @@ export class FileServiceProvider {
       .map(res => res.json());
   }
   getWeekContent(week) {
-    return this.http.get('assets/data/week'+week+'.json')
+    return this.http.get('assets/data/weeks/week'+week+'.json')
       .map(res => res.json());
   }
   getKeyWordSigns(){

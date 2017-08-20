@@ -16,11 +16,11 @@
   <video id="vid" controls width="0" hidden>
      <source src="assets/vid/tickle.mp4" type="video/mp4">
   </video>
-  <ion-list *ngIf="filteredSigns">
-    <ion-item *ngIf='filteredSigns?.length == 0'>No Results Found</ion-item>
-    <ion-item *ngFor='let word of filteredSigns'>
+  <ion-list *ngIf="signs">
+    <ion-item *ngIf='signs?.length == 0' text-wrap>No Results Found. <br> For more key words, visit http://auslan.org.au</ion-item>
+    <ion-item *ngFor='let word of signs'>
       {{ word }}
-      <button ion-button clear (click)='playVideo(word)'><ion-icon name="play" item-end></ion-icon></button>
+      <button ion-button clear item-end (click)='playVideo(word)'>Play</button>
       
       <!-- <img [src]="filteredWordList[word.key].image" [alt]="signs.word">  -->
     </ion-item>

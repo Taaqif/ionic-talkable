@@ -1,0 +1,54 @@
+{
+    "number": 3,
+    "title": " ",
+    "videos": [{
+        "id": "w3_1",
+        "title": "Part 1",
+        "description": "",
+        "path": "assets/vid/week1/w1_1.mp4",
+        "cover": ""
+    },{
+        "id": "w3_2",
+        "title": "Part 2",
+        "description": "",
+        "path": "assets/vid/week1/w1_2.mp4",
+        "cover": ""
+    }],
+    "book" : {
+        "title" : "I Went Walking",
+        "author": "Sue Williams & Julie Vivas",
+        "cover": "assets/img/book-cover/Week3.png",
+        "tips": [
+            "Let your child turn the pages.",
+            "Each time you turn to an animal page, wait to see what you child does",
+            "If they point, you point too and say what you see. If they make an animal sound, copy the sound.",
+	          "If they name the animal, repeat it back.",
+	          "Point to the pictures and model words to your child - “ladder”, “muddy”, “licking”.",
+	          "Pause during the story and listen to your child. Add one extra key word to their phrase. If they say “moo”, you say “moo cow”, if they say pig say “wash the pig”.",
+	          "Make the corresponding animal sound before you turn each page. Wait and see if your child copies you or tries to guess the animal that is on the next page."
+        ],
+        "alternateBooks": [{
+            "title": "Time for Bed",
+            "author": "Mem Fox & Jane Dyer"
+        },{
+            "title": "Hello Baby",
+            "author": "Mem Fox & Steve Jenkins"
+        },{
+            "title": "Growl Like a Tiger",
+            "author": "Alison Lester"
+        }]
+    },
+    "weeklyKeyWordSigns": [
+        "Stop",
+        "Cat",
+        "Dog",
+        "Hot"
+    ],
+    "hintsTips": [
+        "Copy your child’s sounds, words, facial, expression, body language and gestures.",
+        "Model language by talking all the time.",
+        "Add one more word on to your child’s phrases.",
+        "Talk about what is happening in the ‘here and now’."
+
+    ]
+}

@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
-// import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
+import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
 import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
 import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
@@ -54,14 +54,19 @@ export class Talkable {
   //   { title: 'Week 1', component: TabsControllerPage, weekPage: 1 }
   // ];
   
-  pages: Array<{id: string,
+  programPages: Array<{id: string,
                 title: string, 
                 component: any
-                icon?: String}>;
-  weeklyPages: Array<{id: string,
-                title: string, 
-                component: any,
+                icon?: String,
                 param?: any}>;
+  wordPages: Array<{id: string,
+                title: string, 
+                component: any
+                icon?: String}>;   
+  settingsPages: Array<{id: string,
+              title: string, 
+              component: any
+              icon?: String}>;             
   constructor(public platform: Platform, 
               public statusBar: StatusBar, 
               public splashScreen: SplashScreen, 
@@ -71,29 +76,35 @@ export class Talkable {
               public settings: Settings) {
     this.initializeApp();
     storage.set('currentWeek', 1).then(success => {
-      this.fs.setCurrentWeek(success);
+      this.fs.setCurrentWeek(1);
     });
     // used for an example of ngFor and navigation
-    this.pages = [
+    this.programPages = [
+      { id: 'CurrentWeekPage', title: 'Current Week', component: TabsControllerPage, icon: "ios-happy-outline", param: 1},
+      { id: 'TenWeekProgramPage', title: 'Overview', component: TenWeekProgramPage, icon: "ios-expand-outline"},
+    ];
+    this.wordPages = [
       { id: 'KeyWordSignsPage', title: 'Key Word Signs', component: KeyWordSignsPage, icon: "key" },
       { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "clipboard" },
+    ];
+    this.settingsPages = [
       { id: "SettingsPage", title: 'Settings', component: SettingsPage, icon: "settings" }
     ];
 
-    this.weeklyPages = [
-      { id: 'weeklyPage1', title: 'Week 1', component: TabsControllerPage, param: 1 },
-      { id: 'weeklyPage2', title: 'Week 2', component: TabsControllerPage, param: 2 },
-      { id: 'weeklyPage3', title: 'Week 3', component: TabsControllerPage, param: 3 },
-      { id: 'weeklyPage4', title: 'Week 4', component: TabsControllerPage, param: 4 },
-      { id: 'weeklyPage5', title: 'Week 5', component: TabsControllerPage, param: 5 },
-      { id: 'weeklyPage6', title: 'Week 6', component: TabsControllerPage, param: 6 },
-      { id: 'weeklyPage7', title: 'Week 7', component: TabsControllerPage, param: 7 },
-      { id: 'weeklyPage8', title: 'Week 8', component: TabsControllerPage, param: 8 },
-      { id: 'weeklyPage9', title: 'Week 9', component: TabsControllerPage, param: 9 },
-      { id: 'weeklyPage10', title: 'Week 10', component: TabsControllerPage, param: 10 },
-    ];
+    // this.weeklyPages = [
+    //   { id: 'weeklyPage1', title: 'Week 1', component: TabsControllerPage, param: 1 },
+    //   { id: 'weeklyPage2', title: 'Week 2', component: TabsControllerPage, param: 2 },
+    //   { id: 'weeklyPage3', title: 'Week 3', component: TabsControllerPage, param: 3 },
+    //   { id: 'weeklyPage4', title: 'Week 4', component: TabsControllerPage, param: 4 },
+    //   { id: 'weeklyPage5', title: 'Week 5', component: TabsControllerPage, param: 5 },
+    //   { id: 'weeklyPage6', title: 'Week 6', component: TabsControllerPage, param: 6 },
+    //   { id: 'weeklyPage7', title: 'Week 7', component: TabsControllerPage, param: 7 },
+    //   { id: 'weeklyPage8', title: 'Week 8', component: TabsControllerPage, param: 8 },
+    //   { id: 'weeklyPage9', title: 'Week 9', component: TabsControllerPage, param: 9 },
+    //   { id: 'weeklyPage10', title: 'Week 10', component: TabsControllerPage, param: 10 },
+    // ];
     // this.fs.setActivePage(this.pages[0].id);
-    this.activePage = this.pages[0];
+    this.activePage = this.programPages[0];
   }
 
   initializeApp() {
