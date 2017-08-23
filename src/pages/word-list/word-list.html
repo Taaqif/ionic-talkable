@@ -13,15 +13,16 @@
     
     <!-- TODO: Change to category name  -->
   </ion-navbar>
-  <ion-toolbar *ngIf="WordListSegment != 'MyWords'" no-border-top>
+  <!-- <ion-toolbar *ngIf="WordListSegment != 'MyWords'" no-border-top>
     <ion-searchbar animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-header>
 
 <ng-template #loading>
   <div class='loading'><ion-spinner></ion-spinner></div>
 </ng-template>
 <ion-content>
+    <ion-searchbar *ngIf="WordListSegment != 'MyWords'" animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
   <div *ngIf='!searching'>
     <div padding>
       <ion-segment [(ngModel)]="WordListSegment" (ionChange)="segmentChanged($event)">
