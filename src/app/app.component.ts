@@ -116,6 +116,19 @@ export class Talkable {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.platform.registerBackButtonAction(() => {
+        if(this.nav.canGoBack()){
+          this.nav.pop();
+        }else{
+          if(this.nav.getActive().component == this.programPages[0].component){
+            this.platform.exitApp();
+          }else{
+            this.nav.setRoot(this.programPages[0].component, this.programPages[0].param);
+            this.fs.setActivePage(this.programPages[0].id);
+          }
+          
+        }
+      });
       
     });
   }
