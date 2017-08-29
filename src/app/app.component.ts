@@ -3,6 +3,8 @@ import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
+
 import { HomePage } from '../pages/home/home';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
