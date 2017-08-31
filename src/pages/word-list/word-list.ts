@@ -184,6 +184,7 @@ export class WordListPage {
   //   });
   //   alert.present();
   // }
+  
   segmentChanged(event){
     this.content.resize();
   }

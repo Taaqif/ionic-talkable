@@ -22,7 +22,7 @@
     </video> -->
       
     <video [attr.id]='v.id' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(v, $event);" hidden>
-        <source src="assets/vid/tickle.mp4" type='video/mp4' >
+        <source [attr.src]="v.path" type='video/mp4' >
     </video>   
     
     <ion-item>

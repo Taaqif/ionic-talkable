@@ -33,5 +33,20 @@ export class WeeklySignsPage {
     //   }
     // })
   }
+  playVideo(id){
+    let video:any;
+    video = document.getElementById(id);
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) {
+      video.mozRequestFullScreen();
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen();
+    }
+    video.play();
+  }
+ watched(video, event){
+    event.target.webkitExitFullScreen();
+  }
   
 }

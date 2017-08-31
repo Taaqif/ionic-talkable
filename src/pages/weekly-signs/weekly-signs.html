@@ -31,7 +31,10 @@
     <ion-row>
       <ion-col *ngFor='let word of weeklyKeyWordSigns' col-6 class='card-center-text'>
         <ion-card >
-            <img src="assets/img/vidthumb.jpg" style="object-fit:cover">
+            <video [attr.id]='word' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(word, $event);" hidden>
+              <source [attr.src]="'assets/vid/' + word.toLowerCase() + '.mp4'" type='video/mp4' >
+          </video> 
+            <img src="assets/img/vidthumb.jpg" (click)='playVideo(word)' style="object-fit:cover">
           <ion-card-content>
             {{word}}
           </ion-card-content>
