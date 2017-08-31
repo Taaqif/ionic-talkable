@@ -3,15 +3,22 @@
     "title": " ",
     "videos": [{
         "id": "w3_1",
-        "title": "Part 1",
+        "title": "Expand",
         "description": "",
-        "path": "assets/vid/week1/w1_1.mp4",
+        "path": "assets/vid/Week_3_RME_Expand.mp4",
         "cover": ""
     },{
         "id": "w3_2",
-        "title": "Part 2",
+        "title": "Model",
         "description": "",
-        "path": "assets/vid/week1/w1_2.mp4",
+        "path": "assets/vid/Week_3_RME_Model.mp4",
+        "cover": ""
+    },
+    {
+        "id": "w3_3",
+        "title": "Repeat",
+        "description": "",
+        "path": "assets/vid/Week_3_RME_Repeat.mp4",
         "cover": ""
     }],
     "book" : {
