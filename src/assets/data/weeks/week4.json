@@ -3,15 +3,9 @@
     "title": " ",
     "videos": [{
         "id": "w4_1",
-        "title": "Part 1",
+        "title": "Finding Communication Opportunity",
         "description": "",
-        "path": "assets/vid/week1/w1_1.mp4",
-        "cover": ""
-    },{
-        "id": "w4_2",
-        "title": "Part 2",
-        "description": "",
-        "path": "assets/vid/week1/w1_2.mp4",
+        "path": "assets/vid/Week_4_Finding_Communication_Opportunity.mp4",
         "cover": ""
     }],
     "book" : {

@@ -3,15 +3,9 @@
     "title": " ",
     "videos": [{
         "id": "w6_1",
-        "title": "Part 1",
+        "title": "Visual Cues",
         "description": "",
-        "path": "assets/vid/week1/w1_1.mp4",
-        "cover": ""
-    },{
-        "id": "w6_2",
-        "title": "Part 2",
-        "description": "",
-        "path": "assets/vid/week1/w1_2.mp4",
+        "path": "assets/vid/Week_6_Visual_Cues.mp4",
         "cover": ""
     }],
     "book" : {

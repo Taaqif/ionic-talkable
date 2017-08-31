@@ -4,14 +4,14 @@
     "videos": [{
         "id": "w2_1",
         "title": "Part 1",
-        "description": "",
-        "path": "assets/vid/week1/w1_1.mp4",
+        "description": "    ",
+        "path": "assets/vid/Week_2_Natural_Communication_Part_1.mp4",
         "cover": ""
     },{
         "id": "w2_2",
         "title": "Part 2",
         "description": "",
-        "path": "assets/vid/week1/w1_2.mp4",
+        "path": "assets/vid/Week_2_Natural_Communication_Part_2.mp4",
         "cover": ""
     }],
     "book" : {
