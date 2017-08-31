@@ -22,7 +22,7 @@
   <div class='loading'><ion-spinner></ion-spinner></div>
 </ng-template>
 <ion-content>
-    <ion-searchbar *ngIf="WordListSegment != 'MyWords'" animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
+    
   <div *ngIf='!searching'>
     <div padding>
       <ion-segment [(ngModel)]="WordListSegment" (ionChange)="segmentChanged($event)">
@@ -34,6 +34,7 @@
         </ion-segment-button>
       </ion-segment>
     </div>
+    <ion-searchbar *ngIf="WordListSegment != 'MyWords'" animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
     <div [ngSwitch]="WordListSegment">
       <div *ngSwitchCase="'AllWords'">
         <div *ngIf='savedWordList && wordList;else loading'>
@@ -65,7 +66,7 @@
               <ion-note item-end>Added <br> {{savedWordList[myWord].date}}</ion-note>
             </ion-item>
             <ion-item-options *ngIf='savedWordList[myWord]'>
-                <button ion-button color="danger" (click)="removeFromSavedWordList(myWord, item)">
+                <button ion-button color="primary" (click)="removeFromSavedWordList(myWord, item)">
                   <ion-icon name="trash"></ion-icon>
                   Remove
                 </button>

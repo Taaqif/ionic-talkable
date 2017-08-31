@@ -1,0 +1,38 @@
+<ion-header no-border>
+  <ion-navbar>
+    <ion-buttons end *ngIf="showSkip">
+      <button ion-button (click)="startApp()" color="primary">Skip</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>
+
+    <ion-slide>
+      <h2 class="slide-title">
+        Welcome to <b>Talkable</b>
+      </h2>
+      <p>
+        The talkable app helps your childs speech
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+
+      <h2 class="slide-title" >What is Talkable?</h2>
+      <p>
+        Talkable is
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+      <h2 class="slide-title">Ready to Start?</h2>
+      <button ion-button icon-right large clear (click)="startApp()">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

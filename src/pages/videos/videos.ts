@@ -51,13 +51,13 @@ export class VideosPage {
   }
   onFullscreen(e) {
     //TODO: Handle tab bar overlay
-    let tabbar:any;
-    tabbar = document.getElementsByClassName('tabbar')[0];
-    if (tabbar.style.visibility === 'hidden') {
-        tabbar.style.visibility = 'visible';
-    } else {
-        tabbar.style.visibility = 'hidden';
-    }
+    // let tabbar:any;
+    // tabbar = document.getElementsByClassName('tabbar')[0];
+    // if (tabbar.style.visibility === 'hidden') {
+    //     tabbar.style.visibility = 'visible';
+    // } else {
+    //     tabbar.style.visibility = 'hidden';
+    // }
     //alert('Fullscreen ')
   }
   watched(video, event){

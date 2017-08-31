@@ -18,6 +18,7 @@ import { ChunksPipe, ObjectPipe, KeysPipe } from './app.component'
 
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
+import { TutorialPage } from '../pages//tutorial/tutorial';
 import { VideosPage } from '../pages/videos/videos'
 import { StoryTimePage } from '../pages/story-time/story-time'
 import { HintsTipsPage } from '../pages/hints-tips/hints-tips'
@@ -47,6 +48,7 @@ export function provideSettings(storage: Storage) {
     TenWeekProgramPage,
     TabsControllerPage,
     VideosPage,
+    TutorialPage,
     StoryTimePage,
     HintsTipsPage,
     KeyWordSignsPage,
@@ -75,6 +77,7 @@ export function provideSettings(storage: Storage) {
     VideosPage,
     StoryTimePage,
     HintsTipsPage,
+    TutorialPage,
     KeyWordSignsPage,
     WordListPage,
     WeeklySignsPage,

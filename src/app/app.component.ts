@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 import { HomePage } from '../pages/home/home';
+import { TutorialPage } from '../pages/tutorial/tutorial';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program'
 import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
@@ -48,8 +49,8 @@ export class KeysPipe implements PipeTransform {
 
 export class Talkable {
   @ViewChild(Nav) nav: Nav;
-
-  rootPage: any = HomePage;
+  
+  rootPage: any;
   activePage: any;
   pageReady: boolean = false;
   // weeklyPages: PageInterface[] = [
@@ -76,7 +77,17 @@ export class Talkable {
               public fs: FileServiceProvider,
               public menuCtrl: MenuController,
               public settings: Settings) {
-    this.initializeApp();
+                // Check if the user has already seen the tutorial
+    this.storage.get('hasSeenTutorial')
+    .then((hasSeenTutorial) => {
+      if (hasSeenTutorial) {
+        this.rootPage = HomePage;
+      } else {
+        this.rootPage = TutorialPage;
+      }
+      this.initializeApp();
+    });
+    
     storage.set('currentWeek', 1).then(success => {
       this.fs.setCurrentWeek(1);
     });
