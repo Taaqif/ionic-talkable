@@ -13,12 +13,13 @@
 </ion-header>
 <ng-template #loading><ion-spinner></ion-spinner></ng-template>
 <ion-content id="keyWordSignsPage">
-  <video id="vid" controls width="0" hidden>
-     <source src="assets/vid/tickle.mp4" type="video/mp4">
-  </video>
+    
   <ion-list *ngIf="signs">
     <ion-item *ngIf='signs?.length == 0' text-wrap>No Results Found. <br> For more key words, visit http://auslan.org.au</ion-item>
     <ion-item *ngFor='let word of signs'>
+        <video [attr.id]='word' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(word, $event);" hidden>
+          <source [attr.src]="'assets/vid/' + word.toLowerCase() + '.mp4'" type='video/mp4' >
+      </video> 
       {{ word }}
       <button ion-button clear item-end (click)='playVideo(word)'>Play</button>
       

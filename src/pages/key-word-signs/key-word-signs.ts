@@ -36,26 +36,20 @@ export class KeyWordSignsPage {
     
     
   }
-  playVideo(word){
-    
-    
-
-    if (this.video.requestFullscreen) {
-      this.video.requestFullscreen();
-    } else if (this.video.mozRequestFullScreen) {
-      this.video.mozRequestFullScreen();
-    } else if (this.video.webkitRequestFullscreen) {
-      this.video.webkitRequestFullscreen();
+  playVideo(id){
+    let video:any;
+    video = document.getElementById(id);
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) {
+      video.mozRequestFullScreen();
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen();
     }
-    this.video.play();
-    
-    // let options: StreamingVideoOptions = {
-    //   successCallback: () => { console.log('Video played') },
-    //   errorCallback: (e) => { console.log(e + '\nError streaming') },
-    //   orientation: 'landscape'
-    // };
-
-    // this.streamingMedia.playVideo('file:///android_asset/www/assets/b.mp4', options);
+    video.play();
+  }
+ watched(video, event){
+    event.target.webkitExitFullScreen();
   }
   createFilteredKeyWordArray(){
     this.filteredSigns = []; 
