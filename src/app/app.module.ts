@@ -66,7 +66,6 @@ export function provideSettings(storage: Storage) {
     IonicStorageModule.forRoot(),
     SuperTabsModule.forRoot(),
     IonicImageViewerModule
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [

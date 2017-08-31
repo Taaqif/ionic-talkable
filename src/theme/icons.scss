@@ -1,0 +1,99 @@
+/*
+@import "variables";
+
+@font-face {
+  font-family: 'talkable';
+  src:  url('../assets/fonts/talkable.eot?uett3c');
+  src:  url('../assets/fonts/talkable.eot?uett3c#iefix') format('embedded-opentype'),
+    url('../assets/fonts/talkable.ttf?uett3c') format('truetype'),
+    url('../assets/fonts/talkable.woff?uett3c') format('woff'),
+    url('../assets/fonts/talkable.svg?uett3c#talkable') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="talkable-"], [class*=" talkable-"] {
+  // use !important to prevent issues with browser extensions that change fonts 
+  font-family: 'talkable' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  // Better Font Rendering =========== 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ion-ios-talkable-hints {
+  &:before {
+    //content: $talkable-hints;
+    content: '\e900';
+    font-size: 26px;
+  }
+}
+.ion-ios-talkable-key {
+  &:before {
+    //content: $talkable-key;
+        content: '\e901';
+        font-size: 26px;
+  }
+}
+.ion-ios-talkable-story {
+  &:before {
+    //content: $talkable-story;
+        content: '\e902';
+        font-size: 26px;
+  }
+}
+.ion-ios-talkable-tracker {
+  &:before {
+    //content: $talkable-tracker;
+        content: '\e903';
+        font-size: 26px;
+  }
+}
+.ion-ios-talkable-video {
+  &:before {
+    //content: $talkable-video;
+        content: '\e904';
+        font-size: 26px;
+  }
+}
+.ion-md-talkable-hints {
+  &:before {
+    //content: $talkable-hints;
+    content: '\e900';
+    font-size: 26px;
+  }
+}
+.ion-md-talkable-key {
+  &:before {
+    //content: $talkable-key;
+        content: '\e901';
+        font-size: 26px;
+  }
+}
+.ion-md-talkable-story {
+  &:before {
+    //content: $talkable-story;
+        content: '\e902';
+        font-size: 26px;
+  }
+}
+.ion-md-talkable-tracker {
+  &:before {
+    //content: $talkable-tracker;
+        content: '\e903';
+        font-size: 26px;
+  }
+}
+.ion-md-talkable-video {
+  &:before {
+    //content: $talkable-video;
+        content: '\e904';
+        font-size: 26px;
+  }
+}
+*/
