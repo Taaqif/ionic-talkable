@@ -97,8 +97,9 @@ export class Talkable {
       { id: 'TenWeekProgramPage', title: 'Entire Program', component: TenWeekProgramPage, icon: "ios-expand-outline"},
     ];
     this.wordPages = [
-      { id: 'KeyWordSignsPage', title: 'Key Word Signs', component: KeyWordSignsPage, icon: "ios-key-outline" },
-      { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "ios-clipboard-outline" },
+      { id: 'KeyWordSignsPage', title: 'Key Word Signs', component: KeyWordSignsPage, icon: "talkable-key" },
+      { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "talkable-tracker" },
+     // { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "ios-clipboard-outline" },
     ];
     this.settingsPages = [
       { id: "SettingsPage", title: 'Settings', component: SettingsPage, icon: "settings" }

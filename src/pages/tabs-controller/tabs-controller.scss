@@ -1,129 +1,101 @@
 page-tabs-controller {
 
 }
-super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button.title-and-icon ion-icon{
-    margin:0;
+super-tab ion-navbar.toolbar.toolbar-ios.statusbar-padding{
+    margin-top:20px;
+}
+ion-app.ios [padding], ion-app.ios [padding] .scroll-content {
+    margin-top: 16px;
+    }
+
+
+super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button.title-and-icon {
+    margin:0px;
+    text-transform:none;
+    text-align:center;
+    white-space: normal;
+    padding-top: 8px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    font-size:14px;
+    font-weight:400;
     
 }
-super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button {
-text-transform:none;
-white-space: normal;
-padding-top: 0px;
-padding-right: 0px;
-padding-bottom: 0px;
-padding-left: 0px;
-font-size:12px;
-font-weight:400;
+super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button.title-and-icon ion-icon {
+margin-bottom:0;
 }
-
-.talkable-hints,
-.ion-md-talkable-hints,
-.ion-ios-talkable-hints,
-.ion-ios-talkable-hints-outline,
-.ion-md-talkable-hints-outline,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-hints,
-.ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-hints,
-.talkable-hints:before,
-.ion-md-talkable-hints:before,
-.ion-ios-talkable-hints:before,
-.ion-ios-talkable-hints-outline:before,
-.ion-md-talkable-hints-outline:before,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-hints:before {
- 
-    //content: $talkable-hints;
-    content: url(../assets/icon/hints.svg);
-    //content: '\e900';
+/*
+//WHITE
+talkable-hints-white:before,
+ion-md-talkable-hints-white:before,
+ion-ios-talkable-hints-white:before,
+ion-ios-talkable-hints-white-outline:before,
+ion-md-talkable-hints-white-outline:before,
+ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-hints-white:before,
+ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-hints-white:before
+ {
+    content: url('assets/icon/hints_white.svg');
+    width:32px;
+    height:32px;
+    padding:0;
+    opacity: 0.9;
+}
+talkable-key-white:before,
+ion-md-talkable-key-white:before,
+ion-ios-talkable-key-white:before,
+ion-ios-talkable-key-white-outline:before,
+ion-md-talkable-key-white-outline:before,
+ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-key-white:before,
+ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-key-white:before
+ {
+    content: url('assets/icon/key_white.svg');
     width:32px;
     height: 32px;
     padding:0;
     opacity: 0.9;
-    color: #f4f4f4;
-  }
+}
+talkable-story-white:before,
+ion-md-talkable-story-white:before,
+ion-ios-talkable-story-white:before,
+ion-ios-talkable-story-white-outline:before,
+ion-md-talkable-story-white-outline:before,
+ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-story-white:before,
+ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-story-white:before
+ {
+    content: url('assets/icon/story_white.svg');
+    width:32px;
+    height: 32px;
+    padding:0;
+    opacity: 0.9;
+}
+talkable-tracker-white:before,
+ion-md-talkable-tracker-white:before,
+ion-ios-talkable-tracker-white:before,
+ion-ios-talkable-tracker-white-outline:before,
+ion-md-talkable-tracker-white-outline:before,
+ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-tracker-white:before,
+ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-tracker-white:before
+ {
+    content: url('assets/icon/tracker_white.svg');
+    width:32px;
+    height: 32px;
+    padding:0;
+    opacity: 0.9;
+}
 
-.talkable-key,
-.ion-md-talkable-key,
-.ion-ios-talkable-key,
-.ion-ios-talkable-key-outline,
-.ion-md-talkable-key-outline,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-key,
-.ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-key,
-.talkable-key:before,
-.ion-md-talkable-key:before,
-.ion-ios-talkable-key:before,
-.ion-ios-talkable-key-outline:before,
-.ion-md-talkable-key-outline:before,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-key:before {
-    //content: $talkable-key;
-        //content: '\e901';
-        content: url(../assets/icon/key.svg);
-        width:32px;
-        height: 32px;
-        padding:0;
-        opacity: 0.9;
-        color: #f4f4f4;
-  }
-.talkable-story,
-.ion-md-talkable-story,
-.ion-ios-talkable-story,
-.ion-ios-talkable-story-outline,
-.ion-md-talkable-story-outline,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable.story,
-.ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable.story
-.talkable-story:before,
-.ion-md-talkable-story:before,
-.ion-ios-talkable-story:before,
-.ion-ios-talkable-story-outline:before,
-.ion-md-talkable-story-outline:before,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable.story:before{
-    //content: $talkable-story;
-    content: url(../assets/icon/story.svg);
-        //content: '\e902';
-        width:32px;
-        height: 32px;
-        padding:0;
-        opacity: 0.9;
-        color: #f4f4f4;
-  }
-.talkable-tracker,
-.ion-md-talkable-tracker,
-.ion-ios-talkable-tracker,
-.ion-ios-talkable-tracker-outline,
-.ion-md-talkable-tracker-outline,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-tracker,
-.ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-tracker,
-.talkable-tracker:before,
-.ion-md-talkable-tracker:before,
-.ion-ios-talkable-tracker:before,
-.ion-ios-talkable-tracker-outline:before,
-.ion-md-talkable-tracker-outline:before,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-tracker:before, {
-    //content: $talkable-tracker;
-        //content: '\e903';
-        content: url(../assets/icon/tracker.svg);
-        width:32px;
-        height: 32px;
-        padding:0;
-        opacity: 0.9;
-        color: #f4f4f4;
-  }
-.talkable-video,
-.ion-md-talkable-video,
-.ion-ios-talkable-video,
-.ion-ios-talkable-video-outline,
-.ion-md-talkable-video-outline,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-video,
-.talkable-video:before,
-.ion-md-talkable-video:before,
-.ion-ios-talkable-video:before,
-.ion-ios-talkable-video-outline:before,
-.ion-md-talkable-video-outline:before,
-.ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-video:before, {
-    //content: $talkable-video;
-        //content: '\e904';
-        content: url(../assets/icon/video.svg);
-        width:32px;
-        height: 32px;
-        padding:0;
-        opacity: 0.9;
-        color: #f4f4f4;
-  }
+talkable-video-white:before,
+ion-md-talkable-video-white:before,
+ion-ios-talkable-video-white:before,
+ion-ios-talkable-video-white-outline:before,
+ion-md-talkable-video-white-outline:before,
+ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-video-white:before,
+ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-video-white:before
+ {
+    content: url('assets/icon/video_white.svg');
+    width:32px;
+    height: 32px;
+    padding:0;
+    opacity: 0.9;
+}
+*/

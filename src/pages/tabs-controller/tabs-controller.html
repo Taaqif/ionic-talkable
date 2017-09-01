@@ -1,18 +1,22 @@
 
-
+<!--
 <ng-template #loading>
 
 </ng-template>
-<!--
+
       <ion-header>
         <ion-navbar>
-            <ion-title></ion-title>
+                <button ion-button menuToggle>
+                        <ion-icon name="menu"></ion-icon>
+                      </button>
+        <ion-title></ion-title>
         </ion-navbar>
     </ion-header>
 
     <ion-content>
 
     </ion-content>
+    
 <ion-tabs *ngIf="week;else loading" id="tabsController-tabs1">
   <ion-tab [root]="videoTabRoot" tabTitle="Videos" tabIcon="talkable-video" id="tabsController-videoTab" [rootParams]="{ w: week }"></ion-tab>
   <ion-tab [root]="storyTabRoot" tabTitle="Story Time" tabIcon="talkable-story" id="tabsController-storyTab" [rootParams]="{ w: week }"></ion-tab>
@@ -21,9 +25,9 @@
 </ion-tabs>
 -->
 <super-tabs *ngIf="week;else loading" id="tabsController-tabs1" [config]="{ sideMenu: 'left' }" tabsPlacement="bottom" indicatorColor="light" toolbarColor="light" text-transform="lowercase">
-    <super-tab [root]="videoTabRoot" title="Videos" icon="talkable-video" id="tabsController-videoTab" [rootParams]="{ w: week }"></super-tab>
-    <super-tab [root]="storyTabRoot" title="Story Time" icon="talkable-story" id="tabsController-storyTab" [rootParams]="{ w: week }"></super-tab>
-    <super-tab [root]="weeklySignsTabRoot" title="Key Word Signs" icon="talkable-key" id="tabsController-weeklySignsTab" [rootParams]="{ w: week }"></super-tab>
-    <super-tab [root]="hintsTipsTabRoot" title="Hints & Tips" icon="talkable-hints" id="tabsController-hintsTipsTab" [rootParams]="{ w: week }"></super-tab>
+    <super-tab [root]="videoTabRoot" title="Videos" icon="talkable-video-white" id="tabsController-videoTab" [rootParams]="{ w: week }"></super-tab>
+    <super-tab [root]="storyTabRoot" title="Story Time" icon="talkable-story-white" id="tabsController-storyTab" [rootParams]="{ w: week }"></super-tab>
+    <super-tab [root]="weeklySignsTabRoot" title="Key Word Signs" icon="talkable-key-white" id="tabsController-weeklySignsTab" [rootParams]="{ w: week }"></super-tab>
+    <super-tab [root]="hintsTipsTabRoot" title="Hints & Tips" icon="talkable-hints-white" id="tabsController-hintsTipsTab" [rootParams]="{ w: week }"></super-tab>
 </super-tabs>
 
