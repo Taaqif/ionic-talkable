@@ -62,11 +62,16 @@ export function provideSettings(storage: Storage) {
   imports: [
     HttpModule,
     BrowserModule,
-    IonicModule.forRoot(Talkable),
+    IonicModule.forRoot(Talkable,{
+      platforms: {
+        ios: {
+          statusbarPadding: true
+        }
+      } 
+    }),
     IonicStorageModule.forRoot(),
     SuperTabsModule.forRoot(),
     IonicImageViewerModule
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -21,6 +21,8 @@
                 <!-- <ion-list-header>
                     10 Week Program
                 </ion-list-header> -->
+
+
                  <button ion-item *ngFor="let p of programPages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
                     <ion-icon *ngIf='p.icon' item-start [name]="p.icon"></ion-icon>
                     {{p.title}}
@@ -34,6 +36,8 @@
                     {{s.title}}
                 </button>
             </ion-list>
+
+
             <!-- <ion-list>
                  <button ion-item *ngFor="let w of wordPages" [class.activeHighlight]="checkActive(w)" (click)="openPage(w)">
                     <ion-icon *ngIf='w.icon' item-start [name]="w.icon"></ion-icon>
