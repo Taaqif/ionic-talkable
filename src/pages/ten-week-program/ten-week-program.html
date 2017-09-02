@@ -4,22 +4,36 @@
             menuToggle="">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>10 Week Prgram Overview</ion-title>
+    <ion-title>Program Overview</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content id="tenWeekProgram">
-  <div *ngIf='loaded'>
+  <div *ngIf='loaded'>  
     <ion-card *ngFor='let week of allWeeks'>
-      <ion-card-header>
-        <h1>  Week {{week.number}} </h1>
-      </ion-card-header>
-
-      <ion-card-content>
-        {{week.title}} <br>
-        Description of week can go here <br>
-        <button ion-button (click)='goToWeeklyTabs(week.number)'>View Week {{week.number}}</button>
-      </ion-card-content>
+      <ion-row>
+        <ion-col align-self-start>
+            <div>
+            <ion-note item-start>
+                Week {{week.number}} 
+              </ion-note>
+          
+            <h2>{{week.title}}</h2>
+        <!--<h1>  Week {{week.number}} </h1>
+        <p>{{week.title}}</p>-->
+        <p>Description of week can go here</p>
+          </div>
+      </ion-col>
+      <ion-col col-auto align-self-end >
+        <div>
+    <button ion-button (click)='goToWeeklyTabs(week.number)'>View</button>
+        </div>
+      </ion-col>
+    </ion-row>
       
+
+      <!--
+      <button ion-button item-end (click)='goToWeeklyTabs(week.number)'>View Week {{week.number}}</button>
+      -->
     </ion-card>
   </div>
 </ion-content>
