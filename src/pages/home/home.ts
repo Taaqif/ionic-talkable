@@ -10,8 +10,6 @@ import { FileServiceProvider } from "../../providers/file-service/file-service";
   templateUrl: 'home.html'
 })
 
-
-
 export class HomePage {
 
 

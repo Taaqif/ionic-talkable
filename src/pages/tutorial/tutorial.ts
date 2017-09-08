@@ -26,11 +26,12 @@ export class TutorialPage {
   ) { }
 
   startApp() {
-    this.storage.get('currentWeek').then((data) => {
-      this.navCtrl.setRoot(TabsControllerPage, data); 
-      this.fs.setActivePage('weeklyPage'+data);
-      this.storage.set('hasSeenTutorial', 'true');
-    })
+    this.storage.set('started on', new Date().toDateString());
+    this.storage.set('currentWeek', 1);
+    
+    this.navCtrl.setRoot(TabsControllerPage, 1); 
+    this.fs.setActivePage('weeklyPage1');
+    this.storage.set('hasSeenTutorial', 'true');
   }
 
   onSlideChangeStart(slider: Slides) {
