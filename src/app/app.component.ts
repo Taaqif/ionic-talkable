@@ -3,6 +3,7 @@ import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import * as moment from 'moment';
 
 
 import { HomePage } from '../pages/home/home';
@@ -87,10 +88,20 @@ export class Talkable {
       }
       this.initializeApp();
     });
-    
-    storage.set('currentWeek', 1).then(success => {
-      this.fs.setCurrentWeek(1);
-    });
+    this.storage.get('startedOn').then(date => {
+      let started = moment(date);
+      let now = moment();
+      let timediff = (now.diff(started, 'days') / 7) >> 0;
+      //multiple of 7 (aka a week)
+      if(timediff > 0){
+         storage.get('currentWeek').then(success => {
+           if(success <= 10){
+             this.storage.set('currentWeek', timediff);
+           }
+          });
+      }
+    })
+   
     // used for an example of ngFor and navigation
     this.programPages = [
       { id: 'CurrentWeekPage', title: 'Current Week', component: TabsControllerPage, icon: "ios-happy-outline", param: 1},

@@ -21,14 +21,15 @@
       <source src="https://www.youtube.com/embed/q8f-DoL1dqQ" type="video/mp4">  
     </video> -->
       
-    <video [attr.id]='v.id' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(v, $event);" hidden>
+    <video [attr.id]='v.path' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(v, $event);" hidden>
         <source [attr.src]="v.path" type='video/mp4' >
     </video>   
     
-    <ion-item>
-        <ion-thumbnail item-end (click)='playVideo(v.id)'>
+    <ion-item (click)='playVideo(v.path)'>
+        <button ion-button clear item-end large><ion-icon name="play"></ion-icon></button>
+        <!-- <ion-thumbnail item-end >
           <img src="assets/img/vidthumb.jpg" style="object-fit:cover">
-        </ion-thumbnail>
+        </ion-thumbnail> -->
         <h1>{{v.title}}</h1>
         <p>{{v.description}}</p>
       </ion-item>
