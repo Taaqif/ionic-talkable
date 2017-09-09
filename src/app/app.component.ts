@@ -104,8 +104,8 @@ export class Talkable {
    
     // used for an example of ngFor and navigation
     this.programPages = [
-      { id: 'CurrentWeekPage', title: 'Current Week', component: TabsControllerPage, icon: "ios-happy-outline", param: 1},
-      { id: 'TenWeekProgramPage', title: 'Entire Program', component: TenWeekProgramPage, icon: "ios-expand-outline"},
+      { id: 'CurrentWeekPage', title: 'Current Week', component: TabsControllerPage, icon: "talkable-current", param: 1},
+      { id: 'TenWeekProgramPage', title: 'Entire Program', component: TenWeekProgramPage, icon: "talkable-overview"},
     ];
     this.wordPages = [
       { id: 'KeyWordSignsPage', title: 'Key Word Signs', component: KeyWordSignsPage, icon: "talkable-key" },
@@ -113,7 +113,7 @@ export class Talkable {
      // { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "ios-clipboard-outline" },
     ];
     this.settingsPages = [
-      { id: "SettingsPage", title: 'Settings', component: SettingsPage, icon: "settings" }
+      { id: "SettingsPage", title: 'Settings', component: SettingsPage, icon: "talkable-settings" }
     ];
 
     // this.weeklyPages = [

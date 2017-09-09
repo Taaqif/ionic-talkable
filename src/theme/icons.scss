@@ -1,185 +1,159 @@
-@import "variables";
-
+@charset "UTF-8";
+@import 'variables';
+@import url("../assets/fonts");
 @font-face {
   font-family: 'talkable';
-  src:  url('../assets/fonts/talkable.eot?mf7uzo');
-  src:  url('../assets/fonts/talkable.eot?mf7uzo#iefix') format('embedded-opentype'),
-    url('../assets/fonts/talkable.ttf?mf7uzo') format('truetype'),
-    url('../assets/fonts/talkable.woff?mf7uzo') format('woff'),
-    url('../assets/fonts/talkable.svg?mf7uzo#talkable') format('svg');
+  src: url("../assets/fonts/talkable.svg?#talkable") ;
+  src:  url("../assets/fonts/talkable.svg?#talkable") format('svg'),
+  url('../assets/fonts/talkable.eot?') format('embedded-opentype'),
+  url('../assets/fonts/talkable.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/talkable.ttf?') format('truetype'),
+    url('../assets/fonts/talkable.woff?') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-.icon {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'talkable' !important;
-  //speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+.talkable,
+.talkable-settings:before,
+.ion-md-talkable-settings:before,
+.ion-ios-talkable-settings:before,
+.ion-ios-talkable-settings-outline:before,
+.ion-md-talkable-settings-outline:before,
+.talkable-current:before,
+.ion-md-talkable-current:before,
+.ion-ios-talkable-current:before,
+.ion-ios-talkable-current-outline:before,
+.ion-md-talkable-current-outline:before,
+.talkable-overview:before,
+.ion-md-talkable-overview:before,
+.ion-ios-talkable-overview:before,
+.ion-ios-talkable-overview-outline:before,
+.ion-md-talkable-overview-outline:before, 
+.talkable-key-white:before,
+.ion-md-talkable-key-white:before,
+.ion-ios-talkable-key-white:before,
+.ion-ios-talkable-key-white-outline:before,
+.ion-md-talkable-key-white-outline:before,
+.talkable-key:before,
+.ion-md-talkable-key:before,
+.ion-ios-talkable-key:before,
+.ion-ios-talkable-key-outline:before,
+.ion-md-talkable-key-outline:before,
+.talkable-hints-white:before,
+.ion-md-talkable-hints-white:before,
+.ion-ios-talkable-hints-white:before,
+.ion-ios-talkable-hints-white-outline:before,
+.ion-md-talkable-hints-white-outline:before,
+.talkable-hints:before,
+.ion-md-talkable-hints:before,
+.ion-ios-talkable-hints:before,
+.ion-ios-talkable-hints-outline:before,
+.ion-md-talkable-hints-outline:before,
+.talkable-story-white:before,
+.ion-md-talkable-story-white:before,
+.ion-ios-talkable-story-white:before,
+.ion-ios-talkable-story-white-outline:before,
+.ion-md-talkable-story-white-outline:before,
+.talkable-story:before,
+.ion-md-talkable-story:before,
+.ion-ios-talkable-story:before,
+.ion-ios-talkable-story-outline:before,
+.ion-md-talkable-story-outline:before,
+.talkable-tracker-white:before,
+.ion-md-talkable-tracker-white:before,
+.ion-ios-talkable-tracker-white:before,
+.ion-ios-talkable-tracker-white-outline:before,
+.ion-md-talkable-tracker-white-outline:before,
+.talkable-tracker:before,
+.ion-md-talkable-tracker:before,
+.ion-ios-talkable-tracker:before,
+.ion-ios-talkable-tracker-outline:before,
+.ion-md-talkable-tracker-outline:before,
+.talkable-video-white:before,
+.ion-md-talkable-video-white:before,
+.ion-ios-talkable-video-white:before,
+.ion-ios-talkable-video-white-outline:before,
+.ion-md-talkable-video-white-outline:before,
 .talkable-video:before,
 .ion-md-talkable-video:before,
 .ion-ios-talkable-video:before,
 .ion-ios-talkable-video-outline:before,
 .ion-md-talkable-video-outline:before {
-    content: "\e900";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:black;
+    display: inline-block;
+    font-family: "talkable";
+    speak: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 100;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+.talkable-video,
+.talkable-video:before,
+.ion-md-talkable-video:before,
+.ion-ios-talkable-video:before,
+.ion-ios-talkable-video-outline:before,
+.ion-md-talkable-video-outline:before {
+    content: "\e904";
+}
+
 .talkable-tracker:before,
 .ion-md-talkable-tracker:before,
 .ion-ios-talkable-tracker:before,
 .ion-ios-talkable-tracker-outline:before,
 .ion-md-talkable-tracker-outline:before {
-    content: "\e901";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:black;
+    content: "\e903";
 }
+
 .talkable-story:before,
 .ion-md-talkable-story:before,
 .ion-ios-talkable-story:before,
 .ion-ios-talkable-story-outline:before,
 .ion-md-talkable-story-outline:before {
     content: "\e902";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:black;
 }
+
 .talkable-hints:before,
 .ion-md-talkable-hints:before,
 .ion-ios-talkable-hints:before,
 .ion-ios-talkable-hints-outline:before,
 .ion-md-talkable-hints-outline:before {
-    content: "\e904";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:black;
+    content: "\e900";
 }
+
 .talkable-key:before,
 .ion-md-talkable-key:before,
 .ion-ios-talkable-key:before,
 .ion-ios-talkable-key-outline:before,
 .ion-md-talkable-key-outline:before {
-    content: "\e903";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:black;
+    content: "\e901";
 }
 
-.talkable-video-white:before,
-.ion-md-talkable-video-white:before,
-.ion-ios-talkable-video-white:before,
-.ion-ios-talkable-video-white-outline:before,
-.ion-md-talkable-video-white-outline:before {
-    content: "\e900";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:#fff;
+.talkable-current:before,
+.ion-md-talkable-current:before,
+.ion-ios-talkable-current:before,
+.ion-ios-talkable-current-outline:before,
+.ion-md-talkable-current-outline:before {
+    content: "\e905";
 }
-.talkable-tracker-white:before,
-.ion-md-talkable-tracker-white:before,
-.ion-ios-talkable-tracker-white:before,
-.ion-ios-talkable-tracker-white-outline:before,
-.ion-md-talkable-tracker-white-outline:before {
-    content: "\e901";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:#fff;
+.talkable-overview:before,
+.ion-md-talkable-overview:before,
+.ion-ios-talkable-overview:before,
+.ion-ios-talkable-overview-outline:before,
+.ion-md-talkable-overview-outline:before {
+    content: "\e906";
 }
-.talkable-story-white:before,
-.ion-md-talkable-story-white:before,
-.ion-ios-talkable-story-white:before,
-.ion-ios-talkable-story-white-outline:before,
-.ion-md-talkable-story-white-outline:before {
-    content: "\e902";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:#fff;
+.talkable-settings:before,
+.ion-md-talkable-settings:before,
+.ion-ios-talkable-settings:before,
+.ion-ios-talkable-settings-outline:before,
+.ion-md-talkable-settings-outline:before {
+    content: "\e907";
 }
-.talkable-hints-white:before,
-.ion-md-talkable-hints-white:before,
-.ion-ios-talkable-hints-white:before,
-.ion-ios-talkable-hints-white-outline:before,
-.ion-md-talkable-hints-white-outline:before {
-    content: "\e904";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:#fff;
-}
-.talkable-key-white:before,
-.ion-md-talkable-key-white:before,
-.ion-ios-talkable-key-white:before,
-.ion-ios-talkable-key-white-outline:before,
-.ion-md-talkable-key-white-outline:before {
-    content: "\e903";
-    width:32px;
-    height: 32px;
-    padding:0;
-    margin:0px;
-    opacity: 0.9;
-    color:#fff;
-}
-/*
-.talkable-video {
-  &:before {
-    content: $talkable-video;
-  }
-}
-.talkable-tracker {
-  &:before {
-    content: $talkable-tracker;
-  }
-}
-.talkable-story {
-  &:before {
-    content: $talkable-story;
-  }
-}
-.talkable-key {
-  &:before {
-    content: $talkable-key;
-  }
-}
-.talkable-hints {
-  &:before {
-    content: $talkable-hints;
-  }
-}
-*/
+
+
+

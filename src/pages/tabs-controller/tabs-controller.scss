@@ -1,6 +1,7 @@
 page-tabs-controller {
-
+//@import url("../assets/fonts");
 }
+
 super-tab ion-navbar.toolbar.toolbar-ios.statusbar-padding{
     margin-top:20px;
 }
@@ -18,84 +19,12 @@ super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons sup
     padding-right: 0px;
     padding-bottom: 0px;
     padding-left: 0px;
-    font-size:14px;
-    font-weight:400;
+    font-size:90%;
+    font-weight:100;
     
 }
-super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button.title-and-icon ion-icon {
-margin-bottom:0;
-}
-/*
-//WHITE
-talkable-hints-white:before,
-ion-md-talkable-hints-white:before,
-ion-ios-talkable-hints-white:before,
-ion-ios-talkable-hints-white-outline:before,
-ion-md-talkable-hints-white-outline:before,
-ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-hints-white:before,
-ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-hints-white:before
- {
-    content: url('assets/icon/hints_white.svg');
-    width:32px;
-    height:32px;
-    padding:0;
-    opacity: 0.9;
-}
-talkable-key-white:before,
-ion-md-talkable-key-white:before,
-ion-ios-talkable-key-white:before,
-ion-ios-talkable-key-white-outline:before,
-ion-md-talkable-key-white-outline:before,
-ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-key-white:before,
-ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-key-white:before
- {
-    content: url('assets/icon/key_white.svg');
-    width:32px;
-    height: 32px;
-    padding:0;
-    opacity: 0.9;
-}
-talkable-story-white:before,
-ion-md-talkable-story-white:before,
-ion-ios-talkable-story-white:before,
-ion-ios-talkable-story-white-outline:before,
-ion-md-talkable-story-white-outline:before,
-ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-story-white:before,
-ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-story-white:before
- {
-    content: url('assets/icon/story_white.svg');
-    width:32px;
-    height: 32px;
-    padding:0;
-    opacity: 0.9;
-}
-talkable-tracker-white:before,
-ion-md-talkable-tracker-white:before,
-ion-ios-talkable-tracker-white:before,
-ion-ios-talkable-tracker-white-outline:before,
-ion-md-talkable-tracker-white-outline:before,
-ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-tracker-white:before,
-ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-tracker-white:before
- {
-    content: url('assets/icon/tracker_white.svg');
-    width:32px;
-    height: 32px;
-    padding:0;
-    opacity: 0.9;
-}
 
-talkable-video-white:before,
-ion-md-talkable-video-white:before,
-ion-ios-talkable-video-white:before,
-ion-ios-talkable-video-white-outline:before,
-ion-md-talkable-video-white-outline:before,
-ion-icon.icon.icon-md.icon-md-light.ion-md-talkable-video-white:before,
-ion-icon.icon.icon-ios.icon-ios-light.ion-ios-talkable-video-white:before
- {
-    content: url('assets/icon/video_white.svg');
-    width:32px;
-    height: 32px;
-    padding:0;
-    opacity: 0.9;
+super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button.title-and-icon ion-icon {
+margin-bottom:0px;
+font-size:250%;
 }
-*/
