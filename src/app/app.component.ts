@@ -19,7 +19,8 @@ import { Settings } from "../providers/settings";
 export interface PageInterface {
   title: string;
   component: any;
-  weekPage?: any
+  weekPage?: any;
+  
 }
 @Pipe({
   name: 'chunks'
@@ -50,7 +51,6 @@ export class KeysPipe implements PipeTransform {
 
 export class Talkable {
   @ViewChild(Nav) nav: Nav;
-  
   rootPage: any;
   activePage: any;
   pageReady: boolean = false;
@@ -191,7 +191,7 @@ export class Talkable {
 
     
   }
-  
+
   
 checkActive(page){
   return page.id == this.fs.getActivePage();

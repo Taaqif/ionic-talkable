@@ -22,17 +22,28 @@ $app-direction: ltr;
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
-$colors:(primary: #54899b,secondary: #ffca28,danger: #f53d3d,light: #f4f4f4,dark: #212121,
-week1:(base:white,contrast:#54899b),
-week2:(base:white,contrast:#7160a9),
-week3:(base:white,contrast:#75485e),
-week4:(base:white,contrast:#cf4d50),
-week5:(base:white,contrast:#e25727),
-week6:(base:white,contrast:#f37748),
-week7:(base:white,contrast:#ffca28),
-week8:(base:white,contrast:#6fc694),
-week9:(base:white,contrast:#00acc1),
-week10:(base:white,contrast:#0a465b));
+$colors:(primary: #54899b,secondary: #ffca28,danger: #f53d3d,light: #f4f4f4,dark: #212121,gone:transparent,
+1:(base:#54899b,contrast:white),
+1m:(base:white,contrast:#54899b),
+2:(base:#7160a9,contrast:white),
+2m:(base:white,contrast:#7160a9),
+3:(base:#75485e,contrast:white),
+3m:(base:white,contrast:#75485e),
+4:(base:#cf4d50,contrast:white),
+4m:(base:white,contrast:#cf4d50),
+5:(base:#e25727,contrast:white),
+5m:(base:white,contrast:#e25727),
+6:(base:#f37748,contrast:white),
+6m:(base:white,contrast:#f37748),
+7:(base:#ffca28,contrast:white),
+7m:(base:white,contrast:#ffca28),
+8:(base:#6fc694,contrast:white),
+8m:(base:white,contrast:#6fc694),
+9:(base:#00acc1,contrast:white),
+9m:(base:white,contrast:#00acc1),
+10:(base:#0a465b,contrast:white),
+10m:(base:white,contrast:#0a465b)
+);
 
 // App iOS Variables
 // --------------------------------------------------
@@ -42,6 +53,7 @@ week10:(base:white,contrast:#0a465b));
 // Material Design only Sass variables can go here
 $toolbar-md-background: #54899b;
 $toolbar-md-text-color: #fff;
+
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here

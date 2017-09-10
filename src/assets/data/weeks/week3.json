@@ -1,6 +1,7 @@
 {
     "number": 3,
-    "title": " ",
+    "title": "Repeat, Model Expand",
+    "description":"Explore three interrelated strategies for teaching your child new words - repetition, modelling new words and expanding on your child’s phrases.",
     "videos": [{
         "id": "w3_1",
         "title": "Expand",
@@ -13,8 +14,7 @@
         "description": "",
         "path": "assets/vid/Week_3_RME_Model.mp4",
         "cover": ""
-    },
-    {
+    },{
         "id": "w3_3",
         "title": "Repeat",
         "description": "",
@@ -45,12 +45,20 @@
             "author": "Alison Lester"
         }]
     },
-    "weeklyKeyWordSigns": [
-        "Stop",
-        "Cat",
-        "Dog",
-        "Hot"
-    ],
+    "weeklyKeyWordSigns": [{
+        "videos":[
+            "Stop",
+            "Cat",
+            "Dog",
+            "Hot"
+            ],
+            "activities":[
+                "Get out to the park and have a run around. Stand still and say ‘stop’, modelling the sign.",
+                "Model the signs ‘cat’ and ‘dog’ when you share the book I went walking together.",
+                "When going for a walk, be on the lookout for cats and dogs. Model the signs as you see the animal.",
+                "Model the sign ‘hot’ to your child when having a hot drink, or if the stove or oven are on. Remember to always say the word as you sign."
+            ]
+        }],
     "hintsTips": [
         "Copy your child’s sounds, words, facial, expression, body language and gestures.",
         "Model language by talking all the time.",
