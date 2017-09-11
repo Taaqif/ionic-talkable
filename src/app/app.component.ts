@@ -91,11 +91,11 @@ export class Talkable {
     this.storage.get('startedOn').then(date => {
       let started = moment(date);
       let now = moment();
-      let timediff = (now.diff(started, 'days') / 7) >> 0;
+      let timediff = now.diff(started, 'week')
       //multiple of 7 (aka a week)
       if(timediff > 0){
          storage.get('currentWeek').then(success => {
-           if(success <= 10){
+           if(parseInt(success) <= 10 && timediff > parseInt(success) ){
              this.storage.set('currentWeek', timediff);
            }
           });
