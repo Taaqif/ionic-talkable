@@ -4,13 +4,13 @@
     "description": "Learn how taking a playful approach when interacting with your child helps to boost their language learning",
     "videos": [{
         "id": "w1_1",
-        "title": "Repeat, Model, Expand",
-        "description": "",
+        "title": "Being Playful - Part 1",
+        "description": "These videos highlight the importance of taking a playful approach when interacting with your child. They demonstrate how to integrate playful moments into everyday activities. Remember, when you are playful your child is engaged and when they are engaged they are learning.",
         "path": "assets/vid/w1_1-2.mp4",
         "cover": ""
     },{
         "id": "w1_2",
-        "title": "Part 2",
+        "title": "Being Playful - Part 2",
         "description": "",
         "path": "assets/vid/w1_2-2.mp4",
         "cover": ""
