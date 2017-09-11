@@ -1,0 +1,56 @@
+{
+    "number": 10,
+    "title": "Communication Temptations",
+    "description":"Learn how to have fun with a range of everyday activities and games aimed at encouraging your child to use language in a spontaneous way.",
+    "videos": [{
+        "id": "W10_1",
+        "title": "Communication Temptations",
+        "description": "This is the final video in the ten-week program and it explores the use of communication temptations to encourage your child to use words. It explains how to implement these tasks and gives a range of examples that you can integrate into everyday communication with your little one.",
+        "path": "assets/vid/week10/w10_1.mp4",
+        "cover": ""
+    }],
+    "book" : {
+        "title" : "Dear Zoo",
+        "author": "Rod Campbell",
+        "cover": "assets/img/book-cover/Week9.png",
+        "tips": [
+            "Lift the flap books can be great communication temptations and little hands often need a little help to open the flaps.",
+	        "Model the word “help” or “open” each time your child needs assistance.",
+	        "Talk about the animals that are hiding. Make the corresponding animal noises.",
+	        "Let your child turn the pages. Don’t worry if they keep going back to a favourite page, simply talk about what you can see."
+        ],
+        "alternateBooks": [{
+            "author": "Jeannette Rowe",
+            "title": "Whose Nose/Feet?"
+        },{
+            "author": "Eric Hil",
+            "title": "Where’s Spot?"
+        },{
+            "author": "Lynley Dodd",
+            "title": "Where is Hairy Maclary?"
+        },{
+            "author": "Nina Laden",
+            "title": "Peek-a Who?"
+        }]
+    },
+    "weeklyKeyWordSigns": [{
+        "videos":[
+            "Doll",
+            "Help",
+            "Open",
+            "Plane"
+            ],
+            "activities":[
+                "Sign the target word ‘help’ or ‘open’ during communication temptations.",
+                "Use short phrases like ‘mummy will help’ or ‘daddy will open it’ when your child needs your assistance.",
+                "Talk about the planes in the sky when you are out together. Use phrases like ‘big plane’ or ‘where’s the plane?’.",
+                "Play with dolls together. Talk about what the doll is doing. ‘Dolly is hungry’, ‘Dolly is eating’, ‘Dolly is drinking’, ‘Dolly is sleeping’, ‘Dolly is in the car’."
+            ]
+        }],
+    "hintsTips": [
+        "Choose activities that will be fun and motivating for your child.",
+        "Leave plenty of time for them to ask for ‘more’ or ‘help’ (or the target word of your choice).",
+        "Make sure your child is having fun. If they’re not, stop and move to another activity.",
+        "Avoid these types of activities when your child is tired."
+    ]
+}

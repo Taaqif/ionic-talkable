@@ -15,7 +15,7 @@
 // automatically applied to the <body> element in the app.
 @import "../theme/icons";
 .activeHighlight {
-    background-color: map-get($colors, light)
+  //background-color:;
 }
 .toolbar-title { 
   .subtitle {
@@ -45,64 +45,13 @@
   text-align: center;
 }
 
-/*
-//DEFAULT
-.talkable-video:before,
-.ion-md-talkable-video:before,
-.ion-ios-talkable-video:before,
-.ion-ios-talkable-video-outline:before,
-.ion-md-talkable-video-outline:before {
-    content: url(../assets/icon/video.svg);
-    width:32px;
-    height: 32px;
-    padding:0;
-    opacity: 0.9;
-}
-.talkable-tracker:before,
-.ion-md-talkable-tracker:before,
-.ion-ios-talkable-tracker:before,
-.ion-ios-talkable-tracker-outline:before,
-.ion-md-talkable-tracker-outline:before {
-    content: url(../assets/icon/tracker.svg);
-    width:32px;
-    height: 32px;
-    padding:0;
-    opacity: 0.9;
-}
-.talkable-story:before,
-.ion-md-talkable-story:before,
-.ion-ios-talkable-story:before,
-.ion-ios-talkable-story-outline:before,
-.ion-md-talkable-story-outline:before {
-    content: url(../assets/icon/story.svg);
-    width:32px;
-    height: 32px;
-    padding:0;
-    opacity: 0.9;
-}
-.talkable-hints:before,
-.ion-md-talkable-hints:before,
-.ion-ios-talkable-hints:before,
-.ion-ios-talkable-hints-outline:before,
-.ion-md-talkable-hints-outline:before {
-    content: url(../assets/icon/hints.svg);
-    width:32px;
-    height: 32px;
-    padding:0;
-    opacity: 0.9;
-}
-.talkable-key:before,
-.ion-md-talkable-key:before,
-.ion-ios-talkable-key:before,
-.ion-ios-talkable-key-outline:before,
-.ion-md-talkable-key-outline:before {
-    content: url(../assets/icon/key.svg);
-    width:32px;
-    height: 32px;
-    padding:0;
-    opacity: 0.9;
-}
-*/
+ .item-md,
+ .item-ios{
+  color: color($colors, 1);
+  }
+
+
+
 
 
 

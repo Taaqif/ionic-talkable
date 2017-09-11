@@ -1,14 +1,18 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>
-      {{ week.title }}
-      <p class='subtitle'>Week {{ week.number }}</p>
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+  <!-- This one for per week colors -->
+    <!-- <ion-navbar color="{{week.number}}"> -->
+    <!-- This one for Default colors -->
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>
+          <p class='subtitle'> Week {{ week.number }}</p>
+          {{ week.title }} 
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
 <ion-content id="hintsTipsPage">
   <ion-card text-wrap>
     <ion-card-header>
