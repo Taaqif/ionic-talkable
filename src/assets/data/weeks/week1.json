@@ -37,7 +37,7 @@
         }]
     },
 
-    "weeklyKeyWordSigns": [{
+    "weeklyKeyWordSigns": {
         "videos":[
             "Tickle",
             "Drink",
@@ -50,7 +50,7 @@
             "Build towers together out of blocks. Crash them over. Ask your child if they want ‘more’ or are ‘finished’. Model the sign as you say the words.",
             "Blow bubbles together. Ask your child if they want ‘more’ or are ‘finished’. Model the sign as you say the words."
         ]
-    }],
+    },
     "hintsTips": [
         "Your child learns language through play. So playtime is never wasted time.",
         "Get down on the floor with your child.",

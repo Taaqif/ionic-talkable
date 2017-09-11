@@ -30,7 +30,7 @@
             "author": "Alison Lester"
         }]
     },
-    "weeklyKeyWordSigns": [{
+    "weeklyKeyWordSigns": {
         "videos":[
             "Bath",
             "Wash",
@@ -43,7 +43,7 @@
                 "As you prepare your child for bed time, and at each nap, sign the word sleep. As you tuck your child in use the sign ‘love’.",
                 "Play with soft toys together. Put them to sleep, give them a bath or a drink, tickle them. Hide the toys and say “where’s teddy/cat/dog?”."
             ]
-        }],
+        },
     "hintsTips": [
         "Every interaction with your child is a language learning opportunity.",
         "Help your child “map” words onto their experiences by talking about what they are seeing, hearing, touching, tasting and smelling.",

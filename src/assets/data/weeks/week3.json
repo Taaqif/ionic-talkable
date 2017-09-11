@@ -45,7 +45,7 @@
             "author": "Alison Lester"
         }]
     },
-    "weeklyKeyWordSigns": [{
+    "weeklyKeyWordSigns": {
         "videos":[
             "Stop",
             "Cat",
@@ -58,7 +58,7 @@
                 "When going for a walk, be on the lookout for cats and dogs. Model the signs as you see the animal.",
                 "Model the sign ‘hot’ to your child when having a hot drink, or if the stove or oven are on. Remember to always say the word as you sign."
             ]
-        }],
+        },
     "hintsTips": [
         "Copy your child’s sounds, words, facial, expression, body language and gestures.",
         "Model language by talking all the time.",

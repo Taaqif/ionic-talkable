@@ -20,6 +20,7 @@ constructor(public navCtrl: NavController, public storage: Storage, public fs: F
 userProgress(){
   //Set to Week1Page until user progress can be restored from saved data
     this.storage.get('currentWeek').then((data) => {
+      console.log(data)
       this.navCtrl.setRoot(TabsControllerPage, data); 
       this.fs.setActivePage('weeklyPage'+data);
     })

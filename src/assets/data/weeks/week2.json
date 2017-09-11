@@ -36,7 +36,7 @@
             "author": "Pat Hutchins"
         }]
     },
-    "weeklyKeyWordSigns": [{
+    "weeklyKeyWordSigns": {
         "videos":[
             "Ball",
             "Eat",
@@ -49,7 +49,7 @@
                 "Choose a ‘big’ and little ball. Set up some blocks to knock over. Roll the ‘big ball’ to crash the blocks over. Model ‘more’ as you set the blocks up again.",
                 "Model the sign ‘love’ as you tuck your little one in every night. Play with soft toys, cuddle them and sign the word ‘love’."
             ]
-        }],
+        },
     "hintsTips": [
         "Be a ‘teacher’ not a ‘tester’.",
         "Ask less questions.",

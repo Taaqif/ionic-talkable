@@ -32,7 +32,7 @@
       </ion-col>
     </ion-row>
   </ion-grid> -->
-  <ion-card *ngFor='let word of weeklyKeyWordSigns'>
+  <ion-card *ngFor='let word of weeklyKeyWordSigns.videos'>
       <video [attr.id]='word' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(word, $event);" hidden>
         <source [attr.src]="'assets/vid/' + word.toLowerCase() + '.mp4'" type='video/mp4' >
     </video> 
@@ -51,14 +51,10 @@
         <ion-icon name="md-people" item-end style="float:right;"></ion-icon>
       </ion-card-header>
         <ion-list>
-          <ion-item>
+          <ion-item *ngFor='let activity of weeklyKeyWordSigns.activities'>
             <ion-icon name="ios-checkmark" item-start></ion-icon>
-            Activity
+            {{activity}}
           </ion-item>
-          <ion-item>
-              <ion-icon name="ios-checkmark" item-start></ion-icon>
-              Activity
-            </ion-item>
         </ion-list>
     </ion-card>
   <!-- <ion-grid>

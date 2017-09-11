@@ -101,7 +101,11 @@ export class Talkable {
           });
       }
     })
-   
+    this.storage.get('currentWeek').then((data) => {
+      if(data> 10){
+        this.storage.set('currentWeek', 10);
+      }
+    })
     // used for an example of ngFor and navigation
     this.programPages = [
       { id: 'CurrentWeekPage', title: 'Current Week', component: TabsControllerPage, icon: "talkable-current", param: 1},

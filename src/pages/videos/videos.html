@@ -17,7 +17,7 @@
   <div padding>
     <h1>{{week.title}}</h1>
     <p>Week {{week.number}}</p>
-    <p>Description of weekly content can go here</p>
+    <p>{{ week.description }}</p>
   </div>
   <ion-card *ngFor="let v of week.videos" text-wrap>
      <!-- <video fullscreen="fullscreen" controls>

@@ -12,7 +12,7 @@
     "book" : {
         "title" : "Dear Zoo",
         "author": "Rod Campbell",
-        "cover": "assets/img/book-cover/Week9.png",
+        "cover": "assets/img/book-cover/Week10.jpg",
         "tips": [
             "Lift the flap books can be great communication temptations and little hands often need a little help to open the flaps.",
 	        "Model the word “help” or “open” each time your child needs assistance.",
@@ -33,7 +33,7 @@
             "title": "Peek-a Who?"
         }]
     },
-    "weeklyKeyWordSigns": [{
+    "weeklyKeyWordSigns": {
         "videos":[
             "Doll",
             "Help",
@@ -46,7 +46,7 @@
                 "Talk about the planes in the sky when you are out together. Use phrases like ‘big plane’ or ‘where’s the plane?’.",
                 "Play with dolls together. Talk about what the doll is doing. ‘Dolly is hungry’, ‘Dolly is eating’, ‘Dolly is drinking’, ‘Dolly is sleeping’, ‘Dolly is in the car’."
             ]
-        }],
+        },
     "hintsTips": [
         "Choose activities that will be fun and motivating for your child.",
         "Leave plenty of time for them to ask for ‘more’ or ‘help’ (or the target word of your choice).",

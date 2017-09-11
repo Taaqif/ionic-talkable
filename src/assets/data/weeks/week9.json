@@ -12,7 +12,7 @@
     "book" : {
         "title" : "Kissed by the Moon",
         "author": "Alison Lester",
-        "cover": "assets/img/book-cover/Week9.png",
+        "cover": "assets/img/book-cover/Week9.jpg",
         "tips": [
             "Each time you read with your child offer them a choice between two books.",
 	        "Give them a choice of where you will read the book “on the chair or on the floor” (point as you offer the choice).",
@@ -27,7 +27,7 @@
             "title": "Sometimes I like to curl up in a ball"
         }]
     },
-    "weeklyKeyWordSigns": [{
+    "weeklyKeyWordSigns": {
         "videos":[
             "Baby",
             "Cold",
@@ -40,7 +40,7 @@
                 "Use the phrases ‘mummy’s home’ and ‘daddy’s home’ as you hear the keys in the front door.",
                 "Add the word cold to your bath time repertoire. Try phrases like ‘the bath’s cold’ or ‘cold water’."
             ]
-        }],
+        },
     "hintsTips": [
         "Think about how you could be offering your child choices in every day activities.",
         "Always show your child the choice as you say the word.",
