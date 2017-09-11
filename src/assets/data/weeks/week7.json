@@ -1,6 +1,7 @@
 {
     "number": 7,
-    "title": " ",
+    "title": "Exploring Sounds",
+    "description":"Discover how you can take the pressure off learning words by having fun and simply exploring sounds together.",
     "videos": [{
         "id": "w7_1",
         "title": "Part 1",
@@ -37,19 +38,24 @@
             "author": "Karen Blair"
         }]
     },
-    "weeklyKeyWordSigns": [
-        "Dirty",
-        "Home",
-        "Broken",
-        "Flower"
-    ],
+    "weeklyKeyWordSigns": [{
+        "videos":[
+            "Dirty",
+            "Home",
+            "Broken",
+            "Flower"
+            ],
+            "activities":[
+                "Use dirty when changing your child’s nappy or clothes, wiping their hands and at bath time. Say ‘you’re wet and dirty’ and ‘you’re dirty. Time for a bath’. ‘Wash’ that body.",
+                "Use the phrase ‘time to go home’ when leaving the park, shops or a friend’s house.",
+                "Children a usually very intrigued by things that are broken. Sign ‘broken’ when a glass breaks or you come across a broken toy.",
+                "Add the sign flower to your repertoire when you are out and about for a walk. Use phrases like ‘the bird is on the flower’."
+            ]
+        }],
     "hintsTips": [
         "Follow your child’s lead. Make sounds that match what they’re doing.",
         "Be exciting with the sounds that you make.",
         "Don’t ask your child to repeat you. Simply model sounds and wait to see what your child does.",
         "When your child makes a sound. Repeat it back with enthusiasm."
-
-
-
     ]
 }

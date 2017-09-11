@@ -1,0 +1,56 @@
+{
+    "number": 9,
+    "title": "Offering Choices",
+    "description":"Offering choices is a great way to expand your child’s vocabulary and phrase length. Explore this video to give your child a greater sense of control and also develop their language in a natural way.",
+    "videos": [{
+        "id": "",
+        "title": "Part 1",
+        "description": "",
+        "path": "assets/vid/week1/w1_1.mp4",
+        "cover": ""
+    },{
+        "id": "",
+        "title": "Part 2",
+        "description": "",
+        "path": "assets/vid/week1/w1_1.mp4",
+        "cover": ""
+    }],
+    "book" : {
+        "title" : "Kissed by the Moon",
+        "author": "Alison Lester",
+        "cover": "assets/img/book-cover/Week9.png",
+        "tips": [
+            "Each time you read with your child offer them a choice between two books.",
+	        "Give them a choice of where you will read the book “on the chair or on the floor” (point as you offer the choice).",
+	        "Talk about what you can see in the pictures. Keep your phrase length at your child’s language level.",
+	        "Model the signs ‘baby’, ‘mummy’ and ‘daddy’ as you talk about the pictures. Use the sign ‘cold’ when talking about the rain, snow and water at the beach."
+        ],
+        "alternateBooks": [{
+            "author": "Michael Rosen & Helen Oxenbury",
+            "title": "Going on a Bear Hunt"
+        },{
+            "author": "Charles Fuge & Vicki Churchill",
+            "title": "Sometimes I like to curl up in a ball"
+        }]
+    },
+    "weeklyKeyWordSigns": [{
+        "videos":[
+            "Baby",
+            "Cold",
+            "Daddy",
+            "Mummy"
+            ],
+            "activities":[
+                "Use the sign for baby as you play together. Use phrases like ‘baby’s sleeping’ or ‘baby’s hungry’.",
+                "Use the phrases ‘where’s mummy’ and ‘where’s daddy’ when playing hide and seek.",
+                "Use the phrases ‘mummy’s home’ and ‘daddy’s home’ as you hear the keys in the front door.",
+                "Add the word cold to your bath time repertoire. Try phrases like ‘the bath’s cold’ or ‘cold water’."
+            ]
+        }],
+    "hintsTips": [
+        "Think about how you could be offering your child choices in every day activities.",
+        "Always show your child the choice as you say the word.",
+        "Give your child time to choose and respond.",
+        "Don’t withhold items as this can lead to frustration, instead simply model the target word again as you give the child the item they want"
+    ]
+}

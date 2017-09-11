@@ -1,9 +1,10 @@
 {
     "number": 1,
-    "title": "Repeat, Model, Expand",
+    "title": "Being Playful",
+    "description": "Learn how taking a playful approach when interacting with your child helps to boost their language learning",
     "videos": [{
         "id": "w1_1",
-        "title": "Part 1",
+        "title": "Repeat, Model, Expand",
         "description": "",
         "path": "assets/vid/w1_1-2.mp4",
         "cover": ""
@@ -36,12 +37,20 @@
         }]
     },
 
-    "weeklyKeyWordSigns": [
-        "Tickle",
-        "Drink",
-        "Finish",
-        "More"
-    ],
+    "weeklyKeyWordSigns": [{
+        "videos":[
+            "Tickle",
+            "Drink",
+            "Finish",
+            "More"
+        ],
+        "activities":[
+            "Play tickle games with your little one. Model the signs ‘more’, ‘tickle’ and ‘finished’.",
+            "Model the signs ‘more’, ‘finished’ and ‘drink’ at mealtimes.",
+            "Build towers together out of blocks. Crash them over. Ask your child if they want ‘more’ or are ‘finished’. Model the sign as you say the words.",
+            "Blow bubbles together. Ask your child if they want ‘more’ or are ‘finished’. Model the sign as you say the words."
+        ]
+    }],
     "hintsTips": [
         "Your child learns language through play. So playtime is never wasted time.",
         "Get down on the floor with your child.",

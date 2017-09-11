@@ -1,6 +1,7 @@
 {
     "number": 8,
-    "title": " ",
+    "title": "Learning to Listen",
+    "description":"Learning to listen is a skill that develops over time. Watch this video to maximise your child’s ability to pay attention to the words you are saying.",
     "videos": [{
         "id": "w3_1",
         "title": "Part 1",
@@ -36,17 +37,24 @@
             "title": "Sue Williams & Julie Vivas"
         }]
     },
-    "weeklyKeyWordSigns": [
-        "Hat",
-        "Shoes",
-        "Thank You",
-        "Car"
-    ],
+    "weeklyKeyWordSigns": [{
+        "videos":[
+            "Hat",
+            "Shoes",
+            "Thank You",
+            "Car"
+            ],
+            "activities":[
+                "Sign hat and shoes as you get ready to play outside. Use the phrase ‘where’s your hat’ and ‘where are your shoes’ as you search for them together.",
+                "Practice modelling ‘thank you’ when your child gives you something.",
+                "Use the sign for car when you talk about going in the car. Car is also another great sign to use when you are out and about.",
+                "Play dress-ups with your teddy. Put the hat and shoes on the teddy."
+            ]
+        }],
     "hintsTips": [
         "Musical Instruments -  Talk about ‘loud’ and ‘quiet’, ‘fast’ and ‘slow’, ‘go’ and ‘stop’ as you play together.",
         "Object in a Bag – Hide a range of objects in a bag. Make the corresponding sound as your child pulls the items from the bag (for example, toy animals, toy phone, keys, shaker/rattle, toy cars).",
         "Environmental Sounds – Go for a walk together. Stop and listen to all the sounds you can hear. Talk about the sounds. For example “Oh that’s a dog barking. Woof Woof Woof”, “Listen to the bird”, “What a noisy motorbike!”.",
         "Hide and Seek – Hide a music box, musical toy or your phone. With your child, search for the sound-making object together. For babies simply hide the object under a scarf or blanket and help them explore and discover what is making the noise."
-
     ]
 }

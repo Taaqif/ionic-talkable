@@ -1,6 +1,7 @@
 {
     "number": 4,
-    "title": " ",
+    "title": "Finding a Communication Opportunity",
+    "description":"Maximise language learning opportunities throughout your busy day by engaging your child in everyday activities such as getting dressed, having a bath and during mealtimes.",
     "videos": [{
         "id": "w4_1",
         "title": "Finding Communication Opportunity",
@@ -29,12 +30,20 @@
             "author": "Alison Lester"
         }]
     },
-    "weeklyKeyWordSigns": [
-        "Bath",
-        "Wash",
-        "Sleep",
-        "Where"
-    ],
+    "weeklyKeyWordSigns": [{
+        "videos":[
+            "Bath",
+            "Wash",
+            "Sleep",
+            "Where"
+            ],
+            "activities":[
+                "Model the sign bath each evening as you prepare for bath time. As the bath is running, talk about how you will wash. Splash together in the bath, sign ‘wash’ as you play together and wash the duckie.",
+                "‘Where’ is a great sign to use throughout the day: “where are my keys?”, “where’s teddy?”, “where’s mummy?”.",
+                "As you prepare your child for bed time, and at each nap, sign the word sleep. As you tuck your child in use the sign ‘love’.",
+                "Play with soft toys together. Put them to sleep, give them a bath or a drink, tickle them. Hide the toys and say “where’s teddy/cat/dog?”."
+            ]
+        }],
     "hintsTips": [
         "Every interaction with your child is a language learning opportunity.",
         "Help your child “map” words onto their experiences by talking about what they are seeing, hearing, touching, tasting and smelling.",

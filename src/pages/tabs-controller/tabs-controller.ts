@@ -18,6 +18,7 @@ export class TabsControllerPage {
   weeklySignsTabRoot: any = WeeklySignsPage;
   hintsTipsTabRoot: any = HintsTipsPage;
   canEnter: boolean;
+  color:string = "primary";
   constructor(public navCtrl: NavController,  
               public navParams: NavParams, 
               public fs: FileServiceProvider, 
@@ -26,6 +27,7 @@ export class TabsControllerPage {
               private settings: Settings) {
                 this.fs.getWeekContent(this.navParams.data).subscribe((data) => {
         this.week = data;
+        this.color = this.fs.getActivePage();
         // loadingPopup.dismiss();
         // this.navCtrl.setRoot(this.navCtrl.getActive().component);
       });

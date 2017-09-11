@@ -1,6 +1,7 @@
 {
     "number": 5,
-    "title": " ",
+    "title": "Sharing Books and Using Songs",
+    "description":"Discover just how critical sharing books with your child is for their vocabulary development and later literacy success.",
     "videos": [{
         "id": "w5_1",
         "title": "Sharing Books",
@@ -17,7 +18,6 @@
 	        "Pause before you say the animal name. Wait and see if your child attempts to say the animal or make an animal sound.",
 	        "Use toy animals during play time and sing Old MacDonald. Let your child choose which animal comes next.",
 	        "Put animals into a bag or pillow slip. Let your child pull them out one by one as you sing the song."
-
         ],
         "alternateBooks": [{
             "title": "Heads, Shoulders, Knees and Toes",
@@ -27,13 +27,20 @@
             "author": "Annie Kubler"
         }]
     },
-    "weeklyKeyWordSigns": [
-        "Book",
-        "Sing",
-        "Banana",
-        "Teddy"
-
-    ],
+    "weeklyKeyWordSigns": [{
+        "videos":[
+            "Book",
+            "Sing",
+            "Banana",
+            "Teddy"
+            ],
+            "activities":[
+                "Give your child the choice between a book or a song. Ask ‘book or sing’ signing with each option. Ask your child if they want more or if they are finished.",
+                "At snack time use the signs eat, drink and banana. Sign the [phrase ‘eat the banana’. If your child prefers a different fruit, learn the sign at www.auslan.org.au.",
+                "Sing Round and Round the Garden and Teddy bear Teddy bear with your little one. Sign sing and teddy to your child as you play together.",
+                "Play with your favourite teddy bear. Feed the teddy and sign eat, banana and drink. Sing and read a book to the teddy too."
+            ]
+        }],
     "hintsTips": [
         "Focus on one routine that you do every day and plan a new word and sign to use over and over in this situation.",
         "Always have books out with your child’s other toys."
