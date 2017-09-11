@@ -4,15 +4,9 @@
     "description":"Discover how you can take the pressure off learning words by having fun and simply exploring sounds together.",
     "videos": [{
         "id": "w7_1",
-        "title": "Part 1",
-        "description": "",
+        "title": "Exploring Sounds",
+        "description": "This video explains how to take the pressure off learning words, and just have fun, by exploring sounds. Through everyday activities and play, making sounds is a great way to engage your child. You never know, they may even begin to copy you.",
         "path": "assets/vid/week1/w1_1.mp4",
-        "cover": ""
-    },{
-        "id": "w7_2",
-        "title": "Part 2",
-        "description": "",
-        "path": "assets/vid/week1/w1_2.mp4",
         "cover": ""
     }],
     "book" : {

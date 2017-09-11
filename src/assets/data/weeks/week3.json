@@ -4,9 +4,9 @@
     "description":"Explore three interrelated strategies for teaching your child new words - repetition, modelling new words and expanding on your child’s phrases.",
     "videos": [{
         "id": "w3_1",
-        "title": "Expand",
-        "description": "",
-        "path": "assets/vid/Week_3_RME_Expand.mp4",
+        "title": "Repeat",
+        "description": "These videos highlight three interrelated strategies for teaching your child new words:<br>repeating sounds and words your child uses<br>modelling new words for them to learn<br>expanding on the phrases that they use.<br>The three videos help you to identify your child’s stage of language development and how to apply the most appropriate strategy to help them learn new words or expand on the phrases they are currently using.",
+        "path": "assets/vid/Week_3_RME_Repeat.mp4",
         "cover": ""
     },{
         "id": "w3_2",
@@ -16,9 +16,9 @@
         "cover": ""
     },{
         "id": "w3_3",
-        "title": "Repeat",
+        "title": "Expand",
         "description": "",
-        "path": "assets/vid/Week_3_RME_Repeat.mp4",
+        "path": "assets/vid/Week_3_RME_Expand.mp4",
         "cover": ""
     }],
     "book" : {
