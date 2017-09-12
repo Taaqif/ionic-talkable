@@ -41,7 +41,7 @@
           <div *ngIf='category'>
             <ion-list>
               <ion-list-header>{{ category }}</ion-list-header>
-              <button *ngFor='let word of wordList[category]' [color]="savedWordList[word] ? 'primary' : null" ion-item detail-none (click)='addToSavedWordList(word)'  >
+              <button *ngFor='let word of wordList[category]' [color]="savedWordList[word] ? 'secondary' : null" ion-item detail-none (click)='addToSavedWordList(word)'  >
                 <ion-label>{{ word }}</ion-label>
                 <ion-icon name="ios-add-outline"  item-end clear></ion-icon>
               </button>

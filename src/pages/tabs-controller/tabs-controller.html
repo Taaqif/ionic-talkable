@@ -4,7 +4,7 @@
 
 </ng-template>
 
-            <super-tabs *ngIf="week;else loading" id="tabsController-tabs1" [config]="{ sideMenu: 'left' }" tabsPlacement="bottom" toolbarBackground="primary" indicatorColor="light" toolbarColor="light" text-transform="lowercase">
+            <super-tabs *ngIf="week;else loading" id="tabsController-tabs1" [config]="{ sideMenu: 'left' }" tabsPlacement="bottom" [toolbarBackground]="color" indicatorColor="light" toolbarColor="light" text-transform="lowercase">
                 <super-tab [root]="videoTabRoot" title="Videos" icon="talkable-video" id="tabsController-videoTab" [rootParams]="{ w: week }"></super-tab>
                 <super-tab [root]="storyTabRoot" title="Story Time" icon="talkable-story" id="tabsController-storyTab" [rootParams]="{ w: week }"></super-tab>
                 <super-tab [root]="weeklySignsTabRoot" title="Key Word Signs" icon="talkable-key" id="tabsController-weeklySignsTab" [rootParams]="{ w: week }"></super-tab>

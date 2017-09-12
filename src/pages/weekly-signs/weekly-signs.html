@@ -3,7 +3,7 @@
   <!-- This one for per week colors -->
     <!-- <ion-navbar color="{{week.number}}"> -->
     <!-- This one for Default colors -->
-    <ion-navbar color="primary">
+    <ion-navbar [color]="color">
       <button ion-button menuToggle>
               <ion-icon name="menu"></ion-icon>
       </button>
@@ -38,7 +38,7 @@
     </video> 
       <!-- <img src="assets/img/vidthumb.jpg" (click)='playVideo(word)' style="object-fit:cover"> -->
       <ion-item (click)='playVideo(word)'>
-      <button ion-button clear item-end large><ion-icon name="play"></ion-icon></button>
+      <button ion-button clear item-end large [color]="color"><ion-icon name="play"></ion-icon></button>
       <!-- <ion-thumbnail item-end >
         <img src="assets/img/vidthumb.jpg" style="object-fit:cover">
       </ion-thumbnail> -->

@@ -61,7 +61,7 @@ export class WordListPage {
     this.ready = true;
   }
   addToSavedWordList(word){
-    var displayDate = new Date().toLocaleDateString();
+    var displayDate = new Date().toLocaleDateString('en-GB');
     let toast;
     if (!this.savedWordList[word]) {
       this.savedWordList[word] = { "date": displayDate }

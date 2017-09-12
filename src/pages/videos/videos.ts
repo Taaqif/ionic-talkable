@@ -11,12 +11,14 @@ import { Storage } from '@ionic/storage';
 })
 export class VideosPage {
   week: any = '';
+  color: any = ''
   watchedVideos: any[] = [];
   constructor(public navCtrl: NavController,  
               public navParams: NavParams,
               public storage: Storage) {
     // console.log(JSON.stringify(this.navParams.data));
     this.week = this.navParams.get('w');
+    this.color = this.week.number;
     // this.storage.set('watchedVideos', '');
     this.storage.get('watchedVideos').then(data => {
       console.log(this.watchedVideos)

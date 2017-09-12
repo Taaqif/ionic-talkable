@@ -10,8 +10,10 @@ export class WeeklySignsPage {
   week: any = '';
   keyWordSignsChunks: any = [];
   weeklyKeyWordSigns: any = [];
+  color: any = '';
   constructor(public navCtrl: NavController, public navParams: NavParams, private fs: FileServiceProvider) {
     this.week = this.navParams.get('w');
+    this.color = this.week.number;
     this.weeklyKeyWordSigns = this.week.weeklyKeyWordSigns;
     //split array into chunks of 2 
     console.log(this.weeklyKeyWordSigns)
