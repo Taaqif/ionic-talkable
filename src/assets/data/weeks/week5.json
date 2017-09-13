@@ -3,16 +3,16 @@
     "title": "Sharing Books and Using Songs",
     "description":"Discover just how critical sharing books with your child is for their vocabulary development and later literacy success.",
     "videos": [{
-        "id": "w5_1",
+        "id": "5-1",
         "title": "Sharing Books",
         "description": "This video highlights how critical sharing books with your child is for their vocabulary development and later literacy success. It explains the concept of the book sharing triangle and other strategies for getting the most out of sharing books with your little one. For more great book suggestions head to http://www.talkable.org.au/story-time.",
-        "path": "assets/vid/Week_5_Sharing_Books.mp4",
+        "path": "assets/vid/5-1.mp4",
         "cover": ""
     },{
-        "id": "w5_2",
+        "id": "5-2",
         "title": "Using Songs and Rhymes",
         "description": "This video demonstrates the key role childrens songs and rhymes play in their language learning. It doesn't matter how tuneful your voice is, your little one will be engaged when you sing and share rhymes together. To learn a new song or rhyme head to http://www.talkable.org.au/childrens-songs-rhymes.",
-        "path": "assets/vid/Week_5_Using_Songs_and_Rhymes.mp4",
+        "path": "assets/vid/5-2.mp4",
         "cover": ""
     }],
     "book" : {
