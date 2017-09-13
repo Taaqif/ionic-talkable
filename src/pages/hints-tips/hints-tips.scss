@@ -1,3 +1,8 @@
 page-hints-tips {
- 
+.hint-content{
+    color: color($colors, dark);
+    white-space: normal;
+    overflow:visible;
+    font-size:2rem;
+}
 }

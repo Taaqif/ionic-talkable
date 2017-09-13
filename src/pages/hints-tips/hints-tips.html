@@ -16,12 +16,12 @@
 <ion-content id="hintsTipsPage">
   <ion-card text-wrap>
     <ion-card-header>
-      <h1> Tips for this week <ion-icon name='md-bulb' item-end style="float:right;"></ion-icon></h1>
+      <h1> Tips for this week <ion-icon  [color]="color" name='md-bulb' item-end style="float:right;"></ion-icon></h1>
     </ion-card-header>
     <ion-list>
       <ion-item *ngFor='let hintsTips of week.hintsTips'>
-          <ion-icon name="ios-checkmark" item-start></ion-icon>
-        {{ hintsTips }}
+          <ion-icon [color]="color" name="ios-checkmark" item-start></ion-icon>
+        <p class="hint-content">{{ hintsTips }}</p>
       </ion-item>
       <!-- <ion-item > -->
         

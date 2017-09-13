@@ -15,9 +15,9 @@
 
 <ion-content id="videoPage">
   <div padding>
-    <h1>{{week.title}}</h1>
-    <p>Week {{week.number}}</p>
-    <p>{{ week.description }}</p>
+    <!-- <h1>{{week.title}}</h1>
+    <p>Week {{week.number}}</p> -->
+    <p class="description">{{ week.description }}</p>
   </div>
   <ion-card *ngFor="let v of week.videos" text-wrap>
      <!-- <video fullscreen="fullscreen" controls>
@@ -33,8 +33,8 @@
         <!-- <ion-thumbnail item-end >
           <img src="assets/img/vidthumb.jpg" style="object-fit:cover">
         </ion-thumbnail> -->
-        <h1>{{v.title}}</h1>
-        <p>{{v.description}}</p>
+        <h1 class="video-title">{{v.title}}</h1>
+       <!-- <p>{{v.description}}</p> -->
       </ion-item>
     <!-- <ion-card-content>
       <ion-card-title>

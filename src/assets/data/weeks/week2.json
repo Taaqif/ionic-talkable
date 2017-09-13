@@ -3,16 +3,16 @@
     "title": "Natural Communication",
     "description":"Discover the importance of keeping your communication natural when you are helping your child to learn new words.",
     "videos": [{
-        "id": "w2_1",
+        "id": "2-1",
         "title": "Natural Communication - Part 1",
         "description": "These videos explain the importance of keeping your style of communication natural when you are helping your child to learn new words. They show you fun and intuitive ways to encourage your child to imitate and spontaneously use words that they have learned.",
-        "path": "assets/vid/Week_2_Natural_Communication_Part_1.mp4",
+        "path": "assets/vid/2-1.mp4",
         "cover": ""
     },{
-        "id": "w2_2",
+        "id": "2-2",
         "title": "Natural Communication - Part 2",
         "description": "",
-        "path": "assets/vid/Week_2_Natural_Communication_Part_2.mp4",
+        "path": "assets/vid/2-2.mp4",
         "cover": ""
     }],
     "book" : {
