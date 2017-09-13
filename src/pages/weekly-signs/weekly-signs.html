@@ -32,31 +32,42 @@
       </ion-col>
     </ion-row>
   </ion-grid> -->
-  <ion-card *ngFor='let word of weeklyKeyWordSigns.videos'>
+
+     <ion-grid class="keyword-video" style="padding:0em">
+        <ion-row>
+          <ion-col col-6 class="keyword-video" *ngFor='let word of weeklyKeyWordSigns.videos'>
+  <ion-card class="keyword-video" >
+    
+     
       <video [attr.id]='word' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(word, $event);" hidden>
         <source [attr.src]="'assets/vid/' + word.toLowerCase() + '.mp4'" type='video/mp4' >
     </video> 
       <!-- <img src="assets/img/vidthumb.jpg" (click)='playVideo(word)' style="object-fit:cover"> -->
-      <ion-item (click)='playVideo(word)'>
-      <button ion-button clear item-end large [color]="color"><ion-icon name="play"></ion-icon></button>
+      <ion-item class="keyword-video" (click)='playVideo(word)'>
+      <button  ion-button clear item-end large [color]="color"><ion-icon name="play"></ion-icon></button>
       <!-- <ion-thumbnail item-end >
         <img src="assets/img/vidthumb.jpg" style="object-fit:cover">
       </ion-thumbnail> -->
-      <h1>{{word}}</h1>
+      <h1 class="video-title">{{word}}</h1>
     </ion-item>
   </ion-card>
+</ion-col>
+</ion-row>
+</ion-grid> 
+
   <ion-card>
-      <ion-card-header>
+      <ion-card-header [color]="color">
         Activities
-        <ion-icon name="md-people" item-end style="float:right;"></ion-icon>
+        <ion-icon [color]="color" name="md-people" item-end style="float:right;"></ion-icon>
       </ion-card-header>
         <ion-list>
-          <ion-item *ngFor='let activity of weeklyKeyWordSigns.activities'>
+          <ion-item class="keyword-content" *ngFor='let activity of weeklyKeyWordSigns.activities'>
             <ion-icon name="ios-checkmark" item-start></ion-icon>
             {{activity}}
           </ion-item>
         </ion-list>
     </ion-card>
+ 
   <!-- <ion-grid>
     <ion-row>
       <ion-col *ngFor='let word of weeklyKeyWordSigns' col-6 class='card-center-text'>

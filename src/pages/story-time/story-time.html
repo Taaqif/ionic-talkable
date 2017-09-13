@@ -19,7 +19,7 @@
         <ion-thumbnail item-right>
           <img src="{{ week.book.cover }}" imageViewer >
         </ion-thumbnail>
-        <h1 id="storyTime-heading" style="color:#000000;">
+        <h1 id="storyTime-heading">
           {{ week.book.title }}
         </h1>
         <p>{{ week.book.author }}</p>
@@ -30,7 +30,7 @@
             Reading Tips
             <ion-icon name="md-bulb" item-end style="float:right;"></ion-icon> 
           </ion-list-header>
-          <ion-item *ngFor='let tips of week.book.tips'>
+          <ion-item class="storytime-content" *ngFor='let tips of week.book.tips'>
             <ion-icon name="ios-checkmark" item-start></ion-icon>
             {{ tips }}
           </ion-item>
@@ -40,11 +40,11 @@
         <!-- <ion-list> -->
           <ion-list-header>
             Alternate Books
-            <ion-icon name="book" style="float:right;"></ion-icon> 
+            <ion-icon name="book" item-end style="float:right;"></ion-icon> 
           </ion-list-header>
-          <ion-item *ngFor='let altBook of week.book.alternateBooks'>
+          <ion-label *ngFor='let altBook of week.book.alternateBooks'>
             {{ altBook.title }} ({{ altBook.author }})
-          </ion-item>
+          </ion-label>
         <!-- </ion-list> -->
       <!-- </ion-item> -->
   </ion-card>

@@ -24,6 +24,12 @@ page-videos {
     background-size:contain;
     background-position: center;
 }
-
+.description{
+    font-size: 2em;
+    text-align: center;
+}
+.video-title{
+    color: color($colors,dark);
+}
 
 }
