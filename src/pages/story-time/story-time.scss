@@ -1,3 +1,33 @@
 page-story-time {
   
+#storyTime-heading{
+    color: color($colors,dark);
+}
+.storytime-content{
+    color: color($colors,dark);
+}
+ion-item.storytime-content.item.item-block.item-ios ion-label.label.label-ios,
+ion-item.storytime-content.item.item-block.item-md ion-label.label.label-md{
+    color: color($colors, dark);
+    white-space: normal;
+    margin-top:0px;
+    margin-bottom:0px;
+    font-size:1.4rem;
+    line-height: 1.4;
+   }
+.card-md .item-md.item-block .item-inner{
+    margin-left:0px;
+}
+ion-list-header.item.item-md.list-header.list-header-md{
+    margin-bottom:0px;
+}
+.label-md,.label-ios{
+    margin-left:8px;
+    line-height: 1.4;
+}
+.item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end]{
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
 }

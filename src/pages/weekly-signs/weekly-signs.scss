@@ -1,3 +1,32 @@
 page-weekly-signs {
+
+ion-label.label.label-ios {
+    white-space: normal;
     
+}
+
+ion-item.keyword-video.item.item-block.item-ios ion-label.label.label-ios{
+ white-space: normal;
+ margin:0px;
+ color: color($colors, dark);
+}
+ion-item.keyword-content.item.item-block.item-ios ion-label.label.label-ios,
+ion-item.keyword-content.item.item-block.item-md ion-label.label.label-md{
+    color: color($colors, dark);
+    white-space: normal;
+    margin-top:5px;
+    margin-bottom:5px;
+    font-size:16px;
+   }
+ion-col.keyword-video.col{
+    padding:0;
+    margin:0;
+}
+ion-card.keyword-video.card.card-ios,
+ion-card.keyword-video.card.card-md,
+.card-md,
+.card-ios h1{
+margin-bottom:5px;
+padding:0;
+}
 }

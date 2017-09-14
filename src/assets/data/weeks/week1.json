@@ -3,21 +3,21 @@
     "title": "Being Playful",
     "description": "Learn how taking a playful approach when interacting with your child helps to boost their language learning",
     "videos": [{
-        "id": "w1_1",
+        "id": "1-1",
         "title": "Being Playful - Part 1",
         "description": "These videos highlight the importance of taking a playful approach when interacting with your child. They demonstrate how to integrate playful moments into everyday activities. Remember, when you are playful your child is engaged and when they are engaged they are learning.",
-        "path": "assets/vid/w1_1-2.mp4",
+        "path": "assets/vid/1-1.mp4",
         "cover": ""
     },{
-        "id": "w1_2",
+        "id": "1-2",
         "title": "Being Playful - Part 2",
         "description": "",
-        "path": "assets/vid/w1_2-2.mp4",
+        "path": "assets/vid/1-2.mp4",
         "cover": ""
     }],
     "book" : {
         "title" : "Ten Little Fingers and Ten Little Toes",
-        "author": "Mem Fox & Hellen Oxenbury",
+        "author": "Mem Fox & Helen Oxenbury",
         "cover": "assets/img/book-cover/Week1.png",
         "tips": [
             "Use a sing-song voice when reading the rhythmic words in this book",
