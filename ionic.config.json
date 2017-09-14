@@ -1,6 +1,6 @@
 {
   "name": "ionic-talkable",
-  "app_id": "99fa9613",
+  "app_id": "",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
