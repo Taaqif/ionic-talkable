@@ -14,11 +14,7 @@
   </ion-header>
 
 <ion-content id="videoPage">
-  <div padding>
-    <!-- <h1>{{week.title}}</h1>
-    <p>Week {{week.number}}</p> -->
-    <p class="description">{{ week.description }}</p>
-  </div>
+  <div class="description">{{week.description }}</div>
   <ion-card *ngFor="let v of week.videos" text-wrap>
      <!-- <video fullscreen="fullscreen" controls>
       <source src="https://www.youtube.com/embed/q8f-DoL1dqQ" type="video/mp4">  
@@ -26,7 +22,7 @@
       
     <video [attr.id]='v.path' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(v, $event);" style="position:absolute; z-index:99999;" hidden>
         <source [attr.src]="v.path" type='video/mp4' >
-    </video>   -->
+    </video>
     
     <ion-item (click)='playVideo(v.path)'>
         <button ion-button clear item-end large [color]="color"><ion-icon name="play"></ion-icon></button>

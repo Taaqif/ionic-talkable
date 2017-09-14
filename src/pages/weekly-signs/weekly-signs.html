@@ -45,11 +45,11 @@
     </video> 
       <!-- <img src="assets/img/vidthumb.jpg" (click)='playVideo(word)' style="object-fit:cover"> -->
       <ion-item class="keyword-video" (click)='playVideo(word)'>
+          <h1 class="video-title">{{word}}</h1>
       <button  ion-button clear item-end large [color]="color"><ion-icon name="play"></ion-icon></button>
       <!-- <ion-thumbnail item-end >
         <img src="assets/img/vidthumb.jpg" style="object-fit:cover">
       </ion-thumbnail> -->
-      <h1 class="video-title">{{word}}</h1>
     </ion-item>
   </ion-card>
 </ion-col>
@@ -57,13 +57,11 @@
 </ion-grid> 
 
   <ion-card>
-      <ion-card-header [color]="color">
-        Activities
-        <ion-icon [color]="color" name="md-people" item-end style="float:right;"></ion-icon>
+      <ion-card-header [color]="color">Activities<ion-icon [color]="color" name="md-people" item-end style="float:right;"></ion-icon>
       </ion-card-header>
         <ion-list>
           <ion-item class="keyword-content" *ngFor='let activity of weeklyKeyWordSigns.activities'>
-            <ion-icon name="ios-checkmark" item-start></ion-icon>
+            <ion-icon [color]="color" name="ios-checkmark" item-start></ion-icon>
             {{activity}}
           </ion-item>
         </ion-list>

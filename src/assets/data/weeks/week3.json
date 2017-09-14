@@ -1,17 +1,16 @@
 {
     "number": 3,
     "title": "Repeat, Model Expand",
-    "description":"Explore three interrelated strategies for teaching your child new words - repetition, modelling new words and expanding on your child’s phrases.",
+    "overview":"Explore three interrelated strategies for teaching your child new words - repetition, modelling new words and expanding on your child’s phrases.",
+    "description": "These videos highlight three interrelated strategies for teaching your child new words: \n\n - repeating sounds and words your child uses \n - modelling new words for them to learn \n - expanding on the phrases that they use.\n\nThe three videos help you to identify your child’s stage of language development and how to apply the most appropriate strategy to help them learn new words or expand on the phrases they are currently using.",
     "videos": [{
         "id": "3-1",
         "title": "Repeat",
-        "description": "These videos highlight three interrelated strategies for teaching your child new words:<br>repeating sounds and words your child uses<br>modelling new words for them to learn<br>expanding on the phrases that they use.<br>The three videos help you to identify your child’s stage of language development and how to apply the most appropriate strategy to help them learn new words or expand on the phrases they are currently using.",
         "path": "assets/vid/3-1.mp4",
         "cover": ""
     },{
         "id": "3-2",
         "title": "Model",
-        "description": "",
         "path": "assets/vid/3-2.mp4",
         "cover": ""
     },{
@@ -29,10 +28,10 @@
             "Let your child turn the pages.",
             "Each time you turn to an animal page, wait to see what you child does",
             "If they point, you point too and say what you see. If they make an animal sound, copy the sound.",
-	          "If they name the animal, repeat it back.",
-	          "Point to the pictures and model words to your child - “ladder”, “muddy”, “licking”.",
-	          "Pause during the story and listen to your child. Add one extra key word to their phrase. If they say “moo”, you say “moo cow”, if they say pig say “wash the pig”.",
-	          "Make the corresponding animal sound before you turn each page. Wait and see if your child copies you or tries to guess the animal that is on the next page."
+	        "If they name the animal, repeat it back.",
+	        "Point to the pictures and model words to your child - “ladder”, “muddy”, “licking”.",
+	        "Pause during the story and listen to your child. Add one extra key word to their phrase. If they say “moo”, you say “moo cow”, if they say pig say “wash the pig”.",
+	        "Make the corresponding animal sound before you turn each page. Wait and see if your child copies you or tries to guess the animal that is on the next page."
         ],
         "alternateBooks": [{
             "title": "Time for Bed",

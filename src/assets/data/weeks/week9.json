@@ -1,11 +1,11 @@
 {
     "number": 9,
     "title": "Offering Choices",
-    "description":"Offering choices is a great way to expand your child’s vocabulary and phrase length. Explore this video to give your child a greater sense of control and also develop their language in a natural way.",
+    "overview":"Offering choices is a great way to expand your child’s vocabulary and phrase length. Explore this video to give your child a greater sense of control and also develop their language in a natural way.",
+    "description": "This video looks in-depth at the strategy of offering choices as a way to expand your child’s vocabulary and phrase length. This communication strategy is great for giving your child a sense of control and also for developing their language in a natural way.",
     "videos": [{
         "id": "9-1",
         "title": "Offering Choices",
-        "description": "This video looks in-depth at the strategy of offering choices as a way to expand your child’s vocabulary and phrase length. This communication strategy is great for giving your child a sense of control and also for developing their language in a natural way.",
         "path": "assets/vid/9-1.mp4",
         "cover": ""
     }],

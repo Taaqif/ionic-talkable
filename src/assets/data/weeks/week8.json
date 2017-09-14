@@ -1,11 +1,11 @@
 {
     "number": 8,
     "title": "Learning to Listen",
-    "description":"Learning to listen is a skill that develops over time. Watch this video to maximise your child’s ability to pay attention to the words you are saying.",
+    "overview":"Learning to listen is a skill that develops over time. Watch this video to maximise your child’s ability to pay attention to the words you are saying.",
+    "description": "This video explains that learning to listen is a skill that develops over time. Reducing background distractions and breaking longer sentences into short phrases is integral to maximise your child’s ability to pay attention to the words you are saying. The video also provides some fun listening games for you to play with your little one.",
     "videos": [{
         "id": "8-1",
         "title": "Learning to Listen",
-        "description": "This video explains that learning to listen is a skill that develops over time. Reducing background distractions and breaking longer sentences into short phrases is integral to maximise your child’s ability to pay attention to the words you are saying. The video also provides some fun listening games for you to play with your little one.",
         "path": "assets/vid/8-1.mp4",
         "cover": ""
     }],
