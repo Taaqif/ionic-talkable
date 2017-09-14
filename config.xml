@@ -136,7 +136,7 @@
     <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="cordova-plugin-ionic" spec="^1.1.8">
-        <variable name="APP_ID" value="9dee56d0" />
+        <variable name="APP_ID" value="99fa9613" />
         <variable name="CHANNEL_NAME" value="Master" />
         <variable name="UPDATE_METHOD" value="background" />
         <variable name="UPDATE_API" value="https://api.ionicjs.com" />
