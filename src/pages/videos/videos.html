@@ -23,11 +23,16 @@
      <!-- <video fullscreen="fullscreen" controls>
       <source src="https://www.youtube.com/embed/q8f-DoL1dqQ" type="video/mp4">  
     </video> -->
+<<<<<<< HEAD
     <!-- <video [attr.id]='v.path' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(v, $event);" hidden> -->
       <video [attr.id]='v.path' width="100%" controls="controls" controlsList="nodownload" preload="metadata" class="video" (ended)="watched(v, $event);" hidden>
           <source [attr.src]="v.path" type='video/mp4' >
       </video>
    <!--  <video [attr.id]='v.path'  controls controlsList="nodownload" (ended)="watched(v, $event);" hidden>
+=======
+      
+    <video [attr.id]='v.path' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(v, $event);" style="position:absolute; z-index:99999;" hidden>
+>>>>>>> cef884969bd96e7c21418b0bfdbe49a82b4abba1
         <source [attr.src]="v.path" type='video/mp4' >
     </video>   -->
     

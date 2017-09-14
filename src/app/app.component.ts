@@ -2,10 +2,7 @@ import { Component, ViewChild, Pipe, PipeTransform } from '@angular/core';
 import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import * as moment from 'moment';
-
-
 import { HomePage } from '../pages/home/home';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
@@ -20,7 +17,7 @@ export interface PageInterface {
   title: string;
   component: any;
   weekPage?: any;
-  
+
 }
 @Pipe({
   name: 'chunks'
@@ -34,15 +31,15 @@ export class ChunksPipe implements PipeTransform {
   name: 'object'
 })
 export class ObjectPipe implements PipeTransform {
-    transform(value: any, args: any[] = null): any {
-        return Object.keys(value).map(key => Object.assign({ key }, value[key]));
-    }
+  transform(value: any, args: any[] = null): any {
+    return Object.keys(value).map(key => Object.assign({ key }, value[key]));
+  }
 }
-@Pipe({ name: 'keys',  pure: false })
+@Pipe({ name: 'keys', pure: false })
 export class KeysPipe implements PipeTransform {
-    transform(value: any, args: any[] = null): any {
-        return Object.keys(value)//.map(key => value[key]);
-    }
+  transform(value: any, args: any[] = null): any {
+    return Object.keys(value)//.map(key => value[key]);
+  }
 }
 @Component({
   templateUrl: 'app.html'
@@ -57,69 +54,83 @@ export class Talkable {
   // weeklyPages: PageInterface[] = [
   //   { title: 'Week 1', component: TabsControllerPage, weekPage: 1 }
   // ];
-  
-  programPages: Array<{id: string,
-                title: string, 
-                component: any
-                icon?: String,
-                param?: any}>;
-  wordPages: Array<{id: string,
-                title: string, 
-                component: any
-                icon?: String}>;   
-  settingsPages: Array<{id: string,
-              title: string, 
-              component: any
-              icon?: String}>;             
-  constructor(public platform: Platform, 
-              public statusBar: StatusBar, 
-              public splashScreen: SplashScreen, 
-              private storage: Storage, 
-              public fs: FileServiceProvider,
-              public menuCtrl: MenuController,
-              public settings: Settings) {
-                // Check if the user has already seen the tutorial
-    this.storage.get('hasSeenTutorial')
-    .then((hasSeenTutorial) => {
-      if (hasSeenTutorial) {
-        this.rootPage = HomePage;
-      } else {
-        this.rootPage = TutorialPage;
-      }
-      this.initializeApp();
-    });
+
+  programPages: Array<{
+    id: string,
+    title: string,
+    component: any
+    icon?: String,
+    param?: any
+  }>;
+  wordPages: Array<{
+    id: string,
+    title: string,
+    component: any
+    icon?: String
+  }>;
+  settingsPages: Array<{
+    id: string,
+    title: string,
+    component: any
+    icon?: String
+  }>;
+  constructor(public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    private storage: Storage,
+    public fs: FileServiceProvider,
+    public menuCtrl: MenuController,
+    public settings: Settings) {
+    // Check if the user has already seen the tutorial
+
     this.storage.get('startedOn').then(date => {
-      let started = moment(date);
-      let now = moment();
-      let timediff = now.diff(started, 'week')
-      //multiple of 7 (aka a week)
-      if(timediff > 0){
-         storage.get('currentWeek').then(success => {
-           if(parseInt(success) <= 10 && timediff > parseInt(success) ){
-             this.storage.set('currentWeek', timediff);
-           }
+      if (date) {
+        let started = moment(date);
+        let now = moment();
+        let timediff = now.diff(started, 'week')
+        //multiple of 7 (aka a week)
+        if (timediff > 0) {
+          storage.get('currentWeek').then(success => {
+            if (parseInt(success) <= 10 && timediff > parseInt(success)) {
+              this.storage.set('currentWeek', timediff);
+            }
           });
+        }
       }
+
     })
     this.storage.get('currentWeek').then((data) => {
-      if(data> 10){
-        this.storage.set('currentWeek', 10);
+      if (data) {
+        this.programPages[0].param = data;
+        if (data > 10) {
+          this.storage.set('currentWeek', 10);
+          this.programPages[0].param = 10;
+        }
       }
+
     })
     // used for an example of ngFor and navigation
     this.programPages = [
-      { id: 'CurrentWeekPage', title: 'Current Week', component: TabsControllerPage, icon: "talkable-current", param: 1},
-      { id: 'TenWeekProgramPage', title: 'Entire Program', component: TenWeekProgramPage, icon: "talkable-overview"},
+      { id: 'CurrentWeekPage', title: 'Current Week', component: TabsControllerPage, icon: "talkable-current", param: 1 },
+      { id: 'TenWeekProgramPage', title: 'Entire Program', component: TenWeekProgramPage, icon: "talkable-overview" },
     ];
     this.wordPages = [
       { id: 'KeyWordSignsPage', title: 'Key Word Signs', component: KeyWordSignsPage, icon: "talkable-key" },
       { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "talkable-tracker" },
-     // { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "ios-clipboard-outline" },
+      // { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "ios-clipboard-outline" },
     ];
     this.settingsPages = [
       { id: "SettingsPage", title: 'Settings', component: SettingsPage, icon: "talkable-settings" }
     ];
-
+    this.storage.get('hasSeenTutorial')
+      .then((hasSeenTutorial) => {
+        if (hasSeenTutorial) {
+          this.rootPage = HomePage;
+        } else {
+          this.rootPage = TutorialPage;
+        }
+        this.initializeApp();
+      });
     // this.weeklyPages = [
     //   { id: 'weeklyPage1', title: 'Week 1', component: TabsControllerPage, param: 1 },
     //   { id: 'weeklyPage2', title: 'Week 2', component: TabsControllerPage, param: 2 },
@@ -146,90 +157,90 @@ export class Talkable {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.platform.registerBackButtonAction(() => {
-        if(this.nav.canGoBack()){
+        if (this.nav.canGoBack()) {
           this.nav.pop();
-        }else{
-          if(this.nav.getActive().component == this.programPages[0].component){
+        } else {
+          if (this.nav.getActive().component == this.programPages[0].component) {
             this.platform.exitApp();
-          }else{
+          } else {
             this.nav.setRoot(this.programPages[0].component, this.programPages[0].param);
             this.fs.setActivePage(this.programPages[0].id);
           }
-          
+
         }
       });
-      
+
     });
   }
   openPage(page) {
     this.menuCtrl.close();
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    if(page.id != this.fs.getActivePage()){
-      
+    if (page.id != this.fs.getActivePage()) {
+
       this.nav.setRoot(page.component, page.param);
       this.fs.setActivePage(page.id);
-      
+
       // if(page.param){
-        
+
       //   this.nav.setRoot(page.component, page.param).then(success => {
       //       if(success){
-              
+
       //         this.fs.setActivePage(page.id);
       //         this.menuCtrl.close();
       //         this.activePage = page
       //       }       
       //   });
-        
+
       // }else{
       //   this.menuCtrl.close();
       //   this.nav.setRoot(page.component);
       //   this.fs.setActivePage(page.id);
-        
+
       //   // this.fs.setActivePage(page.id);
       //   // this.activePage = page
       // }
-    }else{
+    } else {
       // this.menuCtrl.close();
     }
 
-    
+
   }
 
-  
-checkActive(page){
-  return page.id == this.fs.getActivePage();
-  // return page == this.activePage;
-}
 
-checkCurrentWeek(page){
-  return page.param == this.fs.getCurrentWeek();
-  // return page == this.activePage;
-}
+  checkActive(page) {
+    return page.id == this.fs.getActivePage();
+    // return page == this.activePage;
+  }
 
-checkAvailable(page){
-  // return true;
-  if(this.settings.getValue('unlockAll')){
-    return true;
-  }else{
-    if(page.param > this.fs.getCurrentWeek()){
-      return false;
-    }else{
+  checkCurrentWeek(page) {
+    return page.param == this.fs.getCurrentWeek();
+    // return page == this.activePage;
+  }
+
+  checkAvailable(page) {
+    // return true;
+    if (this.settings.getValue('unlockAll')) {
       return true;
+    } else {
+      if (page.param > this.fs.getCurrentWeek()) {
+        return false;
+      } else {
+        return true;
+      }
+
     }
-    
+    // return new Promise(resolve => {
+    //   if(this.fs.settings['unlockAll']){
+    //     resolve(true);
+    //   }else{
+    //     if(page > this.fs.currentWeek){
+    //       resolve(false);
+    //     }else{
+    //       resolve(true);
+    //     }
+    //   }
+    // })
   }
-  // return new Promise(resolve => {
-  //   if(this.fs.settings['unlockAll']){
-  //     resolve(true);
-  //   }else{
-  //     if(page > this.fs.currentWeek){
-  //       resolve(false);
-  //     }else{
-  //       resolve(true);
-  //     }
-  //   }
-  // })
-}
 
 }
