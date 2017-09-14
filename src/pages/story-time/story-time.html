@@ -2,7 +2,7 @@
   <!-- This one for per week colors -->
     <!-- <ion-navbar color="{{week.number}}"> -->
     <!-- This one for Default colors -->
-    <ion-navbar [color]="color">
+    <ion-navbar >
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
@@ -27,11 +27,11 @@
       <!-- <ion-item> -->
         <!-- <ion-list> -->
           <ion-list-header>
-            Reading Tips
-            <ion-icon name="md-bulb" item-end style="float:right;"></ion-icon> 
+            <ion-label [color]="color">Reading Tips</ion-label>
+        <ion-icon  [color]="color" name="md-bulb" item-end style="float:right;"></ion-icon> 
           </ion-list-header>
           <ion-item class="storytime-content" *ngFor='let tips of week.book.tips'>
-            <ion-icon name="ios-checkmark" item-start></ion-icon>
+            <ion-icon [color]="color" name="ios-checkmark" item-start></ion-icon>
             {{ tips }}
           </ion-item>
         <!-- </ion-list> -->
@@ -39,8 +39,8 @@
       <!-- <ion-item> -->
         <!-- <ion-list> -->
           <ion-list-header>
-            Alternate Books
-            <ion-icon name="book" item-end style="float:right;"></ion-icon> 
+            <ion-label  [color]="color">Alternate Books</ion-label>
+            <ion-icon  [color]="color" name="book" item-end style="float:right;"></ion-icon> 
           </ion-list-header>
           <ion-label *ngFor='let altBook of week.book.alternateBooks'>
             {{ altBook.title }} ({{ altBook.author }})
