@@ -11,8 +11,8 @@ export class TenWeekProgramPage {
   loaded: boolean = false;
   allWeeks:any = [];
   constructor(public navCtrl: NavController, public fs: FileServiceProvider) {
-    
-    for(let i = 1; i<= 10; i++){
+   
+    for(let i = 1; i<=10; i++){
       this.fs.getWeekContent(i).subscribe((data) => {
         this.allWeeks.push(data);
       }) 

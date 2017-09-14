@@ -26,7 +26,7 @@
       
     <video [attr.id]='v.path' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(v, $event);" style="position:absolute; z-index:99999;" hidden>
         <source [attr.src]="v.path" type='video/mp4' >
-    </video>   
+    </video>   -->
     
     <ion-item (click)='playVideo(v.path)'>
         <button ion-button clear item-end large [color]="color"><ion-icon name="play"></ion-icon></button>
@@ -36,6 +36,7 @@
         <h1 class="video-title">{{v.title}}</h1>
        <!-- <p>{{v.description}}</p> -->
       </ion-item>
+    </ion-card>
     <!-- <ion-card-content>
       <ion-card-title>
         <ion-icon *ngIf='watchedVideos?.includes(v.id)' name='eye' item-start></ion-icon> 
@@ -60,7 +61,7 @@
       <h2>{{ v.title }}</h2>
       <p>{{ v.description }}</p>
     </ion-item> -->
-  </ion-card>
+  
 </ion-content>
 
 

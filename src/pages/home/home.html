@@ -11,12 +11,32 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h1>Your 10 Week Program</h1>
-
-    <p>Pick up where you left off?</p>
-    <button ion-button (click)="userProgress()">Let's Go!</button>
-    <br>
-    <button ion-button (click)="gotToKeyWordSigns()">Key Word Signs</button>
-    <button ion-button (click)="goToWordTracker()">Word Tracker</button>
+<ion-content>
+    <ion-grid >
+        <ion-row>
+            <ion-col >
+                    <h1 class="home-content">Your 10 Week Program</h1>
+            </ion-col>
+        </ion-row>
+        <ion-row >
+            <ion-col >
+                    <button ion-button (click)="goToWordTracker()">Word Tracker</button>
+            </ion-col>
+        </ion-row>
+        <ion-row >
+            <ion-col>
+                    <button ion-button (click)="gotToKeyWordSigns()">Key Word Signs</button>
+            </ion-col >
+            </ion-row>
+            </ion-grid>
+            <div>
+            <ion-grid>
+        <ion-row class="go-time">
+            <ion-col >
+                    <h6 class="home-content">Pick up where you left off?</h6>
+                    <button ion-button (click)="userProgress()">Let's Go!</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>
 </ion-content>
