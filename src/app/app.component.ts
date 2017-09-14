@@ -2,10 +2,7 @@ import { Component, ViewChild, Pipe, PipeTransform } from '@angular/core';
 import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import * as moment from 'moment';
-
-
 import { HomePage } from '../pages/home/home';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';

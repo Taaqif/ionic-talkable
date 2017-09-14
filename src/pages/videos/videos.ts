@@ -65,6 +65,7 @@ export class VideosPage {
   watched(video, event){
     let watchedVideos;
     event.target.webkitExitFullScreen();
+    event.target.pause();
     this.storage.get('watchedVideos').then(data => {
       if(data){
         watchedVideos = data;
