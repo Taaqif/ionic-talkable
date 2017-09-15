@@ -87,7 +87,7 @@ export class Talkable {
     this.storage.get('startedOn').then(date => {
       if (date) {
         let started = moment(date);
-        let now = moment().add(71, 'days');
+        let now = moment();
         let timediff = now.diff(started, 'week') + 1
         //multiple of 7 (aka a week)
         if (timediff > 0) {
