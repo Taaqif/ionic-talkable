@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { MenuController, NavController, Slides } from 'ionic-angular';
+import * as moment from 'moment';
 
 import { Storage } from '@ionic/storage';
 
@@ -26,7 +27,7 @@ export class TutorialPage {
   ) { }
 
   startApp() {
-    this.storage.set('started on', new Date().toDateString());
+    this.storage.set('startedOn', moment().format('YYYY-MM-DD'));
     this.storage.set('currentWeek', 1);
     
     this.navCtrl.setRoot(TabsControllerPage, 1); 

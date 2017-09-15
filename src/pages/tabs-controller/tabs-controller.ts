@@ -35,11 +35,7 @@ export class TabsControllerPage {
   }
   
   ionViewCanEnter(){
-    let alert = this.alertCtrl.create({
-      title: 'You have not unlocked this content yet!',
-      subTitle: 'You are on week '+ this.fs.getCurrentWeek(),
-      buttons: ['Ok']
-    });
+    
     return new Promise(resolve => {
       console.log(this.week)
       if(this.settings.getValue('unlockAll')){
@@ -48,6 +44,11 @@ export class TabsControllerPage {
       }else{
         this.storage.get('currentWeek').then((data) => {
           if(this.navParams.data > data){
+            let alert = this.alertCtrl.create({
+              title: 'You have not unlocked this content yet!',
+              subTitle: 'You are on week ' + data + '\nFocus on the current week :D',
+              buttons: ['Ok']
+            });
             alert.present();
             resolve(false);
             // return false;

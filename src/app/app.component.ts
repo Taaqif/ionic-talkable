@@ -1,5 +1,5 @@
 import { Component, ViewChild, Pipe, PipeTransform } from '@angular/core';
-import { Nav, Platform, MenuController } from 'ionic-angular';
+import { Nav, Platform, MenuController,AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import * as moment from 'moment';
@@ -80,19 +80,30 @@ export class Talkable {
     private storage: Storage,
     public fs: FileServiceProvider,
     public menuCtrl: MenuController,
-    public settings: Settings) {
+    public settings: Settings,
+  public alertCtrl: AlertController) {
     // Check if the user has already seen the tutorial
 
     this.storage.get('startedOn').then(date => {
       if (date) {
         let started = moment(date);
-        let now = moment();
-        let timediff = now.diff(started, 'week')
+        let now = moment().add(71, 'days');
+        let timediff = now.diff(started, 'week') + 1
         //multiple of 7 (aka a week)
         if (timediff > 0) {
           storage.get('currentWeek').then(success => {
+            console.log(success)
             if (parseInt(success) <= 10 && timediff > parseInt(success)) {
+              if(timediff > 10){
+                timediff = 10;
+              }
               this.storage.set('currentWeek', timediff);
+              let alert = this.alertCtrl.create({
+                title: 'New Content',
+                subTitle: 'New weekly content has been unlocked!<br>You are now on week ' + timediff,
+                buttons: ['Awesome!']
+              });
+              alert.present();
             }
           });
         }
