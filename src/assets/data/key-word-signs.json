@@ -1,25 +1,34 @@
 [
-    {
-        "word": "Ball",
-        "category": [
-            "Food"
-        ],
-        "image": "assets/img/key-word-icons/Ball.png",
-        "video": ""
-    },{
-        "word": "Banana",
-        "image": "assets/img/key-word-icons/Banana.png",
-        "category": [
-            "Food"
-        ],
-        "video": ""
-    },{
-        "word": "Car",
-        "category": [
-            "Food"
-        ],
-        "image": "assets/img/key-word-icons/Cat.png",
-        "video": ""
-    }
-
+  "Ball",
+  "Banana",
+  "Bath",
+  "Big",
+  "Bird",
+  "Book",
+  "Broken",
+  "Car",
+  "Cat",
+  "Dirty",
+  "Dog",
+  "Drink",
+  "Eat",
+  "Finished",
+  "Flower",
+  "Hat",
+  "Home",
+  "Hot",
+  "Hungry",
+  "Love",
+  "Milk",
+  "More",
+  "Shoes",
+  "Sing",
+  "Sleep",
+  "Stop",
+  "Teddy Bear",
+  "Thank You",
+  "Tickle",
+  "Wash",
+  "Wet",
+  "Where"
 ]

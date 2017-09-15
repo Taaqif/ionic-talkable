@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FileServiceProvider } from '../../providers/file-service/file-service'
 
 @Component({
   selector: 'page-weekly-signs',
@@ -11,7 +10,7 @@ export class WeeklySignsPage {
   keyWordSignsChunks: any = [];
   weeklyKeyWordSigns: any = [];
   color: any = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fs: FileServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.week = this.navParams.get('w');
     this.color = this.week.number;
     this.weeklyKeyWordSigns = this.week.weeklyKeyWordSigns;

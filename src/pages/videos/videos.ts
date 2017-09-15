@@ -54,16 +54,17 @@ export class VideosPage {
   onFullscreen(e) {
     //TODO: Handle tab bar overlay
     // let tabbar:any;
-    // tabbar = document.getElementsByClassName('tabbar')[0];
+    // tabbar = document.getElementsByClassName('tab-buttons')[0];
     // if (tabbar.style.visibility === 'hidden') {
     //     tabbar.style.visibility = 'visible';
     // } else {
     //     tabbar.style.visibility = 'hidden';
     // }
-    //alert('Fullscreen ')
   }
   watched(video, event){
-    let watchedVideos;
+    let watchedVideos,doc;
+    doc = document;
+    doc.exitFullscreen();
     event.target.webkitExitFullScreen();
     event.target.pause();
     this.storage.get('watchedVideos').then(data => {
