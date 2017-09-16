@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Settings } from "../../providers/settings";
+import { FileServiceProvider } from "../../providers/file-service/file-service";
+import { AboutPage } from "../about/about";
+import { AckPage } from "../ack/ack";
+
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
@@ -8,7 +12,8 @@ import { Settings } from "../../providers/settings";
 export class SettingsPage {
   unlockAllToggle: boolean;
   options: any;
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
+              public fs: FileServiceProvider, 
               public navParams: NavParams, 
               private alertCtrl: AlertController, 
               private settings: Settings) {
@@ -56,4 +61,10 @@ export class SettingsPage {
     });
   alert.present();
   }
+  goToAbout(){
+    this.navCtrl.push(AboutPage); 
+   }
+   goToAck(){
+    this.navCtrl.push(AckPage); 
+   }
 }
