@@ -18,26 +18,34 @@
       <!-- <ion-toggle [checked]='settings.unlockAllToggle' (ionChange)='toggleUnlockAll();'></ion-toggle> -->
       <ion-label>Unlock all tutorials</ion-label>
     </ion-item>
+    <!--
     <ion-item>
       <ion-toggle checked='true'></ion-toggle>
       <ion-label>Turn off notifications</ion-label>
     </ion-item>
-  </ion-list>
-  <ion-list>
-    <button ion-item (click)="doAlert()">
-      Rate this app
-    </button>
-    <button ion-item (click)="doAlert()">
-      Send Feedback
-    </button>
-  </ion-list>
-  <ion-list>
+  -->
     <button ion-item (click)="resetSettings()">
-      Reset Settings
-    </button>
-    <button ion-item (click)="doAlert()">
-      Reset Progress
-    </button>
-    <ion-item>Build: 1</ion-item>
+        Reset Settings
+      </button>
+      <button ion-item (click)="doAlert()">
+        Reset Progress
+      </button>
   </ion-list>
+  <ion-list>
+    <button ion-item (click)="goToAbout()">
+      About
+    </button>
+    <button ion-item (click)="goToAck()">
+      Acknowledgements
+    </button>
+      <button ion-item (click)="doAlert()">
+        Rate this app
+      </button>
+      <button ion-item (click)="doAlert()">
+        Send Feedback
+      </button>
+      <ion-item>
+          <ion-note>Version: 1</ion-note>
+      </ion-item>
+    </ion-list>
 </ion-content>

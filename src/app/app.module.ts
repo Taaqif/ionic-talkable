@@ -26,6 +26,8 @@ import { WeeklySignsPage } from '../pages/weekly-signs/weekly-signs'
 import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
 import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
+import { AboutPage } from "../pages/about/about";
+import { AckPage } from "../pages/ack/ack";
 import { FileServiceProvider } from '../providers/file-service/file-service';
 import { Settings } from "../providers/settings";
 
@@ -55,6 +57,8 @@ export function provideSettings(storage: Storage) {
     WordListPage,
     WeeklySignsPage,
     SettingsPage,
+    AboutPage,
+    AckPage,
     ChunksPipe,
     ObjectPipe,
     KeysPipe
@@ -86,7 +90,9 @@ export function provideSettings(storage: Storage) {
     KeyWordSignsPage,
     WordListPage,
     WeeklySignsPage,
-    SettingsPage
+    SettingsPage,
+    AboutPage,
+    AckPage
   ],
   providers: [
     StatusBar,
