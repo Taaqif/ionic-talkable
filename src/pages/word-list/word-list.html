@@ -23,7 +23,7 @@
 </ng-template>
 <ion-content>
     <ion-searchbar *ngIf="WordListSegment != 'MyWords'" animated='true' tapable placeholder="Search Items" showCancelButton cancelButtonText="Clear" (ionInput)="filterItemsSorted($event)"></ion-searchbar>
-    
+      
   <div *ngIf='!searching'>
     <div padding>
       <ion-segment [(ngModel)]="WordListSegment" (ionChange)="segmentChanged($event)">
@@ -60,6 +60,12 @@
       </div>
 
       <ion-list *ngSwitchCase="'MyWords'" >
+        <div padding>
+<button ion-button icon-start (click)='presentPromptCustomWord()'>
+              <ion-icon name="add"></ion-icon> Add a custom word
+            </button>
+        </div>
+          
         <ion-item-sliding *ngFor='let myWord of savedWordList | keys' #item>
             <ion-item>
               <ion-label>{{ myWord }}</ion-label>

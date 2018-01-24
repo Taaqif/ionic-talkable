@@ -1,5 +1,5 @@
 import { Component, ViewChild  } from '@angular/core';
-import { NavController, NavParams, ToastController ,Content  } from 'ionic-angular';
+import { NavController, NavParams, ToastController ,Content, AlertController   } from 'ionic-angular';
 import { FileServiceProvider } from "../../providers/file-service/file-service";
 @Component({
   selector: 'page-word-list',
@@ -19,7 +19,8 @@ export class WordListPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public fs: FileServiceProvider,
-    public toastCtrl: ToastController ) {
+    public toastCtrl: ToastController,
+    private alertCtrl: AlertController ) {
     // this.fs.loadWordList();
     this.fs.getWordList().subscribe(data => {
       this.wordList = data;
@@ -44,6 +45,43 @@ export class WordListPage {
     Object.keys(this.WordListO).forEach(key => {
       this.wordList[key] = this.WordListO[key];
     })
+  }
+  presentPromptCustomWord() {
+    let alert = this.alertCtrl.create({
+      title: 'Custom Word',
+      subTitle: 'Add a custom work to add to your library',
+      inputs: [
+        {
+          name: 'word',
+          placeholder: 'Custom word'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            //console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log(data);
+            if (data.word.length > 0) {
+              // logged in!
+              
+              this.addToSavedWordList(data.word);
+              return true;
+            } else {
+              // invalid login
+              return false;
+            }
+          }
+        }
+      ]
+    });
+    alert.present();
   }
   generateSortedWordList() {
     this.sortedWordList = [];
