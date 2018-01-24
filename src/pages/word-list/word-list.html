@@ -125,7 +125,7 @@
   <div *ngIf='searching'>
     <ion-list>
       <ion-list-header>Found Items</ion-list-header>
-      <button *ngFor='let word of sortedWordList' ion-item [color]="savedWordList[word] ? 'danger' : null" (click)='addToSavedWordList(word)'>
+      <button *ngFor='let word of sortedWordList' ion-item [color]="savedWordList[word] ? 'secondary' : null" (click)='addToSavedWordList(word)'>
         <ion-label>{{ word }}</ion-label>
       </button>
     </ion-list>
