@@ -4,4 +4,7 @@ page-word-list {
         align-self: flex-start;
         margin-top: 14px;
       }
+      ion-label {
+        text-transform: capitalize;
+      }
 }

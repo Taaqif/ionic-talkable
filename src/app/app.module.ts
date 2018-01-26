@@ -16,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ChunksPipe, ObjectPipe, KeysPipe } from './app.component'
 
+import { AcknowledgementsPage } from '../pages/acknowledgements/acknowledgements';
 import { TenWeekProgramPage } from '../pages/ten-week-program/ten-week-program';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { TutorialPage } from '../pages//tutorial/tutorial';
@@ -46,6 +47,7 @@ export function provideSettings(storage: Storage) {
     Talkable,
     HomePage,
     TenWeekProgramPage,
+    AcknowledgementsPage,
     TabsControllerPage,
     VideosPage,
     TutorialPage,
@@ -80,6 +82,7 @@ export function provideSettings(storage: Storage) {
     TenWeekProgramPage,
     TabsControllerPage,
     VideosPage,
+    AcknowledgementsPage,
     StoryTimePage,
     HintsTipsPage,
     TutorialPage,

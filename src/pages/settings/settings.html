@@ -30,6 +30,9 @@
     <button ion-item (click)="doAlert()">
       Send Feedback
     </button>
+    <button ion-item (click)="openAcknowledgements()">
+      Acknowledgements
+    </button>
   </ion-list>
   <ion-list>
     <button ion-item (click)="resetSettings()">
@@ -38,8 +41,15 @@
     <button ion-item (click)="doAlert()">
       Reset Progress
     </button>
-    <ion-item>Build: 1</ion-item>
-    <ion-item no-lines text-wrap> <h6 ion-text [color]="light">Disclaimer: </h6></ion-item>
-    <ion-item no-lines text-wrap> <h6 ion-text [color]="light">Copyright Talkable: </h6></ion-item>
+    
+    <ion-item no-lines text-wrap> <h6 ion-text [color]="light"><strong>Disclaimer:</strong> The information provided within this app is general in nature and is not intended to replace a formal assessment by a qualified speech pathologist.
+      <br> If you have concerns about your child’s development please seek additional advice from your GP or child health nurse.    </h6></ion-item>
+    <ion-item no-lines text-wrap> <h6 ion-text [color]="light"><strong>Copyright:</strong> © Talkable 2017
+      <br>This app, and all content within, is subject to copyright and may not be reproduced, modified or shared without prior permission from Talkable.
+      
+      <br>Images of book covers used within this app are subject to copyright by their respective publishers.
+      
+      <br>Music used within the 10 week program videos is subject to copyright from <a href="#" onclick="window.open('http://www.bensound.com/', '_system', 'location=yes'); return false;">http://www.bensound.com/</a>
+      </h6></ion-item>
   </ion-list>
 </ion-content>

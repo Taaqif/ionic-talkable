@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Settings } from "../../providers/settings";
+import { AcknowledgementsPage } from "../acknowledgements/acknowledgements";
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
@@ -28,6 +29,9 @@ export class SettingsPage {
   alertEventChange() {
     // this.alertEvent = this.alertEvent ? false : true;
     console.log(this.unlockAllToggle);
+  }
+  openAcknowledgements(){
+    this.navCtrl.push(AcknowledgementsPage);
   }
   updateSettings(){
     this.settings.setAll(this.options)
