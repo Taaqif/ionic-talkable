@@ -8,6 +8,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 // import { StreamingMedia } from "@ionic-native/streaming-media";
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -94,6 +95,7 @@ export function provideSettings(storage: Storage) {
   providers: [
     StatusBar,
     SplashScreen,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileServiceProvider,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Settings } from "../../providers/settings";
 import { AcknowledgementsPage } from "../acknowledgements/acknowledgements";
+import { Storage } from '@ionic/storage';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
@@ -12,7 +15,9 @@ export class SettingsPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               private alertCtrl: AlertController, 
-              private settings: Settings) {
+              private settings: Settings,
+              public storage: Storage,
+              private localNotifications: LocalNotifications) {
     this.settings.load().then(() => {
       this.options = this.settings.allSettings;
     })
@@ -36,6 +41,33 @@ export class SettingsPage {
   updateSettings(){
     this.settings.setAll(this.options)
     // this.storage.set('settings', this.options);
+  }
+  resetProgress(){
+    let alert = this.alertCtrl.create({
+      title: 'Reset Progress',
+      subTitle: 'Do you wish to reset everything to default? WARNING: This will reset to app defaults',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+        {
+          text: 'Reset Progress',
+          handler: () => {
+            this.settings.reset().then(() => {
+              this.options = this.settings.allSettings
+              this.storage.clear();
+              this.localNotifications.cancelAll();
+              document.location.href = 'index.html';
+
+              // this.options = val;
+            });
+            //console.log('Buy clicked');
+          }
+        }
+      ]
+    });
+  alert.present();
   }
   resetSettings(){
     let alert = this.alertCtrl.create({

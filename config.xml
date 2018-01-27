@@ -135,4 +135,6 @@
     <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <engine name="android" spec="~6.2.3" />
+    <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
+    <allow-navigation href="http://192.168.0.11:8100" />
 </widget>

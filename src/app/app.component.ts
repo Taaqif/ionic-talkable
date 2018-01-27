@@ -1,5 +1,5 @@
 import { Component, ViewChild, Pipe, PipeTransform } from '@angular/core';
-import { Nav, Platform, MenuController,AlertController } from 'ionic-angular';
+import { Nav, Platform, MenuController, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import * as moment from 'moment';
@@ -11,6 +11,7 @@ import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
 import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
 import { Storage } from '@ionic/storage';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { FileServiceProvider } from "../providers/file-service/file-service";
 import { Settings } from "../providers/settings";
 export interface PageInterface {
@@ -81,23 +82,51 @@ export class Talkable {
     public fs: FileServiceProvider,
     public menuCtrl: MenuController,
     public settings: Settings,
-  public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    private localNotifications: LocalNotifications) {
     // Check if the user has already seen the tutorial
 
     this.storage.get('startedOn').then(date => {
       if (date) {
+
         let started = moment(date);
+        this.localNotifications.schedule({
+          title: 'New Weekly Content!',
+          text: 'Week  is available. Check it out!',
+        });
+        storage.get('currentWeek').then(currentWeek => {
+          //TODO: check notifications here
+          if (currentWeek == 1) {
+            //set notificaitions here 
+            for (let i = 1; i <= 9; i++) {
+              // Schedule a single notification
+              let futureDate = moment(started).add(i, 'weeks');
+              futureDate.hour(9);
+              futureDate.minute(0);
+              //every week for 10 weeks 
+              this.localNotifications.schedule({
+                id: i+1,
+                title: 'New Weekly Content!',
+                text: 'Week ' + i + ' is available. Check it out!',
+                at: futureDate.toDate()
+              });
+            }
+          }
+        });
+
         let now = moment();
         let timediff = now.diff(started, 'week') + 1
         //multiple of 7 (aka a week)
         if (timediff > 0) {
-          storage.get('currentWeek').then(success => {
-            console.log(success)
-            if (parseInt(success) <= 10 && timediff > parseInt(success)) {
-              if(timediff > 10){
+          storage.get('currentWeek').then(currentWeek => {
+            console.log(currentWeek)
+            if (parseInt(currentWeek) <= 10 && timediff > parseInt(currentWeek)) {
+              if (timediff > 10) {
                 timediff = 10;
               }
+              
               this.storage.set('currentWeek', timediff);
+              this.localNotifications.cancel(timediff);
               let alert = this.alertCtrl.create({
                 title: 'New Content',
                 subTitle: 'New weekly content has been unlocked!<br>You are now on week ' + timediff,
