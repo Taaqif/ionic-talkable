@@ -127,7 +127,7 @@ export class Talkable {
     ];
     this.wordPages = [
       { id: 'KeyWordSignsPage', title: 'Key Word Signs', component: KeyWordSignsPage, icon: "talkable-key" },
-      { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "talkable-tracker" },
+      { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "talkable-word-tracker" },
       // { id: "WordListPage", title: 'Word Tracker', component: WordListPage, icon: "ios-clipboard-outline" },
     ];
     this.settingsPages = [

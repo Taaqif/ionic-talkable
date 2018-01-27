@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "icons";
+    src: url("./icons.eot?b1200d4d3ff66600c1ef129fabde3540?#iefix") format("embedded-opentype"),
+url("./icons.woff2?b1200d4d3ff66600c1ef129fabde3540") format("woff2"),
+url("./icons.woff?b1200d4d3ff66600c1ef129fabde3540") format("woff"),
+url("./icons.ttf?b1200d4d3ff66600c1ef129fabde3540") format("truetype"),
+url("./icons.svg?b1200d4d3ff66600c1ef129fabde3540#icons") format("svg");
+}
+
+i {
+    line-height: 1;
+}
+
+i:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    vertical-align: top;
+}
+
+.icons-hints:before {
+    content: "\f101";
+}
+.icons-key_white:before {
+    content: "\f102";
+}
+.icons-logo_header:before {
+    content: "\f103";
+}
+.icons-people_white:before {
+    content: "\f104";
+}
+.icons-story:before {
+    content: "\f105";
+}
+.icons-talkable-hints-tips:before {
+    content: "\f106";
+}
+.icons-talkable-key:before {
+    content: "\f107";
+}
+.icons-talkable-storytime:before {
+    content: "\f108";
+}
+.icons-talkable-tracker:before {
+    content: "\f109";
+}
+.icons-talkable-video:before {
+    content: "\f10a";
+}
+.icons-talkable-word-tracker:before {
+    content: "\f10b";
+}
+.icons-tracker_white:before {
+    content: "\f10c";
+}

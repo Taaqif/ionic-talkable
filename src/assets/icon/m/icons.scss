@@ -1,0 +1,45 @@
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin makeIcon($arg, $val) {
+  .#{$arg}:before ,
+  .ion-ios-#{$arg}:before ,
+  .ion-ios-#{$arg}-outline:before ,
+  .ion-md-#{$arg}:before ,
+  .ion-md-#{$arg}-outline:before  {
+    content: $val;
+    font-size: 26px;
+  }
+}
+        
+@font-face {
+    font-family: "icons";
+    src: url("../assets/fonts/icons.eot?b1200d4d3ff66600c1ef129fabde3540?#iefix") format("embedded-opentype"),
+url("../assets/fonts/icons.woff2?b1200d4d3ff66600c1ef129fabde3540") format("woff2"),
+url("../assets/fonts/icons.woff?b1200d4d3ff66600c1ef129fabde3540") format("woff"),
+url("../assets/fonts/icons.ttf?b1200d4d3ff66600c1ef129fabde3540") format("truetype"),
+url("../assets/fonts/icons.svg?b1200d4d3ff66600c1ef129fabde3540#icons") format("svg");
+}
+@include makeIcon(hints, '\f101');
+@include makeIcon(key_white, '\f102');
+@include makeIcon(logo_header, '\f103');
+@include makeIcon(people_white, '\f104');
+@include makeIcon(talkable-hints-tips, '\f106');
+@include makeIcon(story, '\f105');
+@include makeIcon(talkable-key, '\f107');
+@include makeIcon(talkable-storytime, '\f108');
+@include makeIcon(talkable-tracker, '\f109');
+@include makeIcon(talkable-video, '\f10a');
+@include makeIcon(talkable-word-tracker, '\f10b');
+@include makeIcon(tracker_white, '\f10c');
