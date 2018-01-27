@@ -64,6 +64,7 @@
             <button ion-button icon-start (click)='presentPromptCustomWord()'>
               <ion-icon name="add"></ion-icon> Add a custom word
             </button>
+            <p>Swipe left to manage words</p>
         </div>
           
         <ion-item-sliding *ngFor='let myWord of savedWordList | keys' #item>

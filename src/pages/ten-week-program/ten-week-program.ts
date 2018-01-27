@@ -9,16 +9,18 @@ import { FileServiceProvider } from "../../providers/file-service/file-service";
 })
 export class TenWeekProgramPage {
   loaded: boolean = false;
-  allWeeks:any = [];
+  allWeeks:any = new Array(10);
   constructor(public navCtrl: NavController, public fs: FileServiceProvider) {
    
     for(let i = 1; i<=10; i++){
       this.fs.getWeekContent(i).subscribe((data) => {
-        this.allWeeks.push(data);
+        this.allWeeks[data.number - 1] = data;
+        
+        if(i == 10){
+          this.loaded = true;
+        }
       }) 
-      if(i == 10){
-        this.loaded = true;
-      }
+      
     }
   }
   goToWeeklyTabs(params){

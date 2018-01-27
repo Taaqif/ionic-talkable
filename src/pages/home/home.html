@@ -1,42 +1,36 @@
 <ion-header>
   <!-- This one for per week colors -->
-    <!-- <ion-navbar color="{{week.number}}"> -->
-    <!-- This one for Default colors -->
-    <!-- <ion-navbar color="primary"> -->
-        <ion-navbar>
-        <button ion-button menuToggle>
+  <!-- <ion-navbar color="{{week.number}}"> -->
+  <!-- This one for Default colors -->
+  <!-- <ion-navbar color="primary"> -->
+  <ion-navbar>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Talkable</ion-title>
-    </ion-navbar>
+    <ion-title>Talkable</ion-title>
+  </ion-navbar>
 </ion-header>
 
-<ion-content>
-    <ion-grid >
-        <ion-row>
-            <ion-col >
-                    <h1 class="home-content">Your 10 Week Program</h1>
-            </ion-col>
-        </ion-row>
-        <ion-row >
-            <ion-col >
-                    <button ion-button (click)="goToWordTracker()">Word Tracker</button>
-            </ion-col>
-        </ion-row>
-        <ion-row >
-            <ion-col>
-                    <button ion-button (click)="gotToKeyWordSigns()">Key Word Signs</button>
-            </ion-col >
-            </ion-row>
-            </ion-grid>
-            <div>
-            <ion-grid>
-        <ion-row class="go-time">
-            <ion-col >
-                    <h6 class="home-content">Pick up where you left off?</h6>
-                    <button ion-button (click)="userProgress()">Let's Go!</button>
-            </ion-col>
-        </ion-row>
+<ion-content text-center>
+  <h1 class="home-content">Your 10 Week Program</h1>
+  <button ion-button (click)="goToWordTracker()" icon-start>
+          <ion-icon name="talkable-tracker"></ion-icon>
+          Word Tracker
+    </button>
+  <button ion-button (click)="gotToKeyWordSigns()" icon-start>
+        <ion-icon name="talkable-key"></ion-icon>
+        Key Word Signs
+    </button>
+
+
+  <div>
+    <ion-grid>
+      <ion-row class="go-time">
+        <ion-col>
+          <h6 class="home-content">Pick up where you left off?</h6>
+          <button ion-button (click)="userProgress()">Let's Go!</button>
+        </ion-col>
+      </ion-row>
     </ion-grid>
-</div>
+  </div>
 </ion-content>
