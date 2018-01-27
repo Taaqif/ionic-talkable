@@ -12,25 +12,26 @@
 </ion-header>
 
 <ion-content text-center>
-  <h1 class="home-content">Your 10 Week Program</h1>
-  <button ion-button (click)="goToWordTracker()" icon-start>
+    <h1 class="home-content">Your 10 Week Program</h1>
+
+  <div padding>
+    <button ion-button large (click)="goToWordTracker()" icon-start>
           <ion-icon name="talkable-tracker"></ion-icon>
           Word Tracker
     </button>
-  <button ion-button (click)="gotToKeyWordSigns()" icon-start>
+  <button ion-button large (click)="gotToKeyWordSigns()" icon-start>
         <ion-icon name="talkable-key"></ion-icon>
         Key Word Signs
     </button>
+  </div>
+  
 
 
-  <div>
-    <ion-grid>
-      <ion-row class="go-time">
-        <ion-col>
+  <div padding>
+    
+      
           <h6 class="home-content">Pick up where you left off?</h6>
-          <button ion-button (click)="userProgress()">Let's Go!</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+          <button ion-button large (click)="userProgress()">Let's Go!</button>
+        
   </div>
 </ion-content>

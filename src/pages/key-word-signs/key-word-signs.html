@@ -15,7 +15,7 @@
 <ion-content id="keyWordSignsPage">
     
   <ion-list *ngIf="signs">
-    <ion-item *ngIf='signs?.length == 0' text-wrap>No Results Found. <br> For more key words, visit http://auslan.org.au</ion-item>
+    <ion-item *ngIf='signs?.length == 0' text-wrap>No Results Found. <br> For more key words, visit <a href="#" onclick="window.open('http://auslan.org.au/', '_system', 'location=yes'); return false;">http://auslan.org.au</a></ion-item>
     <ion-item *ngFor='let word of signs' (click)='playVideo(word)'>
         <video [attr.id]='word' controls class="video" width="100%" (ended)="watched(word, $event);" hidden>
           <source [attr.src]="'assets/vid/' + word.toLowerCase() + '.mp4'" type='video/mp4' >

@@ -89,30 +89,28 @@ export class Talkable {
     this.storage.get('startedOn').then(date => {
       if (date) {
 
-        let started = moment(date);
-        this.localNotifications.schedule({
-          title: 'New Weekly Content!',
-          text: 'Week  is available. Check it out!',
-        });
-        storage.get('currentWeek').then(currentWeek => {
-          //TODO: check notifications here
-          if (currentWeek == 1) {
-            //set notificaitions here 
-            for (let i = 1; i <= 9; i++) {
-              // Schedule a single notification
-              let futureDate = moment(started).add(i, 'weeks');
-              futureDate.hour(9);
-              futureDate.minute(0);
-              //every week for 10 weeks 
-              this.localNotifications.schedule({
-                id: i+1,
-                title: 'New Weekly Content!',
-                text: 'Week ' + i + ' is available. Check it out!',
-                at: futureDate.toDate()
-              });
-            }
+        let started = moment(date)
+        this.localNotifications.hasPermission().then(permission => {
+          if(!permission){
+            this.localNotifications.registerPermission().then(success => {
+              if(success){
+        
+                this.initializeNotifications(started);
+              }else{
+                let alert = this.alertCtrl.create({
+                  title: 'Notifications Disabled',
+                  subTitle: 'You will not receive notifications about weekly content',
+                  buttons: ['Ok']
+                });
+                alert.present();
+              }
+            })
+          }else{
+            
+            this.initializeNotifications(started);
           }
-        });
+        })
+        
 
         let now = moment();
         let timediff = now.diff(started, 'week') + 1
@@ -186,7 +184,30 @@ export class Talkable {
     // this.fs.setActivePage(this.pages[0].id);
     this.activePage = this.programPages[0];
   }
-
+  initializeNotifications(started:any){
+    //TODO: check notifications here
+    this.storage.get("notificationsLoaded").then(notificationsLoaded => {
+      if(!notificationsLoaded){
+        this.storage.get("currentWeek").then(currentWeek => {
+          //set notificaitions here 
+          for (let i = currentWeek; i <= 10 - currentWeek; i++) {
+            // Schedule a single notification
+            let futureDate = moment(started).add(i, 'weeks');
+            futureDate.hour(9);
+            futureDate.minute(0);
+            //every week for 10 weeks 
+            this.localNotifications.schedule({
+              id: i+1,
+              title: 'New Weekly Content!',
+              text: 'Week ' + i +1 + ' is available. Check it out!',
+              at: futureDate.toDate()
+            });
+            this.storage.set("notificationsLoaded", true);
+          }
+        })
+      }
+    })
+  }
   initializeApp() {
     this.settings.load().then(() => {
       this.pageReady = true;
