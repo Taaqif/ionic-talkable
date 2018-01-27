@@ -9,6 +9,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 // import { StreamingMedia } from "@ionic-native/streaming-media";
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -96,6 +97,7 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     SplashScreen,
     LocalNotifications,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileServiceProvider,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },

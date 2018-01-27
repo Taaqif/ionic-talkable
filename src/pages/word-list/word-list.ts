@@ -1,6 +1,8 @@
 import { Component, ViewChild  } from '@angular/core';
 import { NavController, NavParams, ToastController ,Content, AlertController   } from 'ionic-angular';
 import { FileServiceProvider } from "../../providers/file-service/file-service";
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 @Component({
   selector: 'page-word-list',
   templateUrl: 'word-list.html',
@@ -20,7 +22,8 @@ export class WordListPage {
     public navParams: NavParams,
     public fs: FileServiceProvider,
     public toastCtrl: ToastController,
-    private alertCtrl: AlertController ) {
+    private alertCtrl: AlertController,
+    private socialSharing: SocialSharing ) {
     // this.fs.loadWordList();
     this.fs.getWordList().subscribe(data => {
       this.wordList = data;
@@ -45,6 +48,15 @@ export class WordListPage {
     Object.keys(this.WordListO).forEach(key => {
       this.wordList[key] = this.WordListO[key];
     })
+  }
+  shareWords(){
+    let savedWordsString = "";
+    Object.keys(this.savedWordList).forEach(word => {
+      savedWordsString += word + ",\n" 
+    })
+    savedWordsString = savedWordsString.trim().slice(0, -1);
+    this.socialSharing.share(savedWordsString, "My child has learnt these words", null,null)
+
   }
   presentPromptCustomWord() {
     let alert = this.alertCtrl.create({

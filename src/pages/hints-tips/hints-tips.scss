@@ -5,4 +5,13 @@ page-hints-tips {
 //     overflow:visible;
 //     font-size:2rem;
 // }
+ion-labe.label-ios,
+ion-label.label-md{
+    color: color($colors, dark);
+    white-space: normal;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    overflow: visible;
+}
 }
