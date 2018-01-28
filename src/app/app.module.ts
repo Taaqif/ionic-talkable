@@ -10,6 +10,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 // import { StreamingMedia } from "@ionic-native/streaming-media";
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -31,7 +32,7 @@ import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
 import { FileServiceProvider } from '../providers/file-service/file-service';
 import { Settings } from "../providers/settings";
-
+import { RatingModal } from "../pages/rating-modal/rating-modal";
 export function provideSettings(storage: Storage) {
   /**
    * The Settings provider takes a set of default settings for your app.
@@ -59,6 +60,7 @@ export function provideSettings(storage: Storage) {
     WordListPage,
     WeeklySignsPage,
     SettingsPage,
+    RatingModal,
     ChunksPipe,
     ObjectPipe,
     KeysPipe
@@ -73,6 +75,7 @@ export function provideSettings(storage: Storage) {
         }
       } 
     }),
+    Ionic2RatingModule,
     IonicStorageModule.forRoot(),
     SuperTabsModule.forRoot(),
     IonicImageViewerModule
@@ -89,6 +92,7 @@ export function provideSettings(storage: Storage) {
     HintsTipsPage,
     TutorialPage,
     KeyWordSignsPage,
+    RatingModal,
     WordListPage,
     WeeklySignsPage,
     SettingsPage

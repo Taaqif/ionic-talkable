@@ -41,6 +41,7 @@
     "ionic-angular": "^3.6.0",
     "ionic-img-viewer": "^2.6.1",
     "ionic-plugin-keyboard": "^2.2.1",
+    "ionic2-rating": "^1.2.2",
     "ionic2-super-tabs": "^4.0.1",
     "ionicons": "3.0.0",
     "moment": "^2.18.1",

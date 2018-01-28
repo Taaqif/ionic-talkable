@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { Settings } from "../../providers/settings";
 import { AcknowledgementsPage } from "../acknowledgements/acknowledgements";
 import { Storage } from '@ionic/storage';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { RatingModal } from "../rating-modal/rating-modal";
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 @Component({
   selector: 'page-settings',
@@ -17,7 +19,9 @@ export class SettingsPage {
               private alertCtrl: AlertController, 
               private settings: Settings,
               public storage: Storage,
-              private localNotifications: LocalNotifications) {
+              private localNotifications: LocalNotifications,
+              public modalCtrl: ModalController,
+              public splashScreen: SplashScreen) {
     this.settings.load().then(() => {
       this.options = this.settings.allSettings;
     })
@@ -37,6 +41,10 @@ export class SettingsPage {
   }
   openAcknowledgements(){
     this.navCtrl.push(AcknowledgementsPage);
+  }
+  openRatingModal(){
+    let ratingModal = this.modalCtrl.create(RatingModal, null, {cssClass: 'ratingModal'});
+   ratingModal.present();
   }
   updateSettings(){
     this.settings.setAll(this.options)
@@ -58,6 +66,7 @@ export class SettingsPage {
               this.options = this.settings.allSettings
               this.storage.clear();
               this.localNotifications.cancelAll();
+              this.splashScreen.show();
               document.location.href = 'index.html';
 
               // this.options = val;
