@@ -6,9 +6,15 @@
     </button>
     <ion-title>Word List</ion-title>
     <ion-buttons *ngIf="WordListSegment == 'MyWords'" end>
+<button ion-button icon-only clear (click)="presentPromptCustomWord()" >
+        <ion-icon name="add" ></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons *ngIf="WordListSegment == 'MyWords'" end>
+      
       <button ion-button icon-only clear (click)="shareWords()" >
-      <ion-icon name="ios-share-outline" ></ion-icon>
-    </button>
+        <ion-icon name="ios-share-outline" ></ion-icon>
+      </button>
     </ion-buttons>
     
     <!-- TODO: Change to category name  -->
@@ -60,11 +66,11 @@
       </div>
 
       <ion-list *ngSwitchCase="'MyWords'" >
-        <div padding>
-            <button ion-button icon-start (click)='presentPromptCustomWord()'>
+        <div padding-left>
+            <!-- <button ion-button icon-start (click)='presentPromptCustomWord()'>
               <ion-icon name="add"></ion-icon> Add a custom word
-            </button>
-            <p>Swipe left to manage words</p>
+            </button> -->
+            <span>Swipe left to manage words</span>
         </div>
           
         <ion-item-sliding *ngFor='let myWord of savedWordList | keys' #item>
@@ -82,52 +88,7 @@
       </ion-list>
 
     </div>
-    <!-- <div *ngIf='wordList;else loading'>
-      <div *ngIf='category'>
-        <ion-list >
-          <ion-list-header>{{ category }}</ion-list-header>
-            <button *ngFor='let word of wordList[category]' ion-item (click)='showWordPopup(word)'><ion-label>{{ word }}</ion-label></button>
-        </ion-list>
-        <!-- <ion-grid>
-          <ion-row>
-            <h1>{{ category }}</h1>
-            <ion-col *ngFor='let word of wordList[category]' col-6>
-              <ion-card>
-                <ion-card-content text-wrap>
-                  <button ion-item clear full detail-none (click)='showWordPopup(word)'>
-              {{ word }}
-            </button>
 
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-grid> .........>
-      </div>
-      <div *ngIf='!category'>
-        <ion-list >
-          <ion-list-header>Select Category</ion-list-header>
-            <button *ngFor='let category of wordList | object' ion-item (click)='viewCategory(category.key)'>
-                <ion-icon name="logo-octocat" item-start></ion-icon>
-              <ion-label>{{ category.key }}</ion-label></button>
-        </ion-list>
-        <!-- <ion-grid>
-          <ion-row>
-            <h1>Select a category or look up words</h1>
-            <ion-col *ngFor='let category of wordList | object' col-12>
-              <ion-card>
-                <ion-card-content text-wrap>
-                  <button ion-item clear full detail-none (click)='viewCategory(category.key)'>
-              {{ category.key }}
-            </button>
-
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-grid> ...........>
-      </div>
-    </div> -->
   </div>
   <div *ngIf='searching'>
     <ion-list>
@@ -136,81 +97,8 @@
         <ion-label>{{ word }}</ion-label>
       </button>
     </ion-list>
-    <!-- <ion-grid>
-          <ion-row>
-            <ion-col col-12><h1>Found Items</h1></ion-col>
-            
-            <ion-col *ngFor='let word of sortedWordList' col-6>
-              <ion-card>
-                <ion-card-content text-wrap>
-                  <button ion-item clear full detail-none (click)='showWordPopup(word)'>
-              {{ word }}
-            </button>
-
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-grid> -->
+   
   </div>
-  <!-- <ion-item-group *ngFor='let category of wordList | object'>
-    <ion-item-divider sticky color="light">{{ category.key }}</ion-item-divider>
-    <button ion-item *ngFor='let words of wordList[category.key]' (click)="showWordPopup(words)">
-      {{ words }}
-      <ion-icon name="eye"></ion-icon>
-      <ion-icon name="checkmark"></ion-icon>
-    </button>
-  </ion-item-group>  -->
-  <!-- <ion-list *ngFor='let category of wordList | object'>
-    {{ category.key }}
-    <div [virtualScroll]="wordList[category.key]">
-      <ion-item *virtualItem='#words'>
-      {{ words }}
-    </ion-item>
-    </div>
-    
-  </ion-list>  -->
-  <!-- <div *ngIf='sortedWordList?.length > 0'> -->
-
-  <!-- </div>  -->
-
-
-  <!-- <ion-list *ngIf='sortedWordList?.length > 0' [hidden]='ready' [virtualScroll]="sortedWordList" approxItemHeight="50px">
-
-      <button ion-item *virtualItem="let item" [style.width.%]="100">
-      <ion-label>{{ item }}</ion-label>
-      <ion-checkbox 
-        [ngModel]="savedWordList[item]?.checked" 
-        (ngModelChange)="(savedWordList[item]) ? savedWordList[item].checked=$event : null"
-        (click)="updateSavedWordList(item)">
-      </ion-checkbox>
-      </button> 
-
-    </ion-list> -->
-  <!-- <div *ngIf='wordList;else loading'>
-    <ion-item-group *ngFor='let category of wordList | object' class="card-center-text">
-    <ion-item-divider sticky>{{ category.key }}</ion-item-divider>
-    <ion-grid text-center>
-      <ion-row *ngFor='let chunk of wordList[category.key] | chunks: 2'>
-        <ion-col *ngFor='let signs of chunk'>
-          <ion-card>
-            <button ion-item clear full detail-none (click)="showWordPopup(signs)">
-              <h1>{{ signs }} </h1>
-              <ion-icon name="eye"></ion-icon>
-              <ion-icon name="checkmark"></ion-icon>
-            </button>
-             <!-- <ion-card-content>
-              <ion-card-title>
-                {{ signs }}
-              </ion-card-title>
-            </ion-card-content>  -->
-  <!-- </ion-card>
-        </ion-col>
-
-        <ion-col *ngIf="chunk.length != 2"></ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item-group>  -->
-
+  
 
 </ion-content>

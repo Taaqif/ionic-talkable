@@ -9,7 +9,7 @@ ion-slide{
   background-color: color($colors,primary)!important;
 }
 ion-grid{
-  height:60%;
+  height:55%;
   justify-content:flex-end;
 }
 
@@ -46,5 +46,25 @@ height:30%;
       color: #000000;
     }
   }
-
+  .speech-bubble {
+    position: relative;
+    background: #88B0BE;
+    border-radius: 33px;
+    margin: 0 10%;
+  }
+  
+  .speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 0;
+    height: 0;
+    border: 39px solid transparent;
+    border-top-color: #88B0BE;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -19.5px;
+    margin-bottom: -39px;
+  }
 }

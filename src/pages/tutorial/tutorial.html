@@ -8,76 +8,75 @@
 
 <ion-content no-bounce color="primary">
   <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>
-<!-- Slide 1 -->
-    <ion-slide >
-        <img class="slide-image" src="assets/icon/icon.png" alt="Logo Header">
-<ion-grid>
-<ion-row>
-  <ion-col text-center>
-      <h2 class="slide-title" >Welcome to Talkable</h2>
-      <p>10 weeks of language learning fun!</p>
-  </ion-col>
-</ion-row>
-</ion-grid>
+    <!-- Slide 1 -->
+    <ion-slide>
+      <img class="slide-image" src="assets/icon/icon.png" alt="Logo Header">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="speech-bubble" text-center>
+            <h2 class="slide-title">Welcome to Talkable</h2>
+            <p>10 weeks of language learning fun!</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-slide>
-<!-- Slide 2 -->
+    <!-- Slide 2 -->
     <ion-slide>
-        <img class="slide-image" src="assets/icon/video.svg" color="light" alt="Video Icon">
-        <ion-grid>
-  <ion-row>
-    <ion-col text-center>
-        <h2 class="slide-title" >Unique content each week</h2>
-      <p>Each week a video tutorial will guide you through a new strategy, helping you to create a rich language learning environment at home.</p>
-    </ion-col>
-  </ion-row>
-  </ion-grid>
+      <img class="slide-image" src="assets/icon/video.svg" color="light" alt="Video Icon">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="speech-bubble" text-center>
+            <h2 class="slide-title">Unique content each week</h2>
+            <p>Each week a video tutorial will guide you through a new strategy, helping you to create a rich language learning
+              environment at home.</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-slide>
-<!-- Slide 3 -->
+    <!-- Slide 3 -->
     <ion-slide>
-        <img class="slide-image" src="assets/icon/key_white.svg" color="light" alt="Key Word Sign Icon">
-        <ion-grid>
-            <ion-row>
-              <ion-col text-center>
-        <h2 class="slide-title" >Learn to Sign</h2>
-      <p>Each week you will learn 4 new key word hand signs selected from the most common words used by toddlers.</p>
-      <p>By the end of the program you will be able to use 40 hand signs with your little one.</p>
-    </ion-col>
-  </ion-row>
-  </ion-grid>
+      <img class="slide-image" src="assets/icon/key_white.svg" color="light" alt="Key Word Sign Icon">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="speech-bubble" text-center>
+            <h2 class="slide-title">Learn to Sign</h2>
+            <p>Each week you will learn 4 new key word hand signs selected from the most common words used by toddlers.</p>
+            <p>By the end of the program you will be able to use 40 hand signs with your little one.</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-slide>
-<!-- Slide 4 -->
+    <!-- Slide 4 -->
     <ion-slide>
-        <img class="slide-image" src="assets/icon/tracker_white.svg" color="light" alt="Word Tracker Icon">
-        <ion-grid>
-            <ion-row>
-              <ion-col text-center>
-    <h2 class="slide-title" >Track your progress</h2>
-    <p>The Word Tracker function allows you to keep track of your child's growing vocabulary.</p>
-    <p>This is a great way to measure your child's language learning.</p>
-  </ion-col>
-</ion-row>
-</ion-grid>
-  </ion-slide>
-<!-- Slide 5 -->
+      <img class="slide-image" src="assets/icon/tracker_white.svg" color="light" alt="Word Tracker Icon">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="speech-bubble" text-center>
+            <h2 class="slide-title">Track your progress</h2>
+            <p>The Word Tracker function allows you to keep track of your child's growing vocabulary.</p>
+            <p>This is a great way to measure your child's language learning.</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <!-- Slide 5 -->
     <ion-slide>
-        <img class="slide-image" src="assets/icon/people_white.svg" color="light" alt="People Icon">
-        <ion-grid>
-            <ion-row>
-              <ion-col text-center>
-                  <h2 class="slide-title">Let's get started!</h2>
-                  <p>Remember, if you have ongoing concerns about your child's development please speak to your GP or child health nurse.</p>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                  <button ion-button icon-right large (click)="startApp()">
-                      Continue
-                      <ion-icon name="arrow-forward"></ion-icon>
-                    </button>
-    </ion-col>
-  </ion-row>
-  </ion-grid>
-
+      <img class="slide-image" src="assets/icon/people_white.svg" color="light" alt="People Icon">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="speech-bubble" text-center>
+            <h2 class="slide-title">Let's get started!</h2>
+            <p>Remember, if you have ongoing concerns about your child's development please speak to your GP or child health
+              nurse.</p>
+              <button ion-button icon-right large (click)="startApp()">
+                  Continue
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </button>
+          </ion-col>
+        </ion-row>
+        
+      </ion-grid>
+      
     </ion-slide>
 
   </ion-slides>
