@@ -11,6 +11,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Ionic2RatingModule } from 'ionic2-rating';
+import { Device } from '@ionic-native/device';
 
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -31,6 +32,7 @@ import { KeyWordSignsPage } from '../pages/key-word-signs/key-word-signs'
 import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
 import { FileServiceProvider } from '../providers/file-service/file-service';
+import { FeedbackService } from "../providers/feedback-service/feedback-service";
 import { Settings } from "../providers/settings";
 import { RatingModal } from "../pages/rating-modal/rating-modal";
 export function provideSettings(storage: Storage) {
@@ -100,10 +102,12 @@ export function provideSettings(storage: Storage) {
   providers: [
     StatusBar,
     SplashScreen,
+    Device,
     LocalNotifications,
     SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileServiceProvider,
+    FeedbackService,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
   ]
 })
