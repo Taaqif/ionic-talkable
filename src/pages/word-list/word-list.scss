@@ -7,4 +7,9 @@ page-word-list {
       ion-label {
         text-transform: capitalize;
       }
+      ion-note.note {
+        color: #a7a7a7;
+        right: 0;
+        position: absolute;
+    }
 }

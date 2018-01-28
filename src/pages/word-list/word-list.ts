@@ -99,12 +99,12 @@ export class WordListPage {
     this.sortedWordList = [];
     Object.keys(this.WordListO).forEach(key => {
       this.WordListO[key].forEach(element => {
-        this.sortedWordList.push(element);
+        this.sortedWordList.push({word: element, category: key});
       });
     })
     this.sortedWordList.sort(function (a, b) {
-      a = a.toLowerCase();
-      b = b.toLowerCase();
+      a = a.word.toLowerCase();
+      b = b.word.toLowerCase();
       if (a == b) return 0;
       return a < b ? -1 : 1;
     });
@@ -195,7 +195,7 @@ export class WordListPage {
     if (val && val.trim() !== '') {
       this.searching = true;
       this.sortedWordList = this.sortedWordList.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.word.toLowerCase().indexOf(val.toLowerCase()) > -1);
       });
 
 
