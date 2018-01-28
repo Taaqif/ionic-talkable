@@ -61,6 +61,7 @@ export class SettingsPage {
         },
         {
           text: 'Reset Progress',
+          cssClass: 'danger-label',
           handler: () => {
             this.settings.reset().then(() => {
               this.options = this.settings.allSettings
@@ -89,6 +90,7 @@ export class SettingsPage {
         },
         {
           text: 'Reset',
+          cssClass: 'danger-label',
           handler: () => {
             this.settings.reset().then(() => {
               this.options = this.settings.allSettings

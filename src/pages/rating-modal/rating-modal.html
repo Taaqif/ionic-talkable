@@ -1,12 +1,11 @@
-
 <ion-content id="ratingModal" text-center padding>
-      <h5>Give this app a rating</h5>
-    
-    <rating [(ngModel)]="rate"></rating>
-    <h5>Add some feedback</h5>
-    <ion-textarea placeholder="Enter a description" autocorrect="on"></ion-textarea>
-        <button ion-button color="light">Cancel</button>
-        <button ion-button>Submit</button>
+  <h5>Give this app a rating</h5>
 
-  
+  <rating [(ngModel)]="rating"></rating>
+  <h5>Add some feedback</h5>
+  <ion-textarea [(ngModel)]="feedback" maxlength="200" placeholder="Enter feedback (max 200 characters)" autocorrect="on"></ion-textarea>
+  <button ion-button color="light" (click)="dismiss()">Cancel</button>
+  <button ion-button (click)="submitFeedback()">Submit</button>
+
+
 </ion-content>
