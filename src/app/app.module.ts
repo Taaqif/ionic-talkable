@@ -33,6 +33,7 @@ import { WordListPage } from "../pages/word-list/word-list";
 import { SettingsPage } from "../pages/settings/settings";
 import { FileServiceProvider } from '../providers/file-service/file-service';
 import { FeedbackService } from "../providers/feedback-service/feedback-service";
+import { VideoService } from "../providers/video-service/video-service";
 import { Settings } from "../providers/settings";
 import { RatingModal } from "../pages/rating-modal/rating-modal";
 export function provideSettings(storage: Storage) {
@@ -102,6 +103,7 @@ export function provideSettings(storage: Storage) {
   providers: [
     StatusBar,
     SplashScreen,
+    VideoService,
     Device,
     LocalNotifications,
     SocialSharing,
