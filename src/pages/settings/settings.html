@@ -18,6 +18,11 @@
       <!-- <ion-toggle [checked]='settings.unlockAllToggle' (ionChange)='toggleUnlockAll();'></ion-toggle> -->
       <ion-label>Unlock all tutorials</ion-label>
     </ion-item>
+    <ion-item>
+      <ion-toggle color="primary" *ngIf='options' [(ngModel)]="options.localVideos" (ionChange)="updateSettings()"></ion-toggle>
+      <!-- <ion-toggle [checked]='settings.unlockAllToggle' (ionChange)='toggleUnlockAll();'></ion-toggle> -->
+      <ion-label>Use local videos</ion-label>
+    </ion-item>
     <!-- <ion-item>
       <ion-toggle checked='true'></ion-toggle>
       <ion-label>Turn off notifications</ion-label>

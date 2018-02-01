@@ -12,7 +12,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Ionic2RatingModule } from 'ionic2-rating';
 import { Device } from '@ionic-native/device';
-
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -44,7 +45,8 @@ export function provideSettings(storage: Storage) {
    * these values will not overwrite the saved values (this can be done manually if desired).
    */
   return new Settings(storage, {
-    unlockAll: false
+    unlockAll: false,
+    localVideos: false
   });
 }
 
@@ -110,6 +112,9 @@ export function provideSettings(storage: Storage) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileServiceProvider,
     FeedbackService,
+    FileTransfer,
+    FileTransferObject,
+    File,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
   ]
 })

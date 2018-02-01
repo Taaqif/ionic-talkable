@@ -14,6 +14,7 @@ import { Storage } from '@ionic/storage';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { FileServiceProvider } from "../providers/file-service/file-service";
 import { Settings } from "../providers/settings";
+import { VideoService } from '../providers/video-service/video-service';
 export interface PageInterface {
   title: string;
   component: any;
@@ -83,9 +84,9 @@ export class Talkable {
     public menuCtrl: MenuController,
     public settings: Settings,
     public alertCtrl: AlertController,
-    private localNotifications: LocalNotifications) {
+    private localNotifications: LocalNotifications,
+  private videoService: VideoService) {
     // Check if the user has already seen the tutorial
-
     this.storage.get('startedOn').then(date => {
       if (date) {
 
