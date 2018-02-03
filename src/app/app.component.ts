@@ -91,26 +91,39 @@ export class Talkable {
       if (date) {
 
         let started = moment(date)
-        this.localNotifications.hasPermission().then(permission => {
-          if(!permission){
-            this.localNotifications.registerPermission().then(success => {
-              if(success){
-        
-                this.initializeNotifications(started);
-              }else{
-                let alert = this.alertCtrl.create({
-                  title: 'Notifications Disabled',
-                  subTitle: 'You will not receive notifications about weekly content',
-                  buttons: ['Ok']
-                });
-                alert.present();
-              }
-            })
-          }else{
-            
-            this.initializeNotifications(started);
-          }
-        })
+        if (this.platform.is('cordova')) {
+          this.localNotifications.hasPermission().then(permission => {
+            let alert = this.alertCtrl.create({
+              title: 'Notifications Permissions',
+              subTitle: 'You will not receive notifications about weekly content',
+              buttons: ['Ok']
+            });
+            alert.present();
+            if(!permission){
+              this.localNotifications.registerPermission().then(success => {
+                if(success){
+          
+                  this.initializeNotifications(started);
+                }else{
+                  let alert = this.alertCtrl.create({
+                    title: 'Notifications Disabled',
+                    subTitle: 'You will not receive notifications about weekly content',
+                    buttons: ['Ok']
+                  });
+                  alert.present();
+                }
+              })
+            }else{
+              let alert = this.alertCtrl.create({
+                title: 'Notifications has',
+                subTitle: 'You will not receive notifications about weekly content',
+                buttons: ['Ok']
+              });
+              alert.present();
+              this.initializeNotifications(started);
+            }
+          })
+        }
         
 
         let now = moment();

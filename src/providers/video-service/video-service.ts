@@ -17,7 +17,7 @@ export class VideoService {
         })
     }
     playVideo(id, url) {
-        if (this.options.localVideos) {
+        if (this.settings.getValue('videoPreference') == 'download') {
             //local videos
             //check if video is downloaded
             if (this.plt.is('android')) {

@@ -6,7 +6,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { SuperTabsModule } from 'ionic2-super-tabs';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
-
+import { DownloadService } from "../providers/download-service/download-service";
 // import { StreamingMedia } from "@ionic-native/streaming-media";
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -46,7 +46,7 @@ export function provideSettings(storage: Storage) {
    */
   return new Settings(storage, {
     unlockAll: false,
-    localVideos: false
+    videoPreference: 'online'
   });
 }
 
@@ -109,6 +109,7 @@ export function provideSettings(storage: Storage) {
     Device,
     LocalNotifications,
     SocialSharing,
+    DownloadService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileServiceProvider,
     FeedbackService,

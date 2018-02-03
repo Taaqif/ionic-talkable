@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header >
   <!-- This one for per week colors -->
     <!-- <ion-navbar color="{{week.number}}"> -->
     <!-- This one for Default colors -->
@@ -19,7 +19,6 @@
      <!-- <video fullscreen="fullscreen" controls>
       <source src="https://www.youtube.com/embed/q8f-DoL1dqQ" type="video/mp4">  
     </video> -->
-      
     <video [attr.id]='v.path' controls class="video" width="100%" (ended)="watched(v, $event);" hidden>
         <source [attr.src]="v.path" type='video/mp4' >
     </video>

@@ -6,7 +6,7 @@ import { Storage } from '@ionic/storage';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { RatingModal } from "../rating-modal/rating-modal";
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { DownloadService } from "../../providers/download-service/download-service";
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
@@ -21,9 +21,11 @@ export class SettingsPage {
               public storage: Storage,
               private localNotifications: LocalNotifications,
               public modalCtrl: ModalController,
-              public splashScreen: SplashScreen) {
+              public splashScreen: SplashScreen,
+              public downloadService: DownloadService) {
     this.settings.load().then(() => {
       this.options = this.settings.allSettings;
+      console.log(this.options)
     })
   }
   doAlert() {
@@ -49,6 +51,39 @@ export class SettingsPage {
   updateSettings(){
     this.settings.setAll(this.options)
     // this.storage.set('settings', this.options);
+  }
+  updateVideoPreference(){
+    if(this.options.videoPreference == 'download'){
+      let alert = this.alertCtrl.create({
+        title: 'Warning',
+        message: 'This option will consume about 1GB of data, we suggest using a wifi network to download videos! <br><br>Videos will be downloaded in the background on a weekly basis. ',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              this.options.videoPreference = "online";
+            }
+          },
+          {
+            text: 'I Understand',
+            cssClass: 'danger-label',
+            handler: () => {
+              this.settings.setAll(this.options);
+              this.downloadService.startDownloading();
+  
+            }
+          }
+        ]
+      });
+      alert.present();
+    }else{
+      this.settings.setAll(this.options);
+      this.downloadService.stopDownloading();
+    }
+    
+    //show warinign popup before saving
+    
   }
   resetProgress(){
     let alert = this.alertCtrl.create({
