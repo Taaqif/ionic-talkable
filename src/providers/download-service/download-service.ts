@@ -41,6 +41,15 @@ export class DownloadService {
                     callback();
                 }).catch(err => {
                     // Download a file:
+                    self.fileTransfer.onProgress(progress => {
+                        if(!self.downloadedVideos[task.id]){
+                            self.downloadedVideos[task.id] = {}
+                        }
+                        var percent =  progress.loaded / progress.total * 100;
+                        percent = Math.round(percent);
+                        self.downloadedVideos[task.id].percent = percent;
+                        console.log(self.downloadedVideos)
+                    })
                     self.fileTransfer.download(
                         self.videoURL + task.id + '.mp4',
                         self.file.dataDirectory + task.id + '.mp4')
@@ -64,9 +73,12 @@ export class DownloadService {
             };
         })
     }
+    getFilePath(id){
+        return this.file.dataDirectory + id + '.mp4';
+    }
     saveDownloadedvideo(id){
+        this.downloadedVideos[id].loaded = true;
         
-        this.downloadedVideos[id] = true;
         this.storage.set("downloadedVideos", this.downloadedVideos)
     }
     forceDownload(id) {
@@ -110,6 +122,6 @@ export class DownloadService {
         this.q.kill();
     }
     isDownloaded(id) {
-        return this.downloadedVideos[id];
+        return this.downloadedVideos[id].loaded;
     }
 }

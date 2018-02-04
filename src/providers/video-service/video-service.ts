@@ -39,8 +39,7 @@ export class VideoService {
                     errorCallback: (e) => { console.log('Error streaming') },
                     orientation: 'landscape'
                   };
-                  console.log(this.file.dataDirectory + id + '.mp4')
-                  this.streamingMedia.playVideo(this.file.dataDirectory + id + '.mp4', options);
+                  this.streamingMedia.playVideo(this.downloadService.getFilePath(id), options);
                 // let profileModal = this.modalCtrl.create(VideoModalPage, { url: this.url + id + '.mp4', id: id });
                 // profileModal.present();
                 //local videos

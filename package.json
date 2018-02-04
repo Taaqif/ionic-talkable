@@ -78,7 +78,7 @@
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-file": {},
       "de.appplant.cordova.plugin.local-notification": {},
-      "com.hutchind.cordova.plugins.streamingmedia": {}
+      "cordova-plugin-streaming-media": {}
     },
     "platforms": [
       "android"
