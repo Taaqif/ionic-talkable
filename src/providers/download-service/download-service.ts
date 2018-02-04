@@ -27,6 +27,7 @@ export class DownloadService {
         private file: File) {
         this.fileTransfer = this.transfer.create();
         this.storage.get("downloadedVideos").then(downloadedVideos => {
+            console.log(downloadedVideos)
             if(downloadedVideos){
                 this.downloadedVideos = downloadedVideos;
 
@@ -36,6 +37,7 @@ export class DownloadService {
             // create a queue object with concurrency 1
             let self = this;
             this.q = queue(function (task: any, callback) {
+                console.log(task)
                 self.file.checkFile(self.file.dataDirectory, task.id + '.mp4').then(exists => {
                     self.saveDownloadedvideo(task.id);
                     callback();
@@ -94,6 +96,7 @@ export class DownloadService {
         this.q.resume();
     }
     startDownloading() {
+        console.log("starting")
         this.storage.get("currentWeek").then(currentWeek => {
             this.fs.getWeekContent(currentWeek).subscribe(week => {
                 // add some items to the queue
