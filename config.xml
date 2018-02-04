@@ -139,4 +139,5 @@
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="^0.8.5" />
     <engine name="android" spec="~7.0.0" />
+    <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
 </widget>

@@ -7,6 +7,8 @@ import { Platform,AlertController, ModalController, NavParams } from 'ionic-angu
 import { Component } from '@angular/core';
 import { DownloadService } from '../download-service/download-service';
 import { VideoModalPage } from "../../pages/video-modal/video-modal";
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
+import { File } from '@ionic-native/file';
 
 
 @Injectable()
@@ -19,7 +21,9 @@ export class VideoService {
         public storage: Storage,
         public downloadService: DownloadService,
         public alertCtrl: AlertController,
-        public modalCtrl: ModalController) {
+        public modalCtrl: ModalController,
+        private streamingMedia: StreamingMedia,
+        private file: File) {
         this.settings.load().then(() => {
             this.options = this.settings.allSettings;
         })
@@ -29,8 +33,16 @@ export class VideoService {
     playVideo(id) {
         if(this.downloadService.isDownloaded(id)){
             if (this.settings.getValue('videoPreference') == 'download') {
-                let profileModal = this.modalCtrl.create(VideoModalPage, { url: this.url + id + '.mp4', id: id });
-                profileModal.present();
+                
+                let options: StreamingVideoOptions = {
+                    successCallback: () => { console.log('Video played') },
+                    errorCallback: (e) => { console.log('Error streaming') },
+                    orientation: 'landscape'
+                  };
+                  console.log(this.file.dataDirectory + id + '.mp4')
+                  this.streamingMedia.playVideo(this.file.dataDirectory + id + '.mp4', options);
+                // let profileModal = this.modalCtrl.create(VideoModalPage, { url: this.url + id + '.mp4', id: id });
+                // profileModal.present();
                 //local videos
                 //check if video is downloaded
                 if (this.plt.is('android')) {

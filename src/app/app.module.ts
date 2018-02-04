@@ -18,6 +18,7 @@ import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 
 import { ChunksPipe, ObjectPipe, KeysPipe } from './app.component'
 
@@ -114,6 +115,7 @@ export function provideSettings(storage: Storage) {
     Device,
     LocalNotifications,
     SocialSharing,
+    StreamingMedia,
     DownloadService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileServiceProvider,
