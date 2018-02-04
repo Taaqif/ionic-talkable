@@ -16,7 +16,7 @@ export class DownloadService {
     fileTransfer: FileTransferObject;
     downloadedVideos;
     q: AsyncQueue<any>;
-    videoURL: string = "videos.talkable.org.au/";
+    videoURL: string = "http://feedback.talkable.org.au/";
     constructor(
         public plt: Platform,
         private settings: Settings,
@@ -27,46 +27,58 @@ export class DownloadService {
         private file: File) {
         this.fileTransfer = this.transfer.create();
         this.storage.get("downloadedVideos").then(downloadedVideos => {
-            this.downloadedVideos = downloadedVideos;
+            if(downloadedVideos){
+                this.downloadedVideos = downloadedVideos;
+
+            }else{
+                this.downloadedVideos = {};
+            }
             // create a queue object with concurrency 1
             let self = this;
-            this.q = queue(function(task:any, callback) {
+            this.q = queue(function (task: any, callback) {
                 self.file.checkFile(self.file.dataDirectory, task.id + '.mp4').then(exists => {
-                    if (exists) {
-                        self.downloadedVideos[task.id] = true;
-                        callback();
-                    } else {
-                        // Download a file:
-                        self.fileTransfer.download(
-                            self.videoURL + task.id + '.mp4',
-                            self.file.dataDirectory + task.id + '.mp4')
-                            .then(done => {
-                                self.downloadedVideos[task.id] = true;
-                                callback();
-                            })
-                            .catch(err => {
-                                //maybe retry the download
-                                callback();
-                            });
-                    }
+                    self.saveDownloadedvideo(task.id);
+                    callback();
+                }).catch(err => {
+                    // Download a file:
+                    self.fileTransfer.download(
+                        self.videoURL + task.id + '.mp4',
+                        self.file.dataDirectory + task.id + '.mp4')
+                        .then(done => {
+                            self.saveDownloadedvideo(task.id);
+                            callback();
+                        })
+                        .catch(err => {
+                            //maybe retry the download
+                            // self.startDownloading();
+                            callback();
+                        });
                 })
+
+
             }, 1);
             // assign a callback
-            this.q.drain = function() {
+            this.q.drain = function () {
                 //stop downloading, put app back into non background
                 console.log('all items have been processed');
             };
         })
     }
-    forceDownload(id){
-        this.q.unshift({id: id}, function(err) {
+    saveDownloadedvideo(id){
+        
+        this.downloadedVideos[id] = true;
+        this.storage.set("downloadedVideos", this.downloadedVideos)
+    }
+    forceDownload(id) {
+
+        this.q.unshift({ id: id }, function (err) {
             console.log('finished downloading foo');
         });
     }
-    pauseDownloading(){
+    pauseDownloading() {
         this.q.pause();
     }
-    resumeDownloading(){
+    resumeDownloading() {
         this.q.resume();
     }
     startDownloading() {
@@ -74,14 +86,16 @@ export class DownloadService {
             this.fs.getWeekContent(currentWeek).subscribe(week => {
                 // add some items to the queue
                 week.videos.forEach(video => {
-                    this.q.push({id: video.id}, function(err) {
-                        console.log('finished downloading '+video.id+'');
+                    //check if already in task list
+                    // if(this.q.workersList.)
+                    this.q.push({ id: video.id }, function (err) {
+                        console.log('finished downloading ' + video.id + '');
                     });
                 });
-                
+
             })
         })
-        
+
         //put app to non sleeping
         //get current week, 
         //check if file is downloaded 
@@ -92,6 +106,7 @@ export class DownloadService {
 
     }
     stopDownloading() {
+
         this.q.kill();
     }
     isDownloaded(id) {

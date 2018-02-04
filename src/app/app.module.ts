@@ -37,6 +37,8 @@ import { FeedbackService } from "../providers/feedback-service/feedback-service"
 import { VideoService } from "../providers/video-service/video-service";
 import { Settings } from "../providers/settings";
 import { RatingModal } from "../pages/rating-modal/rating-modal";
+import { NotificationsService } from '../providers/notifications-service/notifications-service';
+import { VideoModalPage } from '../pages/video-modal/video-modal';
 export function provideSettings(storage: Storage) {
   /**
    * The Settings provider takes a set of default settings for your app.
@@ -46,7 +48,8 @@ export function provideSettings(storage: Storage) {
    */
   return new Settings(storage, {
     unlockAll: false,
-    videoPreference: 'online'
+    videoPreference: 'online',
+    notifications: "enabled"
   });
 }
 
@@ -65,6 +68,7 @@ export function provideSettings(storage: Storage) {
     WordListPage,
     WeeklySignsPage,
     SettingsPage,
+    VideoModalPage,
     RatingModal,
     ChunksPipe,
     ObjectPipe,
@@ -95,6 +99,7 @@ export function provideSettings(storage: Storage) {
     AcknowledgementsPage,
     StoryTimePage,
     HintsTipsPage,
+    VideoModalPage,
     TutorialPage,
     KeyWordSignsPage,
     RatingModal,
@@ -115,6 +120,7 @@ export function provideSettings(storage: Storage) {
     FeedbackService,
     FileTransfer,
     FileTransferObject,
+    NotificationsService,
     File,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
   ]

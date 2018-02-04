@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { DownloadService } from "../../providers/download-service/download-service";
+import { VideoService } from '../../providers/video-service/video-service';
 @Component({
   selector: 'page-videos',
   templateUrl: 'videos.html',
@@ -16,7 +17,7 @@ export class VideosPage {
   constructor(public navCtrl: NavController,  
               public navParams: NavParams,
               public storage: Storage,
-            public downloadService: DownloadService) {
+            public videoService: VideoService) {
     // console.log(JSON.stringify(this.navParams.data));
     this.week = this.navParams.get('w');
     this.color = this.week.number;
@@ -41,16 +42,17 @@ export class VideosPage {
     // console.log(this.week);
   }
   playVideo(id){
-    let video:any;
-    video = document.getElementById(id);
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-    } else if (video.mozRequestFullScreen) {
-      video.mozRequestFullScreen();
-    } else if (video.webkitRequestFullscreen) {
-      video.webkitRequestFullscreen();
-    }
-    video.play();
+    this.videoService.playVideo(id);
+    // let video:any;
+    // video = document.getElementById(id);
+    // if (video.requestFullscreen) {
+    //   video.requestFullscreen();
+    // } else if (video.mozRequestFullScreen) {
+    //   video.mozRequestFullScreen();
+    // } else if (video.webkitRequestFullscreen) {
+    //   video.webkitRequestFullscreen();
+    // }
+    // video.play();
   }
   onFullscreen(e) {
     //TODO: Handle tab bar overlay

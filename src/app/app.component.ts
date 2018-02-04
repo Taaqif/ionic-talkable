@@ -15,6 +15,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { FileServiceProvider } from "../providers/file-service/file-service";
 import { Settings } from "../providers/settings";
 import { VideoService } from '../providers/video-service/video-service';
+import { NotificationsService } from '../providers/notifications-service/notifications-service';
 export interface PageInterface {
   title: string;
   component: any;
@@ -85,45 +86,13 @@ export class Talkable {
     public settings: Settings,
     public alertCtrl: AlertController,
     private localNotifications: LocalNotifications,
-  private videoService: VideoService) {
+  private videoService: VideoService,
+  public notificationsService: NotificationsService) {
     // Check if the user has already seen the tutorial
     this.storage.get('startedOn').then(date => {
       if (date) {
 
         let started = moment(date)
-        if (this.platform.is('cordova')) {
-          this.localNotifications.hasPermission().then(permission => {
-            let alert = this.alertCtrl.create({
-              title: 'Notifications Permissions',
-              subTitle: 'You will not receive notifications about weekly content',
-              buttons: ['Ok']
-            });
-            alert.present();
-            if(!permission){
-              this.localNotifications.registerPermission().then(success => {
-                if(success){
-          
-                  this.initializeNotifications(started);
-                }else{
-                  let alert = this.alertCtrl.create({
-                    title: 'Notifications Disabled',
-                    subTitle: 'You will not receive notifications about weekly content',
-                    buttons: ['Ok']
-                  });
-                  alert.present();
-                }
-              })
-            }else{
-              let alert = this.alertCtrl.create({
-                title: 'Notifications has',
-                subTitle: 'You will not receive notifications about weekly content',
-                buttons: ['Ok']
-              });
-              alert.present();
-              this.initializeNotifications(started);
-            }
-          })
-        }
         
 
         let now = moment();
@@ -198,37 +167,17 @@ export class Talkable {
     // this.fs.setActivePage(this.pages[0].id);
     this.activePage = this.programPages[0];
   }
-  initializeNotifications(started:any){
-    //TODO: check notifications here
-    this.storage.get("notificationsLoaded").then(notificationsLoaded => {
-      if(!notificationsLoaded){
-        this.storage.get("currentWeek").then(currentWeek => {
-          //set notificaitions here 
-          for (let i = currentWeek; i <= 10 - currentWeek; i++) {
-            // Schedule a single notification
-            let futureDate = moment(started).add(i, 'weeks');
-            futureDate.hour(9);
-            futureDate.minute(0);
-            //every week for 10 weeks 
-            this.localNotifications.schedule({
-              id: i+1,
-              title: 'New Weekly Content!',
-              text: 'Week ' + i +1 + ' is available. Check it out!',
-              at: futureDate.toDate()
-            });
-            this.storage.set("notificationsLoaded", true);
-          }
-        })
-      }
-    })
-  }
+  
   initializeApp() {
     this.settings.load().then(() => {
       this.pageReady = true;
     });
     this.platform.ready().then(() => {
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      this.notificationsService.initialiseNotifications();
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.platform.registerBackButtonAction(() => {

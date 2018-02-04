@@ -7,6 +7,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { RatingModal } from "../rating-modal/rating-modal";
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DownloadService } from "../../providers/download-service/download-service";
+import { NotificationsService } from '../../providers/notifications-service/notifications-service';
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
@@ -22,7 +23,8 @@ export class SettingsPage {
               private localNotifications: LocalNotifications,
               public modalCtrl: ModalController,
               public splashScreen: SplashScreen,
-              public downloadService: DownloadService) {
+              public downloadService: DownloadService,
+            public notificationsService: NotificationsService) {
     this.settings.load().then(() => {
       this.options = this.settings.allSettings;
       console.log(this.options)
@@ -52,6 +54,15 @@ export class SettingsPage {
     this.settings.setAll(this.options)
     // this.storage.set('settings', this.options);
   }
+  updateNotificationsPreference(){
+    if(this.options.videoPreference == 'disabled'){
+      this.notificationsService.disableNotifications();
+    }else{
+        this.notificationsService.initialiseNotifications();
+    }
+    this.settings.setAll(this.options);
+  }
+
   updateVideoPreference(){
     if(this.options.videoPreference == 'download'){
       let alert = this.alertCtrl.create({
