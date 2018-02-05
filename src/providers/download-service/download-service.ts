@@ -15,7 +15,7 @@ export class DownloadService {
     options: any;
     fileTransfer: FileTransferObject;
     downloadedVideos;
-    q: AsyncQueue<any>;
+    q: any;
     videoURL: string = "http://feedback.talkable.org.au/";
     constructor(
         public plt: Platform,
@@ -50,7 +50,6 @@ export class DownloadService {
                         var percent =  progress.loaded / progress.total * 100;
                         percent = Math.round(percent);
                         self.downloadedVideos[task.id].percent = percent;
-                        console.log(self.downloadedVideos)
                     })
                     self.fileTransfer.download(
                         self.videoURL + task.id + '.mp4',
@@ -75,19 +74,43 @@ export class DownloadService {
             };
         })
     }
+    getQueuedDownloads(){
+        return this.q.workersList;
+    }
+    getAllDownloaded(){
+        return this.downloadedVideos
+    }
+    getPercent(id){
+        return this.downloadedVideos[id].percent
+    }
     getFilePath(id){
         return this.file.dataDirectory + id + '.mp4';
     }
     saveDownloadedvideo(id){
-        this.downloadedVideos[id].loaded = true;
+        if(this.downloadedVideos[id]){
+            this.downloadedVideos[id].loaded = true;
+        }else{
+            this.downloadedVideos[id] = {}
+            this.downloadedVideos[id].loaded = true;
+        }
         
         this.storage.set("downloadedVideos", this.downloadedVideos)
     }
     forceDownload(id) {
-
-        this.q.unshift({ id: id }, function (err) {
-            console.log('finished downloading foo');
-        });
+        //check if q has id 
+        if(this.q.workersList() && this.q.workersList()[0].data.id != id){
+            this.q.remove((data, priority)=>{
+                return data.id == id;
+            })
+            this.q.unshift({ id: id }, function (err) {
+                console.log('finished downloading' + id);
+            });
+        }else{
+            this.q.unshift({ id: id }, function (err) {
+                console.log('finished downloading' + id);
+            });
+        }
+        
     }
     pauseDownloading() {
         this.q.pause();

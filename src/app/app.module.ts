@@ -40,6 +40,7 @@ import { Settings } from "../providers/settings";
 import { RatingModal } from "../pages/rating-modal/rating-modal";
 import { NotificationsService } from '../providers/notifications-service/notifications-service';
 import { VideoModalPage } from '../pages/video-modal/video-modal';
+import { ManageDownloadsPage } from "../pages/manage-downloads/manage-downloads";
 export function provideSettings(storage: Storage) {
   /**
    * The Settings provider takes a set of default settings for your app.
@@ -71,6 +72,7 @@ export function provideSettings(storage: Storage) {
     SettingsPage,
     VideoModalPage,
     RatingModal,
+    ManageDownloadsPage,
     ChunksPipe,
     ObjectPipe,
     KeysPipe
@@ -99,6 +101,7 @@ export function provideSettings(storage: Storage) {
     VideosPage,
     AcknowledgementsPage,
     StoryTimePage,
+    ManageDownloadsPage,
     HintsTipsPage,
     VideoModalPage,
     TutorialPage,
