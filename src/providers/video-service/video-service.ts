@@ -50,7 +50,12 @@ export class VideoService {
     
                 }
             } else {
-    
+                let options: StreamingVideoOptions = {
+                    successCallback: () => { console.log('Video played') },
+                    errorCallback: (e) => { console.log('Error streaming') },
+                    orientation: 'landscape'
+                  };
+                  this.streamingMedia.playVideo(this.downloadService.getFilePath(id), options);
                 //http://www.intheloftstudios.com/blog/detecting-html5-video-fullscreen-and-events
             }
         }else{
