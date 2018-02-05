@@ -34,7 +34,9 @@
       <!-- <ion-toggle color="primary" *ngIf='options' [(ngModel)]="options.localVideos" (ionChange)="updateSettings()"></ion-toggle> -->
       <!-- <ion-toggle [checked]='settings.unlockAllToggle' (ionChange)='toggleUnlockAll();'></ion-toggle> -->
     </ion-item>
-    
+    <button ion-item (click)="openManageDownloads()">
+      Manage Downloads
+    </button>
     <!-- <ion-item>
       <ion-toggle checked='true'></ion-toggle>
       <ion-label>Turn off notifications</ion-label>

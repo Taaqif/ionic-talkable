@@ -4,7 +4,6 @@ import { MenuController, NavController, Slides, AlertController, Platform } from
 import * as moment from 'moment';
 
 import { Storage } from '@ionic/storage';
-import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { TabsControllerPage } from '../tabs-controller/tabs-controller';
 
@@ -28,7 +27,6 @@ export class TutorialPage {
     public storage: Storage,
     public fs: FileServiceProvider,
     public alertCtrl: AlertController,
-    private localNotifications: LocalNotifications,
     public notificationsService: NotificationsService
   ) { }
 

@@ -8,6 +8,7 @@ import { RatingModal } from "../rating-modal/rating-modal";
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DownloadService } from "../../providers/download-service/download-service";
 import { NotificationsService } from '../../providers/notifications-service/notifications-service';
+import { ManageDownloadsPage } from "../manage-downloads/manage-downloads";
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
@@ -53,6 +54,9 @@ export class SettingsPage {
   updateSettings(){
     this.settings.setAll(this.options)
     // this.storage.set('settings', this.options);
+  }
+  openManageDownloads(){
+    this.navCtrl.push(ManageDownloadsPage);
   }
   updateNotificationsPreference(){
     if(this.options.videoPreference == 'disabled'){

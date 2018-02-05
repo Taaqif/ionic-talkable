@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage'
-import { Settings } from "../../providers/settings";
 import { Platform } from 'ionic-angular';
 import { FileServiceProvider } from '../file-service/file-service';
 import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -13,7 +11,6 @@ export class NotificationsService {
 
     constructor(
         public platform: Platform,
-        private settings: Settings,
         private localNotifications: LocalNotifications,
         public storage: Storage,
         public fs: FileServiceProvider,

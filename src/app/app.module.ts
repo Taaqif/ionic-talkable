@@ -12,13 +12,13 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Ionic2RatingModule } from 'ionic2-rating';
 import { Device } from '@ionic-native/device';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
+import { StreamingMedia } from '@ionic-native/streaming-media';
 
 import { ChunksPipe, ObjectPipe, KeysPipe } from './app.component'
 

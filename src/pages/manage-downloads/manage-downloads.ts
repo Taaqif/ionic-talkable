@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams } from 'ionic-angular';
 import { DownloadService } from '../../providers/download-service/download-service';
 
 /**
@@ -16,10 +16,6 @@ import { DownloadService } from '../../providers/download-service/download-servi
 export class ManageDownloadsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public downloadService:DownloadService) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ManageDownloadsPage');
   }
 
 }

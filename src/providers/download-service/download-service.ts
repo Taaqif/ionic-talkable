@@ -7,7 +7,8 @@ import { Platform } from 'ionic-angular';
 import { FileServiceProvider } from '../file-service/file-service';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
-import { queue, AsyncQueue } from 'async';
+import { queue } from 'async';
+import * as _ from 'lodash'
 
 @Injectable()
 
@@ -19,7 +20,6 @@ export class DownloadService {
     videoURL: string = "http://feedback.talkable.org.au/";
     constructor(
         public plt: Platform,
-        private settings: Settings,
         public http: Http,
         public storage: Storage,
         public fs: FileServiceProvider,
@@ -37,7 +37,6 @@ export class DownloadService {
             // create a queue object with concurrency 1
             let self = this;
             this.q = queue(function (task: any, callback) {
-                console.log(task)
                 self.file.checkFile(self.file.dataDirectory, task.id + '.mp4').then(exists => {
                     self.saveDownloadedvideo(task.id);
                     callback();
@@ -47,6 +46,8 @@ export class DownloadService {
                         if(!self.downloadedVideos[task.id]){
                             self.downloadedVideos[task.id] = {}
                         }
+                        self.downloadedVideos[task.id].downloaded = false;
+                        self.downloadedVideos[task.id].id = task.id
                         var percent =  progress.loaded / progress.total * 100;
                         percent = Math.round(percent);
                         self.downloadedVideos[task.id].percent = percent;
@@ -75,10 +76,10 @@ export class DownloadService {
         })
     }
     getQueuedDownloads(){
-        return this.q.workersList;
+        return _.filter(this.downloadedVideos, ['downloaded', false])
     }
     getAllDownloaded(){
-        return this.downloadedVideos
+        return _.filter(this.downloadedVideos, ['downloaded', true])
     }
     getPercent(id){
         return this.downloadedVideos[id].percent
@@ -86,12 +87,15 @@ export class DownloadService {
     getFilePath(id){
         return this.file.dataDirectory + id + '.mp4';
     }
+    getURLPath(id){
+        return this.videoURL + id + '.mp4';
+    }
     saveDownloadedvideo(id){
         if(this.downloadedVideos[id]){
-            this.downloadedVideos[id].loaded = true;
+            this.downloadedVideos[id].downloaded = true;
         }else{
             this.downloadedVideos[id] = {}
-            this.downloadedVideos[id].loaded = true;
+            this.downloadedVideos[id].downloaded = true;
         }
         
         this.storage.set("downloadedVideos", this.downloadedVideos)
@@ -119,7 +123,6 @@ export class DownloadService {
         this.q.resume();
     }
     startDownloading() {
-        console.log("starting")
         this.storage.get("currentWeek").then(currentWeek => {
             this.fs.getWeekContent(currentWeek).subscribe(week => {
                 // add some items to the queue
@@ -148,6 +151,6 @@ export class DownloadService {
         this.q.kill();
     }
     isDownloaded(id) {
-        return this.downloadedVideos[id].loaded;
+        return this.downloadedVideos[id].downloaded;
     }
 }

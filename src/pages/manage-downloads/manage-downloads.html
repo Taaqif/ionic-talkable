@@ -19,7 +19,7 @@
           Queued Downloads
         </ion-list-header>
     <ion-item *ngFor="let q of downloadService.getQueuedDownloads()">
-      Video {{q}}
+      Video {{q.iteid}}
       <div item-end>Progress x/x</div>
     </ion-item>
   </ion-list>
@@ -28,7 +28,7 @@
           Completed Downloads
         </ion-list-header>
     <ion-item *ngFor="let q of downloadService.getAllDownloaded()">
-      {{q}}
+      {{q.id}}
     </ion-item>
   </ion-list>
 </ion-content>

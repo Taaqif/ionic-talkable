@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { DownloadService } from "../../providers/download-service/download-service";
 import { VideoService } from '../../providers/video-service/video-service';
 @Component({
   selector: 'page-videos',
