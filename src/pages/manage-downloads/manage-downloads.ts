@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 import { DownloadService } from '../../providers/download-service/download-service';
 
@@ -14,8 +14,17 @@ import { DownloadService } from '../../providers/download-service/download-servi
   templateUrl: 'manage-downloads.html',
 })
 export class ManageDownloadsPage {
+  interval: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public downloadService:DownloadService) {
+  constructor(public cd: ChangeDetectorRef, public navCtrl: NavController, public navParams: NavParams, public downloadService:DownloadService) {
+    
   }
-
+  ngOnInit(){
+    this.interval = setInterval( () => {
+      this.cd.detectChanges();
+    }, 500);
+  }
+  ngOnDestroy() {
+    clearInterval(this.interval);
+  }
 }

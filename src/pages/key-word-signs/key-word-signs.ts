@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController  } from 'ionic-angular';
 import { FileServiceProvider } from "../../providers/file-service/file-service";
+import { VideoService } from '../../providers/video-service/video-service';
 // import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 
 
@@ -14,7 +15,7 @@ export class KeyWordSignsPage {
   filteredSigns: any = [];
   filteredSignsChunks: any = [];
   video: any;
-  constructor(public navCtrl: NavController, public fs: FileServiceProvider) {
+  constructor(public navCtrl: NavController, public fs: FileServiceProvider, public videoService: VideoService) {
      // Show the loading message
     // let loadingPopup = this.loadingCtrl.create({
     //   content: 'Loading posts...'
@@ -37,16 +38,17 @@ export class KeyWordSignsPage {
     
   }
   playVideo(id){
-    let video:any;
-    video = document.getElementById(id);
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-    } else if (video.mozRequestFullScreen) {
-      video.mozRequestFullScreen();
-    } else if (video.webkitRequestFullscreen) {
-      video.webkitRequestFullscreen();
-    }
-    video.play();
+    this.videoService.playVideo(id);
+    // let video:any;
+    // video = document.getElementById(id);
+    // if (video.requestFullscreen) {
+    //   video.requestFullscreen();
+    // } else if (video.mozRequestFullScreen) {
+    //   video.mozRequestFullScreen();
+    // } else if (video.webkitRequestFullscreen) {
+    //   video.webkitRequestFullscreen();
+    // }
+    // video.play();
   }
  watched(video, event){
     event.target.webkitExitFullScreen();

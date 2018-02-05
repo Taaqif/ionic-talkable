@@ -13,20 +13,26 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-list>
-      <ion-list-header>
-          Queued Downloads
-        </ion-list-header>
+    <ion-list-header>
+      Queued Downloads
+    </ion-list-header>
+    <ion-item *ngIf="downloadService.getQueuedDownloads().length == 0">
+      No Queued Downloads
+    </ion-item>
     <ion-item *ngFor="let q of downloadService.getQueuedDownloads()">
-      Video {{q.iteid}}
-      <div item-end>Progress x/x</div>
+      {{q.id}}
+      <div item-end>{{q.percent}}%</div>
     </ion-item>
   </ion-list>
   <ion-list>
-      <ion-list-header>
-          Completed Downloads
-        </ion-list-header>
+    <ion-list-header>
+      Completed Downloads
+    </ion-list-header>
+    <ion-item *ngIf="downloadService.getAllDownloaded().length == 0">
+      No Downloads
+    </ion-item>
     <ion-item *ngFor="let q of downloadService.getAllDownloaded()">
       {{q.id}}
     </ion-item>

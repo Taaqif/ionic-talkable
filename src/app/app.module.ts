@@ -7,7 +7,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { DownloadService } from "../providers/download-service/download-service";
-// import { StreamingMedia } from "@ionic-native/streaming-media";
+import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Ionic2RatingModule } from 'ionic2-rating';
@@ -119,6 +119,7 @@ export function provideSettings(storage: Storage) {
     LocalNotifications,
     SocialSharing,
     StreamingMedia,
+    BackgroundMode,
     DownloadService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileServiceProvider,

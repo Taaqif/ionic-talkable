@@ -40,9 +40,7 @@
     
      
      <!-- <video [attr.id]='word' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(word, $event);" hidden> -->
-        <video [attr.id]='word' controls class="video" width="100%" (ended)="watched(word, $event);" hidden>
-        <source [attr.src]="'assets/vid/' + word.toLowerCase() + '.mp4'" type='video/mp4' >
-    </video> 
+        
       <!-- <img src="assets/img/vidthumb.jpg" (click)='playVideo(word)' style="object-fit:cover"> -->
       <ion-item class="keyword-video" (click)='playVideo(word)'>
           <h1 class="video-title">{{word}}</h1>

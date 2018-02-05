@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { VideoService } from '../../providers/video-service/video-service';
 
 @Component({
   selector: 'page-weekly-signs',
@@ -10,7 +11,7 @@ export class WeeklySignsPage {
   keyWordSignsChunks: any = [];
   weeklyKeyWordSigns: any = [];
   color: any = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public videoService: VideoService) {
     this.week = this.navParams.get('w');
     this.color = this.week.number;
     this.weeklyKeyWordSigns = this.week.weeklyKeyWordSigns;
@@ -35,16 +36,17 @@ export class WeeklySignsPage {
     // })
   }
   playVideo(id){
-    let video:any;
-    video = document.getElementById(id);
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-    } else if (video.mozRequestFullScreen) {
-      video.mozRequestFullScreen();
-    } else if (video.webkitRequestFullscreen) {
-      video.webkitRequestFullscreen();
-    }
-    video.play();
+    this.videoService.playVideo(id);
+    // let video:any;
+    // video = document.getElementById(id);
+    // if (video.requestFullscreen) {
+    //   video.requestFullscreen();
+    // } else if (video.mozRequestFullScreen) {
+    //   video.mozRequestFullScreen();
+    // } else if (video.webkitRequestFullscreen) {
+    //   video.webkitRequestFullscreen();
+    // }
+    // video.play();
   }
  watched(video, event){
     event.target.webkitExitFullScreen();

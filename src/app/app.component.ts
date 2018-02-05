@@ -15,6 +15,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { FileServiceProvider } from "../providers/file-service/file-service";
 import { Settings } from "../providers/settings";
 import { NotificationsService } from '../providers/notifications-service/notifications-service';
+import { DownloadService } from '../providers/download-service/download-service';
 export interface PageInterface {
   title: string;
   component: any;
@@ -85,7 +86,8 @@ export class Talkable {
     public settings: Settings,
     public alertCtrl: AlertController,
     private localNotifications: LocalNotifications,
-  public notificationsService: NotificationsService) {
+  public notificationsService: NotificationsService,
+  public downloadService: DownloadService) {
     // Check if the user has already seen the tutorial
     this.storage.get('startedOn').then(date => {
       if (date) {
@@ -175,7 +177,7 @@ export class Talkable {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.notificationsService.initialiseNotifications();
-
+      this.downloadService.startDownloading();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.platform.registerBackButtonAction(() => {
@@ -203,24 +205,6 @@ export class Talkable {
       this.nav.setRoot(page.component, page.param);
       this.fs.setActivePage(page.id);
 
-      // if(page.param){
-
-      //   this.nav.setRoot(page.component, page.param).then(success => {
-      //       if(success){
-
-      //         this.fs.setActivePage(page.id);
-      //         this.menuCtrl.close();
-      //         this.activePage = page
-      //       }       
-      //   });
-
-      // }else{
-      //   this.menuCtrl.close();
-      //   this.nav.setRoot(page.component);
-      //   this.fs.setActivePage(page.id);
-
-      //   // this.fs.setActivePage(page.id);
-      //   // this.activePage = page
       // }
     } else {
       // this.menuCtrl.close();
@@ -252,17 +236,7 @@ export class Talkable {
       }
 
     }
-    // return new Promise(resolve => {
-    //   if(this.fs.settings['unlockAll']){
-    //     resolve(true);
-    //   }else{
-    //     if(page > this.fs.currentWeek){
-    //       resolve(false);
-    //     }else{
-    //       resolve(true);
-    //     }
-    //   }
-    // })
+
   }
 
 }

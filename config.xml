@@ -140,4 +140,5 @@
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="^0.8.5" />
     <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-streaming-media" spec="~0.1.4" />
+    <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
 </widget>
