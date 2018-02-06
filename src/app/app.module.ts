@@ -19,7 +19,7 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StreamingMedia } from '@ionic-native/streaming-media';
-
+import { AboutTalkablePage } from "../pages/about-talkable/about-talkable";
 import { ChunksPipe, ObjectPipe, KeysPipe } from './app.component'
 
 import { AcknowledgementsPage } from '../pages/acknowledgements/acknowledgements';
@@ -39,8 +39,9 @@ import { VideoService } from "../providers/video-service/video-service";
 import { Settings } from "../providers/settings";
 import { RatingModal } from "../pages/rating-modal/rating-modal";
 import { NotificationsService } from '../providers/notifications-service/notifications-service';
-import { VideoModalPage } from '../pages/video-modal/video-modal';
 import { ManageDownloadsPage } from "../pages/manage-downloads/manage-downloads";
+import { Network } from '@ionic-native/network';
+
 export function provideSettings(storage: Storage) {
   /**
    * The Settings provider takes a set of default settings for your app.
@@ -70,9 +71,9 @@ export function provideSettings(storage: Storage) {
     WordListPage,
     WeeklySignsPage,
     SettingsPage,
-    VideoModalPage,
     RatingModal,
     ManageDownloadsPage,
+    AboutTalkablePage,
     ChunksPipe,
     ObjectPipe,
     KeysPipe
@@ -98,12 +99,12 @@ export function provideSettings(storage: Storage) {
     HomePage,
     TenWeekProgramPage,
     TabsControllerPage,
+    AboutTalkablePage,
     VideosPage,
     AcknowledgementsPage,
     StoryTimePage,
     ManageDownloadsPage,
     HintsTipsPage,
-    VideoModalPage,
     TutorialPage,
     KeyWordSignsPage,
     RatingModal,
@@ -126,6 +127,7 @@ export function provideSettings(storage: Storage) {
     FeedbackService,
     FileTransfer,
     FileTransferObject,
+    Network,
     NotificationsService,
     File,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },

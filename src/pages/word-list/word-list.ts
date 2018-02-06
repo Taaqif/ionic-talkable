@@ -55,7 +55,7 @@ export class WordListPage {
       savedWordsString += word + ",\n" 
     })
     savedWordsString = savedWordsString.trim().slice(0, -1);
-    this.socialSharing.share(savedWordsString, "My child has learnt these words", null,null)
+    this.socialSharing.share(savedWordsString, "My child can say", null,null)
 
   }
   presentPromptCustomWord() {

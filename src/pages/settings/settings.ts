@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { Settings } from "../../providers/settings";
 import { AcknowledgementsPage } from "../acknowledgements/acknowledgements";
+import { AboutTalkablePage } from "../about-talkable/about-talkable";
 import { Storage } from '@ionic/storage';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { RatingModal } from "../rating-modal/rating-modal";
@@ -46,6 +47,9 @@ export class SettingsPage {
   }
   openAcknowledgements(){
     this.navCtrl.push(AcknowledgementsPage);
+  }
+  openAbout(){
+    this.navCtrl.push(AboutTalkablePage);
   }
   openRatingModal(){
     let ratingModal = this.modalCtrl.create(RatingModal, null, {cssClass: 'ratingModal'});
