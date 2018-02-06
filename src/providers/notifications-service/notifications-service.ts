@@ -37,7 +37,7 @@ export class NotificationsService {
                                     } else {
                                         let alert = self.alertCtrl.create({
                                             title: 'Notifications Disabled',
-                                            subTitle: 'You will not receive notifications about weekly content',
+                                            subTitle: 'You will not receive notifications for weekly content',
                                             buttons: ['Ok']
                                         });
                                         alert.present();
@@ -77,7 +77,7 @@ export class NotificationsService {
                 this.localNotifications.schedule({
                     id: i + 1,
                     title: 'New Weekly Content!',
-                    text: 'Week ' + (i + 1) + ' is available. Check it out!',
+                    text: 'Talkable Week ' + (i + 1) + ' content is available.',
                     at: futureDate.toDate()
                 });
 

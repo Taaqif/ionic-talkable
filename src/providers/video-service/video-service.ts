@@ -59,14 +59,6 @@ export class VideoService {
                 });
                 alert.present();
             }
-
-            //local videos
-            //check if video is downloaded
-            if (this.plt.is('android')) {
-
-            } else {
-
-            }
         } else {
             this.playOnline(id);
             //http://www.intheloftstudios.com/blog/detecting-html5-video-fullscreen-and-events

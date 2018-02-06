@@ -39,8 +39,9 @@ import { VideoService } from "../providers/video-service/video-service";
 import { Settings } from "../providers/settings";
 import { RatingModal } from "../pages/rating-modal/rating-modal";
 import { NotificationsService } from '../providers/notifications-service/notifications-service';
-import { VideoModalPage } from '../pages/video-modal/video-modal';
 import { ManageDownloadsPage } from "../pages/manage-downloads/manage-downloads";
+import { Network } from '@ionic-native/network';
+
 export function provideSettings(storage: Storage) {
   /**
    * The Settings provider takes a set of default settings for your app.
@@ -70,7 +71,6 @@ export function provideSettings(storage: Storage) {
     WordListPage,
     WeeklySignsPage,
     SettingsPage,
-    VideoModalPage,
     RatingModal,
     ManageDownloadsPage,
     ChunksPipe,
@@ -103,7 +103,6 @@ export function provideSettings(storage: Storage) {
     StoryTimePage,
     ManageDownloadsPage,
     HintsTipsPage,
-    VideoModalPage,
     TutorialPage,
     KeyWordSignsPage,
     RatingModal,
@@ -126,6 +125,7 @@ export function provideSettings(storage: Storage) {
     FeedbackService,
     FileTransfer,
     FileTransferObject,
+    Network,
     NotificationsService,
     File,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
