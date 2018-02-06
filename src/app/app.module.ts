@@ -19,7 +19,7 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StreamingMedia } from '@ionic-native/streaming-media';
-
+import { AboutTalkablePage } from "../pages/about-talkable/about-talkable";
 import { ChunksPipe, ObjectPipe, KeysPipe } from './app.component'
 
 import { AcknowledgementsPage } from '../pages/acknowledgements/acknowledgements';
@@ -73,6 +73,7 @@ export function provideSettings(storage: Storage) {
     SettingsPage,
     RatingModal,
     ManageDownloadsPage,
+    AboutTalkablePage,
     ChunksPipe,
     ObjectPipe,
     KeysPipe
@@ -98,6 +99,7 @@ export function provideSettings(storage: Storage) {
     HomePage,
     TenWeekProgramPage,
     TabsControllerPage,
+    AboutTalkablePage,
     VideosPage,
     AcknowledgementsPage,
     StoryTimePage,
