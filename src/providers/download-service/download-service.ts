@@ -138,6 +138,7 @@ export class DownloadService {
         this.q.resume();
     }
     startDownloading() {
+        //check for netwrok
         if (this.settings.getValue("videoPreference") == 'download') {
             this.backgroundMode.enable();
             this.storage.get("currentWeek").then(currentWeek => {
