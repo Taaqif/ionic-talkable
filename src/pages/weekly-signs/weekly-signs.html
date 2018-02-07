@@ -65,44 +65,4 @@
         </ion-list>
     </ion-card>
  
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col *ngFor='let word of weeklyKeyWordSigns' col-6 class='card-center-text'>
-        <ion-card >
-            <video [attr.id]='word' controls class="video" poster="assets/img/vidthumb.jpg"  width="100%" (ended)="watched(word, $event);" hidden>
-              <source [attr.src]="'assets/vid/' + word.toLowerCase() + '.mp4'" type='video/mp4' >
-          </video> 
-            <ion-item (click)='playVideo(word)'>
-            <button ion-button clear item-end large><ion-icon name="play"></ion-icon></button>
-            <h1>{{word}}</h1>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-12>
-        <ion-card>
-          <ion-card-header>
-            Activities
-            <ion-icon name="md-people" item-end style="float:right;"></ion-icon>
-          </ion-card-header>
-            <ion-list>
-              <ion-item>
-                <ion-icon name="ios-checkmark" item-start></ion-icon>
-                Activity
-              </ion-item>
-              <ion-item>
-                  <ion-icon name="ios-checkmark" item-start></ion-icon>
-                  Activity
-                </ion-item>
-            </ion-list>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-  <!-- <ion-list id='weeklySigns-list'>
-    <button ion-item *ngFor='let signs of week.weeklyKeyWordSigns'> 
-      {{ signs }} 
-    </button>
-  </ion-list> -->
 </ion-content>

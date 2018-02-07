@@ -19,11 +19,15 @@ export class NotificationsService {
     }
     initialiseNotifications() {
         let self = this
+        this.localNotifications.schedule({
+            id: 99,
+            title: 'New Weekly Content!',
+            text: 'Talkable Week 99 content is available.',
+            icon: 'assets/icon/'
+        });
         this.storage.get('startedOn').then(date => {
             if (date) {
-                this.localNotifications.getAllScheduled().then(s => {
-                    console.log(s)
-                })                
+                              
                 let started = moment(date)
                 this.storage.get("notificationsLoaded").then(notificationsLoaded => {
 

@@ -39,8 +39,7 @@ export class VideoService {
             } else {
                 let alert = this.alertCtrl.create({
                     title: "Video Not Download",
-                    subTitle: 'This video has not been downloaded yet. ',
-                    message: 'Would you like to stream the video or wait for the video to complete downloading?',
+                    message: 'Would you like to stream the video or queue for the video for downloading?',
                     buttons: [
 
                         {
@@ -49,19 +48,23 @@ export class VideoService {
                                 this.playOnline(id);
                             }
                         }, {
-                            text: 'Wait',
-                            role: 'cancel',
+                            text: 'Queue',
                             handler: () => {
                                 this.downloadService.forceDownload(id);
                             }
-                        },
+                        },{
+                            text: 'Cancel',
+                            role: 'cancel',
+                            handler: () => {
+                                
+                            }
+                        }
                     ]
                 });
                 alert.present();
             }
         } else {
             this.playOnline(id);
-            //http://www.intheloftstudios.com/blog/detecting-html5-video-fullscreen-and-events
         }
     }
     playLocal(id) {

@@ -19,9 +19,7 @@
      <!-- <video fullscreen="fullscreen" controls>
       <source src="https://www.youtube.com/embed/q8f-DoL1dqQ" type="video/mp4">  
     </video> -->
-    <video [attr.id]='v.path' controls class="video" width="100%" (ended)="watched(v, $event);" hidden>
-        <source [attr.src]="v.path" type='video/mp4' >
-    </video>
+
     
     <ion-item (click)='playVideo(v.id)'>
         <button ion-button clear item-end large [color]="color"><ion-icon name="play"></ion-icon></button>

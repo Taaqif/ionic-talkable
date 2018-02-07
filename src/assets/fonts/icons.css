@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "icons";
+    src: url("./icons.eot?20c0456e7bfe3958d756da5274e7fce6?#iefix") format("embedded-opentype"),
+url("./icons.woff2?20c0456e7bfe3958d756da5274e7fce6") format("woff2"),
+url("./icons.woff?20c0456e7bfe3958d756da5274e7fce6") format("woff"),
+url("./icons.ttf?20c0456e7bfe3958d756da5274e7fce6") format("truetype"),
+url("./icons.svg?20c0456e7bfe3958d756da5274e7fce6#icons") format("svg");
+}
+
+i {
+    line-height: 1;
+}
+
+i:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    vertical-align: top;
+}
+
+.icons-talkable-current:before {
+    content: "\f101";
+}
+.icons-talkable-hints-tips:before {
+    content: "\f102";
+}
+.icons-talkable-key-word-signs:before {
+    content: "\f103";
+}
+.icons-talkable-overview:before {
+    content: "\f104";
+}
+.icons-talkable-storytime:before {
+    content: "\f105";
+}
+.icons-talkable-video:before {
+    content: "\f106";
+}
+.icons-talkable-word-tracker:before {
+    content: "\f107";
+}

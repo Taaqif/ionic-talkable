@@ -18,36 +18,10 @@
     <ion-item *ngIf='signs?.length == 0' text-wrap>No Results Found. <br> For more key words, visit <a href="#" onclick="window.open('http://auslan.org.au/', '_system', 'location=yes'); return false;">http://auslan.org.au</a></ion-item>
     <ion-item *ngFor='let word of signs' (click)='playVideo(word)'>
       {{ word }}
-      <button ion-button clear item-end (click)='playVideo(word)'><ion-icon name="play"></ion-icon>  </button>
+      <button ion-button clear item-end><ion-icon name="play"></ion-icon>  </button>
       
       <!-- <img [src]="filteredWordList[word.key].image" [alt]="signs.word">  -->
     </ion-item>
   </ion-list>
-  <!-- <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar> -->
-  <!-- <ion-list *ngIf='filteredSigns;else loading' id="keyWordSigns-list">
-    <ion-item *ngIf='filteredSigns?.length == 0'>No Results Found</ion-item>
-  <ion-grid>
-    <ion-row *ngFor='let chunk of filteredSigns | chunks: 2'>
-      <ion-col *ngFor='let signs of chunk'>
-        <ion-card>
-          <ion-list>
-            <ion-item>
-              <ion-thumbnail item-right>
-                <!-- <video controls poster='assets/img/vidthumb.jpg'>
-                  <source src="assets/vid/tickle.mp4" type="video/mp4">
-                </video>
-                <img [src]="signs.image" [alt]="signs.word"> 
-              </ion-thumbnail>
-              <h1>{{ signs.word }}</h1>
-              <ion-icon name="eye"></ion-icon>
-              <ion-icon name="checkmark"></ion-icon>
-            </ion-item>
-          </ion-list>
-           <!-- <img [src]="signs.image" [alt]="signs.word"> 
-        </ion-card>
-      </ion-col>
-      <ion-col *ngIf="chunk.length != 2"></ion-col>
-    </ion-row>
-  </ion-grid>
-  </ion-list> -->
+ 
 </ion-content>

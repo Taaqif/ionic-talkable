@@ -1,25 +1,4 @@
-@charset "UTF-8";
-@import 'variables';
-//@import url("../assets/fonts");
-@font-face {
-  font-family: 'talkable';
-  src: url("../assets/fonts/talkable.svg?#talkable") ;
-  src:  url("../assets/fonts/talkable.svg?#talkable") format('svg'),
-  url('../assets/fonts/talkable.eot?') format('embedded-opentype'),
-  url('../assets/fonts/talkable.eot?#iefix') format('embedded-opentype'),
-    url('../assets/fonts/talkable.ttf?') format('truetype'),
-    url('../assets/fonts/talkable.woff?') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-    font-family: "icons";
-    src: url("../assets/fonts/icons.eot?b1200d4d3ff66600c1ef129fabde3540?#iefix") format("embedded-opentype"),
-url("../assets/fonts/icons.woff2?b1200d4d3ff66600c1ef129fabde3540") format("woff2"),
-url("../assets/fonts/icons.woff?b1200d4d3ff66600c1ef129fabde3540") format("woff"),
-url("../assets/fonts/icons.ttf?b1200d4d3ff66600c1ef129fabde3540") format("truetype"),
-url("../assets/fonts/icons.svg?b1200d4d3ff66600c1ef129fabde3540#icons") format("svg");
-}
+
 [class^="icon-"], [class*=" icon-"] {
     font-family: 'icons';
     speak: none;
@@ -44,162 +23,19 @@ url("../assets/fonts/icons.svg?b1200d4d3ff66600c1ef129fabde3540#icons") format("
     }
   }
           
+  @font-face {
+      font-family: "icons";
+      src: url("../assets/fonts/icons.eot?bd44a257eb99a699db64d78b8e4e1b56?#iefix") format("embedded-opentype"),
+  url("../assets/fonts/icons.woff2?bd44a257eb99a699db64d78b8e4e1b56") format("woff2"),
+  url("../assets/fonts/icons.woff?bd44a257eb99a699db64d78b8e4e1b56") format("woff"),
+  url("../assets/fonts/icons.ttf?bd44a257eb99a699db64d78b8e4e1b56") format("truetype"),
+  url("../assets/fonts/icons.svg?bd44a257eb99a699db64d78b8e4e1b56#icons") format("svg");
+  }
+  @include makeIcon(talkable-current, '\f101');
+  @include makeIcon(talkable-hints-tips, '\f102');
+  @include makeIcon(talkable-key-word-signs, '\f103');
+  @include makeIcon(talkable-overview, '\f104');
+  @include makeIcon(talkable-storytime, '\f105');
+  @include makeIcon(talkable-video, '\f106');
+  @include makeIcon(talkable-word-tracker, '\f107');
   
-  @include makeIcon(hints, '\f101');
-  @include makeIcon(key_white, '\f102');
-  @include makeIcon(logo_header, '\f103');
-  @include makeIcon(people_white, '\f104');
-  @include makeIcon(talkable-hints-tips, '\f106');
-  @include makeIcon(story, '\f105');
-  @include makeIcon(talkable-key, '\f107');
-  @include makeIcon(talkable-storytime, '\f108');
-  @include makeIcon(talkable-tracker, '\f109');
-  @include makeIcon(talkable-video, '\f10a');
-  @include makeIcon(talkable-word-tracker, '\f10b');
-  @include makeIcon(tracker_white, '\f10c');
-  
-.talkable,
-.talkable-settings:before,
-.ion-md-talkable-settings:before,
-.ion-ios-talkable-settings:before,
-.ion-ios-talkable-settings-outline:before,
-.ion-md-talkable-settings-outline:before,
-.talkable-current:before,
-.ion-md-talkable-current:before,
-.ion-ios-talkable-current:before,
-.ion-ios-talkable-current-outline:before,
-.ion-md-talkable-current-outline:before,
-.talkable-overview:before,
-.ion-md-talkable-overview:before,
-.ion-ios-talkable-overview:before,
-.ion-ios-talkable-overview-outline:before,
-.ion-md-talkable-overview-outline:before, 
-.talkable-key-white:before,
-.ion-md-talkable-key-white:before,
-.ion-ios-talkable-key-white:before,
-.ion-ios-talkable-key-white-outline:before,
-.ion-md-talkable-key-white-outline:before,
-.talkable-key:before,
-.ion-md-talkable-key:before,
-.ion-ios-talkable-key:before,
-.ion-ios-talkable-key-outline:before,
-.ion-md-talkable-key-outline:before,
-.talkable-hints-white:before,
-.ion-md-talkable-hints-white:before,
-.ion-ios-talkable-hints-white:before,
-.ion-ios-talkable-hints-white-outline:before,
-.ion-md-talkable-hints-white-outline:before,
-.talkable-hints:before,
-.ion-md-talkable-hints:before,
-.ion-ios-talkable-hints:before,
-.ion-ios-talkable-hints-outline:before,
-.ion-md-talkable-hints-outline:before,
-.talkable-story-white:before,
-.ion-md-talkable-story-white:before,
-.ion-ios-talkable-story-white:before,
-.ion-ios-talkable-story-white-outline:before,
-.ion-md-talkable-story-white-outline:before,
-.talkable-story:before,
-.ion-md-talkable-story:before,
-.ion-ios-talkable-story:before,
-.ion-ios-talkable-story-outline:before,
-.ion-md-talkable-story-outline:before,
-.talkable-tracker-white:before,
-.ion-md-talkable-tracker-white:before,
-.ion-ios-talkable-tracker-white:before,
-.ion-ios-talkable-tracker-white-outline:before,
-.ion-md-talkable-tracker-white-outline:before,
-.talkable-tracker:before,
-.ion-md-talkable-tracker:before,
-.ion-ios-talkable-tracker:before,
-.ion-ios-talkable-tracker-outline:before,
-.ion-md-talkable-tracker-outline:before,
-.talkable-video-white:before,
-.ion-md-talkable-video-white:before,
-.ion-ios-talkable-video-white:before,
-.ion-ios-talkable-video-white-outline:before,
-.ion-md-talkable-video-white-outline:before,
-.talkable-video:before,
-.ion-md-talkable-video:before,
-.ion-ios-talkable-video:before,
-.ion-ios-talkable-video-outline:before,
-.ion-md-talkable-video-outline:before {
-    display: inline-block;
-    font-family: "talkable";
-    speak: none;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 100;
-    text-transform: none;
-    text-rendering: auto;
-    line-height: 1;
-    font-size: 1em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.talkable-video,
-.talkable-video:before,
-.ion-md-talkable-video:before,
-.ion-ios-talkable-video:before,
-.ion-ios-talkable-video-outline:before,
-.ion-md-talkable-video-outline:before {
-    content: "\e904";
-}
-
-.talkable-tracker:before,
-.ion-md-talkable-tracker:before,
-.ion-ios-talkable-tracker:before,
-.ion-ios-talkable-tracker-outline:before,
-.ion-md-talkable-tracker-outline:before {
-    content: "\e903";
-}
-
-.talkable-story:before,
-.ion-md-talkable-story:before,
-.ion-ios-talkable-story:before,
-.ion-ios-talkable-story-outline:before,
-.ion-md-talkable-story-outline:before {
-    content: "\e902";
-}
-
-.talkable-hints:before,
-.ion-md-talkable-hints:before,
-.ion-ios-talkable-hints:before,
-.ion-ios-talkable-hints-outline:before,
-.ion-md-talkable-hints-outline:before {
-    content: "\e900";
-}
-
-.talkable-key:before,
-.ion-md-talkable-key:before,
-.ion-ios-talkable-key:before,
-.ion-ios-talkable-key-outline:before,
-.ion-md-talkable-key-outline:before {
-    content: "\e901";
-}
-
-.talkable-current:before,
-.ion-md-talkable-current:before,
-.ion-ios-talkable-current:before,
-.ion-ios-talkable-current-outline:before,
-.ion-md-talkable-current-outline:before {
-    content: "\e905";
-}
-.talkable-overview:before,
-.ion-md-talkable-overview:before,
-.ion-ios-talkable-overview:before,
-.ion-ios-talkable-overview-outline:before,
-.ion-md-talkable-overview-outline:before {
-    content: "\e906";
-}
-.talkable-settings:before,
-.ion-md-talkable-settings:before,
-.ion-ios-talkable-settings:before,
-.ion-ios-talkable-settings-outline:before,
-.ion-md-talkable-settings-outline:before {
-    content: "\e907";
-}
-
-
-

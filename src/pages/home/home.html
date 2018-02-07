@@ -16,11 +16,11 @@
 
   <div padding>
     <button ion-button large (click)="goToWordTracker()" icon-start>
-          <ion-icon name="talkable-tracker"></ion-icon>
+          <ion-icon name="talkable-word-tracker"></ion-icon>
           Word Tracker
     </button>
   <button ion-button large (click)="gotToKeyWordSigns()" icon-start>
-        <ion-icon name="talkable-key"></ion-icon>
+        <ion-icon name="talkable-key-word-signs"></ion-icon>
         Key Word Signs
     </button>
   </div>
@@ -31,7 +31,10 @@
     
       
           <h6 class="home-content">Pick up where you left off?</h6>
-          <button ion-button large (click)="userProgress()">Let's Go!</button>
+          <button ion-button large (click)="userProgress()" icon-start> 
+              <ion-icon name="talkable-current"></ion-icon>
+              Let's Go!
+            </button>
         
   </div>
 </ion-content>

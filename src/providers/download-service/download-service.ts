@@ -19,6 +19,7 @@ export class DownloadService {
     fileTransfer: FileTransferObject;
     downloadedVideos;
     q: any;
+    maxRetries: number = 5;
     hasNetwork: boolean = false;
     videoURL: string = "http://feedback.talkable.org.au/";
     constructor(
@@ -69,9 +70,12 @@ export class DownloadService {
                     percent = Math.round(percent);
                     self.downloadedVideos[task.id].percent = percent;
                 })
-
+                
+                self.downloadedVideos[task.id].downloaded = false;
+                self.downloadedVideos[task.id].tries ++;
+                
                 self.fileTransfer.download(
-                    self.videoURL + task.id + '.mp4',
+                    self.videoURL + self.getURLPath(task.id) + '.mp4',
                     self.file.dataDirectory + 'tmp/' + task.id + '.mp4')
                     .then(done => {
                         self.file.moveFile(self.file.dataDirectory + 'tmp/', task.id + '.mp4',
@@ -80,7 +84,9 @@ export class DownloadService {
                                 callback();
                             }).catch(err => {
                                 self.downloadedVideos[task.id].downloaded = null;
-                                self.forceDownload(task.id);
+                                if(self.downloadedVideos[task.id].tries < self.maxRetries){
+                                    self.forceDownload(task.id);
+                                }
                                 callback();
 
                             })
@@ -88,7 +94,9 @@ export class DownloadService {
                     })
                     .catch(err => {
                         self.downloadedVideos[task.id].downloaded = null;
-                        self.forceDownload(task.id);
+                        if(self.downloadedVideos[task.id].tries < self.maxRetries){
+                            self.forceDownload(task.id);
+                        }
                         callback();
                     });
             })
@@ -98,7 +106,11 @@ export class DownloadService {
         // assign a callback
         this.q.drain = function () {
             //stop downloading, put app back into non background
-            this.backgroundMode.disable();
+            if (self.backgroundMode.isEnabled()){
+                self.backgroundMode.disable();
+
+            }
+            Object.keys(self.downloadedVideos).forEach((el)=>{self.downloadedVideos[el].tries = 0})
             console.log('all items have been processed');
         };
 
@@ -116,7 +128,7 @@ export class DownloadService {
         return this.file.dataDirectory + id + '.mp4';
     }
     getURLPath(id) {
-        return this.videoURL + id + '.mp4';
+        return this.videoURL + id.toLowerCase() + '.mp4';
     }
     saveDownloadedvideo(id) {
         if (this.downloadedVideos[id]) {
@@ -130,13 +142,12 @@ export class DownloadService {
     }
     forceDownload(id) {
         //check if q has id 
-        if (this.q.workersList() && this.q.workersList()[0].data.id != id) {
+        if (this.q.workersList() && this.q.workersList()[0] && this.q.workersList()[0].data.id != id) {
             this.q.remove((data, priority) => {
                 return data.id == id;
-            })
-            this.addToQueue(id, true);
-
+            })  
         }
+        this.addToQueue(id, true);
 
     }
     pauseDownloading() {
@@ -149,7 +160,13 @@ export class DownloadService {
         if (!this.downloadedVideos[id]) {
             this.downloadedVideos[id] = {}
         }
-        this.downloadedVideos[id].downloaded = false;
+        if(!this.downloadedVideos[id].downloaded){
+            this.downloadedVideos[id].downloaded = false;
+
+        }
+        if(!this.downloadedVideos[id].tries){
+            this.downloadedVideos[id].tries = 0
+        }
         this.downloadedVideos[id].id = id
         this.downloadedVideos[id].percent = 0;
         if (rush) {
@@ -184,9 +201,11 @@ export class DownloadService {
     }
     stopDownloading() {
         this.q.kill();
-        this.backgroundMode.disable();
+        if(this.backgroundMode.isEnabled){
+            this.backgroundMode.disable();
+        }
     }
     isDownloaded(id) {
-        return this.downloadedVideos[id].downloaded;
+        return this.downloadedVideos[id] && this.downloadedVideos[id].downloaded;
     }
 }
