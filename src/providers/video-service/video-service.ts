@@ -29,6 +29,7 @@ export class VideoService {
             this.options = this.settings.allSettings;
         })
         this.url = this.downloadService.videoURL;
+        this.settings.load();
     }
     url;
     playVideo(id) {
@@ -64,7 +65,11 @@ export class VideoService {
                 alert.present();
             }
         } else {
-            this.playOnline(id);
+            if (this.downloadService.isDownloaded(id)) {
+                this.playLocal(id);
+            } else {
+                this.playOnline(id);
+            }
         }
     }
     playLocal(id) {

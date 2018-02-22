@@ -22,7 +22,7 @@
     </ion-slide>
     <!-- Slide 2 -->
     <ion-slide>
-      <img class="slide-image" src="assets/icon/video.svg" color="light" alt="Video Icon">
+        <ion-icon class="slide-image" name="talkable-video"></ion-icon>
       <ion-grid>
         <ion-row>
           <ion-col class="speech-bubble" text-center>
@@ -35,7 +35,7 @@
     </ion-slide>
     <!-- Slide 3 -->
     <ion-slide>
-      <img class="slide-image" src="assets/icon/key_white.svg" color="light" alt="Key Word Sign Icon">
+        <ion-icon class="slide-image" name="talkable-key-word-signs"></ion-icon>
       <ion-grid>
         <ion-row>
           <ion-col class="speech-bubble" text-center>
@@ -48,7 +48,8 @@
     </ion-slide>
     <!-- Slide 4 -->
     <ion-slide>
-      <img class="slide-image" src="assets/icon/tracker_white.svg" color="light" alt="Word Tracker Icon">
+        <ion-icon class="slide-image" name="talkable-word-tracker"></ion-icon>
+
       <ion-grid>
         <ion-row>
           <ion-col class="speech-bubble" text-center>
@@ -61,14 +62,14 @@
     </ion-slide>
     <!-- Slide 5 -->
     <ion-slide>
-      <img class="slide-image" src="assets/icon/people_white.svg" color="light" alt="People Icon">
+        <ion-icon class="slide-image" name="people"></ion-icon>
       <ion-grid>
         <ion-row>
           <ion-col class="speech-bubble" text-center>
             <h2 class="slide-title">Let's get started!</h2>
             <p>Remember, if you have ongoing concerns about your child's development please speak to your GP or child health
               nurse.</p>
-              <button ion-button icon-right large (click)="startApp()">
+              <button ion-button icon-right large clear='true' color="light" (click)="startApp()">
                   Continue
                   <ion-icon name="arrow-forward"></ion-icon>
                 </button>

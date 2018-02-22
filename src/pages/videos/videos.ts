@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { VideoService } from '../../providers/video-service/video-service';
+import { DownloadService } from '../../providers/download-service/download-service';
 @Component({
   selector: 'page-videos',
   templateUrl: 'videos.html',
@@ -16,7 +17,8 @@ export class VideosPage {
   constructor(public navCtrl: NavController,  
               public navParams: NavParams,
               public storage: Storage,
-            public videoService: VideoService) {
+            public videoService: VideoService,
+          public downloadService: DownloadService) {
     // console.log(JSON.stringify(this.navParams.data));
     this.week = this.navParams.get('w');
     this.color = this.week.number;

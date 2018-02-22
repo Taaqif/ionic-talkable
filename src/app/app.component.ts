@@ -110,7 +110,7 @@ export class Talkable {
               this.localNotifications.cancel(timediff);
               let alert = this.alertCtrl.create({
                 title: 'New Content',
-                subTitle: 'New weekly content has been unlocked!<br>You are now on week ' + timediff,
+                message: '<p>New weekly content has been unlocked!</p><p>You are now on week <strong>' + timediff + '</strong></p>',
                 buttons: ['Awesome!']
               });
               alert.present();
@@ -152,19 +152,7 @@ export class Talkable {
         }
         this.initializeApp();
       });
-    // this.weeklyPages = [
-    //   { id: 'weeklyPage1', title: 'Week 1', component: TabsControllerPage, param: 1 },
-    //   { id: 'weeklyPage2', title: 'Week 2', component: TabsControllerPage, param: 2 },
-    //   { id: 'weeklyPage3', title: 'Week 3', component: TabsControllerPage, param: 3 },
-    //   { id: 'weeklyPage4', title: 'Week 4', component: TabsControllerPage, param: 4 },
-    //   { id: 'weeklyPage5', title: 'Week 5', component: TabsControllerPage, param: 5 },
-    //   { id: 'weeklyPage6', title: 'Week 6', component: TabsControllerPage, param: 6 },
-    //   { id: 'weeklyPage7', title: 'Week 7', component: TabsControllerPage, param: 7 },
-    //   { id: 'weeklyPage8', title: 'Week 8', component: TabsControllerPage, param: 8 },
-    //   { id: 'weeklyPage9', title: 'Week 9', component: TabsControllerPage, param: 9 },
-    //   { id: 'weeklyPage10', title: 'Week 10', component: TabsControllerPage, param: 10 },
-    // ];
-    // this.fs.setActivePage(this.pages[0].id);
+    
     this.activePage = this.programPages[0];
   }
   

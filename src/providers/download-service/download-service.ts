@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage'
 import { Settings } from "../../providers/settings";
-import { Platform } from 'ionic-angular';
+import { Platform, AlertController, ToastController } from 'ionic-angular';
 import { FileServiceProvider } from '../file-service/file-service';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
@@ -22,6 +22,7 @@ export class DownloadService {
     maxRetries: number = 5;
     hasNetwork: boolean = false;
     videoURL: string = "http://feedback.talkable.org.au/";
+    wifiConnected = null;;
     constructor(
         public plt: Platform,
         public http: Http,
@@ -31,7 +32,10 @@ export class DownloadService {
         private file: File,
         public settings: Settings,
         private backgroundMode: BackgroundMode,
-        private network: Network) {
+        private network: Network,
+        public alertCtrl: AlertController,
+        public toastCtrl: ToastController) {
+
         // watch network for a disconnect
         let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
             console.log('network was disconnected :-(');
@@ -40,14 +44,22 @@ export class DownloadService {
         });
         let connectSubscription = this.network.onConnect().subscribe(() => {
             console.log('network connected!');
+            let self = this
+            setTimeout(() => {
+                if (self.network.type === 'wifi') {
+                    self.wifiConnected = true;
+                }
+            }, 1000);
             this.hasNetwork = true;
             this.startDownloading();
         });
-
-        this.settings.load();
+        this.settings.load().then(data=>{
+            this.options = this.settings.allSettings;
+        })
         this.backgroundMode.configure({ silent: true });
         this.fileTransfer = this.transfer.create();
         this.storage.get("downloadedVideos").then(downloadedVideos => {
+            console.log(downloadedVideos)
             if (downloadedVideos) {
                 this.downloadedVideos = downloadedVideos;
 
@@ -60,6 +72,7 @@ export class DownloadService {
         //download to tmp directory then move when done
         this.q = queue(function (task: any, callback) {
             self.file.checkFile(self.file.dataDirectory, task.id + '.mp4').then(exists => {
+
                 self.saveDownloadedvideo(task.id);
                 callback();
             }).catch(err => {
@@ -70,12 +83,13 @@ export class DownloadService {
                     percent = Math.round(percent);
                     self.downloadedVideos[task.id].percent = percent;
                 })
-                
+
+
                 self.downloadedVideos[task.id].downloaded = false;
-                self.downloadedVideos[task.id].tries ++;
-                
+                self.downloadedVideos[task.id].tries++;
+
                 self.fileTransfer.download(
-                    self.videoURL + self.getURLPath(task.id) + '.mp4',
+                    self.getURLPath(task.id),
                     self.file.dataDirectory + 'tmp/' + task.id + '.mp4')
                     .then(done => {
                         self.file.moveFile(self.file.dataDirectory + 'tmp/', task.id + '.mp4',
@@ -84,7 +98,7 @@ export class DownloadService {
                                 callback();
                             }).catch(err => {
                                 self.downloadedVideos[task.id].downloaded = null;
-                                if(self.downloadedVideos[task.id].tries < self.maxRetries){
+                                if (self.downloadedVideos[task.id].tries < self.maxRetries) {
                                     self.forceDownload(task.id);
                                 }
                                 callback();
@@ -93,8 +107,11 @@ export class DownloadService {
 
                     })
                     .catch(err => {
-                        self.downloadedVideos[task.id].downloaded = null;
-                        if(self.downloadedVideos[task.id].tries < self.maxRetries){
+                        console.log(err)
+                        if (self.downloadedVideos[task.id]) {
+                            self.downloadedVideos[task.id].downloaded = null;
+                        }
+                        if (self.downloadedVideos[task.id].tries < self.maxRetries) {
                             self.forceDownload(task.id);
                         }
                         callback();
@@ -105,16 +122,15 @@ export class DownloadService {
         }, 1);
         // assign a callback
         this.q.drain = function () {
+            self.stopDownloading();
             //stop downloading, put app back into non background
-            if (self.backgroundMode.isEnabled()){
-                self.backgroundMode.disable();
 
-            }
-            Object.keys(self.downloadedVideos).forEach((el)=>{self.downloadedVideos[el].tries = 0})
+            Object.keys(self.downloadedVideos).forEach((el) => { self.downloadedVideos[el].tries = 0 })
             console.log('all items have been processed');
         };
 
     }
+    getNetw
     getQueuedDownloads() {
         return _.filter(this.downloadedVideos, ['downloaded', false])
     }
@@ -131,13 +147,22 @@ export class DownloadService {
         return this.videoURL + id.toLowerCase() + '.mp4';
     }
     saveDownloadedvideo(id) {
+        if(!this.downloadedVideos[id].downloaded){
+            let toast = this.toastCtrl.create({
+                message: 'Video '+ id+ " downloaded",
+                duration: 3000,
+                showCloseButton: true,
+                closeButtonText: "OK"
+            });
+            toast.present();
+        }
         if (this.downloadedVideos[id]) {
             this.downloadedVideos[id].downloaded = true;
         } else {
             this.downloadedVideos[id] = {}
             this.downloadedVideos[id].downloaded = true;
         }
-
+        
         this.storage.set("downloadedVideos", this.downloadedVideos)
     }
     forceDownload(id) {
@@ -145,7 +170,7 @@ export class DownloadService {
         if (this.q.workersList() && this.q.workersList()[0] && this.q.workersList()[0].data.id != id) {
             this.q.remove((data, priority) => {
                 return data.id == id;
-            })  
+            })
         }
         this.addToQueue(id, true);
 
@@ -160,11 +185,11 @@ export class DownloadService {
         if (!this.downloadedVideos[id]) {
             this.downloadedVideos[id] = {}
         }
-        if(!this.downloadedVideos[id].downloaded){
+        if (!this.downloadedVideos[id].downloaded) {
             this.downloadedVideos[id].downloaded = false;
 
         }
-        if(!this.downloadedVideos[id].tries){
+        if (!this.downloadedVideos[id].tries) {
             this.downloadedVideos[id].tries = 0
         }
         this.downloadedVideos[id].id = id
@@ -181,29 +206,73 @@ export class DownloadService {
 
     }
     startDownloading() {
+
         //check for netwrok
-        if (this.settings.getValue("videoPreference") == 'download') {
-            this.backgroundMode.enable();
-            this.storage.get("currentWeek").then(currentWeek => {
-                this.fs.getWeekContent(currentWeek).subscribe(week => {
-                    // add some items to the queue
-                    week.videos.forEach(video => {
-                        this.addToQueue(video.id, false)
-                    });
-                    week.weeklyKeyWordSigns.videos.forEach(video => {
-                        this.addToQueue(video, false)
-                    });
+        this.settings.load().then(done => {
+            if (this.settings.getValue("videoPreference") == 'download') {
+                if (this.network.type != 'wifi') {
+                    if (!this.options.useMobileData) {
+                        let alert = this.alertCtrl.create({
+                            title: 'Mobile Data Warning',
+                            message: '<p>Using mobile data to download videos could incur charges</p><p>Continue using mobile data?</p>',
+                            buttons: [{
+                                text: 'Yes and dont ask again',
+                                handler: () => {
+                                    this.options.useMobileData = true;
+                                    this.settings.setAll(this.options).then(done => {
+                                        this.initDownloads();
+                                    });
+                                }
+                            }, {
+                                text: 'Yes',
+                                handler: () => {
+                                    this.initDownloads();
+                                }
+                            }, {
+                                text: 'No',
+                                role: 'cancel',
+                            }]
+                        });
+                        alert.present();
+                    } else {
+                        this.initDownloads();
+                    }
 
-                })
+                } else {
+                    this.initDownloads()
+                }
+            }
+        });
+
+    }
+    initDownloads() {
+        this.backgroundMode.enable();
+        this.storage.get("currentWeek").then(currentWeek => {
+            this.fs.getWeekContent(currentWeek).subscribe(week => {
+                // add some items to the queue
+                week.videos.forEach(video => {
+                    this.addToQueue(video.id, false)
+                });
+                week.weeklyKeyWordSigns.videos.forEach(video => {
+                    this.addToQueue(video, false)
+                });
+
             })
-
-        }
+        })
     }
     stopDownloading() {
-        this.q.kill();
-        if(this.backgroundMode.isEnabled){
+        if (this.backgroundMode.isEnabled) {
             this.backgroundMode.disable();
         }
+        this.fileTransfer.abort();
+        this.q.kill();
+        Object.keys(this.downloadedVideos).forEach((el) => {
+            if (this.downloadedVideos[el] && !this.downloadedVideos[el].downloaded) {
+                delete this.downloadedVideos[el];
+            }
+        })
+
+        this.storage.set("downloadedVideos", this.downloadedVideos)
     }
     isDownloaded(id) {
         return this.downloadedVideos[id] && this.downloadedVideos[id].downloaded;

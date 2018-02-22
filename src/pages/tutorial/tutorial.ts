@@ -9,6 +9,7 @@ import { TabsControllerPage } from '../tabs-controller/tabs-controller';
 
 import { FileServiceProvider } from "../../providers/file-service/file-service";
 import { NotificationsService } from '../../providers/notifications-service/notifications-service';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-tutorial',
@@ -35,8 +36,8 @@ export class TutorialPage {
     this.storage.set('startedOn', started.format('YYYY-MM-DD')).then(()=>{
       this.storage.set('currentWeek', 1).then(()=>{
             this.notificationsService.initialiseNotifications();
-            this.navCtrl.setRoot(TabsControllerPage, 1);
-            this.fs.setActivePage('weeklyPage1');
+            this.navCtrl.setRoot(HomePage);
+            this.fs.setActivePage('HomePage');
             this.storage.set('hasSeenTutorial', 'true');
       });
 

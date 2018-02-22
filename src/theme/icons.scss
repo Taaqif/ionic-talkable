@@ -1,5 +1,5 @@
 
-[class^="icon-"], [class*=" icon-"] {
+[class*="talkable-"] {
     font-family: 'icons';
     speak: none;
     font-style: normal;
@@ -19,23 +19,25 @@
     .ion-md-#{$arg}:before ,
     .ion-md-#{$arg}-outline:before  {
       content: $val;
-      font-size: 26px;
+      // font-size: 26px;
     }
   }
           
   @font-face {
       font-family: "icons";
-      src: url("../assets/fonts/icons.eot?bd44a257eb99a699db64d78b8e4e1b56?#iefix") format("embedded-opentype"),
-  url("../assets/fonts/icons.woff2?bd44a257eb99a699db64d78b8e4e1b56") format("woff2"),
-  url("../assets/fonts/icons.woff?bd44a257eb99a699db64d78b8e4e1b56") format("woff"),
-  url("../assets/fonts/icons.ttf?bd44a257eb99a699db64d78b8e4e1b56") format("truetype"),
-  url("../assets/fonts/icons.svg?bd44a257eb99a699db64d78b8e4e1b56#icons") format("svg");
+      src: url("../assets/fonts/icons.eot?51355164d34200b4fc821bcf6349b806?#iefix") format("embedded-opentype"),
+  url("../assets/fonts/icons.woff2?51355164d34200b4fc821bcf6349b806") format("woff2"),
+  url("../assets/fonts/icons.woff?51355164d34200b4fc821bcf6349b806") format("woff"),
+  url("../assets/fonts/icons.ttf?51355164d34200b4fc821bcf6349b806") format("truetype"),
+  url("../assets/fonts/icons.svg?51355164d34200b4fc821bcf6349b806#icons") format("svg");
   }
-  @include makeIcon(talkable-current, '\f101');
-  @include makeIcon(talkable-hints-tips, '\f102');
-  @include makeIcon(talkable-key-word-signs, '\f103');
-  @include makeIcon(talkable-overview, '\f104');
-  @include makeIcon(talkable-storytime, '\f105');
-  @include makeIcon(talkable-video, '\f106');
-  @include makeIcon(talkable-word-tracker, '\f107');
+  @include makeIcon(logo_header, '\f101');
+  @include makeIcon(talkable-cloud-play, '\f102');
+  @include makeIcon(talkable-current, '\f103');
+  @include makeIcon(talkable-overview, '\f106');
+  @include makeIcon(talkable-storytime, '\f107');
+  @include makeIcon(talkable-video, '\f108');
+  @include makeIcon(talkable-hints-tips, '\f104');
+  @include makeIcon(talkable-word-tracker, '\f109');
+  @include makeIcon(talkable-key-word-signs, '\f105');
   

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController  } from 'ionic-angular';
+import { NavController, NavParams, AlertController,Platform  } from 'ionic-angular';
 import { VideosPage } from '../videos/videos';
 import { StoryTimePage } from '../story-time/story-time';
 import { WeeklySignsPage } from '../weekly-signs/weekly-signs';
@@ -24,10 +24,12 @@ export class TabsControllerPage {
               public fs: FileServiceProvider, 
               private storage: Storage,
               private alertCtrl: AlertController,
-              private settings: Settings) {
+              private settings: Settings,
+              private plt: Platform) {
                 this.color = this.navParams.data;
                 this.fs.getWeekContent(this.navParams.data).subscribe((data) => {
         this.week = data;
+        
         // loadingPopup.dismiss();
         // this.navCtrl.setRoot(this.navCtrl.getActive().component);
       });

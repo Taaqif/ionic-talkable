@@ -52,7 +52,7 @@ export class WordListPage {
   shareWords(){
     let savedWordsString = "";
     Object.keys(this.savedWordList).forEach(word => {
-      savedWordsString += word + ",\n" 
+      savedWordsString += word + " on "+ this.savedWordList[word].date +",\n" 
     })
     savedWordsString = savedWordsString.trim().slice(0, -1);
     this.socialSharing.share(savedWordsString, "My child can say", null,null)
@@ -60,8 +60,8 @@ export class WordListPage {
   }
   presentPromptCustomWord() {
     let alert = this.alertCtrl.create({
-      title: 'Custom Word',
-      subTitle: 'Add a custom work to add to your library',
+      title: 'Add a Custom Word',
+      subTitle: ' Add a new word to your list',
       inputs: [
         {
           name: 'word',

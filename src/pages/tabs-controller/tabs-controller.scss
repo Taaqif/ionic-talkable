@@ -1,15 +1,10 @@
 page-tabs-controller {
 
+
+
+.toolbar-ios ion-title{
+    padding: 0 40px 1px;
 }
-
-// super-tab ion-navbar.toolbar.toolbar-ios.statusbar-padding{
-//     margin-top:20px;
-// }
-// ion-app.ios [padding], ion-app.ios [padding] .scroll-content {
-//     margin-top: 16px;
-//     }
-
-
 super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button.title-and-icon {
     margin:0px;
     text-transform:none;
@@ -27,3 +22,4 @@ super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons sup
 margin-bottom:5px;
 }
 
+}

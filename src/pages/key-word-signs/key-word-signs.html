@@ -18,7 +18,9 @@
     <ion-item *ngIf='signs?.length == 0' text-wrap>No Results Found. <br> For more key words, visit <a href="#" onclick="window.open('http://auslan.org.au/', '_system', 'location=yes'); return false;">http://auslan.org.au</a></ion-item>
     <ion-item *ngFor='let word of signs' (click)='playVideo(word)'>
       {{ word }}
-      <button ion-button clear item-end><ion-icon name="play"></ion-icon>  </button>
+      <button ion-button clear item-end class="video-button"><ion-icon *ngIf="!downloadService.isDownloaded(word)" name="talkable-cloud-play"></ion-icon>
+        <ion-icon  *ngIf="downloadService.isDownloaded(word)"name="play"></ion-icon>
+     </button>
       
       <!-- <img [src]="filteredWordList[word.key].image" [alt]="signs.word">  -->
     </ion-item>

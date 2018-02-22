@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController  } from 'ionic-angular';
 import { FileServiceProvider } from "../../providers/file-service/file-service";
 import { VideoService } from '../../providers/video-service/video-service';
+import { DownloadService } from '../../providers/download-service/download-service';
 // import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 
 
@@ -15,7 +16,7 @@ export class KeyWordSignsPage {
   filteredSigns: any = [];
   filteredSignsChunks: any = [];
   video: any;
-  constructor(public navCtrl: NavController, public fs: FileServiceProvider, public videoService: VideoService) {
+  constructor(public navCtrl: NavController, public fs: FileServiceProvider, public videoService: VideoService, public downloadService: DownloadService) {
      // Show the loading message
     // let loadingPopup = this.loadingCtrl.create({
     //   content: 'Loading posts...'

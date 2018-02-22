@@ -19,12 +19,6 @@ export class NotificationsService {
     }
     initialiseNotifications() {
         let self = this
-        this.localNotifications.schedule({
-            id: 99,
-            title: 'New Weekly Content!',
-            text: 'Talkable Week 99 content is available.',
-            icon: 'assets/icon/'
-        });
         this.storage.get('startedOn').then(date => {
             if (date) {
                               
@@ -82,6 +76,10 @@ export class NotificationsService {
                     id: i + 1,
                     title: 'New Weekly Content!',
                     text: 'Talkable Week ' + (i + 1) + ' content is available.',
+                    icon: "res://none",
+                    smallIcon:"res://ic_logo_white",
+                    color: '54899B',
+                    led: '54899B',
                     at: futureDate.toDate()
                 });
 

@@ -1,60 +1,50 @@
-<ion-header >
+<ion-header>
   <!-- This one for per week colors -->
-    <!-- <ion-navbar color="{{week.number}}"> -->
-    <!-- This one for Default colors -->
-    <ion-navbar [color]="color">
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>
-          <p class='subtitle'> Week {{ week.number }}</p>
-          {{ week.title }} 
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
+  <!-- <ion-navbar color="{{week.number}}"> -->
+  <!-- This one for Default colors -->
+  <ion-navbar [color]="color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <p class='subtitle'> Week {{ week.number }}</p>
+      {{ week.title }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content id="videoPage">
-  <div class="description">{{week.description }}</div>
+  <ion-fab *ngIf="color" right bottom #fab2>
+    <button ion-fab [color]="color">
+      <ion-icon name="help"></ion-icon>
+    </button>
+    <ion-fab-list side="top" >
+        <div ion-fab class="speech-bubble-{{color}} fab fab-ios fab-in-list fab-ios-in-list " text-center>
+
+            <p>{{week.description}}</p>
+        
+          </div>  
+      
+    </ion-fab-list>
+  </ion-fab>
+  
+
   <ion-card *ngFor="let v of week.videos" text-wrap>
-     <!-- <video fullscreen="fullscreen" controls>
+    <!-- <video fullscreen="fullscreen" controls>
       <source src="https://www.youtube.com/embed/q8f-DoL1dqQ" type="video/mp4">  
     </video> -->
 
-    
+
     <ion-item (click)='playVideo(v.id)'>
-        <button ion-button clear item-end large [color]="color"><ion-icon name="play"></ion-icon></button>
-        <!-- <ion-thumbnail item-end >
+      <button ion-button clear item-end large class="video-button" [color]="color">
+          <ion-icon *ngIf="!downloadService.isDownloaded(v.id)" name="talkable-cloud-play"></ion-icon>
+          <ion-icon  *ngIf="downloadService.isDownloaded(v.id)"name="play"></ion-icon>
+      </button>
+      <!-- <ion-thumbnail item-end >
           <img src="assets/img/vidthumb.jpg" style="object-fit:cover">
         </ion-thumbnail> -->
-        <h1 class="video-title">{{v.title}}</h1>
-       <!-- <p>{{v.description}}</p> -->
-      </ion-item>
-    </ion-card>
-    <!-- <ion-card-content>
-      <ion-card-title>
-        <ion-icon *ngIf='watchedVideos?.includes(v.id)' name='eye' item-start></ion-icon> 
-        {{ v.title }}
-        <ion-icon name="play" item-end ></ion-icon>
-        <ion-thumbnail item-end>
-            <img src="assets/img/vidthumb.jpg" alt="poster"  (click)='playVideo(v.id)'>
-        </ion-thumbnail>
-        
-      </ion-card-title>
-      
-      <p>
-        {{ v.description }}
-      </p>
-      
-    </ion-card-content> -->
-    <!-- <ion-item *ngFor="let v of week.videos"
-              attr.id="videos-list-{{v.title}}">
-      <ion-thumbnail item-left="">
-        <img />
-      </ion-thumbnail>
-      <h2>{{ v.title }}</h2>
-      <p>{{ v.description }}</p>
-    </ion-item> -->
-  
+      <h1 class="video-title">{{v.title}}</h1>
+    </ion-item>
+  </ion-card>
+
 </ion-content>
-
-

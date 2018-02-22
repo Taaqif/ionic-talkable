@@ -29,7 +29,6 @@ export class SettingsPage {
             public notificationsService: NotificationsService) {
     this.settings.load().then(() => {
       this.options = this.settings.allSettings;
-      console.log(this.options)
     })
   }
   doAlert() {
@@ -63,7 +62,7 @@ export class SettingsPage {
     this.navCtrl.push(ManageDownloadsPage);
   }
   updateNotificationsPreference(){
-    if(this.options.videoPreference == 'disabled'){
+    if(this.options && this.options.videoPreference == 'disabled'){
       this.notificationsService.disableNotifications();
     }else{
         this.notificationsService.initialiseNotifications();
@@ -72,7 +71,7 @@ export class SettingsPage {
   }
 
   updateVideoPreference(){
-    if(this.options.videoPreference == 'download'){
+    if(this.options && this.options.videoPreference == 'download'){
       let alert = this.alertCtrl.create({
         title: 'Warning',
         message: 'This option will consume about 1GB of data, we suggest using a wifi network to download videos! <br><br>Videos will be downloaded in the background on a weekly basis. ',
@@ -82,14 +81,18 @@ export class SettingsPage {
             role: 'cancel',
             handler: () => {
               this.options.videoPreference = "online";
+              this.settings.setAll(this.options).then(done=>{
+                this.downloadService.stopDownloading();
+              });
             }
           },
           {
             text: 'I Understand',
             cssClass: 'danger-label',
             handler: () => {
-              this.settings.setAll(this.options);
-              this.downloadService.startDownloading();
+              this.settings.setAll(this.options).then(done => {
+                this.downloadService.startDownloading();
+              });
   
             }
           }
@@ -97,8 +100,10 @@ export class SettingsPage {
       });
       alert.present();
     }else{
-      this.settings.setAll(this.options);
-      this.downloadService.stopDownloading();
+      this.settings.setAll(this.options).then(done => {
+        this.downloadService.stopDownloading();
+
+      });
     }
     
     //show warinign popup before saving

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { VideoService } from '../../providers/video-service/video-service';
+import { DownloadService } from '../../providers/download-service/download-service';
 
 @Component({
   selector: 'page-weekly-signs',
@@ -11,7 +12,7 @@ export class WeeklySignsPage {
   keyWordSignsChunks: any = [];
   weeklyKeyWordSigns: any = [];
   color: any = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams, public videoService: VideoService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public videoService: VideoService, public downloadService: DownloadService) {
     this.week = this.navParams.get('w');
     this.color = this.week.number;
     this.weeklyKeyWordSigns = this.week.weeklyKeyWordSigns;

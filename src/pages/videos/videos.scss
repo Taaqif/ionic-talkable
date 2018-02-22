@@ -1,43 +1,75 @@
 page-videos {
-  
-.video {
-    width: 100%;
-   // border: 1px solid black;
-}
-.wrapper{
-    display:table;
-    width:auto;
-    position:relative;
-    width:50%;
-}
-.playpause {
-    background-image:url(http://png-4.findicons.com/files/icons/2315/default_icon/256/media_play_pause_resume.png);
-    background-repeat:no-repeat;
-    width:50%;
-    height:50%;
-    position:absolute;
-    left:0%;
-    right:0%;
-    top:0%;
-    bottom:0%;
-    margin:auto;
-    background-size:contain;
+  .video {
+    width: 100%; // border: 1px solid black;
+  }
+  .wrapper {
+    display: table;
+    width: auto;
+    position: relative;
+    width: 50%;
+  }
+  .fab-list-active {
+    left: -250px;
+  }
+  .fab {
+    left: -10px;
+  }
+  @each $key,
+  $val in $colors {
+    .speech-bubble-#{$key} {
+      position: relative;
+      background: color($colors, $key, base);
+      border-radius: .4em;
+      width: 300px;
+      height: fit-content;
+      color: white;
+      white-space: pre-line;
+      padding: 10px;
+      line-height: 1.5;
+      contain: unset;
+      overflow: unset;
+    }
+    .speech-bubble-#{$key}:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border: 28px solid transparent;
+      border-top-color: color($colors, $key, base);
+      border-bottom: 0;
+      border-right: 0;
+      margin-left: 85px;
+      margin-bottom: -18px
+    }
+  }
+  .playpause {
+    background-image: url(http://png-4.findicons.com/files/icons/2315/default_icon/256/media_play_pause_resume.png);
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    margin: auto;
+    background-size: contain;
     background-position: center;
-}
-.description{
-    margin-top:4px;
+  }
+  .description {
+    margin-top: 4px;
     text-align: start;
     font-size: 14px;
-    line-height: 1.5;
-    //text-align: center;
+    line-height: 1.5; //text-align: center;
     white-space: pre-line;
     padding-left: 16px;
-    padding-right:16px;
-    padding-top:16px;
-    padding-bottom:0;
-}
-.video-title{
-    color: color($colors,dark);
-}
-
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 0;
+  }
+  .video-title {
+    color: color($colors, dark);
+  }
 }

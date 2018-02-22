@@ -15,8 +15,8 @@
 
 <ion-content id="hintsTipsPage">
   <ion-card text-wrap>
-    <ion-card-header>
-      <h1> Tips for this week <ion-icon  [color]="color" name='md-bulb' item-end style="float:right;"></ion-icon></h1>
+    <ion-card-header [color]="color" class="h1">
+       Tips for this week <ion-icon  [color]="color" name='md-bulb' item-end style="float:right;"></ion-icon>
     </ion-card-header>
     <ion-list>
       <ion-item *ngFor='let hintsTips of week.hintsTips'>

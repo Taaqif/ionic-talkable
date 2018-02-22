@@ -16,9 +16,11 @@
     <ion-item>
       <ion-toggle color="primary" *ngIf='options' [(ngModel)]="options.unlockAll" (ionChange)="updateSettings()"></ion-toggle>
       <!-- <ion-toggle [checked]='settings.unlockAllToggle' (ionChange)='toggleUnlockAll();'></ion-toggle> -->
+      <ion-icon name="md-unlock" item-start></ion-icon>
       <ion-label>Unlock all tutorials</ion-label>
     </ion-item>
     <ion-item>
+      <ion-icon name="md-notifications" item-start></ion-icon>
       <ion-label>Weekly Notifications</ion-label>
       <ion-select *ngIf='options' [(ngModel)]="options.notifications" okText="Save" (ionChange)="updateNotificationsPreference()">
         <ion-option value="enabled">Enabled</ion-option>
@@ -26,6 +28,7 @@
       </ion-select>
     </ion-item>
     <ion-item>
+      <ion-icon name="ios-videocam" item-start></ion-icon>
       <ion-label>Video Preference</ion-label>
       <ion-select *ngIf='options' [(ngModel)]="options.videoPreference" okText="Save" (ionChange)="updateVideoPreference()">
         <ion-option value="online">Online Videos</ion-option>
@@ -35,7 +38,10 @@
       <!-- <ion-toggle [checked]='settings.unlockAllToggle' (ionChange)='toggleUnlockAll();'></ion-toggle> -->
     </ion-item>
     <button ion-item (click)="openManageDownloads()">
-      Manage Downloads
+      <ion-icon name="md-download" item-start></ion-icon>
+      <ion-label>
+        Manage Downloads
+      </ion-label>
     </button>
     <!-- <ion-item>
       <ion-toggle checked='true'></ion-toggle>
@@ -43,42 +49,36 @@
     </ion-item> -->
   </ion-list>
   <ion-list>
-    <button ion-item (click)="openAbout()">
-      About
-    </button>
+      <ion-list-header>
+          Information
+        </ion-list-header>
     <button ion-item (click)="openRatingModal()">
-      Submit Feedback
+      <ion-icon name="star" item-start></ion-icon>
+      <ion-label>
+        Submit Feedback
+      </ion-label>
     </button>
-    <button ion-item (click)="openAcknowledgements()">
-      Acknowledgements
+    <button ion-item (click)="openAbout()">
+      <ion-icon name="information-circle" item-start></ion-icon>
+      <ion-label>
+        More Information
+      </ion-label>
+
     </button>
   </ion-list>
   <ion-list>
+      <ion-list-header>
+          Reset
+        </ion-list-header>
     <button ion-item (click)="resetSettings()">
-      Reset Settings
+      <ion-icon name="ios-nuclear" item-start></ion-icon>
+      <ion-label>
+        Reset Settings
+      </ion-label>
+
     </button>
     <button ion-item no-lines (click)="resetProgress()">
       Reset Progress
     </button>
-
-    <ion-item no-lines text-wrap>
-      <h6 ion-text [color]="light">
-        <strong>Disclaimer:</strong> The information provided within this app is general in nature and is not intended to replace
-        a formal assessment by a qualified speech pathologist.
-        <br> If you have concerns about your child’s development please seek additional advice from your GP or child health nurse.
-        </h6>
-    </ion-item>
-    <ion-item no-lines text-wrap>
-      <h6 ion-text [color]="light">
-        <strong>Copyright:</strong> © Talkable 2017
-        <br>This app, and all content within, is subject to copyright and may not be reproduced, modified or shared without prior
-        permission from Talkable.
-
-        <br>Images of book covers used within this app are subject to copyright by their respective publishers.
-
-        <br>Music used within the 10 week program videos is subject to copyright from
-        <a href="#" onclick="window.open('http://www.bensound.com/', '_system', 'location=yes'); return false;">http://www.bensound.com/</a>
-      </h6>
-    </ion-item>
   </ion-list>
 </ion-content>

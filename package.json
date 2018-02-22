@@ -34,7 +34,7 @@
     "@ionic/storage": "2.0.0",
     "async": "^2.6.0",
     "async-es": "^2.6.0",
-    "cordova-android": "~7.0.0",
+    "cordova-android": "^6.4.0",
     "cordova-ios": "^4.4.0",
     "cordova-plugin-app-event": "^1.2.1",
     "cordova-plugin-background-mode": "^0.7.2",
