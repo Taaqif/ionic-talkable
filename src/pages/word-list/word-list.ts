@@ -1,4 +1,4 @@
-import { Component, ViewChild  } from '@angular/core';
+import { Component, ViewChild, ChangeDetectorRef  } from '@angular/core';
 import { NavController, NavParams, ToastController ,Content, AlertController   } from 'ionic-angular';
 import { FileServiceProvider } from "../../providers/file-service/file-service";
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -23,20 +23,16 @@ export class WordListPage {
     public fs: FileServiceProvider,
     public toastCtrl: ToastController,
     private alertCtrl: AlertController,
-    private socialSharing: SocialSharing ) {
+    private socialSharing: SocialSharing,
+    public cd: ChangeDetectorRef ) {
     // this.fs.loadWordList();
-    this.fs.getWordList().subscribe(data => {
-      this.wordList = data;
-      this.WordListO = data;
+      this.wordList = this.fs.getWordList();
+      this.WordListO = this.fs.getWordList();
       this.generateSortedWordList();
       // array.forEach(element => {
       // this.resetFilteredWordList();
       // });
 
-    })
-    this.fs.loadSavedWordList().then(() => {
-      this.savedWordList = this.fs.getSavedWordList();
-    })
     if (typeof this.navParams.data === 'string' || this.navParams.data instanceof String) {
       this.category = this.navParams.data;
     }
@@ -240,6 +236,12 @@ export class WordListPage {
   }
   viewCategory(key) {
     this.navCtrl.push(WordListPage, key)
+  }
+  ionViewWillEnter() {
+    
+    this.fs.loadSavedWordList().then(() => {
+      this.savedWordList = this.fs.getSavedWordList();
+    })
   }
   // initializeWordList(){
   //   let init = [];

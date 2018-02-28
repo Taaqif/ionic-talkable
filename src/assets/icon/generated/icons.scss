@@ -25,18 +25,18 @@
         
 @font-face {
     font-family: "icons";
-    src: url("../assets/fonts/icons.eot?272af32e0bdb34bc207ba519fbfda484?#iefix") format("embedded-opentype"),
-url("../assets/fonts/icons.woff2?272af32e0bdb34bc207ba519fbfda484") format("woff2"),
-url("../assets/fonts/icons.woff?272af32e0bdb34bc207ba519fbfda484") format("woff"),
-url("../assets/fonts/icons.ttf?272af32e0bdb34bc207ba519fbfda484") format("truetype"),
-url("../assets/fonts/icons.svg?272af32e0bdb34bc207ba519fbfda484#icons") format("svg");
+    src: url("../assets/fonts/icons.eot?6c763f9cffa30014a2310a4e9421c64b?#iefix") format("embedded-opentype"),
+url("../assets/fonts/icons.woff2?6c763f9cffa30014a2310a4e9421c64b") format("woff2"),
+url("../assets/fonts/icons.woff?6c763f9cffa30014a2310a4e9421c64b") format("woff"),
+url("../assets/fonts/icons.ttf?6c763f9cffa30014a2310a4e9421c64b") format("truetype"),
+url("../assets/fonts/icons.svg?6c763f9cffa30014a2310a4e9421c64b#icons") format("svg");
 }
 @include makeIcon(logo_header, '\f101');
 @include makeIcon(talkable-cloud-play, '\f102');
+@include makeIcon(talkable-hints-tips, '\f104');
 @include makeIcon(talkable-current, '\f103');
+@include makeIcon(talkable-key-word-signs, '\f105');
 @include makeIcon(talkable-overview, '\f106');
 @include makeIcon(talkable-storytime, '\f107');
 @include makeIcon(talkable-video, '\f108');
-@include makeIcon(talkable-hints-tips, '\f104');
 @include makeIcon(talkable-word-tracker, '\f109');
-@include makeIcon(talkable-key-word-signs, '\f105');

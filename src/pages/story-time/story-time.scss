@@ -3,21 +3,17 @@ page-story-time {
 #storyTime-heading{
     color: color($colors,dark);
 }
-.storytime-content{
+.list-content{
     color: color($colors,dark);
 }
-ion-item.storytime-content.item.item-block.item-ios ion-label.label.label-ios,
-ion-item.storytime-content.item.item-block.item-md ion-label.label.label-md{
-    color: color($colors, dark);
-    white-space: normal;
-    margin-top:2px;
-    margin-bottom:2px;
-    font-size:1.4rem;
-    line-height: 1.4;
-   }
-.card-md .item-md.item-block .item-inner{
-    margin-left:0px;
+.label {
+    color: black;
 }
+.storybook{
+    font-size: 60px;
+    float: right;
+}
+
 ion-list-header.item.item-md.list-header.list-header-md{
     margin-bottom:0px;
 }
@@ -30,4 +26,33 @@ ion-list-header.item.item-md.list-header.list-header-md{
     margin-bottom:0px;
 }
 
+}
+.card-md .item-md.item-block .item-inner{
+    margin-left:0px;
+}
+.list-content{
+    .icon-ios{
+        margin-top: -2px!important;
+    }
+}
+ion-item.list-content.item.item-block.item-ios ion-label.label.label-ios,
+ion-item.list-content.item.item-block.item-md ion-label.label.label-md{
+    color: color($colors, dark);
+    white-space: normal;
+    margin-top:2px;
+    margin-bottom:2px;
+    font-size:1.4rem;
+    line-height: 1.4;
+    
+   }
+   .list-content{
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    min-height: 3rem;
+   }
+   .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end]{
+    margin-top:0px;
+    margin-bottom:0px;
 }

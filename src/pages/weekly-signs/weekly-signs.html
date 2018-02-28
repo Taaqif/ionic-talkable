@@ -4,9 +4,14 @@
     <!-- <ion-navbar color="{{week.number}}"> -->
     <!-- This one for Default colors -->
     <ion-navbar [color]="color">
-      <button ion-button menuToggle>
-              <ion-icon name="menu"></ion-icon>
-      </button>
+        <button *ngIf="!push" ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <ion-buttons *ngIf="push" left class="force-back">
+              <button icon-only ion-button (click)="goBack()">
+                  <ion-icon name="arrow-back"></ion-icon>
+                </button>
+          </ion-buttons>
       <ion-title>
           <p class='subtitle'> Week {{ week.number }}</p>
           {{ week.title }} 
@@ -58,12 +63,12 @@
   <ion-card>
       <ion-card-header [color]="color">Activities<ion-icon [color]="color" name="md-people" item-end style="float:right;"></ion-icon>
       </ion-card-header>
-        <ion-list>
-          <ion-item class="keyword-content" *ngFor='let activity of weeklyKeyWordSigns.activities'>
+        <!-- <ion-list> -->
+          <ion-item class="list-content" *ngFor='let activity of weeklyKeyWordSigns.activities'>
             <ion-icon [color]="color" name="ios-checkmark" item-start></ion-icon>
-            {{activity}}
+            <div [innerHTML]="activity"></div>
           </ion-item>
-        </ion-list>
+        <!-- </ion-list> -->
     </ion-card>
  
 </ion-content>

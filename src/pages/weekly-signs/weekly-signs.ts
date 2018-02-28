@@ -12,12 +12,13 @@ export class WeeklySignsPage {
   keyWordSignsChunks: any = [];
   weeklyKeyWordSigns: any = [];
   color: any = '';
+  push;
   constructor(public navCtrl: NavController, public navParams: NavParams, public videoService: VideoService, public downloadService: DownloadService) {
     this.week = this.navParams.get('w');
+    this.push = this.navParams.get('push');
     this.color = this.week.number;
     this.weeklyKeyWordSigns = this.week.weeklyKeyWordSigns;
     //split array into chunks of 2 
-    console.log(this.weeklyKeyWordSigns)
     // while (this.week.weeklyKeyWordSigns.length > 0){
     //   // this.keyWordSignsChunks.push(this.week.weeklyKeyWordSigns.splice(0, 2));
     //   this.weeklyKeyWordSigns.push(this.week.weeklyKeyWordSigns);
@@ -35,6 +36,9 @@ export class WeeklySignsPage {
     //     }
     //   }
     // })
+  }
+  goBack(){
+    this.navCtrl.parent.viewCtrl.dismiss();
   }
   playVideo(id){
     this.videoService.playVideo(id);

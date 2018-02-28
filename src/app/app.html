@@ -23,15 +23,15 @@
                 </ion-list-header> -->
 
 
-                 <button ion-item *ngFor="let p of programPages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+                 <button ion-item *ngFor="let p of programPages" (click)="openPage(p)">
                     <ion-icon *ngIf='p.icon' item-start [name]="p.icon"></ion-icon>
                     {{p.title}}
                 </button>
-                <button ion-item *ngFor="let w of wordPages" [class.activeHighlight]="checkActive(w)" (click)="openPage(w)">
+                <button ion-item *ngFor="let w of wordPages" (click)="openPage(w)">
                     <ion-icon *ngIf='w.icon' item-start [name]="w.icon"></ion-icon>
                     {{w.title}}
                 </button>
-                <button ion-item *ngFor="let s of settingsPages" [class.activeHighlight]="checkActive(s)" (click)="openPage(s)">
+                <button ion-item *ngFor="let s of settingsPages" (click)="openPage(s)">
                     <ion-icon *ngIf='s.icon' item-start [name]="s.icon"></ion-icon>
                     {{s.title}}
                 </button>

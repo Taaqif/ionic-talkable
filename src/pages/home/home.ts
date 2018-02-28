@@ -21,7 +21,8 @@ userProgress(){
   //Set to Week1Page until user progress can be restored from saved data
     this.storage.get('currentWeek').then((data) => {
       console.log(data)
-      this.navCtrl.setRoot(TabsControllerPage, data); 
+      let p ={week: data, push: false}
+      this.navCtrl.setRoot(TabsControllerPage, p); 
       this.fs.setActivePage('weeklyPage'+data);
     })
  }

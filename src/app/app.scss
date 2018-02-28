@@ -32,6 +32,16 @@
 .isCurrentWeek {
     font-size: 2.3rem;
 }
+.force-back {
+  margin-left: 13px;
+  margin-right: 13px;
+}
+.force-back-button .back-button {
+  display: inline-block;
+}
+[class*="talkable-cloud-play"] {
+  font-size: 1.8em;
+}
 .video-button{
   &.button-large {
     .button-inner {

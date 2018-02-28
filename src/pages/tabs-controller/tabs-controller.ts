@@ -19,6 +19,7 @@ export class TabsControllerPage {
   hintsTipsTabRoot: any = HintsTipsPage;
   canEnter: boolean;
   color: any='primary';
+  push: boolean;
   constructor(public navCtrl: NavController,  
               public navParams: NavParams, 
               public fs: FileServiceProvider, 
@@ -26,29 +27,26 @@ export class TabsControllerPage {
               private alertCtrl: AlertController,
               private settings: Settings,
               private plt: Platform) {
-                this.color = this.navParams.data;
-                this.fs.getWeekContent(this.navParams.data).subscribe((data) => {
-        this.week = data;
+                this.color = this.navParams.data.week;
+        this.week = this.fs.getWeekContent(this.navParams.data.week);
+        this.push = this.navParams.data.push
         
         // loadingPopup.dismiss();
         // this.navCtrl.setRoot(this.navCtrl.getActive().component);
-      });
     
   }
   
   ionViewCanEnter(){
-    
     return new Promise(resolve => {
-      console.log(this.week)
       if(this.settings.getValue('unlockAll')){
         resolve(true);
         // return true;
       }else{
         this.storage.get('currentWeek').then((data) => {
-          if(this.navParams.data > data){
+          if(this.navParams.data.week > data){
             let alert = this.alertCtrl.create({
-              title: 'You have not unlocked this content yet!',
-              subTitle: 'You are on week ' + data + '\nFocus on the current week :D',
+              title: 'Locked content',
+              message: 'Oops.. You have not unlocked this content yet. <br> You are on week ' + data ,
               buttons: ['Ok']
             });
             alert.present();

@@ -1,10 +1,10 @@
 @font-face {
     font-family: "icons";
-    src: url("./icons.eot?272af32e0bdb34bc207ba519fbfda484?#iefix") format("embedded-opentype"),
-url("./icons.woff2?272af32e0bdb34bc207ba519fbfda484") format("woff2"),
-url("./icons.woff?272af32e0bdb34bc207ba519fbfda484") format("woff"),
-url("./icons.ttf?272af32e0bdb34bc207ba519fbfda484") format("truetype"),
-url("./icons.svg?272af32e0bdb34bc207ba519fbfda484#icons") format("svg");
+    src: url("./icons.eot?bb04fa693dd235060cdfec4e017c96a8?#iefix") format("embedded-opentype"),
+url("./icons.woff2?bb04fa693dd235060cdfec4e017c96a8") format("woff2"),
+url("./icons.woff?bb04fa693dd235060cdfec4e017c96a8") format("woff"),
+url("./icons.ttf?bb04fa693dd235060cdfec4e017c96a8") format("truetype"),
+url("./icons.svg?bb04fa693dd235060cdfec4e017c96a8#icons") format("svg");
 }
 
 i {
@@ -36,12 +36,15 @@ i:before {
 .icons-talkable-overview:before {
     content: "\f106";
 }
-.icons-talkable-storytime:before {
+.icons-talkable-storytime-stars:before {
     content: "\f107";
 }
-.icons-talkable-video:before {
+.icons-talkable-storytime:before {
     content: "\f108";
 }
-.icons-talkable-word-tracker:before {
+.icons-talkable-video:before {
     content: "\f109";
+}
+.icons-talkable-word-tracker:before {
+    content: "\f10a";
 }

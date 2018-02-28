@@ -13,6 +13,7 @@ import { DownloadService } from '../../providers/download-service/download-servi
 export class VideosPage {
   week: any = '';
   color: any = ''
+  push:boolean;
   watchedVideos: any[] = [];
   constructor(public navCtrl: NavController,  
               public navParams: NavParams,
@@ -21,6 +22,7 @@ export class VideosPage {
           public downloadService: DownloadService) {
     // console.log(JSON.stringify(this.navParams.data));
     this.week = this.navParams.get('w');
+    this.push = this.navParams.get('push')
     this.color = this.week.number;
     // this.storage.set('watchedVideos', '');
     this.storage.get('watchedVideos').then(data => {
@@ -41,6 +43,10 @@ export class VideosPage {
     // console.log(fs.data);
     // this.week = this.navParams.data;
     // console.log(this.week);
+  }
+  
+  goBack(){
+    this.navCtrl.parent.viewCtrl.dismiss();
   }
   playVideo(id){
     this.videoService.playVideo(id);

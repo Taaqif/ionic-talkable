@@ -132,6 +132,7 @@ export class Talkable {
     })
     // used for an example of ngFor and navigation
     this.programPages = [
+      { id: 'HomePage', title: 'Home', component: HomePage, icon: "md-home"},
       { id: 'CurrentWeekPage', title: 'Current Week', component: TabsControllerPage, icon: "talkable-current", param: 1 },
       { id: 'TenWeekProgramPage', title: 'Entire Program', component: TenWeekProgramPage, icon: "talkable-overview" },
     ];
@@ -172,11 +173,10 @@ export class Talkable {
         if (this.nav.canGoBack()) {
           this.nav.pop();
         } else {
-          if (this.nav.getActive().component == this.programPages[0].component) {
+          if (this.nav.getActive().component == HomePage) {
             this.platform.exitApp();
           } else {
-            this.nav.setRoot(this.programPages[0].component, this.programPages[0].param);
-            this.fs.setActivePage(this.programPages[0].id);
+            this.nav.setRoot(HomePage);
           }
 
         }
@@ -189,8 +189,7 @@ export class Talkable {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     if (page.id != this.fs.getActivePage()) {
-
-      this.nav.setRoot(page.component, page.param);
+      this.nav.setRoot(page.component, {week: page.param, push: false});
       this.fs.setActivePage(page.id);
 
       // }

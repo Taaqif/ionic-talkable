@@ -3,9 +3,14 @@
   <!-- <ion-navbar color="{{week.number}}"> -->
   <!-- This one for Default colors -->
   <ion-navbar [color]="color">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+      <button *ngIf="!push" ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-buttons *ngIf="push" left class="force-back">
+            <button icon-only ion-button (click)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
     <ion-title>
       <p class='subtitle'> Week {{ week.number }}</p>
       {{ week.title }}
@@ -17,7 +22,7 @@
   <ion-card text-wrap id="storyTime-card">
     <ion-item>
       <ion-thumbnail item-right>
-        <img src="assets/icon/talkable-storytime.svg">
+        <ion-icon [color]="color" class="storybook" name="talkable-storytime-stars"></ion-icon>
       </ion-thumbnail>
       <h1 id="storyTime-heading">
         {{ week.book.title }}
@@ -26,13 +31,13 @@
     </ion-item>
     <!-- <ion-item> -->
     <!-- <ion-list> -->
-    <ion-list-header>
+    <ion-list-header> 
       <ion-label [color]="color">Reading Tips</ion-label>
       <ion-icon [color]="color" name="md-bulb" item-end style="float:right;"></ion-icon>
     </ion-list-header>
-    <ion-item class="storytime-content" *ngFor='let tips of week.book.tips'>
+    <ion-item class="list-content" *ngFor='let tips of week.book.tips'>
       <ion-icon [color]="color" name="ios-checkmark" item-start></ion-icon>
-      {{ tips }}
+      <div [innerHTML]="tips"></div>
     </ion-item>
     <!-- </ion-list> -->
     <!-- </ion-item> -->

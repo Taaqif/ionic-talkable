@@ -3,9 +3,14 @@
     <!-- <ion-navbar color="{{week.number}}"> -->
     <!-- This one for Default colors -->
     <ion-navbar [color]="color">
-        <button ion-button menuToggle>
+        <button *ngIf="!push" ion-button icon-only menuToggle>
             <ion-icon name="menu"></ion-icon>
-        </button>
+          </button>
+          <ion-buttons *ngIf="push" left class="force-back">
+              <button icon-only ion-button (click)="goBack()">
+                  <ion-icon name="arrow-back"></ion-icon>
+                </button>
+          </ion-buttons>
       <ion-title>
           <p class='subtitle'> Week {{ week.number }}</p>
           {{ week.title }} 
@@ -19,9 +24,9 @@
        Tips for this week <ion-icon  [color]="color" name='md-bulb' item-end style="float:right;"></ion-icon>
     </ion-card-header>
     <ion-list>
-      <ion-item *ngFor='let hintsTips of week.hintsTips'>
+      <ion-item class="list-content" *ngFor='let hintsTips of week.hintsTips'>
           <ion-icon [color]="color" name="ios-checkmark" item-start></ion-icon>
-          <ion-label>{{ hintsTips}} </ion-label>
+          <ion-label><div [innerHTML]="hintsTips"></div></ion-label>
       </ion-item>
       <!-- <ion-item > -->
         

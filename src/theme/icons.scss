@@ -32,12 +32,13 @@
   url("../assets/fonts/icons.svg?51355164d34200b4fc821bcf6349b806#icons") format("svg");
   }
   @include makeIcon(logo_header, '\f101');
-  @include makeIcon(talkable-cloud-play, '\f102');
-  @include makeIcon(talkable-current, '\f103');
-  @include makeIcon(talkable-overview, '\f106');
-  @include makeIcon(talkable-storytime, '\f107');
-  @include makeIcon(talkable-video, '\f108');
-  @include makeIcon(talkable-hints-tips, '\f104');
-  @include makeIcon(talkable-word-tracker, '\f109');
-  @include makeIcon(talkable-key-word-signs, '\f105');
+@include makeIcon(talkable-cloud-play, '\f102');
+@include makeIcon(talkable-hints-tips, '\f104');
+@include makeIcon(talkable-current, '\f103');
+@include makeIcon(talkable-overview, '\f106');
+@include makeIcon(talkable-key-word-signs, '\f105');
+@include makeIcon(talkable-storytime-stars, '\f107');
+@include makeIcon(talkable-storytime, '\f108');
+@include makeIcon(talkable-word-tracker, '\f10a');
+@include makeIcon(talkable-video, '\f109');
   

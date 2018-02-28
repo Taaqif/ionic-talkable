@@ -22,9 +22,8 @@ export class KeyWordSignsPage {
     //   content: 'Loading posts...'
     // });
     // loadingPopup.present();
-    fs.getKeyWordSigns().subscribe((data) => {
-      this.signs = data;
-      this.signsO = data;
+      this.signs = fs.getKeyWordSigns();
+      this.signsO = fs.getKeyWordSigns();
       // this.createFilteredKeyWordArray();
       //this.filteredSigns = this.signs;
       
@@ -33,7 +32,6 @@ export class KeyWordSignsPage {
       // }
       // this.filteredSignsChunks = this.signsChunks;
       // loadingPopup.dismiss();
-    });
     
     
     

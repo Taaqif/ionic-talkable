@@ -5,18 +5,18 @@
 </ng-template>
   <ng-container *ngIf="plt.is('android')">
       <super-tabs *ngIf="week;else loading" id="tabsController-tabs1" [config]="{ sideMenu: 'left' }" tabsPlacement="bottom" [toolbarBackground]="color" indicatorColor="light" toolbarColor="light" text-transform="lowercase">
-          <super-tab [root]="videoTabRoot" title="Videos" icon="talkable-video" id="tabsController-videoTab" [rootParams]="{ w: week }"></super-tab>
-          <super-tab [root]="storyTabRoot" title="Story Time" icon="talkable-storytime" id="tabsController-storyTab" [rootParams]="{ w: week }"></super-tab>
-          <super-tab [root]="weeklySignsTabRoot" title="Key Word Signs" icon="talkable-key-word-signs" id="tabsController-weeklySignsTab" [rootParams]="{ w: week }"></super-tab>
-          <super-tab [root]="hintsTipsTabRoot" title="Hints & Tips" icon="talkable-hints-tips" id="tabsController-hintsTipsTab" [rootParams]="{ w: week }"></super-tab>
+          <super-tab [root]="videoTabRoot" title="Videos" icon="talkable-video" id="tabsController-videoTab" [rootParams]="{ w: week,push: push }"></super-tab>
+          <super-tab [root]="storyTabRoot" title="Story Time" icon="talkable-storytime" id="tabsController-storyTab" [rootParams]="{ w: week,push: push }"></super-tab>
+          <super-tab [root]="weeklySignsTabRoot" title="Key Word Signs" icon="talkable-key-word-signs" id="tabsController-weeklySignsTab" [rootParams]="{ w: week,push: push }"></super-tab>
+          <super-tab [root]="hintsTipsTabRoot" title="Hints & Tips" icon="talkable-hints-tips" id="tabsController-hintsTipsTab" [rootParams]="{ w: week,push: push }"></super-tab>
       </super-tabs>
   </ng-container>
   <ng-container *ngIf="!plt.is('android')">
       <ion-tabs *ngIf="week;else loading" id="tabsController-tabs1" tabsPlacement="bottom" [color]="color" text-transform="lowercase">
-          <ion-tab [root]="videoTabRoot" tabTitle="Videos" tabIcon="talkable-video" id="tabsController-videoTab" [rootParams]="{ w: week }"></ion-tab>
-          <ion-tab [root]="storyTabRoot" tabTitle="Story Time" tabIcon="talkable-storytime" id="tabsController-storyTab" [rootParams]="{ w: week }"></ion-tab>
-          <ion-tab [root]="weeklySignsTabRoot" tabTitle="Key Word Signs" tabIcon="talkable-key-word-signs" id="tabsController-weeklySignsTab" [rootParams]="{ w: week }"></ion-tab>
-          <ion-tab [root]="hintsTipsTabRoot" tabTitle="Hints & Tips" tabIcon="talkable-hints-tips" id="tabsController-hintsTipsTab" [rootParams]="{ w: week }"></ion-tab>
+          <ion-tab [root]="videoTabRoot" tabTitle="Videos" tabIcon="talkable-video" id="tabsController-videoTab" [rootParams]="{ w: week,push: push }"></ion-tab>
+          <ion-tab [root]="storyTabRoot" tabTitle="Story Time" tabIcon="talkable-storytime" id="tabsController-storyTab" [rootParams]="{ w: week,push: push }"></ion-tab>
+          <ion-tab [root]="weeklySignsTabRoot" tabTitle="Key Word Signs" tabIcon="talkable-key-word-signs" id="tabsController-weeklySignsTab" [rootParams]="{ w: week,push: push }"></ion-tab>
+          <ion-tab [root]="hintsTipsTabRoot" tabTitle="Hints & Tips" tabIcon="talkable-hints-tips" id="tabsController-hintsTipsTab" [rootParams]="{ w: week,push: push }"></ion-tab>
       </ion-tabs>
   </ng-container>
             

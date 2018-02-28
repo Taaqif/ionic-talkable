@@ -5,8 +5,6 @@ import * as moment from 'moment';
 
 import { Storage } from '@ionic/storage';
 
-import { TabsControllerPage } from '../tabs-controller/tabs-controller';
-
 import { FileServiceProvider } from "../../providers/file-service/file-service";
 import { NotificationsService } from '../../providers/notifications-service/notifications-service';
 import { HomePage } from '../home/home';

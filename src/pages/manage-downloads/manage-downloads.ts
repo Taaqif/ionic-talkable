@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams, PopoverController } from 'ionic-angular';
 import { DownloadService } from '../../providers/download-service/download-service';
-
+import { ManageDownloadsPopoverPage } from "./manage-downloads-popover";
 
 @Component({
   selector: 'page-manage-downloads',
@@ -10,7 +10,7 @@ import { DownloadService } from '../../providers/download-service/download-servi
 export class ManageDownloadsPage {
   interval: any;
 
-  constructor(public cd: ChangeDetectorRef, public navCtrl: NavController, public navParams: NavParams, public downloadService:DownloadService) {
+  constructor(public cd: ChangeDetectorRef, public navCtrl: NavController, public navParams: NavParams, public downloadService:DownloadService,public popoverCtrl: PopoverController) {
     
   }
   ngOnInit(){
@@ -20,5 +20,11 @@ export class ManageDownloadsPage {
   }
   ngOnDestroy() {
     clearInterval(this.interval);
+  }
+  openMoreOptions(event){
+    let popover = this.popoverCtrl.create(ManageDownloadsPopoverPage);
+    popover.present({
+      ev: event
+    });
   }
 }

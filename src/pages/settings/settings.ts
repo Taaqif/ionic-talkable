@@ -73,10 +73,29 @@ export class SettingsPage {
   updateVideoPreference(){
     if(this.options && this.options.videoPreference == 'download'){
       let alert = this.alertCtrl.create({
-        title: 'Warning',
-        message: 'This option will consume about 1GB of data, we suggest using a wifi network to download videos! <br><br>Videos will be downloaded in the background on a weekly basis. ',
+        title: 'Video Downloads',
+        message: 'Downloading videos will consume about 1GB of data <br>Videos will be downloaded in the background on a weekly basis. <br> How would you like to download videos?',
         buttons: [
           {
+            text: 'Wifi',
+            handler: () => {
+
+              this.settings.setAll(this.options).then(done => {
+                this.downloadService.startDownloading();
+              });
+  
+            }
+          },
+          {
+            text: 'Wifi & Cellular',
+            handler: () => {
+              this.options.useMobileData = true;
+              this.settings.setAll(this.options).then(done => {
+                this.downloadService.startDownloading();
+              });
+  
+            }
+          },{
             text: 'Cancel',
             role: 'cancel',
             handler: () => {
@@ -84,16 +103,6 @@ export class SettingsPage {
               this.settings.setAll(this.options).then(done=>{
                 this.downloadService.stopDownloading();
               });
-            }
-          },
-          {
-            text: 'I Understand',
-            cssClass: 'danger-label',
-            handler: () => {
-              this.settings.setAll(this.options).then(done => {
-                this.downloadService.startDownloading();
-              });
-  
             }
           }
         ]

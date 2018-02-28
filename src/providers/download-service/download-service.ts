@@ -206,37 +206,14 @@ export class DownloadService {
 
     }
     startDownloading() {
-
+        console.log(this.network.type)
         //check for netwrok
         this.settings.load().then(done => {
             if (this.settings.getValue("videoPreference") == 'download') {
                 if (this.network.type != 'wifi') {
-                    if (!this.options.useMobileData) {
-                        let alert = this.alertCtrl.create({
-                            title: 'Mobile Data Warning',
-                            message: '<p>Using mobile data to download videos could incur charges</p><p>Continue using mobile data?</p>',
-                            buttons: [{
-                                text: 'Yes and dont ask again',
-                                handler: () => {
-                                    this.options.useMobileData = true;
-                                    this.settings.setAll(this.options).then(done => {
-                                        this.initDownloads();
-                                    });
-                                }
-                            }, {
-                                text: 'Yes',
-                                handler: () => {
-                                    this.initDownloads();
-                                }
-                            }, {
-                                text: 'No',
-                                role: 'cancel',
-                            }]
-                        });
-                        alert.present();
-                    } else {
+                    if (this.options.useMobileData) {
                         this.initDownloads();
-                    }
+                    } 
 
                 } else {
                     this.initDownloads()
@@ -248,7 +225,7 @@ export class DownloadService {
     initDownloads() {
         this.backgroundMode.enable();
         this.storage.get("currentWeek").then(currentWeek => {
-            this.fs.getWeekContent(currentWeek).subscribe(week => {
+            let week = this.fs.getWeekContent(currentWeek)
                 // add some items to the queue
                 week.videos.forEach(video => {
                     this.addToQueue(video.id, false)
@@ -257,7 +234,6 @@ export class DownloadService {
                     this.addToQueue(video, false)
                 });
 
-            })
         })
     }
     stopDownloading() {

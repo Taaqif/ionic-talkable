@@ -5,7 +5,6 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { SuperTabsModule } from 'ionic2-super-tabs';
-import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { DownloadService } from "../providers/download-service/download-service";
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -41,6 +40,7 @@ import { RatingModal } from "../pages/rating-modal/rating-modal";
 import { NotificationsService } from '../providers/notifications-service/notifications-service';
 import { ManageDownloadsPage } from "../pages/manage-downloads/manage-downloads";
 import { Network } from '@ionic-native/network';
+import { ManageDownloadsPopoverPage } from '../pages/manage-downloads/manage-downloads-popover';
 
 export function provideSettings(storage: Storage) {
   /**
@@ -73,6 +73,7 @@ export function provideSettings(storage: Storage) {
     SettingsPage,
     RatingModal,
     ManageDownloadsPage,
+    ManageDownloadsPopoverPage,
     AboutTalkablePage,
     ChunksPipe,
     ObjectPipe,
@@ -90,8 +91,7 @@ export function provideSettings(storage: Storage) {
     }),
     Ionic2RatingModule,
     IonicStorageModule.forRoot(),
-    SuperTabsModule.forRoot(),
-    IonicImageViewerModule
+    SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -104,6 +104,7 @@ export function provideSettings(storage: Storage) {
     AcknowledgementsPage,
     StoryTimePage,
     ManageDownloadsPage,
+    ManageDownloadsPopoverPage,
     HintsTipsPage,
     TutorialPage,
     KeyWordSignsPage,

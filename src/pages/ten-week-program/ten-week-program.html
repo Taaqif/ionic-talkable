@@ -8,7 +8,6 @@
   </ion-navbar>
 </ion-header>
 <ion-content id="tenWeekProgram">
-  <div *ngIf='loaded'>  
     <ion-card *ngFor='let week of allWeeks'>
       <ion-row>
         <ion-col align-self-start>
@@ -35,5 +34,4 @@
       <button ion-button item-end (click)='goToWeeklyTabs(week.number)'>View Week {{week.number}}</button>
       -->
     </ion-card>
-  </div>
 </ion-content>
