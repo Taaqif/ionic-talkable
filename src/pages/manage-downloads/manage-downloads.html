@@ -27,6 +27,7 @@
     </ion-item>
     <ion-item *ngFor="let q of downloadService.getQueuedDownloads()">
       {{q.id}}
+      <progress-bar [value]="q.percent" [max]="100" ></progress-bar>
       <div item-end>{{q.percent}}%</div>
     </ion-item>
   </ion-list>

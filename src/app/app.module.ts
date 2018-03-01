@@ -41,6 +41,7 @@ import { NotificationsService } from '../providers/notifications-service/notific
 import { ManageDownloadsPage } from "../pages/manage-downloads/manage-downloads";
 import { Network } from '@ionic-native/network';
 import { ManageDownloadsPopoverPage } from '../pages/manage-downloads/manage-downloads-popover';
+import { ProgressBarModule } from "ngx-progress-bar";
 
 export function provideSettings(storage: Storage) {
   /**
@@ -82,6 +83,7 @@ export function provideSettings(storage: Storage) {
   imports: [
     HttpModule,
     BrowserModule,
+    ProgressBarModule,
     IonicModule.forRoot(Talkable,{
       platforms: {
         ios: {

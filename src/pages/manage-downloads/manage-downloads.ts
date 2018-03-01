@@ -9,14 +9,14 @@ import { ManageDownloadsPopoverPage } from "./manage-downloads-popover";
 })
 export class ManageDownloadsPage {
   interval: any;
-
   constructor(public cd: ChangeDetectorRef, public navCtrl: NavController, public navParams: NavParams, public downloadService:DownloadService,public popoverCtrl: PopoverController) {
     
   }
   ngOnInit(){
+    let self = this;
     this.interval = setInterval( () => {
       this.cd.detectChanges();
-    }, 500);
+    }, 1000);
   }
   ngOnDestroy() {
     clearInterval(this.interval);

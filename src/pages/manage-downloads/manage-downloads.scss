@@ -1,3 +1,29 @@
 page-manage-downloads {
-
+    .progress-bar{
+        border-top: 1px solid red;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+        -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 3px;
+        .sr-only{
+            display: none;
+        }
+        &:before{
+            display: block;
+            position: absolute;
+            width: 30px;
+            height: 1px;
+            content: '';
+            right: 3px;
+            -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+            top: -3px;
+            opacity: 1.0;
+            -webkit-box-shadow: 0 0 10px red, 0 0 5px red;
+            box-shadow: 0 0 10px red, 0 0 5px red;
+        }
+    }
 }
