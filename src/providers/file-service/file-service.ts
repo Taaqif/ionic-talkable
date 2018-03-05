@@ -9,6 +9,7 @@ export class FileServiceProvider {
   activePage: any;
   currentWeek: number;
   savedWordList: any;
+  watchedVideos: any;
   allWeeks = [
     {
       "number": 1,
@@ -33,7 +34,7 @@ export class FileServiceProvider {
         "tips": [
           "Use a sing-song voice when reading the rhythmic words in this book",
           "Use sound effects in the book - sneeze with the baby and cluck like a chicken",
-          "Tickle your child's toes every time you read the phrase <b>ten little toes</b>",
+          "Tickle your child's toes every time you read the phrase 'ten little toes'",
           "Slow down for the last three lines of the book and gently kiss your child's nose"
         ],
         "alternateBooks": [{
@@ -56,10 +57,10 @@ export class FileServiceProvider {
           "More"
         ],
         "activities": [
-          "Play tickle games with your little one. Model the signs <b>more</b>, <b>tickle</b> and <b>finished</b>.",
-          "Model the signs <b>more</b>, <b>finished</b> and <b>drink</b> at mealtimes.",
-          "Build towers together out of blocks. Crash them over. Ask your child if they want <b>more</b> or are <b>finished</b>. Model the sign as you say the words.",
-          "Blow bubbles together. Ask your child if they want <b>more</b> or are <b>finished</b>. Model the sign as you say the words."
+          "Play tickle games with your little one. Model the signs 'more', 'tickle' and 'finished'.",
+          "Model the signs 'more', 'finished' and 'drink' at mealtimes.",
+          "Build towers together out of blocks. Crash them over. Ask your child if they want 'more' or are 'finished'. Model the sign as you say the words.",
+          "Blow bubbles together. Ask your child if they want 'more' or are 'finished'. Model the sign as you say the words."
         ]
       },
       "hintsTips": [
@@ -115,16 +116,16 @@ export class FileServiceProvider {
           "Love"
         ],
         "activities": [
-          "Kick and throw the ball together. Model the sign <b>ball</b> each time you say the word.",
-          "Model the signs <b>more</b>, <b>finished</b> and <b>eat</b> at mealtimes.",
-          "Choose a <b>big</b> and little ball. Set up some blocks to knock over. Roll the <b>big ball</b> to crash the blocks over. Model <b>more</b> as you set the blocks up again.",
-          "Model the sign <b>love</b> as you tuck your little one in every night. Play with soft toys, cuddle them and sign the word <b>love</b>."
+          "Kick and throw the ball together. Model the sign 'ball' each time you say the word.",
+          "Model the signs 'more', 'finished' and 'eat' at mealtimes.",
+          "Choose a 'big' and little ball. Set up some blocks to knock over. Roll the 'big ball' to crash the blocks over. Model 'more' as you set the blocks up again.",
+          "Model the sign 'love' as you tuck your little one in every night. Play with soft toys, cuddle them and sign the word 'love'."
         ]
       },
       "hintsTips": [
-        "Be a <b>teacher</b> not a <b>tester</b>.",
+        "Be a 'teacher' not a 'tester'.",
         "Ask less questions.",
-        "Avoid using the phrases  <b>what's this?</b> and <b>say________</b>.",
+        "Avoid using the phrases  'what's this?' and 'say________'.",
         "As well as naming objects, use action, location and describing words and words for people too."
 
 
@@ -161,8 +162,8 @@ export class FileServiceProvider {
           `Each time you turn to an animal page, wait to see what your child does.
           <br>-- If they point, you point too and say what you see. <br>-- If they make an animal sound, copy the sound.
           <br>-- If they name the animal, repeat it back.`,
-          "Point to the pictures and model words to your child - <b>ladder</b>, <b>muddy</b>, <b>licking</b>.",
-          "Pause during the story and listen to your child. Add one extra key word to their phrase. If they say <b>moo</b>, you say <b>moo cow</b>, if they say pig say <b>wash the pig</b>.",
+          "Point to the pictures and model words to your child - 'ladder', 'muddy', 'licking'.",
+          "Pause during the story and listen to your child. Add one extra key word to their phrase. If they say 'moo', you say 'moo cow', if they say pig say 'wash the pig'.",
           "Make the corresponding animal sound before you turn each page. Wait and see if your child copies you or tries to guess the animal that is on the next page."
         ],
         "alternateBooks": [{
@@ -184,17 +185,17 @@ export class FileServiceProvider {
           "Hot"
         ],
         "activities": [
-          "Get out to the park and have a run around. Stand still and say <b>stop</b>, modelling the sign.",
-          "Model the signs <b>cat</b> and <b>dog</b> when you share the book <i>I went walking</i> together.",
+          "Get out to the park and have a run around. Stand still and say 'stop', modelling the sign.",
+          "Model the signs 'cat' and 'dog' when you share the book <i>I went walking</i> together.",
           "When going for a walk, be on the lookout for cats and dogs. Model the signs as you see the animal.",
-          "Model the sign <b>hot</b> to your child when having a hot drink, or if the stove or oven are on. Remember to always say the word as you sign."
+          "Model the sign 'hot' to your child when having a hot drink, or if the stove or oven are on. Remember to always say the word as you sign."
         ]
       },
       "hintsTips": [
         "Copy your child's sounds, words, facial, expression, body language and gestures.",
         "Model language by talking all the time.",
         "Add one more word on to your child's phrases.",
-        "Talk about what is happening in the <b>here and now</b>."
+        "Talk about what is happening in the 'here and now'."
 
       ]
     },
@@ -215,9 +216,9 @@ export class FileServiceProvider {
         "cover": "assets/img/book-cover/Week4.png",
         "tips": [
           "Talk about what you can see in the pictures (the broken egg on the floor, the cat in the tree).",
-          "Use noises to accompany your story telling – cows <b>mooing</b>, <b>pitter patter</b> of rain on the window, <b>splish splash splosh</b> in the water.",
+          "Use noises to accompany your story telling – cows 'mooing', 'pitter patter' of rain on the window, 'splish splash splosh' in the water.",
           "Talk about the routines that are familiar to your child. Eating breakfast, drawing, checking the letter box, going to bed.",
-          "Focus on the same words/phrases that you are using in everyday activities (e.g. <b>Here's a spoon</b>, <b>stir, stir, stir</b>, <b>wipe the table</b>, <b>eat your toast</b>).If they point, you point too and say what you see. "
+          "Focus on the same words/phrases that you are using in everyday activities (e.g. 'Here's a spoon', 'stir, stir, stir', 'wipe the table', 'eat your toast').If they point, you point too and say what you see. "
         ],
         "alternateBooks": [{
           "title": "Peepo",
@@ -238,15 +239,15 @@ export class FileServiceProvider {
           "Where"
         ],
         "activities": [
-          "Model the sign bath each evening as you prepare for bath time. As the bath is running, talk about how you will wash. Splash together in the bath, sign <b>wash</b> as you play together and wash the duckie.",
-          "<b>Where</b> is a great sign to use throughout the day: <b>where are my keys?</b>, <b>where's teddy?</b>, <b>where's mummy?</b>.",
-          "As you prepare your child for bed time, and at each nap, sign the word sleep. As you tuck your child in use the sign <b>love</b>.",
-          "Play with soft toys together. Put them to sleep, give them a bath or a drink, tickle them. Hide the toys and say <b>where's teddy/cat/dog?</b>."
+          "Model the sign bath each evening as you prepare for bath time. As the bath is running, talk about how you will wash. Splash together in the bath, sign 'wash' as you play together and wash the duckie.",
+          "'Where' is a great sign to use throughout the day: 'where are my keys?', 'where's teddy?', 'where's mummy?'.",
+          "As you prepare your child for bed time, and at each nap, sign the word sleep. As you tuck your child in use the sign 'love'.",
+          "Play with soft toys together. Put them to sleep, give them a bath or a drink, tickle them. Hide the toys and say 'where's teddy/cat/dog?'."
         ]
       },
       "hintsTips": [
         "Every interaction with your child is a language learning opportunity.",
-        "Help your child <b>map</b> words onto their experiences by talking about what they are seeing, hearing, touching, tasting and smelling.",
+        "Help your child 'map' words onto their experiences by talking about what they are seeing, hearing, touching, tasting and smelling.",
         "Use single words and short simple phrases.",
         "Focus on one routine that you do every day and plan a new word and sign to use over and over in this situation."
 
@@ -283,7 +284,7 @@ export class FileServiceProvider {
           "title": "Heads, Shoulders, Knees and Toes",
           "author": "Annie Kubler"
         }, {
-          "title": "If You</b>re Happy and You Know It",
+          "title": "If You're Happy and You Know It",
           "author": "Annie Kubler"
         }]
       },
@@ -295,8 +296,8 @@ export class FileServiceProvider {
           "Teddy Bear"
         ],
         "activities": [
-          "Give your child the choice between a book or a song. Ask <b>book or sing</b> signing with each option. Ask your child if they want more or if they are finished.",
-          "At snack time use the signs eat, drink and banana. Sign the phrase <b>eat the banana</b>. If your child prefers a different fruit, learn the sign at www.auslan.org.au.",
+          "Give your child the choice between a book or a song. Ask 'book or sing' signing with each option. Ask your child if they want more or if they are finished.",
+          "At snack time use the signs eat, drink and banana. Sign the phrase 'eat the banana'. If your child prefers a different fruit, learn the sign at www.auslan.org.au.",
           "Sing Round and Round the Garden and Teddy bear Teddy bear with your little one. Sign sing and teddy to your child as you play together.",
           "Play with your favourite teddy bear. Feed the teddy and sign eat, banana and drink. Sing and read a book to the teddy too."
         ]
@@ -325,8 +326,8 @@ export class FileServiceProvider {
         "author": "Pamela Allen",
         "cover": "assets/img/book-cover/Week6.png",
         "tips": [
-          "Use the key word sign <b>book</b> when telling your child it is story time.",
-          "Talk about what is happening in each picture <b>The donkey climbed into the boat</b>, <b>Splash</b>, <b>They all got wet!</b>",
+          "Use the key word sign 'book' when telling your child it is story time.",
+          "Talk about what is happening in each picture 'The donkey climbed into the boat', 'Splash', 'They all got wet!'",
           "Point to different parts of the picture as you explain what is happening.",
           "Watch your child's gesture. Talk about what they point to.",
           "Act out the story during bath time. Use your child's bath toys to re-create the story."
@@ -352,16 +353,16 @@ export class FileServiceProvider {
         ],
         "activities": [
           "Use the sign wet at bath time and when changing your child's nappy or clothes.",
-          "Sign hungry before each meal and snack time. When your child is expressing hunger model <b>you</b>re hungry</b>.",
-          "When you are out for a walk look around and talk about the birds. If you see a bird eating model <b>bird's hungry</b>.",
-          "Add the sign for milk to your mealtime repertoire. Use the phrase <b>drink your milk</b>."
+          "Sign hungry before each meal and snack time. When your child is expressing hunger model 'you're hungry'.",
+          "When you are out for a walk look around and talk about the birds. If you see a bird eating model 'bird's hungry'.",
+          "Add the sign for milk to your mealtime repertoire. Use the phrase 'drink your milk'."
         ]
       },
       "hintsTips": [
         "Use your chosen key word signs and natural gesture throughout the day in many different situations.",
         "When sharing stories direct your child to specific parts of a picture by pointing as you explain what is happening.",
         "Show your child objects as you talk about them.",
-        "Demonstrate actions while you say the word (e.g. <b>splash</b> while splashing in the bath, <b>Run</b> while your child is running)."
+        "Demonstrate actions while you say the word (e.g. 'splash' while splashing in the bath, 'Run' while your child is running)."
       ]
     },
     {
@@ -406,14 +407,14 @@ export class FileServiceProvider {
           "Flower"
         ],
         "activities": [
-          "Use dirty when changing your child's nappy or clothes, wiping their hands and at bath time. Say <b>you</b>re wet and dirty</b> and <b>you</b>re dirty. Time for a bath</b>. <b>Wash</b> that body.",
-          "Use the phrase <b>time to go home</b> when leaving the park, shops or a friend's house.",
-          "Children are usually very intrigued by things that are broken. Sign <b>broken</b> when a glass breaks or you come across a broken toy.",
-          "Add the sign flower to your repertoire when you are out and about for a walk. Use phrases like <b>the bird is on the flower</b>."
+          "Use dirty when changing your child's nappy or clothes, wiping their hands and at bath time. Say 'you're wet and dirty' and 'you're dirty. Time for a bath'. 'Wash' that body.",
+          "Use the phrase 'time to go home' when leaving the park, shops or a friend's house.",
+          "Children are usually very intrigued by things that are broken. Sign 'broken' when a glass breaks or you come across a broken toy.",
+          "Add the sign flower to your repertoire when you are out and about for a walk. Use phrases like 'the bird is on the flower'."
         ]
       },
       "hintsTips": [
-        "Follow your child's lead. Make sounds that match what they</b>re doing.",
+        "Follow your child's lead. Make sounds that match what they're doing.",
         "Be exciting with the sounds that you make.",
         "Don't ask your child to repeat you. Simply model sounds and wait to see what your child does.",
         "When your child makes a sound, repeat it back with enthusiasm."
@@ -436,7 +437,7 @@ export class FileServiceProvider {
         "cover": "assets/img/book-cover/Week8.png",
         "tips": [
           "Vary the volume of your voice to engage your child.",
-          "Pause after the line <b>What do you see?</b>.  Make the next animal sound before you turn the page.",
+          "Pause after the line 'What do you see?'.  Make the next animal sound before you turn the page.",
           "Give your child time to copy the sounds you make.",
           "Explore the animals at the end of the book. Point to the animal and make the corresponding sound. Always name the animal for your child."
 
@@ -460,16 +461,16 @@ export class FileServiceProvider {
           "Car"
         ],
         "activities": [
-          "Sign hat and shoes as you get ready to play outside. Use the phrase <b>where's your hat</b> and <b>where are your shoes</b> as you search for them together.",
-          "Practice modelling <b>thank you</b> when your child gives you something.",
+          "Sign hat and shoes as you get ready to play outside. Use the phrase 'where's your hat' and 'where are your shoes' as you search for them together.",
+          "Practice modelling 'thank you' when your child gives you something.",
           "Use the sign for car when you talk about going in the car. Car is also another great sign to use when you are out and about.",
           "Play dress-ups with your teddy. Put the hat and shoes on the teddy."
         ]
       },
       "hintsTips": [
-        "Musical Instruments -  Talk about <b>loud</b> and <b>quiet</b>, <b>fast</b> and <b>slow</b>, <b>go</b> and <b>stop</b> as you play together.",
+        "Musical Instruments -  Talk about 'loud' and 'quiet', 'fast' and 'slow', 'go' and 'stop' as you play together.",
         "Object in a Bag – Hide a range of objects in a bag. Make the corresponding sound as your child pulls the items from the bag (for example a toy dog, car or phone).",
-        "Environmental Sounds – Go for a walk together. Stop and listen to all the sounds you can hear. Talk about the sounds. For example <b>Oh that's a dog barking. Woof Woof Woof</b>, <b>Listen to the bird</b>, <b>What a noisy motorbike!</b>.",
+        "Environmental Sounds – Go for a walk together. Stop and listen to all the sounds you can hear. Talk about the sounds. For example 'Oh that's a dog barking. Woof Woof Woof', 'Listen to the bird', 'What a noisy motorbike!'.",
         "Hide and Seek – Hide a music box, musical toy or your phone. With your child, search for the sound-making object together. For babies simply hide the object under a scarf or blanket and help them explore and discover what is making the noise."
       ]
     },
@@ -490,9 +491,9 @@ export class FileServiceProvider {
         "cover": "assets/img/book-cover/Week9.jpg",
         "tips": [
           "Each time you read with your child offer them a choice between two books.",
-          "Give them a choice of where you will read the book <b>on the chair or on the floor</b> (point as you offer the choice).",
+          "Give them a choice of where you will read the book 'on the chair or on the floor' (point as you offer the choice).",
           "Talk about what you can see in the pictures. Keep your phrase length at your child's language level.",
-          "Model the signs <b>baby</b>, <b>mummy</b> and <b>daddy</b> as you talk about the pictures. Use the sign <b>cold</b> when talking about the rain, snow and water at the beach."
+          "Model the signs 'baby', 'mummy' and 'daddy' as you talk about the pictures. Use the sign 'cold' when talking about the rain, snow and water at the beach."
         ],
         "alternateBooks": [{
           "author": "Michael Rosen & Helen Oxenbury",
@@ -510,10 +511,10 @@ export class FileServiceProvider {
           "Mummy"
         ],
         "activities": [
-          "Use the sign for baby as you play together. Use phrases like <b>baby's sleeping</b> or <b>baby's hungry</b>.",
-          "Use the phrases <b>where's mummy</b> and <b>where's daddy</b> when playing hide and seek.",
-          "Use the phrases <b>mummy's home</b> and <b>daddy's home</b> as you hear the keys in the front door.",
-          "Add the word cold to your bath time repertoire. Try phrases like <b>the bath's cold</b> or <b>cold water</b>."
+          "Use the sign for baby as you play together. Use phrases like 'baby's sleeping' or 'baby's hungry'.",
+          "Use the phrases 'where's mummy' and 'where's daddy' when playing hide and seek.",
+          "Use the phrases 'mummy's home' and 'daddy's home' as you hear the keys in the front door.",
+          "Add the word cold to your bath time repertoire. Try phrases like 'the bath's cold' or 'cold water'."
         ]
       },
       "hintsTips": [
@@ -540,7 +541,7 @@ export class FileServiceProvider {
         "cover": "assets/img/book-cover/Week10.jpg",
         "tips": [
           "Lift the flap books can be great communication temptations and little hands often need a little help to open the flaps.",
-          "Model the word <b>help</b> or <b>open</b> each time your child needs assistance.",
+          "Model the word 'help' or 'open' each time your child needs assistance.",
           "Talk about the animals that are hiding. Make the corresponding animal noises.",
           "Let your child turn the pages. Don't worry if they keep going back to a favourite page, simply talk about what you can see."
         ],
@@ -566,16 +567,16 @@ export class FileServiceProvider {
           "Plane"
         ],
         "activities": [
-          "Sign the target word <b>help</b> or <b>open</b> during communication temptations.",
-          "Use short phrases like <b>mummy will help</b> or <b>daddy will open it</b> when your child needs your assistance.",
-          "Talk about the planes in the sky when you are out together. Use phrases like <b>big plane</b> or <b>where's the plane?</b>.",
-          "Play with dolls together. Talk about what the doll is doing. <b>Dolly is hungry</b>, <b>Dolly is eating</b>, <b>Dolly is drinking</b>, <b>Dolly is sleeping</b>, <b>Dolly is in the car</b>."
+          "Sign the target word 'help' or 'open' during communication temptations.",
+          "Use short phrases like 'mummy will help' or 'daddy will open it' when your child needs your assistance.",
+          "Talk about the planes in the sky when you are out together. Use phrases like 'big plane' or 'where's the plane?'.",
+          "Play with dolls together. Talk about what the doll is doing. 'Dolly is hungry', 'Dolly is eating', 'Dolly is drinking', 'Dolly is sleeping', 'Dolly is in the car'."
         ]
       },
       "hintsTips": [
         "Choose activities that will be fun and motivating for your child.",
-        "Leave plenty of time for them to ask for <b>more</b> or <b>help</b> (or the target word of your choice).",
-        "Make sure your child is having fun. If they</b>re not, stop and move to another activity.",
+        "Leave plenty of time for them to ask for 'more' or 'help' (or the target word of your choice).",
+        "Make sure your child is having fun. If they're not, stop and move to another activity.",
         "Avoid these types of activities when your child is tired."
       ]
     }
@@ -1179,6 +1180,9 @@ export class FileServiceProvider {
   }
   getKeyWordSigns() {
     return this.keywordsigns;
+  }
+  getWatchedVideos(){
+    return this.watchedVideos;
   }
   getKeyWordSignObject(keyWordArray) {
     return this.http.get('assets/data/key-word-signs.json')

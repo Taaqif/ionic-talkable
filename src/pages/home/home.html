@@ -11,30 +11,77 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content text-center>
-    <h1 class="home-content">Your 10 Week Program</h1>
+<ion-content text-center padding>
+    <h1 class="home-content">Welcome to your 10 Week Program!</h1>
+    <ion-card *ngIf="currentWeek" class="action-items">
+        <ion-card-header>
+          Current Week
+        </ion-card-header>
+        <ion-card-content>
+          {{currentWeek}}
+          <ng-container *ngIf="currentWeek < 10">
+              <p *ngIf="dayDiff == 1">New content <b>tomorrow!</b></p>
+              <p *ngIf="dayDiff == 7">New content <b>next week!</b></p>
+              <p *ngIf="dayDiff > 1 && dayDiff < 7">New content in <b>{{dayDiff}} days!</b></p>
+          </ng-container>
+        </ion-card-content>
+      </ion-card>
+  <!-- <div *ngIf="currentWeek" class="week-progress">
+    
+    <ng-container *ngFor="let week of fs.getAllWeeks()" >
+        <div class="week-progress-item" [class.current]="currentWeek == week.number"><span>{{week.number}}</span></div>
 
-  <div padding>
-    <button ion-button large (click)="goToWordTracker()" icon-start>
-          <ion-icon name="talkable-word-tracker"></ion-icon>
-          Word Tracker
+    </ng-container>
+  </div> -->
+
+  <h6 class="home-content">View current week content?</h6>
+  <button ion-button large (click)="userProgress()" icon-start> 
+      <ion-icon name="talkable-current"></ion-icon>
+      Let's Go!
     </button>
-  <button ion-button large (click)="gotToKeyWordSigns()" icon-start>
-        <ion-icon name="talkable-key-word-signs"></ion-icon>
-        Key Word Signs
+    <div class="action-buttons">
+      <div class="action-items">
+          <ion-card>
+              <ion-card-header>
+                Words Learnt
+              </ion-card-header>
+              <ion-card-content>
+                {{savedwords}}
+              </ion-card-content>
+            </ion-card>
+      </div>
+        <div class="action-items">
+            <ion-card>
+                <ion-card-header>
+                  Videos Watched
+                </ion-card-header>
+                <ion-card-content>
+                  {{videoService.getWatchedVideos().length}}
+                </ion-card-content>
+              </ion-card>
+        </div>
+          
+    </div>
+
+  <div class="action-buttons big">
+    <button ion-button large (click)="goToWordTracker()"><div>
+          <ion-icon name="talkable-word-tracker"></ion-icon><br>
+          <label>Word Tracker</label>
+          </div>
+    </button>
+  <button ion-button large (click)="gotToKeyWordSigns()"><div>
+        <ion-icon name="talkable-key-word-signs"></ion-icon><br>
+        <label>Word Signs</label>
+        </div>
     </button>
   </div>
   
 
 
-  <div padding>
+  <div>
     
       
-          <h6 class="home-content">Pick up where you left off?</h6>
-          <button ion-button large (click)="userProgress()" icon-start> 
-              <ion-icon name="talkable-current"></ion-icon>
-              Let's Go!
-            </button>
+         
         
   </div>
 </ion-content>

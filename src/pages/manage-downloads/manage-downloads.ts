@@ -12,8 +12,9 @@ export class ManageDownloadsPage {
   constructor(public cd: ChangeDetectorRef, public navCtrl: NavController, public navParams: NavParams, public downloadService:DownloadService,public popoverCtrl: PopoverController) {
     
   }
+  isWeek(id) { return typeof id.charAt(0) === 'number'; }
+
   ngOnInit(){
-    let self = this;
     this.interval = setInterval( () => {
       this.cd.detectChanges();
     }, 1000);

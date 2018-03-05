@@ -13,10 +13,29 @@ import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-m
 export class VideoService {
     options: any;
     videooptions: StreamingVideoOptions = {
-        successCallback: () => { console.log('Video played') },
-        errorCallback: (e) => { console.log('Error streaming') },
+        successCallback: () => { 
+            if(!this.watchedVideos.includes(this.currentID)){
+                this.watchedVideos.push(this.currentID)
+                this.storage.set("watchedVideos", this.watchedVideos);
+
+            } 
+            this.currentID = "";
+        },
+        errorCallback: (e) => { 
+            let alert = this.alertCtrl.create({
+            title: 'Playback Error',
+            message: '<p>An error occured while attempting to play the video</p>',
+            buttons: [{
+                text: 'OK',
+                role: 'cancel'
+              }]
+          });
+          alert.present(); 
+        },
         orientation: 'landscape'
     };
+    currentID: any;
+    watchedVideos: any = [];
     constructor(public plt: Platform,
         private settings: Settings,
         public http: Http,
@@ -28,8 +47,14 @@ export class VideoService {
         this.settings.load().then(() => {
             this.options = this.settings.allSettings;
         })
+        this.storage.get('watchedVideos').then(data => {
+            if (data) {
+              this.watchedVideos = data;
+            } else {
+                this.watchedVideos = [];
+            }
+          });
         this.url = this.downloadService.videoURL;
-        this.settings.load();
     }
     url;
     playVideo(id) {
@@ -73,14 +98,19 @@ export class VideoService {
         }
     }
     playLocal(id) {
-
+        this.currentID = id;
         this.streamingMedia.playVideo(this.downloadService.getFilePath(id), this.videooptions);
 
     }
     playOnline(id) {
-
+        this.currentID = id;
         this.streamingMedia.playVideo(this.downloadService.getURLPath(id), this.videooptions);
 
     }
-
+    getWatchedVideos(){
+        return this.watchedVideos;
+      }
+      getWatchedVideoCount(){
+        return this.watchedVideos.length;
+      }
 }

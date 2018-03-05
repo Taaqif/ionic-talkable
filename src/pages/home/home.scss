@@ -1,14 +1,76 @@
 page-home {
-.button{
-    width:100%;
-}
-.home-content{
+  .button {
+    width: 100%;
+  }
+  .home-content {
     text-align: center;
-}
-ion-row.go-time{
+  }
+  .card{
+    border-radius: 10px;
+  }
+  ion-row.go-time {
     height: 50%;
     align-items: flex-end;
+  }
+  .action-buttons{
+      display: flex;
+      &.big{
+          button{
+                        height: 4em;
 
+          }
+      }
+      
+  }
+  .action-items{
+    flex: 1;
+    .card-content {
+        font-size: 5rem;
+    }
 }
-
+  .week-progress{
+    display: flex;
+    width: calc(100% - 17px);
+    .week-progress-item {
+        flex: 1;
+        background: #bbced4;
+        padding: 10px 0;
+        margin-left: 3px;
+        position: relative;
+        color: black;
+        span{
+            margin-left: 15px;
+        }
+        &:after, &:before{
+            content: " ";
+            position: absolute;
+            top: 0;
+            right: -17px;
+            width: 0;
+            height: 0;
+            border-top: 19px solid transparent;
+            border-bottom: 17px solid transparent;
+            border-left: 17px solid #bbced4;
+            z-index: 2;
+            transition: border-color 0.2s ease;
+        }
+        &.current:after{
+            border-left: 17px solid color($colors, 1);
+        }
+        &:not(:first-child):before{
+            right: auto;
+            left: 0;
+            border-left: 17px solid #fff;
+            z-index: 0;
+        }
+        &.after{
+            border-left: 17px solid #bbced4;
+        }
+        &.current{
+            color: white;
+            background-color: color($colors, 1);
+        }
+    }
+  }
+  
 }

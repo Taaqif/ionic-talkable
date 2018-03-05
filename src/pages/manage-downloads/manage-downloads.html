@@ -26,7 +26,7 @@
       No Queued Downloads
     </ion-item>
     <ion-item *ngFor="let q of downloadService.getQueuedDownloads()">
-      {{q.id}}
+      {{isWeek(q.id) ? 'Week ' : ''}}{{q.id}}
       <progress-bar [value]="q.percent" [max]="100" ></progress-bar>
       <div item-end>{{q.percent}}%</div>
     </ion-item>
@@ -39,7 +39,7 @@
       No Downloads
     </ion-item>
     <ion-item *ngFor="let q of downloadService.getAllDownloaded()">
-      {{q.id}}
+      {{isWeek(q.id) ? 'Week ' : ''}}{{q.id}}
     </ion-item>
   </ion-list>
 </ion-content>
