@@ -3,17 +3,18 @@
   <!-- <ion-navbar color="{{week.number}}"> -->
   <!-- This one for Default colors -->
   <!-- <ion-navbar color="primary"> -->
-  <ion-navbar>
+  <ion-navbar [color]="color">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Talkable</ion-title>
+    <!-- <ion-title>Talkable</ion-title> -->
+    <img height="46" src="assets/img/logo_header_horiz.png"/>
   </ion-navbar>
 </ion-header>
 
 <ion-content text-center padding>
-    <h1 class="home-content">Welcome to your 10 Week Program!</h1>
-    <ion-card *ngIf="currentWeek" class="action-items">
+    <h1 class="home-content pt-30">Your 10 Week Program</h1>
+    <!-- <ion-card *ngIf="currentWeek" class="action-items">
         <ion-card-header>
           Current Week
         </ion-card-header>
@@ -25,7 +26,7 @@
               <p *ngIf="dayDiff > 1 && dayDiff < 7">New content in <b>{{dayDiff}} days!</b></p>
           </ng-container>
         </ion-card-content>
-      </ion-card>
+      </ion-card> -->
   <!-- <div *ngIf="currentWeek" class="week-progress">
     
     <ng-container *ngFor="let week of fs.getAllWeeks()" >
@@ -34,8 +35,15 @@
     </ng-container>
   </div> -->
 
-  <h6 class="home-content">View current week content?</h6>
-  <button ion-button large (click)="userProgress()" icon-start> 
+  <!-- <h2 class="home-content">Pick up where you left off?</h2> -->
+  <div class="circle-container" (click)="userProgress()">
+      <ion-icon name="md-play" class="circle"></ion-icon>
+      <ion-icon name="md-play" class="circle"></ion-icon>
+      <ion-icon name="md-play" class="circle"></ion-icon>
+      <ion-icon name="md-play" class="circle"></ion-icon>
+  </div>
+  <h1 class="home-content right" (click)="userProgress()">Lets Go!</h1>
+  <!-- <button ion-button large (click)="userProgress()" icon-start> 
       <ion-icon name="talkable-current"></ion-icon>
       Let's Go!
     </button>
@@ -61,8 +69,8 @@
               </ion-card>
         </div>
           
-    </div>
-
+    </div> -->
+    <hr>
   <div class="action-buttons big">
     <button ion-button large (click)="goToWordTracker()"><div>
           <ion-icon name="talkable-word-tracker"></ion-icon><br>
@@ -71,7 +79,7 @@
     </button>
   <button ion-button large (click)="gotToKeyWordSigns()"><div>
         <ion-icon name="talkable-key-word-signs"></ion-icon><br>
-        <label>Word Signs</label>
+        <label>Key Word Signs</label>
         </div>
     </button>
   </div>

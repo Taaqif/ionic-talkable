@@ -87,5 +87,10 @@ export class NotificationsService {
             this.storage.set("notificationsLoaded", true);
         })
     }
+    logAllNotifications(){
+        this.localNotifications.getAll().then(a => {
+            console.log(a)
+        })
+    }
 
 }

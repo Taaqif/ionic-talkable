@@ -17,6 +17,7 @@ export class HomePage {
 currentWeek;
 savedwords = 0;
 dayDiff;
+color = 1;
 constructor(public navCtrl: NavController, public videoService: VideoService, public storage: Storage, public fs: FileServiceProvider) {
   this.storage.get('currentWeek').then((data) => {
     this.currentWeek = data;

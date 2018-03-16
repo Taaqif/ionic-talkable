@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
 import { NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { Settings } from "../../providers/settings";
 import { AcknowledgementsPage } from "../acknowledgements/acknowledgements";
@@ -10,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DownloadService } from "../../providers/download-service/download-service";
 import { NotificationsService } from '../../providers/notifications-service/notifications-service';
 import { ManageDownloadsPage } from "../manage-downloads/manage-downloads";
+
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
@@ -17,6 +18,7 @@ import { ManageDownloadsPage } from "../manage-downloads/manage-downloads";
 export class SettingsPage {
   unlockAllToggle: boolean;
   options: any;
+  isDev: boolean = false;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               private alertCtrl: AlertController, 
@@ -27,6 +29,7 @@ export class SettingsPage {
               public splashScreen: SplashScreen,
               public downloadService: DownloadService,
             public notificationsService: NotificationsService) {
+              if(isDevMode()){this.isDev = true};
     this.settings.load().then(() => {
       this.options = this.settings.allSettings;
     })
@@ -117,6 +120,9 @@ export class SettingsPage {
     
     //show warinign popup before saving
     
+  }
+  showNotifs(){
+    this.notificationsService.logAllNotifications();
   }
   resetProgress(){
     let alert = this.alertCtrl.create({

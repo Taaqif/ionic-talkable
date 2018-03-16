@@ -77,8 +77,14 @@
       </ion-label>
 
     </button>
-    <button ion-item no-lines (click)="resetProgress()">
-      Reset Progress
-    </button>
+    <ng-container *ngIf="isDev">
+      <button ion-item no-lines (click)="resetProgress()">
+        Reset Progress
+      </button>
+      <button ion-item no-lines (click)="showNotifs()">
+        Show Notifs
+      </button>
+    </ng-container>
+    
   </ion-list>
 </ion-content>

@@ -22,6 +22,7 @@ export class VideoService {
             this.currentID = "";
         },
         errorCallback: (e) => { 
+            console.log(e)
             let alert = this.alertCtrl.create({
             title: 'Playback Error',
             message: '<p>An error occured while attempting to play the video</p>',

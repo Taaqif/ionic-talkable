@@ -2,8 +2,21 @@ page-home {
   .button {
     width: 100%;
   }
+  h1{
+    font-size: 8vw;
+  }
+  ion-header{
+    img{
+        float: right;
+    }
+  }
+  
   .home-content {
     text-align: center;
+    color: color($colors, 1);
+  }
+  .pt-30{
+      padding-top: 30px;
   }
   .card{
     border-radius: 10px;
@@ -14,18 +27,65 @@ page-home {
   }
   .action-buttons{
       display: flex;
+      justify-content: space-around;
       &.big{
           button{
-                        height: 4em;
-
+                height: 6em;
+                border-radius: 20px;
+                width: 8.5em;
+            ion-icon{
+                font-size: 3em;
+            }
           }
       }
       
+  }
+  .right{
+      text-align: end;
+      font-size: 11vw;
+  }
+  hr{
+    height: 2px;
+    background-color: color($colors, 1)!important;
+    margin: 20px 10px;
+
   }
   .action-items{
     flex: 1;
     .card-content {
         font-size: 5rem;
+    }
+}
+
+.circle-container{
+    margin: 35px 0 10px;
+    display: inline-flex;
+    .circle{
+        margin-left: -10px;
+        width: 2em;
+        height: 2em;
+        background-color: color($colors, 1);
+        color: white;
+        border-radius: 100%;
+        font-size: 5em;
+        padding: 0.4em 0.8em;
+        margin-left: -1.3em;
+        &:nth-child(1){
+            $tmpc: color($colors, 1);
+            background-color: lighten($tmpc, 30%)
+        }
+        &:nth-child(2){
+            $tmpc: color($colors, 1);
+            background-color: lighten($tmpc, 20%)
+        }
+        &:nth-child(3){
+            $tmpc: color($colors, 1);
+            background-color: lighten($tmpc, 10%)
+        }
+        &:not(:last-child){
+            color: transparent;
+        }
+        
     }
 }
   .week-progress{
