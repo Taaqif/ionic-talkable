@@ -90,7 +90,7 @@ export class DownloadService {
 
                 self.downloadedVideos[task.id].downloaded = false;
                 self.downloadedVideos[task.id].tries++;
-
+                console.log(self.downloadedVideos[task.id]);
                 self.fileTransfer.download(
                     
 
