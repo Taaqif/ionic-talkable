@@ -82,6 +82,7 @@ export class DownloadService {
                 self.fileTransfer.onProgress(progress => {
                     console.log("pr")
                     var percent = progress.loaded / progress.total * 100;
+                    console.log(progress)
                     percent = Math.round(percent);
                     self.downloadedVideos[task.id].percent = percent;
                 })
