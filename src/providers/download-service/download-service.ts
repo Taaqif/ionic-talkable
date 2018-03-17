@@ -86,7 +86,7 @@ export class DownloadService {
                     percent = Math.round(percent);
                     self.downloadedVideos[task.id].percent = percent;
                 })
-
+                console.log("next");
 
                 self.downloadedVideos[task.id].downloaded = false;
                 self.downloadedVideos[task.id].tries++;
