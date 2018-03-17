@@ -16,13 +16,13 @@ import { Network } from '@ionic-native/network';
 
 export class DownloadService {
     options: any;
-    fileTransfer: FileTransferObject;
+    fileTransfer: FileTransferObject = null;
     downloadedVideos;
     q: any;
     maxRetries: number = 5;
     hasNetwork: boolean = false;
     videoURL: string = "http://feedback.talkable.org.au/";
-    wifiConnected = null;;
+    wifiConnected = null;
     constructor(
         public plt: Platform,
         public http: Http,
@@ -56,85 +56,6 @@ export class DownloadService {
         this.settings.load().then(data=>{
             this.options = this.settings.allSettings;
         })
-        // this.backgroundMode.configure({ silent: true });
-        this.fileTransfer = this.transfer.create();
-        this.storage.get("downloadedVideos").then(downloadedVideos => {
-            console.log(downloadedVideos)
-            if (downloadedVideos) {
-                this.downloadedVideos = downloadedVideos;
-
-            } else {
-                this.downloadedVideos = {};
-            }
-        })
-        // create a queue object with concurrency 1
-        let self = this;
-        //download to tmp directory then move when done
-        this.q = queue(function (task: any, callback) {
-            console.log("in q")
-            self.file.checkFile(self.file.dataDirectory, task.id + '.mp4').then(exists => {
-                console.log("ex")
-                self.saveDownloadedvideo(task.id);
-                callback();
-            }).catch(err => {
-                console.log("nex")
-                // Download a file:
-                self.fileTransfer.onProgress(progress => {
-                    console.log("pr")
-                    var percent = progress.loaded / progress.total * 100;
-                    console.log(progress)
-                    percent = Math.round(percent);
-                    self.downloadedVideos[task.id].percent = percent;
-                })
-                console.log("next");
-
-                self.downloadedVideos[task.id].downloaded = false;
-                self.downloadedVideos[task.id].tries++;
-                console.log(self.downloadedVideos[task.id]);
-                self.fileTransfer.download(
-                    
-
-                    self.getURLPath(task.id),
-                    self.file.dataDirectory + 'tmp/' + task.id + '.mp4')
-                    .then(done => {
-                        console.log("dl")
-                        self.file.moveFile(self.file.dataDirectory + 'tmp/', task.id + '.mp4',
-                            self.file.dataDirectory, task.id + '.mp4').then(entry => {
-                                self.saveDownloadedvideo(task.id);
-                                callback();
-                            }).catch(err => {
-                                self.downloadedVideos[task.id].downloaded = null;
-                                if (self.downloadedVideos[task.id].tries < self.maxRetries) {
-                                    self.forceDownload(task.id);
-                                }
-                                callback();
-
-                            })
-
-                    })
-                    .catch(err => {
-                        console.log(err)
-                        if (self.downloadedVideos[task.id]) {
-                            self.downloadedVideos[task.id].downloaded = null;
-                        }
-                        if (self.downloadedVideos[task.id].tries < self.maxRetries) {
-                            self.forceDownload(task.id);
-                        }
-                        callback();
-                    });
-            })
-            console.log(self.fileTransfer)
-
-
-        }, 1);
-        // assign a callback
-        this.q.drain = function () {
-            self.stopDownloading();
-            //stop downloading, put app back into non background
-
-            Object.keys(self.downloadedVideos).forEach((el) => { self.downloadedVideos[el].tries = 0 })
-            console.log('all items have been processed');
-        };
 
     }
     
@@ -213,6 +134,90 @@ export class DownloadService {
 
     }
     startDownloading() {
+        if(this.fileTransfer == null){
+           
+            // this.backgroundMode.configure({ silent: true });
+            this.fileTransfer = this.transfer.create();
+            this.storage.get("downloadedVideos").then(downloadedVideos => {
+                console.log(downloadedVideos)
+                if (downloadedVideos) {
+                    this.downloadedVideos = downloadedVideos;
+    
+                } else {
+                    this.downloadedVideos = {};
+                }
+            })
+            // create a queue object with concurrency 1
+            let self = this;
+            //download to tmp directory then move when done
+            this.q = queue(function (task: any, callback) {
+                console.log("in q")
+                self.file.checkFile(self.file.dataDirectory, task.id + '.mp4').then(exists => {
+                    console.log("ex")
+                    self.saveDownloadedvideo(task.id);
+                    callback();
+                }).catch(err => {
+                    console.log("nex")
+                    // Download a file:
+                    self.fileTransfer.onProgress(progress => {
+                        console.log("pr")
+                        var percent = progress.loaded / progress.total * 100;
+                        console.log(progress)
+                        percent = Math.round(percent);
+                        self.downloadedVideos[task.id].percent = percent;
+                    })
+                    console.log("next");
+    
+                    self.downloadedVideos[task.id].downloaded = false;
+                    self.downloadedVideos[task.id].tries++;
+                    console.log(self.downloadedVideos[task.id]);
+                    
+                    console.log(self.downloadedVideos[task.id]);
+                    self.fileTransfer.download(
+                        
+    
+                        self.getURLPath(task.id),
+                        self.file.dataDirectory + 'tmp/' + task.id + '.mp4')
+                        .then(done => {
+                            console.log("dl")
+                            self.file.moveFile(self.file.dataDirectory + 'tmp/', task.id + '.mp4',
+                                self.file.dataDirectory, task.id + '.mp4').then(entry => {
+                                    self.saveDownloadedvideo(task.id);
+                                    callback();
+                                }).catch(err => {
+                                    self.downloadedVideos[task.id].downloaded = null;
+                                    if (self.downloadedVideos[task.id].tries < self.maxRetries) {
+                                        self.forceDownload(task.id);
+                                    }
+                                    callback();
+    
+                                })
+    
+                        })
+                        .catch(err => {
+                            console.log(err)
+                            if (self.downloadedVideos[task.id]) {
+                                self.downloadedVideos[task.id].downloaded = null;
+                            }
+                            if (self.downloadedVideos[task.id].tries < self.maxRetries) {
+                                self.forceDownload(task.id);
+                            }
+                            callback();
+                        });
+                })
+                console.log(self.fileTransfer)
+    
+    
+            }, 1);
+            // assign a callback
+            this.q.drain = function () {
+                self.stopDownloading();
+                //stop downloading, put app back into non background
+    
+                Object.keys(self.downloadedVideos).forEach((el) => { self.downloadedVideos[el].tries = 0 })
+                console.log('all items have been processed');
+            };
+        }
         console.log(this.network.type)
         //check for netwrok
         this.settings.load().then(done => {
