@@ -56,7 +56,7 @@ export class DownloadService {
         this.settings.load().then(data=>{
             this.options = this.settings.allSettings;
         })
-        this.backgroundMode.configure({ silent: true });
+        // this.backgroundMode.configure({ silent: true });
         this.fileTransfer = this.transfer.create();
         this.storage.get("downloadedVideos").then(downloadedVideos => {
             console.log(downloadedVideos)
@@ -130,7 +130,7 @@ export class DownloadService {
         };
 
     }
-    getNetw
+    
     getQueuedDownloads() {
         return _.filter(this.downloadedVideos, ['downloaded', false])
     }
@@ -223,7 +223,7 @@ export class DownloadService {
 
     }
     initDownloads() {
-        this.backgroundMode.enable();
+        // this.backgroundMode.enable();
         this.storage.get("currentWeek").then(currentWeek => {
             let week = this.fs.getWeekContent(currentWeek)
                 // add some items to the queue
@@ -237,9 +237,9 @@ export class DownloadService {
         })
     }
     stopDownloading() {
-        if (this.backgroundMode.isEnabled) {
-            this.backgroundMode.disable();
-        }
+        // if (this.backgroundMode.isEnabled) {
+        //     this.backgroundMode.disable();
+        // }
         this.fileTransfer.abort();
         this.q.kill();
         Object.keys(this.downloadedVideos).forEach((el) => {
