@@ -71,11 +71,13 @@ export class DownloadService {
         let self = this;
         //download to tmp directory then move when done
         this.q = queue(function (task: any, callback) {
+            console.log("in q")
             self.file.checkFile(self.file.dataDirectory, task.id + '.mp4').then(exists => {
-
+                console.log("ex")
                 self.saveDownloadedvideo(task.id);
                 callback();
             }).catch(err => {
+                console.log("nex")
                 // Download a file:
                 self.fileTransfer.onProgress(progress => {
 
