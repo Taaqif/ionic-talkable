@@ -136,7 +136,7 @@ export class DownloadService {
     startDownloading() {
         if(this.fileTransfer == null){
            
-            // this.backgroundMode.configure({ silent: true });
+            this.backgroundMode.configure({ silent: true });
             this.fileTransfer = this.transfer.create();
             this.storage.get("downloadedVideos").then(downloadedVideos => {
                 console.log(downloadedVideos)
@@ -151,35 +151,26 @@ export class DownloadService {
             let self = this;
             //download to tmp directory then move when done
             this.q = queue(function (task: any, callback) {
-                console.log("in q")
                 self.file.checkFile(self.file.dataDirectory, task.id + '.mp4').then(exists => {
-                    console.log("ex")
                     self.saveDownloadedvideo(task.id);
                     callback();
                 }).catch(err => {
-                    console.log("nex")
                     // Download a file:
                     self.fileTransfer.onProgress(progress => {
-                        console.log("pr")
                         var percent = progress.loaded / progress.total * 100;
-                        console.log(progress)
                         percent = Math.round(percent);
                         self.downloadedVideos[task.id].percent = percent;
                     })
-                    console.log("next");
     
                     self.downloadedVideos[task.id].downloaded = false;
                     self.downloadedVideos[task.id].tries++;
-                    console.log(self.downloadedVideos[task.id]);
                     
-                    console.log(self.downloadedVideos[task.id]);
                     self.fileTransfer.download(
                         
     
                         self.getURLPath(task.id),
                         self.file.dataDirectory + 'tmp/' + task.id + '.mp4')
                         .then(done => {
-                            console.log("dl")
                             self.file.moveFile(self.file.dataDirectory + 'tmp/', task.id + '.mp4',
                                 self.file.dataDirectory, task.id + '.mp4').then(entry => {
                                     self.saveDownloadedvideo(task.id);
@@ -205,7 +196,6 @@ export class DownloadService {
                             callback();
                         });
                 })
-                console.log(self.fileTransfer)
     
     
             }, 1);
@@ -235,7 +225,7 @@ export class DownloadService {
 
     }
     initDownloads() {
-        // this.backgroundMode.enable();
+        this.backgroundMode.enable();
         this.storage.get("currentWeek").then(currentWeek => {
             let week = this.fs.getWeekContent(currentWeek)
                 // add some items to the queue
@@ -249,9 +239,9 @@ export class DownloadService {
         })
     }
     stopDownloading() {
-        // if (this.backgroundMode.isEnabled) {
-        //     this.backgroundMode.disable();
-        // }
+        if (this.backgroundMode.isEnabled) {
+            this.backgroundMode.disable();
+        }
         this.fileTransfer.abort();
         this.q.kill();
         Object.keys(this.downloadedVideos).forEach((el) => {
