@@ -80,7 +80,7 @@ export class DownloadService {
                 console.log("nex")
                 // Download a file:
                 self.fileTransfer.onProgress(progress => {
-
+                    console.log("pr")
                     var percent = progress.loaded / progress.total * 100;
                     percent = Math.round(percent);
                     self.downloadedVideos[task.id].percent = percent;
@@ -91,9 +91,12 @@ export class DownloadService {
                 self.downloadedVideos[task.id].tries++;
 
                 self.fileTransfer.download(
+                    
+
                     self.getURLPath(task.id),
                     self.file.dataDirectory + 'tmp/' + task.id + '.mp4')
                     .then(done => {
+                        console.log("dl")
                         self.file.moveFile(self.file.dataDirectory + 'tmp/', task.id + '.mp4',
                             self.file.dataDirectory, task.id + '.mp4').then(entry => {
                                 self.saveDownloadedvideo(task.id);
@@ -119,6 +122,7 @@ export class DownloadService {
                         callback();
                     });
             })
+            console.log(self.fileTransfer)
 
 
         }, 1);
