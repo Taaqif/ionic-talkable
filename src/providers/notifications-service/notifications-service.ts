@@ -29,7 +29,7 @@ export class NotificationsService {
                         self.localNotifications.hasPermission().then(permission => {
 
                             if (!permission) {
-                                self.localNotifications.registerPermission().then(success => {
+                                self.localNotifications.requestPermission().then(success => {
                                     if (success) {
                                         self.generateNotifications(started);
                                     } else {
@@ -80,7 +80,7 @@ export class NotificationsService {
                     smallIcon:"res://ic_logo_white",
                     color: '54899B',
                     led: '54899B',
-                    at: futureDate.toDate()
+                    trigger: {at: futureDate.toDate()}
                 });
 
             }

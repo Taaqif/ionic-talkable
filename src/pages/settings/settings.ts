@@ -17,6 +17,7 @@ import { ManageDownloadsPage } from "../manage-downloads/manage-downloads";
 })
 export class SettingsPage {
   unlockAllToggle: boolean;
+  currentWeek: number;
   options: any;
   isDev: boolean = false;
   constructor(public navCtrl: NavController, 
@@ -33,6 +34,9 @@ export class SettingsPage {
     this.settings.load().then(() => {
       this.options = this.settings.allSettings;
     })
+    this.storage.get("currentWeek").then(currentWeek => {
+      this.currentWeek = currentWeek;
+    });
   }
   doAlert() {
     let alert = this.alertCtrl.create({
@@ -42,6 +46,10 @@ export class SettingsPage {
     });
     
     alert.present();
+  }
+  setWeek(week:any){
+    console.log(week)
+    this.storage.set('currentWeek', week);
   }
   alertEventChange() {
     // this.alertEvent = this.alertEvent ? false : true;

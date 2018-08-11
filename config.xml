@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.au.talkable" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="au.org.talkable" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Talkable</name>
     <description>A speech therapy resource for all parents.</description>
     <author email="dev@talkable.org.au" href="http://www.talkable.org.au/">Talkable Dev Team</author>
