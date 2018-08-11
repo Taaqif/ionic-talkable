@@ -67,6 +67,11 @@
         <splash density="port-xhdpi" src="resources\android\splash\drawable-port-xhdpi-screen.png" />
         <splash density="port-xxhdpi" src="resources\android\splash\drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources\android\splash\drawable-port-xxxhdpi-screen.png" />
+        <hook src="hooks/patch-android-studio-check.js" type="before_plugin_install" />
+        <hook src="hooks/patch-android-studio-check.js" type="before_plugin_add" />
+        <hook src="hooks/patch-android-studio-check.js" type="before_build" />
+        <hook src="hooks/patch-android-studio-check.js" type="before_run" />
+        <hook src="hooks/patch-android-studio-check.js" type="before_plugin_rm" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -148,5 +153,5 @@
     <plugin name="cordova-plugin-streaming-media" spec="~0.1.4" />
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
-    <engine name="android" spec="^6.4.0" />
+    <engine name="android" spec="^7.1.1" />
 </widget>

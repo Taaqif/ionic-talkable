@@ -68,7 +68,7 @@ export class Settings {
     return this.setAll(this.settings);
   }
 
-  get allSettings() {
+  allSettings() {
     return this.settings;
   }
 
