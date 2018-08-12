@@ -1,6 +1,5 @@
 import { Component, ViewChild, Pipe, PipeTransform } from '@angular/core';
 import { Nav, Platform, MenuController, AlertController } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import * as moment from 'moment';
 import { HomePage } from '../pages/home/home';
@@ -78,7 +77,6 @@ export class Talkable {
     icon?: String
   }>;
   constructor(public platform: Platform,
-    public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     private storage: Storage,
     public fs: FileServiceProvider,
@@ -167,7 +165,6 @@ export class Talkable {
       // Here you can do any higher level native things you might need.
       this.notificationsService.initialiseNotifications();
       this.downloadService.startDownloading();
-      this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.platform.registerBackButtonAction(() => {
         if (this.nav.canGoBack()) {

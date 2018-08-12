@@ -15,7 +15,6 @@ import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Talkable } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StreamingMedia } from '@ionic-native/streaming-media';
 import { AboutTalkablePage } from "../pages/about-talkable/about-talkable";
@@ -116,7 +115,6 @@ export function provideSettings(storage: Storage) {
     SettingsPage
   ],
   providers: [
-    StatusBar,
     SplashScreen,
     VideoService,
     Device,
