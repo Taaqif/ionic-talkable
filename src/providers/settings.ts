@@ -20,12 +20,13 @@ export class Settings {
 
   load() {
     return this.storage.get(this.SETTINGS_KEY).then((value) => {
+      console.log(value)
       if (value) {
-        this.settings = value;
+        this.settings = JSON.parse(value);
         return this._mergeDefaults(this._defaults);
       } else {
         return this.setAll(this._defaults).then((val) => {
-          this.settings = val;
+          this.settings = JSON.parse(val);
         })
       }
     });
@@ -49,11 +50,13 @@ export class Settings {
 
   setValue(key: string, value: any) {
     this.settings[key] = value;
-    return this.storage.set(this.SETTINGS_KEY, this.settings);
+    return this.storage.set(this.SETTINGS_KEY, JSON.stringify(this.settings));
   }
 
   setAll(value: any) {
-    return this.storage.set(this.SETTINGS_KEY, value);
+    console.log(value)
+
+    return this.storage.set(this.SETTINGS_KEY, JSON.stringify(value));
   }
 
   getValue(key: string) {
@@ -74,7 +77,7 @@ export class Settings {
 
   reset() {
     return this.setAll(this._defaults).then((val) => {
-        this.settings = val;
+        this.settings = JSON.parse(val);
     })
   }
 }

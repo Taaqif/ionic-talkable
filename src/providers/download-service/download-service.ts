@@ -72,6 +72,7 @@ export class DownloadService {
         return this.file.dataDirectory + id + '.mp4';
     }
     getURLPath(id) {
+        console.log(this.videoURL + id.replace(" ", "").toLowerCase() + '.mp4')
         return this.videoURL + id.replace(" ", "").toLowerCase() + '.mp4';
     }
     saveDownloadedvideo(id) {

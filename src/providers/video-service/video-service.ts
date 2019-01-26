@@ -59,7 +59,8 @@ export class VideoService {
     }
     url;
     playVideo(id) {
-
+        console.log(this.settings)
+        console.log(this.settings.getValue('videoPreference'))
         if (this.settings.getValue('videoPreference') == 'download') {
             if (this.downloadService.isDownloaded(id)) {
                 this.playLocal(id);
