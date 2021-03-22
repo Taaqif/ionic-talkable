@@ -66,6 +66,7 @@
     "@ionic/app-scripts": "3.1.11",
     "@types/async": "^2.0.47",
     "@types/lodash": "^4.14.100",
+    "cordova-android-support-gradle-release": "^3.0.1",
     "ionic": "4.0.6",
     "typescript": "~2.6.2"
   },
@@ -77,14 +78,19 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-whitelist": {},
       "ionic-plugin-keyboard": {},
-      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-x-socialsharing": {
+        "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
+      },
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-file": {},
       "de.appplant.cordova.plugin.local-notification": {},
       "cordova-plugin-streaming-media": {},
       "cordova-plugin-background-mode": {},
       "cordova-plugin-network-information": {},
-      "com.hutchind.cordova.plugins.streamingmedia": {}
+      "com.hutchind.cordova.plugins.streamingmedia": {},
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "27.+"
+      }
     },
     "platforms": [
       "android"
