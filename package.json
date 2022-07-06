@@ -55,7 +55,7 @@
     "ionic2-super-tabs": "^4.0.1",
     "ionicons": "3.0.0",
     "lodash": "^4.17.5",
-    "moment": "^2.18.1",
+    "moment": "^2.29.4",
     "ngx-progress-bar": "0.0.10",
     "rxjs": "5.5.7",
     "sw-toolbox": "3.6.0",
